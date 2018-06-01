@@ -35,7 +35,7 @@ class ConvertToHtmlStreamRequest
     /*
      * Initializes a new instance of the ConvertToHtmlStreamRequest class.
      *  
-     * @param \GroupDocs\Conversion\Model\HtmlConversionSettings $settings The settings.
+     * @param \GroupDocs\Conversion\Model\HtmlConversionSettings $settings The settings
      */
     public function __construct($settings = null)             
     {
@@ -43,7 +43,7 @@ class ConvertToHtmlStreamRequest
     }
 
     /*
-     * The settings.
+     * The settings
      */
     public $settings;
 }

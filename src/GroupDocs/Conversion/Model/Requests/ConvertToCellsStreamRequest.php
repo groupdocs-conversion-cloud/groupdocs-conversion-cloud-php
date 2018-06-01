@@ -35,7 +35,7 @@ class ConvertToCellsStreamRequest
     /*
      * Initializes a new instance of the ConvertToCellsStreamRequest class.
      *  
-     * @param \GroupDocs\Conversion\Model\CellsConversionSettings $settings The settings.
+     * @param \GroupDocs\Conversion\Model\CellsConversionSettings $settings The settings
      */
     public function __construct($settings = null)             
     {
@@ -43,7 +43,7 @@ class ConvertToCellsStreamRequest
     }
 
     /*
-     * The settings.
+     * The settings
      */
     public $settings;
 }

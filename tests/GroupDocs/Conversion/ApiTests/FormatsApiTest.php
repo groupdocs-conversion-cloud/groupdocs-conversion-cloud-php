@@ -77,23 +77,23 @@ class FormatsApiTest extends BaseApiTest
     /*
     * Test PossibleConversionsForDocument
     */
-    // public function testPossibleConversionsForDocument()
-    // {
-    //     $testFile = Internal\TestFiles::getFileOnePageDocx();
-    //     
-    //     $file = self::getTestFilePath($testFile);
-    //     
-    //     $request = new Requests\PossibleConversionsForDocumentRequest($file);
-    //     
-    //     $response = self::$conversionApi->possibleConversionsForDocument($request);
-    //     
-    //     $conversions = $response->getPossibleConversions();
-    //     
-    //     $this->assertTrue(count($conversions) > 0);
-    //     $this->assertEquals("stream", $response->getSourceFileType());
-    //     foreach ($conversions as $key => $conversion)
-    //     {
-    //         $this->assertNotEmpty($conversion);
-    //     }
-    // }
+    public function testPossibleConversionsForDocument()
+    {
+        $testFile = Internal\TestFiles::getFileOnePageDocx();
+        
+        $file = self::getTestFilePath($testFile);
+        
+        $request = new Requests\PossibleConversionsForDocumentRequest($file);
+        
+        $response = self::$conversionApi->possibleConversionsForDocument($request);
+        
+        $conversions = $response->getPossibleConversions();
+        
+        $this->assertTrue(count($conversions) > 0);
+        $this->assertEquals("stream", $response->getSourceFileType());
+        foreach ($conversions as $key => $conversion)
+        {
+            $this->assertNotEmpty($conversion);
+        }
+    }
 }

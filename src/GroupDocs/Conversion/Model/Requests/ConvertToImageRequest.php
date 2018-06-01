@@ -35,8 +35,8 @@ class ConvertToImageRequest
     /*
      * Initializes a new instance of the ConvertToImageRequest class.
      *  
-     * @param \GroupDocs\Conversion\Model\ImageConversionSettings $settings The settings.
-     * @param string $outPath outPath: path to output document on file storage
+     * @param \GroupDocs\Conversion\Model\ImageConversionSettings $settings The settings
+     * @param string $outPath path to output document on file storage
      */
     public function __construct($settings = null, $outPath = null)             
     {
@@ -45,12 +45,12 @@ class ConvertToImageRequest
     }
 
     /*
-     * The settings.
+     * The settings
      */
     public $settings;
 	
     /*
-     * outPath: path to output document on file storage
+     * path to output document on file storage
      */
     public $outPath;
 }

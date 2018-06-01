@@ -35,7 +35,7 @@ class ConvertToImageStreamRequest
     /*
      * Initializes a new instance of the ConvertToImageStreamRequest class.
      *  
-     * @param \GroupDocs\Conversion\Model\ImageConversionSettings $settings The settings.
+     * @param \GroupDocs\Conversion\Model\ImageConversionSettings $settings The settings
      */
     public function __construct($settings = null)             
     {
@@ -43,7 +43,7 @@ class ConvertToImageStreamRequest
     }
 
     /*
-     * The settings.
+     * The settings
      */
     public $settings;
 }

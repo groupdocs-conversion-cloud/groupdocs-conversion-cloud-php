@@ -84,7 +84,7 @@ class ConversionApi
     /*
      * Operation convertToCells
      *
-     * Returns document with the result of conversion
+     * Returns CELLS document, result of conversion of the source file, specified by the provided CellsConversionSettings
      *
      * @param Requests\ConvertToCellsRequest $request is a request object for operation
      *
@@ -107,7 +107,7 @@ class ConversionApi
     /*
      * Operation convertToCellsWithHttpInfo
      *
-     * Returns document with the result of conversion
+     * Returns CELLS document, result of conversion of the source file, specified by the provided CellsConversionSettings
      *
      * @param Requests\ConvertToCellsRequest $request is a request object for operation
      *
@@ -173,7 +173,7 @@ class ConversionApi
     /*
      * Operation convertToCellsAsync
      *
-     * Returns document with the result of conversion
+     * Returns CELLS document, result of conversion of the source file, specified by the provided CellsConversionSettings
      *
      * @param Requests\ConvertToCellsRequest $request is a request object for operation
      *
@@ -193,7 +193,7 @@ class ConversionApi
     /*
      * Operation convertToCellsAsyncWithHttpInfo
      *
-     * Returns document with the result of conversion
+     * Returns CELLS document, result of conversion of the source file, specified by the provided CellsConversionSettings
      *
      * @param Requests\ConvertToCellsRequest $request is a request object for operation
      *
@@ -363,7 +363,7 @@ class ConversionApi
     /*
      * Operation convertToCellsStream
      *
-     * Returns stream of document with the result of conversion
+     * Returns CELLS stream, result of conversion of the source file, specified by the provided CellsConversionSettings
      *
      * @param Requests\ConvertToCellsStreamRequest $request is a request object for operation
      *
@@ -386,7 +386,7 @@ class ConversionApi
     /*
      * Operation convertToCellsStreamWithHttpInfo
      *
-     * Returns stream of document with the result of conversion
+     * Returns CELLS stream, result of conversion of the source file, specified by the provided CellsConversionSettings
      *
      * @param Requests\ConvertToCellsStreamRequest $request is a request object for operation
      *
@@ -452,7 +452,7 @@ class ConversionApi
     /*
      * Operation convertToCellsStreamAsync
      *
-     * Returns stream of document with the result of conversion
+     * Returns CELLS stream, result of conversion of the source file, specified by the provided CellsConversionSettings
      *
      * @param Requests\ConvertToCellsStreamRequest $request is a request object for operation
      *
@@ -472,7 +472,7 @@ class ConversionApi
     /*
      * Operation convertToCellsStreamAsyncWithHttpInfo
      *
-     * Returns stream of document with the result of conversion
+     * Returns CELLS stream, result of conversion of the source file, specified by the provided CellsConversionSettings
      *
      * @param Requests\ConvertToCellsStreamRequest $request is a request object for operation
      *
@@ -632,7 +632,7 @@ class ConversionApi
     /*
      * Operation convertToHtml
      *
-     * Returns document with the result of conversion
+     * Returns HTML document, result of conversion of the source file, specified by the provided HtmlConversionSettings
      *
      * @param Requests\ConvertToHtmlRequest $request is a request object for operation
      *
@@ -655,7 +655,7 @@ class ConversionApi
     /*
      * Operation convertToHtmlWithHttpInfo
      *
-     * Returns document with the result of conversion
+     * Returns HTML document, result of conversion of the source file, specified by the provided HtmlConversionSettings
      *
      * @param Requests\ConvertToHtmlRequest $request is a request object for operation
      *
@@ -721,7 +721,7 @@ class ConversionApi
     /*
      * Operation convertToHtmlAsync
      *
-     * Returns document with the result of conversion
+     * Returns HTML document, result of conversion of the source file, specified by the provided HtmlConversionSettings
      *
      * @param Requests\ConvertToHtmlRequest $request is a request object for operation
      *
@@ -741,7 +741,7 @@ class ConversionApi
     /*
      * Operation convertToHtmlAsyncWithHttpInfo
      *
-     * Returns document with the result of conversion
+     * Returns HTML document, result of conversion of the source file, specified by the provided HtmlConversionSettings
      *
      * @param Requests\ConvertToHtmlRequest $request is a request object for operation
      *
@@ -911,7 +911,7 @@ class ConversionApi
     /*
      * Operation convertToHtmlStream
      *
-     * Returns stream of document with the result of conversion
+     * Returns HTML stream, result of conversion of the source file, specified by the provided HtmlConversionSettings
      *
      * @param Requests\ConvertToHtmlStreamRequest $request is a request object for operation
      *
@@ -934,7 +934,7 @@ class ConversionApi
     /*
      * Operation convertToHtmlStreamWithHttpInfo
      *
-     * Returns stream of document with the result of conversion
+     * Returns HTML stream, result of conversion of the source file, specified by the provided HtmlConversionSettings
      *
      * @param Requests\ConvertToHtmlStreamRequest $request is a request object for operation
      *
@@ -1000,7 +1000,7 @@ class ConversionApi
     /*
      * Operation convertToHtmlStreamAsync
      *
-     * Returns stream of document with the result of conversion
+     * Returns HTML stream, result of conversion of the source file, specified by the provided HtmlConversionSettings
      *
      * @param Requests\ConvertToHtmlStreamRequest $request is a request object for operation
      *
@@ -1020,7 +1020,7 @@ class ConversionApi
     /*
      * Operation convertToHtmlStreamAsyncWithHttpInfo
      *
-     * Returns stream of document with the result of conversion
+     * Returns HTML stream, result of conversion of the source file, specified by the provided HtmlConversionSettings
      *
      * @param Requests\ConvertToHtmlStreamRequest $request is a request object for operation
      *
@@ -1180,7 +1180,7 @@ class ConversionApi
     /*
      * Operation convertToImage
      *
-     * Returns document with the result of conversion
+     * Returns IMAGE document, result of conversion of the source file, specified by the provided ImageConversionSettings
      *
      * @param Requests\ConvertToImageRequest $request is a request object for operation
      *
@@ -1203,7 +1203,7 @@ class ConversionApi
     /*
      * Operation convertToImageWithHttpInfo
      *
-     * Returns document with the result of conversion
+     * Returns IMAGE document, result of conversion of the source file, specified by the provided ImageConversionSettings
      *
      * @param Requests\ConvertToImageRequest $request is a request object for operation
      *
@@ -1269,7 +1269,7 @@ class ConversionApi
     /*
      * Operation convertToImageAsync
      *
-     * Returns document with the result of conversion
+     * Returns IMAGE document, result of conversion of the source file, specified by the provided ImageConversionSettings
      *
      * @param Requests\ConvertToImageRequest $request is a request object for operation
      *
@@ -1289,7 +1289,7 @@ class ConversionApi
     /*
      * Operation convertToImageAsyncWithHttpInfo
      *
-     * Returns document with the result of conversion
+     * Returns IMAGE document, result of conversion of the source file, specified by the provided ImageConversionSettings
      *
      * @param Requests\ConvertToImageRequest $request is a request object for operation
      *
@@ -1459,7 +1459,7 @@ class ConversionApi
     /*
      * Operation convertToImageStream
      *
-     * Returns stream of document with the result of conversion
+     * Returns IMAGE stream, result of conversion of the source file, specified by the provided ImageConversionSettings
      *
      * @param Requests\ConvertToImageStreamRequest $request is a request object for operation
      *
@@ -1482,7 +1482,7 @@ class ConversionApi
     /*
      * Operation convertToImageStreamWithHttpInfo
      *
-     * Returns stream of document with the result of conversion
+     * Returns IMAGE stream, result of conversion of the source file, specified by the provided ImageConversionSettings
      *
      * @param Requests\ConvertToImageStreamRequest $request is a request object for operation
      *
@@ -1548,7 +1548,7 @@ class ConversionApi
     /*
      * Operation convertToImageStreamAsync
      *
-     * Returns stream of document with the result of conversion
+     * Returns IMAGE stream, result of conversion of the source file, specified by the provided ImageConversionSettings
      *
      * @param Requests\ConvertToImageStreamRequest $request is a request object for operation
      *
@@ -1568,7 +1568,7 @@ class ConversionApi
     /*
      * Operation convertToImageStreamAsyncWithHttpInfo
      *
-     * Returns stream of document with the result of conversion
+     * Returns IMAGE stream, result of conversion of the source file, specified by the provided ImageConversionSettings
      *
      * @param Requests\ConvertToImageStreamRequest $request is a request object for operation
      *
@@ -1728,7 +1728,7 @@ class ConversionApi
     /*
      * Operation convertToPdf
      *
-     * Returns document with the result of conversion
+     * Returns PDF document, result of conversion of the source file, specified by the provided PdfConversionSettings
      *
      * @param Requests\ConvertToPdfRequest $request is a request object for operation
      *
@@ -1751,7 +1751,7 @@ class ConversionApi
     /*
      * Operation convertToPdfWithHttpInfo
      *
-     * Returns document with the result of conversion
+     * Returns PDF document, result of conversion of the source file, specified by the provided PdfConversionSettings
      *
      * @param Requests\ConvertToPdfRequest $request is a request object for operation
      *
@@ -1817,7 +1817,7 @@ class ConversionApi
     /*
      * Operation convertToPdfAsync
      *
-     * Returns document with the result of conversion
+     * Returns PDF document, result of conversion of the source file, specified by the provided PdfConversionSettings
      *
      * @param Requests\ConvertToPdfRequest $request is a request object for operation
      *
@@ -1837,7 +1837,7 @@ class ConversionApi
     /*
      * Operation convertToPdfAsyncWithHttpInfo
      *
-     * Returns document with the result of conversion
+     * Returns PDF document, result of conversion of the source file, specified by the provided PdfConversionSettings
      *
      * @param Requests\ConvertToPdfRequest $request is a request object for operation
      *
@@ -2007,7 +2007,7 @@ class ConversionApi
     /*
      * Operation convertToPdfStream
      *
-     * Returns stream of document with the result of conversion
+     * Returns PDF stream, result of conversion of the source file, specified by the provided PdfConversionSettings
      *
      * @param Requests\ConvertToPdfStreamRequest $request is a request object for operation
      *
@@ -2030,7 +2030,7 @@ class ConversionApi
     /*
      * Operation convertToPdfStreamWithHttpInfo
      *
-     * Returns stream of document with the result of conversion
+     * Returns PDF stream, result of conversion of the source file, specified by the provided PdfConversionSettings
      *
      * @param Requests\ConvertToPdfStreamRequest $request is a request object for operation
      *
@@ -2096,7 +2096,7 @@ class ConversionApi
     /*
      * Operation convertToPdfStreamAsync
      *
-     * Returns stream of document with the result of conversion
+     * Returns PDF stream, result of conversion of the source file, specified by the provided PdfConversionSettings
      *
      * @param Requests\ConvertToPdfStreamRequest $request is a request object for operation
      *
@@ -2116,7 +2116,7 @@ class ConversionApi
     /*
      * Operation convertToPdfStreamAsyncWithHttpInfo
      *
-     * Returns stream of document with the result of conversion
+     * Returns PDF stream, result of conversion of the source file, specified by the provided PdfConversionSettings
      *
      * @param Requests\ConvertToPdfStreamRequest $request is a request object for operation
      *
@@ -2276,7 +2276,7 @@ class ConversionApi
     /*
      * Operation convertToSlides
      *
-     * Returns document with the result of conversion
+     * Returns SLIDES document, result of conversion of the source file, specified by the provided SlidesConversionSettings
      *
      * @param Requests\ConvertToSlidesRequest $request is a request object for operation
      *
@@ -2299,7 +2299,7 @@ class ConversionApi
     /*
      * Operation convertToSlidesWithHttpInfo
      *
-     * Returns document with the result of conversion
+     * Returns SLIDES document, result of conversion of the source file, specified by the provided SlidesConversionSettings
      *
      * @param Requests\ConvertToSlidesRequest $request is a request object for operation
      *
@@ -2365,7 +2365,7 @@ class ConversionApi
     /*
      * Operation convertToSlidesAsync
      *
-     * Returns document with the result of conversion
+     * Returns SLIDES document, result of conversion of the source file, specified by the provided SlidesConversionSettings
      *
      * @param Requests\ConvertToSlidesRequest $request is a request object for operation
      *
@@ -2385,7 +2385,7 @@ class ConversionApi
     /*
      * Operation convertToSlidesAsyncWithHttpInfo
      *
-     * Returns document with the result of conversion
+     * Returns SLIDES document, result of conversion of the source file, specified by the provided SlidesConversionSettings
      *
      * @param Requests\ConvertToSlidesRequest $request is a request object for operation
      *
@@ -2555,7 +2555,7 @@ class ConversionApi
     /*
      * Operation convertToSlidesStream
      *
-     * Returns stream of document with the result of conversion
+     * Returns SLIDES stream, result of conversion of the source file, specified by the provided SlidesConversionSettings
      *
      * @param Requests\ConvertToSlidesStreamRequest $request is a request object for operation
      *
@@ -2578,7 +2578,7 @@ class ConversionApi
     /*
      * Operation convertToSlidesStreamWithHttpInfo
      *
-     * Returns stream of document with the result of conversion
+     * Returns SLIDES stream, result of conversion of the source file, specified by the provided SlidesConversionSettings
      *
      * @param Requests\ConvertToSlidesStreamRequest $request is a request object for operation
      *
@@ -2644,7 +2644,7 @@ class ConversionApi
     /*
      * Operation convertToSlidesStreamAsync
      *
-     * Returns stream of document with the result of conversion
+     * Returns SLIDES stream, result of conversion of the source file, specified by the provided SlidesConversionSettings
      *
      * @param Requests\ConvertToSlidesStreamRequest $request is a request object for operation
      *
@@ -2664,7 +2664,7 @@ class ConversionApi
     /*
      * Operation convertToSlidesStreamAsyncWithHttpInfo
      *
-     * Returns stream of document with the result of conversion
+     * Returns SLIDES stream, result of conversion of the source file, specified by the provided SlidesConversionSettings
      *
      * @param Requests\ConvertToSlidesStreamRequest $request is a request object for operation
      *
@@ -2824,7 +2824,7 @@ class ConversionApi
     /*
      * Operation convertToWords
      *
-     * Returns document with the result of conversion
+     * Returns WORDS document, result of conversion of the source file, specified by the provided WordsConversionSettings
      *
      * @param Requests\ConvertToWordsRequest $request is a request object for operation
      *
@@ -2847,7 +2847,7 @@ class ConversionApi
     /*
      * Operation convertToWordsWithHttpInfo
      *
-     * Returns document with the result of conversion
+     * Returns WORDS document, result of conversion of the source file, specified by the provided WordsConversionSettings
      *
      * @param Requests\ConvertToWordsRequest $request is a request object for operation
      *
@@ -2913,7 +2913,7 @@ class ConversionApi
     /*
      * Operation convertToWordsAsync
      *
-     * Returns document with the result of conversion
+     * Returns WORDS document, result of conversion of the source file, specified by the provided WordsConversionSettings
      *
      * @param Requests\ConvertToWordsRequest $request is a request object for operation
      *
@@ -2933,7 +2933,7 @@ class ConversionApi
     /*
      * Operation convertToWordsAsyncWithHttpInfo
      *
-     * Returns document with the result of conversion
+     * Returns WORDS document, result of conversion of the source file, specified by the provided WordsConversionSettings
      *
      * @param Requests\ConvertToWordsRequest $request is a request object for operation
      *
@@ -3103,7 +3103,7 @@ class ConversionApi
     /*
      * Operation convertToWordsStream
      *
-     * Returns stream of document with the result of conversion
+     * Returns WORDS stream, result of conversion of the source file, specified by the provided WordsConversionSettings
      *
      * @param Requests\ConvertToWordsStreamRequest $request is a request object for operation
      *
@@ -3126,7 +3126,7 @@ class ConversionApi
     /*
      * Operation convertToWordsStreamWithHttpInfo
      *
-     * Returns stream of document with the result of conversion
+     * Returns WORDS stream, result of conversion of the source file, specified by the provided WordsConversionSettings
      *
      * @param Requests\ConvertToWordsStreamRequest $request is a request object for operation
      *
@@ -3192,7 +3192,7 @@ class ConversionApi
     /*
      * Operation convertToWordsStreamAsync
      *
-     * Returns stream of document with the result of conversion
+     * Returns WORDS stream, result of conversion of the source file, specified by the provided WordsConversionSettings
      *
      * @param Requests\ConvertToWordsStreamRequest $request is a request object for operation
      *
@@ -3212,7 +3212,7 @@ class ConversionApi
     /*
      * Operation convertToWordsStreamAsyncWithHttpInfo
      *
-     * Returns stream of document with the result of conversion
+     * Returns WORDS stream, result of conversion of the source file, specified by the provided WordsConversionSettings
      *
      * @param Requests\ConvertToWordsStreamRequest $request is a request object for operation
      *
@@ -4180,7 +4180,7 @@ class ConversionApi
     /*
      * Operation quickConvert
      *
-     * Returns document with the result of conversion
+     * Returns document, result of conversion of the source file, specified by the provided QuickConversionSettings
      *
      * @param Requests\QuickConvertRequest $request is a request object for operation
      *
@@ -4203,7 +4203,7 @@ class ConversionApi
     /*
      * Operation quickConvertWithHttpInfo
      *
-     * Returns document with the result of conversion
+     * Returns document, result of conversion of the source file, specified by the provided QuickConversionSettings
      *
      * @param Requests\QuickConvertRequest $request is a request object for operation
      *
@@ -4269,7 +4269,7 @@ class ConversionApi
     /*
      * Operation quickConvertAsync
      *
-     * Returns document with the result of conversion
+     * Returns document, result of conversion of the source file, specified by the provided QuickConversionSettings
      *
      * @param Requests\QuickConvertRequest $request is a request object for operation
      *
@@ -4289,7 +4289,7 @@ class ConversionApi
     /*
      * Operation quickConvertAsyncWithHttpInfo
      *
-     * Returns document with the result of conversion
+     * Returns document, result of conversion of the source file, specified by the provided QuickConversionSettings
      *
      * @param Requests\QuickConvertRequest $request is a request object for operation
      *
@@ -4459,7 +4459,7 @@ class ConversionApi
     /*
      * Operation quickConvertToStream
      *
-     * Returns stream of document with the result of conversion
+     * Returns stream, result of conversion of the source file, specified by the provided QuickConversionSettings
      *
      * @param Requests\QuickConvertToStreamRequest $request is a request object for operation
      *
@@ -4482,7 +4482,7 @@ class ConversionApi
     /*
      * Operation quickConvertToStreamWithHttpInfo
      *
-     * Returns stream of document with the result of conversion
+     * Returns stream, result of conversion of the source file, specified by the provided QuickConversionSettings
      *
      * @param Requests\QuickConvertToStreamRequest $request is a request object for operation
      *
@@ -4548,7 +4548,7 @@ class ConversionApi
     /*
      * Operation quickConvertToStreamAsync
      *
-     * Returns stream of document with the result of conversion
+     * Returns stream, result of conversion of the source file, specified by the provided QuickConversionSettings
      *
      * @param Requests\QuickConvertToStreamRequest $request is a request object for operation
      *
@@ -4568,7 +4568,7 @@ class ConversionApi
     /*
      * Operation quickConvertToStreamAsyncWithHttpInfo
      *
-     * Returns stream of document with the result of conversion
+     * Returns stream, result of conversion of the source file, specified by the provided QuickConversionSettings
      *
      * @param Requests\QuickConvertToStreamRequest $request is a request object for operation
      *

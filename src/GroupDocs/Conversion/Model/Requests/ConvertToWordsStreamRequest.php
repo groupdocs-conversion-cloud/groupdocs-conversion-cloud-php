@@ -35,7 +35,7 @@ class ConvertToWordsStreamRequest
     /*
      * Initializes a new instance of the ConvertToWordsStreamRequest class.
      *  
-     * @param \GroupDocs\Conversion\Model\WordsConversionSettings $settings The settings.
+     * @param \GroupDocs\Conversion\Model\WordsConversionSettings $settings The settings
      */
     public function __construct($settings = null)             
     {
@@ -43,7 +43,7 @@ class ConvertToWordsStreamRequest
     }
 
     /*
-     * The settings.
+     * The settings
      */
     public $settings;
 }
