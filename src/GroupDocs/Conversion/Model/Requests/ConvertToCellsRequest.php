@@ -35,19 +35,19 @@ class ConvertToCellsRequest
     /*
      * Initializes a new instance of the ConvertToCellsRequest class.
      *  
-     * @param \GroupDocs\Conversion\Model\CellsConversionSettings $settings The settings
+     * @param \GroupDocs\Conversion\Model\CellsConversionRequest $request The settings
      * @param string $outPath path to output document on file storage
      */
-    public function __construct($settings = null, $outPath = null)             
+    public function __construct($request = null, $outPath = null)             
     {
-        $this->settings = $settings;
+        $this->request = $request;
         $this->outPath = $outPath;
     }
 
     /*
      * The settings
      */
-    public $settings;
+    public $request;
 	
     /*
      * path to output document on file storage

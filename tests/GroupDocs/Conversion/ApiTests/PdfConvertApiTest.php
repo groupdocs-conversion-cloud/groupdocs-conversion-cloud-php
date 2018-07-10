@@ -43,14 +43,14 @@ class PdfConvertApiTest extends BaseApiTest
         $testFile = Internal\TestFiles::getFileOnePageDocx();
         
 
-        $settings = new Model\PdfConversionSettings();
+        $payload = new Model\PdfConversionRequest();
         
-        $settings->setSourceFile(self::ToConversionFileInfo($testFile));
+        $payload->setSourceFile(self::ToConversionFileInfo($testFile));
         
         $options = new Model\PdfSaveOptionsDto();
-        $settings->setOptions($options);
+        $payload->setOptions($options);
         
-        $request = new Requests\ConvertToPdfRequest($settings);
+        $request = new Requests\ConvertToPdfRequest($payload);
         
         $response = self::$conversionApi->convertToPdf($request);
         
@@ -69,14 +69,14 @@ class PdfConvertApiTest extends BaseApiTest
         $testFile = Internal\TestFiles::getFileOnePageDocx();
         
 
-        $settings = new Model\PdfConversionSettings();
+        $payload = new Model\PdfConversionRequest();
         
-        $settings->setSourceFile(self::ToConversionFileInfo($testFile));
+        $payload->setSourceFile(self::ToConversionFileInfo($testFile));
         
         $options = new Model\PdfSaveOptionsDto();
-        $settings->setOptions($options);
+        $payload->setOptions($options);
         
-        $request = new Requests\ConvertToPdfStreamRequest($settings);
+        $request = new Requests\ConvertToPdfStreamRequest($payload);
         
         $response = self::$conversionApi->convertToPdfStream($request);
         

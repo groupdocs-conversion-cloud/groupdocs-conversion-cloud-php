@@ -58,7 +58,9 @@ class WordsSaveOptionsDto extends SaveOptionsBaseDto
         'width' => 'int',
         'height' => 'int',
         'dpi' => 'double',
-        'password' => 'string'
+        'password' => 'string',
+        'rtfOptions' => '\GroupDocs\Conversion\Model\RtfOptionsDto',
+        'zoom' => 'int'
     ];
 
     /*
@@ -71,7 +73,9 @@ class WordsSaveOptionsDto extends SaveOptionsBaseDto
         'width' => 'int32',
         'height' => 'int32',
         'dpi' => 'double',
-        'password' => null
+        'password' => null,
+        'rtfOptions' => null,
+        'zoom' => 'int32'
     ];
 
     /*
@@ -101,11 +105,13 @@ class WordsSaveOptionsDto extends SaveOptionsBaseDto
      * @var string[]
      */
     protected static $attributeMap = [
-        'convertFileType' => 'ConvertFileType',
-        'width' => 'Width',
-        'height' => 'Height',
-        'dpi' => 'Dpi',
-        'password' => 'Password'
+        'convertFileType' => 'convertFileType',
+        'width' => 'width',
+        'height' => 'height',
+        'dpi' => 'dpi',
+        'password' => 'password',
+        'rtfOptions' => 'rtfOptions',
+        'zoom' => 'zoom'
     ];
 
     /*
@@ -118,7 +124,9 @@ class WordsSaveOptionsDto extends SaveOptionsBaseDto
         'width' => 'setWidth',
         'height' => 'setHeight',
         'dpi' => 'setDpi',
-        'password' => 'setPassword'
+        'password' => 'setPassword',
+        'rtfOptions' => 'setRtfOptions',
+        'zoom' => 'setZoom'
     ];
 
     /*
@@ -131,7 +139,9 @@ class WordsSaveOptionsDto extends SaveOptionsBaseDto
         'width' => 'getWidth',
         'height' => 'getHeight',
         'dpi' => 'getDpi',
-        'password' => 'getPassword'
+        'password' => 'getPassword',
+        'rtfOptions' => 'getRtfOptions',
+        'zoom' => 'getZoom'
     ];
 
     /*
@@ -226,6 +236,8 @@ class WordsSaveOptionsDto extends SaveOptionsBaseDto
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
         $this->container['dpi'] = isset($data['dpi']) ? $data['dpi'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
+        $this->container['rtfOptions'] = isset($data['rtfOptions']) ? $data['rtfOptions'] : null;
+        $this->container['zoom'] = isset($data['zoom']) ? $data['zoom'] : null;
     }
 
     /*
@@ -389,6 +401,54 @@ class WordsSaveOptionsDto extends SaveOptionsBaseDto
     public function setPassword($password)
     {
         $this->container['password'] = $password;
+
+        return $this;
+    }
+
+    /*
+     * Gets rtfOptions
+     *
+     * @return \GroupDocs\Conversion\Model\RtfOptionsDto
+     */
+    public function getRtfOptions()
+    {
+        return $this->container['rtfOptions'];
+    }
+
+    /*
+     * Sets rtfOptions
+     *
+     * @param \GroupDocs\Conversion\Model\RtfOptionsDto $rtfOptions RTF specific convert options
+     *
+     * @return $this
+     */
+    public function setRtfOptions($rtfOptions)
+    {
+        $this->container['rtfOptions'] = $rtfOptions;
+
+        return $this;
+    }
+
+    /*
+     * Gets zoom
+     *
+     * @return int
+     */
+    public function getZoom()
+    {
+        return $this->container['zoom'];
+    }
+
+    /*
+     * Sets zoom
+     *
+     * @param int $zoom Specifies the zoom level in percentage. Default is 100. Default zoom is supported till Microsoft Word 2010. Starting from Microsoft Word 2013 default zoom is no longer set to document, instead it appears to use the zoom factor of the last document that was opened.
+     *
+     * @return $this
+     */
+    public function setZoom($zoom)
+    {
+        $this->container['zoom'] = $zoom;
 
         return $this;
     }

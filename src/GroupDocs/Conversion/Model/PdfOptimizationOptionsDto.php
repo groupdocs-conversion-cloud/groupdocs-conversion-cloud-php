@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="WordBookmarksOptionsDto.php">
+ * <copyright company="Aspose Pty Ltd" file="PdfOptimizationOptionsDto.php">
  *   Copyright (c) 2003-2018 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -26,7 +26,7 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 /*
- * WordBookmarksOptionsDto
+ * PdfOptimizationOptionsDto
  */
 
 namespace GroupDocs\Conversion\Model;
@@ -35,11 +35,11 @@ use \ArrayAccess;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * WordBookmarksOptionsDto
+ * PdfOptimizationOptionsDto
  *
- * @description Options for handling Bookmarks in Word to PDF conversions
+ * @description Define Pdf optimization options
  */
-class WordBookmarksOptionsDto implements ArrayAccess
+class PdfOptimizationOptionsDto implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class WordBookmarksOptionsDto implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "WordBookmarksOptionsDto";
+    protected static $swaggerModelName = "PdfOptimizationOptionsDto";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -56,9 +56,12 @@ class WordBookmarksOptionsDto implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'bookmarksOutlineLevel' => 'int',
-        'headingsOutlineLevels' => 'int',
-        'expandedOutlineLevels' => 'int'
+        'linkDuplicateStreams' => 'bool',
+        'removeUnusedObjects' => 'bool',
+        'removeUnusedStreams' => 'bool',
+        'compressImages' => 'bool',
+        'imageQuality' => 'int',
+        'unembedFonts' => 'bool'
     ];
 
     /*
@@ -67,9 +70,12 @@ class WordBookmarksOptionsDto implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'bookmarksOutlineLevel' => 'int32',
-        'headingsOutlineLevels' => 'int32',
-        'expandedOutlineLevels' => 'int32'
+        'linkDuplicateStreams' => null,
+        'removeUnusedObjects' => null,
+        'removeUnusedStreams' => null,
+        'compressImages' => null,
+        'imageQuality' => 'int32',
+        'unembedFonts' => null
     ];
 
     /*
@@ -99,9 +105,12 @@ class WordBookmarksOptionsDto implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'bookmarksOutlineLevel' => 'bookmarksOutlineLevel',
-        'headingsOutlineLevels' => 'headingsOutlineLevels',
-        'expandedOutlineLevels' => 'expandedOutlineLevels'
+        'linkDuplicateStreams' => 'linkDuplicateStreams',
+        'removeUnusedObjects' => 'removeUnusedObjects',
+        'removeUnusedStreams' => 'removeUnusedStreams',
+        'compressImages' => 'compressImages',
+        'imageQuality' => 'imageQuality',
+        'unembedFonts' => 'unembedFonts'
     ];
 
     /*
@@ -110,9 +119,12 @@ class WordBookmarksOptionsDto implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'bookmarksOutlineLevel' => 'setBookmarksOutlineLevel',
-        'headingsOutlineLevels' => 'setHeadingsOutlineLevels',
-        'expandedOutlineLevels' => 'setExpandedOutlineLevels'
+        'linkDuplicateStreams' => 'setLinkDuplicateStreams',
+        'removeUnusedObjects' => 'setRemoveUnusedObjects',
+        'removeUnusedStreams' => 'setRemoveUnusedStreams',
+        'compressImages' => 'setCompressImages',
+        'imageQuality' => 'setImageQuality',
+        'unembedFonts' => 'setUnembedFonts'
     ];
 
     /*
@@ -121,9 +133,12 @@ class WordBookmarksOptionsDto implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'bookmarksOutlineLevel' => 'getBookmarksOutlineLevel',
-        'headingsOutlineLevels' => 'getHeadingsOutlineLevels',
-        'expandedOutlineLevels' => 'getExpandedOutlineLevels'
+        'linkDuplicateStreams' => 'getLinkDuplicateStreams',
+        'removeUnusedObjects' => 'getRemoveUnusedObjects',
+        'removeUnusedStreams' => 'getRemoveUnusedStreams',
+        'compressImages' => 'getCompressImages',
+        'imageQuality' => 'getImageQuality',
+        'unembedFonts' => 'getUnembedFonts'
     ];
 
     /*
@@ -186,9 +201,12 @@ class WordBookmarksOptionsDto implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['bookmarksOutlineLevel'] = isset($data['bookmarksOutlineLevel']) ? $data['bookmarksOutlineLevel'] : null;
-        $this->container['headingsOutlineLevels'] = isset($data['headingsOutlineLevels']) ? $data['headingsOutlineLevels'] : null;
-        $this->container['expandedOutlineLevels'] = isset($data['expandedOutlineLevels']) ? $data['expandedOutlineLevels'] : null;
+        $this->container['linkDuplicateStreams'] = isset($data['linkDuplicateStreams']) ? $data['linkDuplicateStreams'] : null;
+        $this->container['removeUnusedObjects'] = isset($data['removeUnusedObjects']) ? $data['removeUnusedObjects'] : null;
+        $this->container['removeUnusedStreams'] = isset($data['removeUnusedStreams']) ? $data['removeUnusedStreams'] : null;
+        $this->container['compressImages'] = isset($data['compressImages']) ? $data['compressImages'] : null;
+        $this->container['imageQuality'] = isset($data['imageQuality']) ? $data['imageQuality'] : null;
+        $this->container['unembedFonts'] = isset($data['unembedFonts']) ? $data['unembedFonts'] : null;
     }
 
     /*
@@ -200,14 +218,23 @@ class WordBookmarksOptionsDto implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['bookmarksOutlineLevel'] === null) {
-            $invalidProperties[] = "'bookmarksOutlineLevel' can't be null";
+        if ($this->container['linkDuplicateStreams'] === null) {
+            $invalidProperties[] = "'linkDuplicateStreams' can't be null";
         }
-        if ($this->container['headingsOutlineLevels'] === null) {
-            $invalidProperties[] = "'headingsOutlineLevels' can't be null";
+        if ($this->container['removeUnusedObjects'] === null) {
+            $invalidProperties[] = "'removeUnusedObjects' can't be null";
         }
-        if ($this->container['expandedOutlineLevels'] === null) {
-            $invalidProperties[] = "'expandedOutlineLevels' can't be null";
+        if ($this->container['removeUnusedStreams'] === null) {
+            $invalidProperties[] = "'removeUnusedStreams' can't be null";
+        }
+        if ($this->container['compressImages'] === null) {
+            $invalidProperties[] = "'compressImages' can't be null";
+        }
+        if ($this->container['imageQuality'] === null) {
+            $invalidProperties[] = "'imageQuality' can't be null";
+        }
+        if ($this->container['unembedFonts'] === null) {
+            $invalidProperties[] = "'unembedFonts' can't be null";
         }
         return $invalidProperties;
     }
@@ -221,13 +248,22 @@ class WordBookmarksOptionsDto implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['bookmarksOutlineLevel'] === null) {
+        if ($this->container['linkDuplicateStreams'] === null) {
             return false;
         }
-        if ($this->container['headingsOutlineLevels'] === null) {
+        if ($this->container['removeUnusedObjects'] === null) {
             return false;
         }
-        if ($this->container['expandedOutlineLevels'] === null) {
+        if ($this->container['removeUnusedStreams'] === null) {
+            return false;
+        }
+        if ($this->container['compressImages'] === null) {
+            return false;
+        }
+        if ($this->container['imageQuality'] === null) {
+            return false;
+        }
+        if ($this->container['unembedFonts'] === null) {
             return false;
         }
         return true;
@@ -235,73 +271,145 @@ class WordBookmarksOptionsDto implements ArrayAccess
 
 
     /*
-     * Gets bookmarksOutlineLevel
+     * Gets linkDuplicateStreams
      *
-     * @return int
+     * @return bool
      */
-    public function getBookmarksOutlineLevel()
+    public function getLinkDuplicateStreams()
     {
-        return $this->container['bookmarksOutlineLevel'];
+        return $this->container['linkDuplicateStreams'];
     }
 
     /*
-     * Sets bookmarksOutlineLevel
+     * Sets linkDuplicateStreams
      *
-     * @param int $bookmarksOutlineLevel Specifies the default level in the document outline at which to display Word bookmarks. Default is 0. Valid range is 0 to 9.
+     * @param bool $linkDuplicateStreams Link duplcate streams
      *
      * @return $this
      */
-    public function setBookmarksOutlineLevel($bookmarksOutlineLevel)
+    public function setLinkDuplicateStreams($linkDuplicateStreams)
     {
-        $this->container['bookmarksOutlineLevel'] = $bookmarksOutlineLevel;
+        $this->container['linkDuplicateStreams'] = $linkDuplicateStreams;
 
         return $this;
     }
 
     /*
-     * Gets headingsOutlineLevels
+     * Gets removeUnusedObjects
      *
-     * @return int
+     * @return bool
      */
-    public function getHeadingsOutlineLevels()
+    public function getRemoveUnusedObjects()
     {
-        return $this->container['headingsOutlineLevels'];
+        return $this->container['removeUnusedObjects'];
     }
 
     /*
-     * Sets headingsOutlineLevels
+     * Sets removeUnusedObjects
      *
-     * @param int $headingsOutlineLevels Specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the document outline. Default is 0. Valid range is 0 to 9.
+     * @param bool $removeUnusedObjects Remove unused objects
      *
      * @return $this
      */
-    public function setHeadingsOutlineLevels($headingsOutlineLevels)
+    public function setRemoveUnusedObjects($removeUnusedObjects)
     {
-        $this->container['headingsOutlineLevels'] = $headingsOutlineLevels;
+        $this->container['removeUnusedObjects'] = $removeUnusedObjects;
 
         return $this;
     }
 
     /*
-     * Gets expandedOutlineLevels
+     * Gets removeUnusedStreams
      *
-     * @return int
+     * @return bool
      */
-    public function getExpandedOutlineLevels()
+    public function getRemoveUnusedStreams()
     {
-        return $this->container['expandedOutlineLevels'];
+        return $this->container['removeUnusedStreams'];
     }
 
     /*
-     * Sets expandedOutlineLevels
+     * Sets removeUnusedStreams
      *
-     * @param int $expandedOutlineLevels Specifies how many levels in the document outline to show expanded when the file is viewed. Default is 0. Valid range is 0 to 9. Note that this options will not work when saving to XPS.
+     * @param bool $removeUnusedStreams Remove unused streams
      *
      * @return $this
      */
-    public function setExpandedOutlineLevels($expandedOutlineLevels)
+    public function setRemoveUnusedStreams($removeUnusedStreams)
     {
-        $this->container['expandedOutlineLevels'] = $expandedOutlineLevels;
+        $this->container['removeUnusedStreams'] = $removeUnusedStreams;
+
+        return $this;
+    }
+
+    /*
+     * Gets compressImages
+     *
+     * @return bool
+     */
+    public function getCompressImages()
+    {
+        return $this->container['compressImages'];
+    }
+
+    /*
+     * Sets compressImages
+     *
+     * @param bool $compressImages If CompressImages set to true, all images in the document are recompressed. The compression is defined by the ImageQuality property.
+     *
+     * @return $this
+     */
+    public function setCompressImages($compressImages)
+    {
+        $this->container['compressImages'] = $compressImages;
+
+        return $this;
+    }
+
+    /*
+     * Gets imageQuality
+     *
+     * @return int
+     */
+    public function getImageQuality()
+    {
+        return $this->container['imageQuality'];
+    }
+
+    /*
+     * Sets imageQuality
+     *
+     * @param int $imageQuality Value in percent where 100% is unchanged quality and image size. To decrease the image size, use ImageQuality less than 100
+     *
+     * @return $this
+     */
+    public function setImageQuality($imageQuality)
+    {
+        $this->container['imageQuality'] = $imageQuality;
+
+        return $this;
+    }
+
+    /*
+     * Gets unembedFonts
+     *
+     * @return bool
+     */
+    public function getUnembedFonts()
+    {
+        return $this->container['unembedFonts'];
+    }
+
+    /*
+     * Sets unembedFonts
+     *
+     * @param bool $unembedFonts Make fonts not embedded if set to true
+     *
+     * @return $this
+     */
+    public function setUnembedFonts($unembedFonts)
+    {
+        $this->container['unembedFonts'] = $unembedFonts;
 
         return $this;
     }

@@ -95,7 +95,7 @@ class BaseConversionRequest implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sourceFile' => 'SourceFile'
+        'sourceFile' => 'sourceFile'
     ];
 
     /*

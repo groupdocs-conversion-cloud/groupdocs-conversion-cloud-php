@@ -95,7 +95,7 @@ class WebpOptionsDto implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'lossless' => 'Lossless'
+        'lossless' => 'lossless'
     ];
 
     /*

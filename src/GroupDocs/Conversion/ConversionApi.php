@@ -37,7 +37,7 @@ use GuzzleHttp\RequestOptions;
 use GroupDocs\Conversion\Model\Requests;
 
 /*
- * GroupDocs.Conversion for Cloud API References
+ * GroupDocs.Conversion Cloud API References
  */
 class ConversionApi
 {
@@ -280,11 +280,11 @@ class ConversionApi
 
         // body params
         $_tempBody = null;
-        if (isset($request->settings)) {
-            if (is_string($request->settings)) {
-                $_tempBody = "\"" . $request->settings . "\"";   
+        if (isset($request->request)) {
+            if (is_string($request->request)) {
+                $_tempBody = "\"" . $request->request . "\"";   
             } else {
-                $_tempBody = $request->settings;
+                $_tempBody = $request->request;
             }
         }
 
@@ -549,21 +549,21 @@ class ConversionApi
 
         // body params
         $_tempBody = null;
-        if (isset($request->settings)) {
-            if (is_string($request->settings)) {
-                $_tempBody = "\"" . $request->settings . "\"";   
+        if (isset($request->request)) {
+            if (is_string($request->request)) {
+                $_tempBody = "\"" . $request->request . "\"";   
             } else {
-                $_tempBody = $request->settings;
+                $_tempBody = $request->request;
             }
         }
 
         if ($multipart) {
             $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'application/xml']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'application/xml'],
+                ['application/octet-stream'],
                 ['application/json', 'application/xml']
             );
         }
@@ -828,11 +828,11 @@ class ConversionApi
 
         // body params
         $_tempBody = null;
-        if (isset($request->settings)) {
-            if (is_string($request->settings)) {
-                $_tempBody = "\"" . $request->settings . "\"";   
+        if (isset($request->request)) {
+            if (is_string($request->request)) {
+                $_tempBody = "\"" . $request->request . "\"";   
             } else {
-                $_tempBody = $request->settings;
+                $_tempBody = $request->request;
             }
         }
 
@@ -1097,21 +1097,21 @@ class ConversionApi
 
         // body params
         $_tempBody = null;
-        if (isset($request->settings)) {
-            if (is_string($request->settings)) {
-                $_tempBody = "\"" . $request->settings . "\"";   
+        if (isset($request->request)) {
+            if (is_string($request->request)) {
+                $_tempBody = "\"" . $request->request . "\"";   
             } else {
-                $_tempBody = $request->settings;
+                $_tempBody = $request->request;
             }
         }
 
         if ($multipart) {
             $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'application/xml']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'application/xml'],
+                ['application/octet-stream'],
                 ['application/json', 'application/xml']
             );
         }
@@ -1376,11 +1376,11 @@ class ConversionApi
 
         // body params
         $_tempBody = null;
-        if (isset($request->settings)) {
-            if (is_string($request->settings)) {
-                $_tempBody = "\"" . $request->settings . "\"";   
+        if (isset($request->request)) {
+            if (is_string($request->request)) {
+                $_tempBody = "\"" . $request->request . "\"";   
             } else {
-                $_tempBody = $request->settings;
+                $_tempBody = $request->request;
             }
         }
 
@@ -1645,21 +1645,21 @@ class ConversionApi
 
         // body params
         $_tempBody = null;
-        if (isset($request->settings)) {
-            if (is_string($request->settings)) {
-                $_tempBody = "\"" . $request->settings . "\"";   
+        if (isset($request->request)) {
+            if (is_string($request->request)) {
+                $_tempBody = "\"" . $request->request . "\"";   
             } else {
-                $_tempBody = $request->settings;
+                $_tempBody = $request->request;
             }
         }
 
         if ($multipart) {
             $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'application/xml']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'application/xml'],
+                ['application/octet-stream'],
                 ['application/json', 'application/xml']
             );
         }
@@ -1924,11 +1924,11 @@ class ConversionApi
 
         // body params
         $_tempBody = null;
-        if (isset($request->settings)) {
-            if (is_string($request->settings)) {
-                $_tempBody = "\"" . $request->settings . "\"";   
+        if (isset($request->request)) {
+            if (is_string($request->request)) {
+                $_tempBody = "\"" . $request->request . "\"";   
             } else {
-                $_tempBody = $request->settings;
+                $_tempBody = $request->request;
             }
         }
 
@@ -2193,21 +2193,21 @@ class ConversionApi
 
         // body params
         $_tempBody = null;
-        if (isset($request->settings)) {
-            if (is_string($request->settings)) {
-                $_tempBody = "\"" . $request->settings . "\"";   
+        if (isset($request->request)) {
+            if (is_string($request->request)) {
+                $_tempBody = "\"" . $request->request . "\"";   
             } else {
-                $_tempBody = $request->settings;
+                $_tempBody = $request->request;
             }
         }
 
         if ($multipart) {
             $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'application/xml']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'application/xml'],
+                ['application/octet-stream'],
                 ['application/json', 'application/xml']
             );
         }
@@ -2472,11 +2472,11 @@ class ConversionApi
 
         // body params
         $_tempBody = null;
-        if (isset($request->settings)) {
-            if (is_string($request->settings)) {
-                $_tempBody = "\"" . $request->settings . "\"";   
+        if (isset($request->request)) {
+            if (is_string($request->request)) {
+                $_tempBody = "\"" . $request->request . "\"";   
             } else {
-                $_tempBody = $request->settings;
+                $_tempBody = $request->request;
             }
         }
 
@@ -2741,21 +2741,21 @@ class ConversionApi
 
         // body params
         $_tempBody = null;
-        if (isset($request->settings)) {
-            if (is_string($request->settings)) {
-                $_tempBody = "\"" . $request->settings . "\"";   
+        if (isset($request->request)) {
+            if (is_string($request->request)) {
+                $_tempBody = "\"" . $request->request . "\"";   
             } else {
-                $_tempBody = $request->settings;
+                $_tempBody = $request->request;
             }
         }
 
         if ($multipart) {
             $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'application/xml']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'application/xml'],
+                ['application/octet-stream'],
                 ['application/json', 'application/xml']
             );
         }
@@ -3020,11 +3020,11 @@ class ConversionApi
 
         // body params
         $_tempBody = null;
-        if (isset($request->settings)) {
-            if (is_string($request->settings)) {
-                $_tempBody = "\"" . $request->settings . "\"";   
+        if (isset($request->request)) {
+            if (is_string($request->request)) {
+                $_tempBody = "\"" . $request->request . "\"";   
             } else {
-                $_tempBody = $request->settings;
+                $_tempBody = $request->request;
             }
         }
 
@@ -3289,21 +3289,21 @@ class ConversionApi
 
         // body params
         $_tempBody = null;
-        if (isset($request->settings)) {
-            if (is_string($request->settings)) {
-                $_tempBody = "\"" . $request->settings . "\"";   
+        if (isset($request->request)) {
+            if (is_string($request->request)) {
+                $_tempBody = "\"" . $request->request . "\"";   
             } else {
-                $_tempBody = $request->settings;
+                $_tempBody = $request->request;
             }
         }
 
         if ($multipart) {
             $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'application/xml']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'application/xml'],
+                ['application/octet-stream'],
                 ['application/json', 'application/xml']
             );
         }
@@ -4376,11 +4376,11 @@ class ConversionApi
 
         // body params
         $_tempBody = null;
-        if (isset($request->settings)) {
-            if (is_string($request->settings)) {
-                $_tempBody = "\"" . $request->settings . "\"";   
+        if (isset($request->request)) {
+            if (is_string($request->request)) {
+                $_tempBody = "\"" . $request->request . "\"";   
             } else {
-                $_tempBody = $request->settings;
+                $_tempBody = $request->request;
             }
         }
 
@@ -4645,21 +4645,21 @@ class ConversionApi
 
         // body params
         $_tempBody = null;
-        if (isset($request->settings)) {
-            if (is_string($request->settings)) {
-                $_tempBody = "\"" . $request->settings . "\"";   
+        if (isset($request->request)) {
+            if (is_string($request->request)) {
+                $_tempBody = "\"" . $request->request . "\"";   
             } else {
-                $_tempBody = $request->settings;
+                $_tempBody = $request->request;
             }
         }
 
         if ($multipart) {
             $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'application/xml']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'application/xml'],
+                ['application/octet-stream'],
                 ['application/json', 'application/xml']
             );
         }

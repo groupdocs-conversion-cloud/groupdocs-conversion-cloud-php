@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="WordBookmarksOptionsDto.php">
+ * <copyright company="Aspose Pty Ltd" file="CellsOptionsDto.php">
  *   Copyright (c) 2003-2018 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -26,7 +26,7 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 /*
- * WordBookmarksOptionsDto
+ * CellsOptionsDto
  */
 
 namespace GroupDocs\Conversion\Model;
@@ -35,11 +35,11 @@ use \ArrayAccess;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * WordBookmarksOptionsDto
+ * CellsOptionsDto
  *
- * @description Options for handling Bookmarks in Word to PDF conversions
+ * @description Options for converting Cells documents
  */
-class WordBookmarksOptionsDto implements ArrayAccess
+class CellsOptionsDto implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class WordBookmarksOptionsDto implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "WordBookmarksOptionsDto";
+    protected static $swaggerModelName = "CellsOptionsDto";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -56,9 +56,12 @@ class WordBookmarksOptionsDto implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'bookmarksOutlineLevel' => 'int',
-        'headingsOutlineLevels' => 'int',
-        'expandedOutlineLevels' => 'int'
+        'showGridLines' => 'bool',
+        'showHiddenSheets' => 'bool',
+        'onePagePerSheet' => 'bool',
+        'optimizePdfSize' => 'bool',
+        'convertRange' => 'string',
+        'skipEmptyRowsAndColumns' => 'bool'
     ];
 
     /*
@@ -67,9 +70,12 @@ class WordBookmarksOptionsDto implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'bookmarksOutlineLevel' => 'int32',
-        'headingsOutlineLevels' => 'int32',
-        'expandedOutlineLevels' => 'int32'
+        'showGridLines' => null,
+        'showHiddenSheets' => null,
+        'onePagePerSheet' => null,
+        'optimizePdfSize' => null,
+        'convertRange' => null,
+        'skipEmptyRowsAndColumns' => null
     ];
 
     /*
@@ -99,9 +105,12 @@ class WordBookmarksOptionsDto implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'bookmarksOutlineLevel' => 'bookmarksOutlineLevel',
-        'headingsOutlineLevels' => 'headingsOutlineLevels',
-        'expandedOutlineLevels' => 'expandedOutlineLevels'
+        'showGridLines' => 'showGridLines',
+        'showHiddenSheets' => 'showHiddenSheets',
+        'onePagePerSheet' => 'onePagePerSheet',
+        'optimizePdfSize' => 'optimizePdfSize',
+        'convertRange' => 'convertRange',
+        'skipEmptyRowsAndColumns' => 'skipEmptyRowsAndColumns'
     ];
 
     /*
@@ -110,9 +119,12 @@ class WordBookmarksOptionsDto implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'bookmarksOutlineLevel' => 'setBookmarksOutlineLevel',
-        'headingsOutlineLevels' => 'setHeadingsOutlineLevels',
-        'expandedOutlineLevels' => 'setExpandedOutlineLevels'
+        'showGridLines' => 'setShowGridLines',
+        'showHiddenSheets' => 'setShowHiddenSheets',
+        'onePagePerSheet' => 'setOnePagePerSheet',
+        'optimizePdfSize' => 'setOptimizePdfSize',
+        'convertRange' => 'setConvertRange',
+        'skipEmptyRowsAndColumns' => 'setSkipEmptyRowsAndColumns'
     ];
 
     /*
@@ -121,9 +133,12 @@ class WordBookmarksOptionsDto implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'bookmarksOutlineLevel' => 'getBookmarksOutlineLevel',
-        'headingsOutlineLevels' => 'getHeadingsOutlineLevels',
-        'expandedOutlineLevels' => 'getExpandedOutlineLevels'
+        'showGridLines' => 'getShowGridLines',
+        'showHiddenSheets' => 'getShowHiddenSheets',
+        'onePagePerSheet' => 'getOnePagePerSheet',
+        'optimizePdfSize' => 'getOptimizePdfSize',
+        'convertRange' => 'getConvertRange',
+        'skipEmptyRowsAndColumns' => 'getSkipEmptyRowsAndColumns'
     ];
 
     /*
@@ -186,9 +201,12 @@ class WordBookmarksOptionsDto implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['bookmarksOutlineLevel'] = isset($data['bookmarksOutlineLevel']) ? $data['bookmarksOutlineLevel'] : null;
-        $this->container['headingsOutlineLevels'] = isset($data['headingsOutlineLevels']) ? $data['headingsOutlineLevels'] : null;
-        $this->container['expandedOutlineLevels'] = isset($data['expandedOutlineLevels']) ? $data['expandedOutlineLevels'] : null;
+        $this->container['showGridLines'] = isset($data['showGridLines']) ? $data['showGridLines'] : null;
+        $this->container['showHiddenSheets'] = isset($data['showHiddenSheets']) ? $data['showHiddenSheets'] : null;
+        $this->container['onePagePerSheet'] = isset($data['onePagePerSheet']) ? $data['onePagePerSheet'] : null;
+        $this->container['optimizePdfSize'] = isset($data['optimizePdfSize']) ? $data['optimizePdfSize'] : null;
+        $this->container['convertRange'] = isset($data['convertRange']) ? $data['convertRange'] : null;
+        $this->container['skipEmptyRowsAndColumns'] = isset($data['skipEmptyRowsAndColumns']) ? $data['skipEmptyRowsAndColumns'] : null;
     }
 
     /*
@@ -200,14 +218,20 @@ class WordBookmarksOptionsDto implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['bookmarksOutlineLevel'] === null) {
-            $invalidProperties[] = "'bookmarksOutlineLevel' can't be null";
+        if ($this->container['showGridLines'] === null) {
+            $invalidProperties[] = "'showGridLines' can't be null";
         }
-        if ($this->container['headingsOutlineLevels'] === null) {
-            $invalidProperties[] = "'headingsOutlineLevels' can't be null";
+        if ($this->container['showHiddenSheets'] === null) {
+            $invalidProperties[] = "'showHiddenSheets' can't be null";
         }
-        if ($this->container['expandedOutlineLevels'] === null) {
-            $invalidProperties[] = "'expandedOutlineLevels' can't be null";
+        if ($this->container['onePagePerSheet'] === null) {
+            $invalidProperties[] = "'onePagePerSheet' can't be null";
+        }
+        if ($this->container['optimizePdfSize'] === null) {
+            $invalidProperties[] = "'optimizePdfSize' can't be null";
+        }
+        if ($this->container['skipEmptyRowsAndColumns'] === null) {
+            $invalidProperties[] = "'skipEmptyRowsAndColumns' can't be null";
         }
         return $invalidProperties;
     }
@@ -221,13 +245,19 @@ class WordBookmarksOptionsDto implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['bookmarksOutlineLevel'] === null) {
+        if ($this->container['showGridLines'] === null) {
             return false;
         }
-        if ($this->container['headingsOutlineLevels'] === null) {
+        if ($this->container['showHiddenSheets'] === null) {
             return false;
         }
-        if ($this->container['expandedOutlineLevels'] === null) {
+        if ($this->container['onePagePerSheet'] === null) {
+            return false;
+        }
+        if ($this->container['optimizePdfSize'] === null) {
+            return false;
+        }
+        if ($this->container['skipEmptyRowsAndColumns'] === null) {
             return false;
         }
         return true;
@@ -235,73 +265,145 @@ class WordBookmarksOptionsDto implements ArrayAccess
 
 
     /*
-     * Gets bookmarksOutlineLevel
+     * Gets showGridLines
      *
-     * @return int
+     * @return bool
      */
-    public function getBookmarksOutlineLevel()
+    public function getShowGridLines()
     {
-        return $this->container['bookmarksOutlineLevel'];
+        return $this->container['showGridLines'];
     }
 
     /*
-     * Sets bookmarksOutlineLevel
+     * Sets showGridLines
      *
-     * @param int $bookmarksOutlineLevel Specifies the default level in the document outline at which to display Word bookmarks. Default is 0. Valid range is 0 to 9.
+     * @param bool $showGridLines Show grid lines when converting Excel files
      *
      * @return $this
      */
-    public function setBookmarksOutlineLevel($bookmarksOutlineLevel)
+    public function setShowGridLines($showGridLines)
     {
-        $this->container['bookmarksOutlineLevel'] = $bookmarksOutlineLevel;
+        $this->container['showGridLines'] = $showGridLines;
 
         return $this;
     }
 
     /*
-     * Gets headingsOutlineLevels
+     * Gets showHiddenSheets
      *
-     * @return int
+     * @return bool
      */
-    public function getHeadingsOutlineLevels()
+    public function getShowHiddenSheets()
     {
-        return $this->container['headingsOutlineLevels'];
+        return $this->container['showHiddenSheets'];
     }
 
     /*
-     * Sets headingsOutlineLevels
+     * Sets showHiddenSheets
      *
-     * @param int $headingsOutlineLevels Specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the document outline. Default is 0. Valid range is 0 to 9.
+     * @param bool $showHiddenSheets Show hidden sheets when converting Excel files
      *
      * @return $this
      */
-    public function setHeadingsOutlineLevels($headingsOutlineLevels)
+    public function setShowHiddenSheets($showHiddenSheets)
     {
-        $this->container['headingsOutlineLevels'] = $headingsOutlineLevels;
+        $this->container['showHiddenSheets'] = $showHiddenSheets;
 
         return $this;
     }
 
     /*
-     * Gets expandedOutlineLevels
+     * Gets onePagePerSheet
      *
-     * @return int
+     * @return bool
      */
-    public function getExpandedOutlineLevels()
+    public function getOnePagePerSheet()
     {
-        return $this->container['expandedOutlineLevels'];
+        return $this->container['onePagePerSheet'];
     }
 
     /*
-     * Sets expandedOutlineLevels
+     * Sets onePagePerSheet
      *
-     * @param int $expandedOutlineLevels Specifies how many levels in the document outline to show expanded when the file is viewed. Default is 0. Valid range is 0 to 9. Note that this options will not work when saving to XPS.
+     * @param bool $onePagePerSheet If OnePagePerSheet is true the content of the sheet will be converted to one page in the PDF document. Default value is true.
      *
      * @return $this
      */
-    public function setExpandedOutlineLevels($expandedOutlineLevels)
+    public function setOnePagePerSheet($onePagePerSheet)
     {
-        $this->container['expandedOutlineLevels'] = $expandedOutlineLevels;
+        $this->container['onePagePerSheet'] = $onePagePerSheet;
+
+        return $this;
+    }
+
+    /*
+     * Gets optimizePdfSize
+     *
+     * @return bool
+     */
+    public function getOptimizePdfSize()
+    {
+        return $this->container['optimizePdfSize'];
+    }
+
+    /*
+     * Sets optimizePdfSize
+     *
+     * @param bool $optimizePdfSize If True and converting to Pdf the conversion is optimized for better file size than print quality
+     *
+     * @return $this
+     */
+    public function setOptimizePdfSize($optimizePdfSize)
+    {
+        $this->container['optimizePdfSize'] = $optimizePdfSize;
+
+        return $this;
+    }
+
+    /*
+     * Gets convertRange
+     *
+     * @return string
+     */
+    public function getConvertRange()
+    {
+        return $this->container['convertRange'];
+    }
+
+    /*
+     * Sets convertRange
+     *
+     * @param string $convertRange Convert specific range when converting to other than cells format. Example: \"D1:F8\"
+     *
+     * @return $this
+     */
+    public function setConvertRange($convertRange)
+    {
+        $this->container['convertRange'] = $convertRange;
+
+        return $this;
+    }
+
+    /*
+     * Gets skipEmptyRowsAndColumns
+     *
+     * @return bool
+     */
+    public function getSkipEmptyRowsAndColumns()
+    {
+        return $this->container['skipEmptyRowsAndColumns'];
+    }
+
+    /*
+     * Sets skipEmptyRowsAndColumns
+     *
+     * @param bool $skipEmptyRowsAndColumns Skips empty rows and columns when converting. Default is True.
+     *
+     * @return $this
+     */
+    public function setSkipEmptyRowsAndColumns($skipEmptyRowsAndColumns)
+    {
+        $this->container['skipEmptyRowsAndColumns'] = $skipEmptyRowsAndColumns;
 
         return $this;
     }

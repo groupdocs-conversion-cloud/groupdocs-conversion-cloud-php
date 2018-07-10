@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="AllPossibleConversionsResponse.php">
+ * <copyright company="Aspose Pty Ltd" file="FileResponse.php">
  *   Copyright (c) 2003-2018 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -26,7 +26,7 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 /*
- * AllPossibleConversionsResponse
+ * FileResponse
  */
 
 namespace GroupDocs\Conversion\Model;
@@ -35,11 +35,11 @@ use \ArrayAccess;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * AllPossibleConversionsResponse
+ * FileResponse
  *
- * @description All Possible conversions response class
+ * @description The empty type used as a flag.
  */
-class AllPossibleConversionsResponse implements ArrayAccess
+class FileResponse implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "AllPossibleConversionsResponse";
+    protected static $swaggerModelName = "FileResponse";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -56,7 +56,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'conversions' => '\GroupDocs\Conversion\Model\PossibleConversionResponse[]'
+        
     ];
 
     /*
@@ -65,7 +65,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'conversions' => null
+        
     ];
 
     /*
@@ -95,7 +95,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'conversions' => 'conversions'
+        
     ];
 
     /*
@@ -104,7 +104,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'conversions' => 'setConversions'
+        
     ];
 
     /*
@@ -113,7 +113,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'conversions' => 'getConversions'
+        
     ];
 
     /*
@@ -176,7 +176,6 @@ class AllPossibleConversionsResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['conversions'] = isset($data['conversions']) ? $data['conversions'] : null;
     }
 
     /*
@@ -203,30 +202,6 @@ class AllPossibleConversionsResponse implements ArrayAccess
         return true;
     }
 
-
-    /*
-     * Gets conversions
-     *
-     * @return \GroupDocs\Conversion\Model\PossibleConversionResponse[]
-     */
-    public function getConversions()
-    {
-        return $this->container['conversions'];
-    }
-
-    /*
-     * Sets conversions
-     *
-     * @param \GroupDocs\Conversion\Model\PossibleConversionResponse[] $conversions All possible conversions. List of PossibleConversionResponse
-     *
-     * @return $this
-     */
-    public function setConversions($conversions)
-    {
-        $this->container['conversions'] = $conversions;
-
-        return $this;
-    }
     /*
      * Returns true if offset exists. False otherwise.
      *

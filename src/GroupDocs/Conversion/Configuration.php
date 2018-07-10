@@ -90,11 +90,11 @@ class Configuration
     protected $password = '';
 
     /*
-     * The host, set to 'https://localhost' by default
+     * The host, set to 'https://api.groupdocs.cloud' by default
      *
      * @var string
      */
-    protected $host = 'https://localhost';
+    protected $host = 'https://api.groupdocs.cloud';
 
     /*
      * The base path, set to '/v1' by default
@@ -135,7 +135,7 @@ class Configuration
      * Version of client SDK
      *
      */
-    protected $clientVersion = '18.4';
+    protected $clientVersion = '18.6';
 
     /*
      * Constructor
@@ -522,7 +522,7 @@ class Configuration
         $report  = 'PHP SDK (GroupDocs\Conversion) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    SDK Package Version: 18.4' . PHP_EOL;
+        $report .= '    SDK Package Version: 18.6' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;

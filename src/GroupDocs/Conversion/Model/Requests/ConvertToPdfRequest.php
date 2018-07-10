@@ -35,19 +35,19 @@ class ConvertToPdfRequest
     /*
      * Initializes a new instance of the ConvertToPdfRequest class.
      *  
-     * @param \GroupDocs\Conversion\Model\PdfConversionSettings $settings The settings.
+     * @param \GroupDocs\Conversion\Model\PdfConversionRequest $request The settings.
      * @param string $outPath outPath: path to output document on file storage
      */
-    public function __construct($settings = null, $outPath = null)             
+    public function __construct($request = null, $outPath = null)             
     {
-        $this->settings = $settings;
+        $this->request = $request;
         $this->outPath = $outPath;
     }
 
     /*
      * The settings.
      */
-    public $settings;
+    public $request;
 	
     /*
      * outPath: path to output document on file storage

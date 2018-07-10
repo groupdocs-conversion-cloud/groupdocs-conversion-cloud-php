@@ -55,7 +55,6 @@ class PdfSaveOptionsDto extends SaveOptionsBaseDto
      */
     protected static $swaggerTypes = [
         'convertFileType' => 'string',
-        'wordBookmarksOptions' => '\GroupDocs\Conversion\Model\WordBookmarksOptionsDto',
         'width' => 'int',
         'height' => 'int',
         'dpi' => 'double',
@@ -64,7 +63,8 @@ class PdfSaveOptionsDto extends SaveOptionsBaseDto
         'marginBottom' => 'int',
         'marginLeft' => 'int',
         'marginRight' => 'int',
-        'pdfOptions' => '\GroupDocs\Conversion\Model\PdfOptionsDto'
+        'pdfOptions' => '\GroupDocs\Conversion\Model\PdfOptionsDto',
+        'wordBookmarksOptions' => '\GroupDocs\Conversion\Model\WordBookmarksOptionsDto'
     ];
 
     /*
@@ -74,7 +74,6 @@ class PdfSaveOptionsDto extends SaveOptionsBaseDto
      */
     protected static $swaggerFormats = [
         'convertFileType' => null,
-        'wordBookmarksOptions' => null,
         'width' => 'int32',
         'height' => 'int32',
         'dpi' => 'double',
@@ -83,7 +82,8 @@ class PdfSaveOptionsDto extends SaveOptionsBaseDto
         'marginBottom' => 'int32',
         'marginLeft' => 'int32',
         'marginRight' => 'int32',
-        'pdfOptions' => null
+        'pdfOptions' => null,
+        'wordBookmarksOptions' => null
     ];
 
     /*
@@ -113,17 +113,17 @@ class PdfSaveOptionsDto extends SaveOptionsBaseDto
      * @var string[]
      */
     protected static $attributeMap = [
-        'convertFileType' => 'ConvertFileType',
-        'wordBookmarksOptions' => 'WordBookmarksOptions',
-        'width' => 'Width',
-        'height' => 'Height',
-        'dpi' => 'Dpi',
-        'password' => 'Password',
-        'marginTop' => 'MarginTop',
-        'marginBottom' => 'MarginBottom',
-        'marginLeft' => 'MarginLeft',
-        'marginRight' => 'MarginRight',
-        'pdfOptions' => 'PdfOptions'
+        'convertFileType' => 'convertFileType',
+        'width' => 'width',
+        'height' => 'height',
+        'dpi' => 'dpi',
+        'password' => 'password',
+        'marginTop' => 'marginTop',
+        'marginBottom' => 'marginBottom',
+        'marginLeft' => 'marginLeft',
+        'marginRight' => 'marginRight',
+        'pdfOptions' => 'pdfOptions',
+        'wordBookmarksOptions' => 'wordBookmarksOptions'
     ];
 
     /*
@@ -133,7 +133,6 @@ class PdfSaveOptionsDto extends SaveOptionsBaseDto
      */
     protected static $setters = [
         'convertFileType' => 'setConvertFileType',
-        'wordBookmarksOptions' => 'setWordBookmarksOptions',
         'width' => 'setWidth',
         'height' => 'setHeight',
         'dpi' => 'setDpi',
@@ -142,7 +141,8 @@ class PdfSaveOptionsDto extends SaveOptionsBaseDto
         'marginBottom' => 'setMarginBottom',
         'marginLeft' => 'setMarginLeft',
         'marginRight' => 'setMarginRight',
-        'pdfOptions' => 'setPdfOptions'
+        'pdfOptions' => 'setPdfOptions',
+        'wordBookmarksOptions' => 'setWordBookmarksOptions'
     ];
 
     /*
@@ -152,7 +152,6 @@ class PdfSaveOptionsDto extends SaveOptionsBaseDto
      */
     protected static $getters = [
         'convertFileType' => 'getConvertFileType',
-        'wordBookmarksOptions' => 'getWordBookmarksOptions',
         'width' => 'getWidth',
         'height' => 'getHeight',
         'dpi' => 'getDpi',
@@ -161,7 +160,8 @@ class PdfSaveOptionsDto extends SaveOptionsBaseDto
         'marginBottom' => 'getMarginBottom',
         'marginLeft' => 'getMarginLeft',
         'marginRight' => 'getMarginRight',
-        'pdfOptions' => 'getPdfOptions'
+        'pdfOptions' => 'getPdfOptions',
+        'wordBookmarksOptions' => 'getWordBookmarksOptions'
     ];
 
     /*
@@ -238,7 +238,6 @@ class PdfSaveOptionsDto extends SaveOptionsBaseDto
         parent::__construct($data);
 
         $this->container['convertFileType'] = isset($data['convertFileType']) ? $data['convertFileType'] : null;
-        $this->container['wordBookmarksOptions'] = isset($data['wordBookmarksOptions']) ? $data['wordBookmarksOptions'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
         $this->container['dpi'] = isset($data['dpi']) ? $data['dpi'] : null;
@@ -248,6 +247,7 @@ class PdfSaveOptionsDto extends SaveOptionsBaseDto
         $this->container['marginLeft'] = isset($data['marginLeft']) ? $data['marginLeft'] : null;
         $this->container['marginRight'] = isset($data['marginRight']) ? $data['marginRight'] : null;
         $this->container['pdfOptions'] = isset($data['pdfOptions']) ? $data['pdfOptions'] : null;
+        $this->container['wordBookmarksOptions'] = isset($data['wordBookmarksOptions']) ? $data['wordBookmarksOptions'] : null;
     }
 
     /*
@@ -315,30 +315,6 @@ class PdfSaveOptionsDto extends SaveOptionsBaseDto
         }
 			
         $this->container['convertFileType'] = $convertFileType;
-
-        return $this;
-    }
-
-    /*
-     * Gets wordBookmarksOptions
-     *
-     * @return \GroupDocs\Conversion\Model\WordBookmarksOptionsDto
-     */
-    public function getWordBookmarksOptions()
-    {
-        return $this->container['wordBookmarksOptions'];
-    }
-
-    /*
-     * Sets wordBookmarksOptions
-     *
-     * @param \GroupDocs\Conversion\Model\WordBookmarksOptionsDto $wordBookmarksOptions If the input document is Word the conversion will handle the word bookmarks regarding this option.
-     *
-     * @return $this
-     */
-    public function setWordBookmarksOptions($wordBookmarksOptions)
-    {
-        $this->container['wordBookmarksOptions'] = $wordBookmarksOptions;
 
         return $this;
     }
@@ -555,6 +531,30 @@ class PdfSaveOptionsDto extends SaveOptionsBaseDto
     public function setPdfOptions($pdfOptions)
     {
         $this->container['pdfOptions'] = $pdfOptions;
+
+        return $this;
+    }
+
+    /*
+     * Gets wordBookmarksOptions
+     *
+     * @return \GroupDocs\Conversion\Model\WordBookmarksOptionsDto
+     */
+    public function getWordBookmarksOptions()
+    {
+        return $this->container['wordBookmarksOptions'];
+    }
+
+    /*
+     * Sets wordBookmarksOptions
+     *
+     * @param \GroupDocs\Conversion\Model\WordBookmarksOptionsDto $wordBookmarksOptions If the input document is Word the conversion will handle the word bookmarks regarding this option.
+     *
+     * @return $this
+     */
+    public function setWordBookmarksOptions($wordBookmarksOptions)
+    {
+        $this->container['wordBookmarksOptions'] = $wordBookmarksOptions;
 
         return $this;
     }

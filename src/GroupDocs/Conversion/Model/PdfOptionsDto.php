@@ -57,7 +57,11 @@ class PdfOptionsDto implements ArrayAccess
      */
     protected static $swaggerTypes = [
         'pdfFormat' => 'string',
-        'removePdfaCompliance' => 'bool'
+        'removePdfaCompliance' => 'bool',
+        'zoom' => 'int',
+        'linearize' => 'bool',
+        'optimizationOptions' => '\GroupDocs\Conversion\Model\PdfOptimizationOptionsDto',
+        'grayscale' => 'bool'
     ];
 
     /*
@@ -67,7 +71,11 @@ class PdfOptionsDto implements ArrayAccess
      */
     protected static $swaggerFormats = [
         'pdfFormat' => null,
-        'removePdfaCompliance' => null
+        'removePdfaCompliance' => null,
+        'zoom' => 'int32',
+        'linearize' => null,
+        'optimizationOptions' => null,
+        'grayscale' => null
     ];
 
     /*
@@ -97,8 +105,12 @@ class PdfOptionsDto implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'pdfFormat' => 'PdfFormat',
-        'removePdfaCompliance' => 'RemovePdfaCompliance'
+        'pdfFormat' => 'pdfFormat',
+        'removePdfaCompliance' => 'removePdfaCompliance',
+        'zoom' => 'zoom',
+        'linearize' => 'linearize',
+        'optimizationOptions' => 'optimizationOptions',
+        'grayscale' => 'grayscale'
     ];
 
     /*
@@ -108,7 +120,11 @@ class PdfOptionsDto implements ArrayAccess
      */
     protected static $setters = [
         'pdfFormat' => 'setPdfFormat',
-        'removePdfaCompliance' => 'setRemovePdfaCompliance'
+        'removePdfaCompliance' => 'setRemovePdfaCompliance',
+        'zoom' => 'setZoom',
+        'linearize' => 'setLinearize',
+        'optimizationOptions' => 'setOptimizationOptions',
+        'grayscale' => 'setGrayscale'
     ];
 
     /*
@@ -118,7 +134,11 @@ class PdfOptionsDto implements ArrayAccess
      */
     protected static $getters = [
         'pdfFormat' => 'getPdfFormat',
-        'removePdfaCompliance' => 'getRemovePdfaCompliance'
+        'removePdfaCompliance' => 'getRemovePdfaCompliance',
+        'zoom' => 'getZoom',
+        'linearize' => 'getLinearize',
+        'optimizationOptions' => 'getOptimizationOptions',
+        'grayscale' => 'getGrayscale'
     ];
 
     /*
@@ -226,6 +246,10 @@ class PdfOptionsDto implements ArrayAccess
     {
         $this->container['pdfFormat'] = isset($data['pdfFormat']) ? $data['pdfFormat'] : null;
         $this->container['removePdfaCompliance'] = isset($data['removePdfaCompliance']) ? $data['removePdfaCompliance'] : null;
+        $this->container['zoom'] = isset($data['zoom']) ? $data['zoom'] : null;
+        $this->container['linearize'] = isset($data['linearize']) ? $data['linearize'] : null;
+        $this->container['optimizationOptions'] = isset($data['optimizationOptions']) ? $data['optimizationOptions'] : null;
+        $this->container['grayscale'] = isset($data['grayscale']) ? $data['grayscale'] : null;
     }
 
     /*
@@ -251,6 +275,15 @@ class PdfOptionsDto implements ArrayAccess
         if ($this->container['removePdfaCompliance'] === null) {
             $invalidProperties[] = "'removePdfaCompliance' can't be null";
         }
+        if ($this->container['zoom'] === null) {
+            $invalidProperties[] = "'zoom' can't be null";
+        }
+        if ($this->container['linearize'] === null) {
+            $invalidProperties[] = "'linearize' can't be null";
+        }
+        if ($this->container['grayscale'] === null) {
+            $invalidProperties[] = "'grayscale' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -271,6 +304,15 @@ class PdfOptionsDto implements ArrayAccess
             return false;
         }
         if ($this->container['removePdfaCompliance'] === null) {
+            return false;
+        }
+        if ($this->container['zoom'] === null) {
+            return false;
+        }
+        if ($this->container['linearize'] === null) {
+            return false;
+        }
+        if ($this->container['grayscale'] === null) {
             return false;
         }
         return true;
@@ -326,6 +368,102 @@ class PdfOptionsDto implements ArrayAccess
     public function setRemovePdfaCompliance($removePdfaCompliance)
     {
         $this->container['removePdfaCompliance'] = $removePdfaCompliance;
+
+        return $this;
+    }
+
+    /*
+     * Gets zoom
+     *
+     * @return int
+     */
+    public function getZoom()
+    {
+        return $this->container['zoom'];
+    }
+
+    /*
+     * Sets zoom
+     *
+     * @param int $zoom Specifies the zoom level in percentage. Default is 100.
+     *
+     * @return $this
+     */
+    public function setZoom($zoom)
+    {
+        $this->container['zoom'] = $zoom;
+
+        return $this;
+    }
+
+    /*
+     * Gets linearize
+     *
+     * @return bool
+     */
+    public function getLinearize()
+    {
+        return $this->container['linearize'];
+    }
+
+    /*
+     * Sets linearize
+     *
+     * @param bool $linearize Linearize PDF Document for the Web
+     *
+     * @return $this
+     */
+    public function setLinearize($linearize)
+    {
+        $this->container['linearize'] = $linearize;
+
+        return $this;
+    }
+
+    /*
+     * Gets optimizationOptions
+     *
+     * @return \GroupDocs\Conversion\Model\PdfOptimizationOptionsDto
+     */
+    public function getOptimizationOptions()
+    {
+        return $this->container['optimizationOptions'];
+    }
+
+    /*
+     * Sets optimizationOptions
+     *
+     * @param \GroupDocs\Conversion\Model\PdfOptimizationOptionsDto $optimizationOptions Pdf optimization options
+     *
+     * @return $this
+     */
+    public function setOptimizationOptions($optimizationOptions)
+    {
+        $this->container['optimizationOptions'] = $optimizationOptions;
+
+        return $this;
+    }
+
+    /*
+     * Gets grayscale
+     *
+     * @return bool
+     */
+    public function getGrayscale()
+    {
+        return $this->container['grayscale'];
+    }
+
+    /*
+     * Sets grayscale
+     *
+     * @param bool $grayscale Convert a PDF from RGB colorspace to Grayscale
+     *
+     * @return $this
+     */
+    public function setGrayscale($grayscale)
+    {
+        $this->container['grayscale'] = $grayscale;
 
         return $this;
     }

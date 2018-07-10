@@ -35,15 +35,15 @@ class ConvertToHtmlStreamRequest
     /*
      * Initializes a new instance of the ConvertToHtmlStreamRequest class.
      *  
-     * @param \GroupDocs\Conversion\Model\HtmlConversionSettings $settings The settings
+     * @param \GroupDocs\Conversion\Model\HtmlConversionRequest $request The settings
      */
-    public function __construct($settings = null)             
+    public function __construct($request = null)             
     {
-        $this->settings = $settings;
+        $this->request = $request;
     }
 
     /*
      * The settings
      */
-    public $settings;
+    public $request;
 }

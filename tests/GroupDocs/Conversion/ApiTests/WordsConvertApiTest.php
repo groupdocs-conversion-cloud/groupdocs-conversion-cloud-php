@@ -43,15 +43,15 @@ class WordsConvertApiTest extends BaseApiTest
         $testFile = Internal\TestFiles::getFileOnePageDocx();
         
 
-        $settings = new Model\WordsConversionSettings();
+        $payload = new Model\WordsConversionRequest();
         
-        $settings->setSourceFile(self::ToConversionFileInfo($testFile));
+        $payload->setSourceFile(self::ToConversionFileInfo($testFile));
         
         $options = new Model\WordsSaveOptionsDto();
         $options->setConvertFileType(Model\WordsSaveOptionsDto::CONVERT_FILE_TYPE_DOC);
-        $settings->setOptions($options);
+        $payload->setOptions($options);
         
-        $request = new Requests\ConvertToWordsRequest($settings);
+        $request = new Requests\ConvertToWordsRequest($payload);
         
         $response = self::$conversionApi->convertToWords($request);
         
@@ -70,15 +70,15 @@ class WordsConvertApiTest extends BaseApiTest
         $testFile = Internal\TestFiles::getFileOnePageDocx();
         
 
-        $settings = new Model\WordsConversionSettings();
+        $payload = new Model\WordsConversionRequest();
         
-        $settings->setSourceFile(self::ToConversionFileInfo($testFile));
+        $payload->setSourceFile(self::ToConversionFileInfo($testFile));
         
         $options = new Model\WordsSaveOptionsDto();
         $options->setConvertFileType(Model\WordsSaveOptionsDto::CONVERT_FILE_TYPE_DOC);
-        $settings->setOptions($options);
+        $payload->setOptions($options);
         
-        $request = new Requests\ConvertToWordsStreamRequest($settings);
+        $request = new Requests\ConvertToWordsStreamRequest($payload);
         
         $response = self::$conversionApi->convertToWordsStream($request);
         

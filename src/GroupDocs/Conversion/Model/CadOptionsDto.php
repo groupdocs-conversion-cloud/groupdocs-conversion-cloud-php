@@ -99,9 +99,9 @@ class CadOptionsDto implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'width' => 'Width',
-        'height' => 'Height',
-        'layoutNames' => 'LayoutNames'
+        'width' => 'width',
+        'height' => 'height',
+        'layoutNames' => 'layoutNames'
     ];
 
     /*

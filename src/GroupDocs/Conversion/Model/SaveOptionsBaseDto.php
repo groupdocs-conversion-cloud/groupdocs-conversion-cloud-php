@@ -60,12 +60,11 @@ class SaveOptionsBaseDto implements ArrayAccess
         'numPagesToConvert' => 'int',
         'convertPages' => 'int[]',
         'watermarkOptions' => '\GroupDocs\Conversion\Model\WatermarkOptionsDto',
-        'showGridLines' => 'bool',
-        'showHiddenSheets' => 'bool',
         'hideWordTrackedChanges' => 'bool',
         'cadOptions' => '\GroupDocs\Conversion\Model\CadOptionsDto',
         'hidePdfAnnotations' => 'bool',
-        'hideComments' => 'bool'
+        'hideComments' => 'bool',
+        'cellsOptions' => '\GroupDocs\Conversion\Model\CellsOptionsDto'
     ];
 
     /*
@@ -78,12 +77,11 @@ class SaveOptionsBaseDto implements ArrayAccess
         'numPagesToConvert' => 'int32',
         'convertPages' => 'int32',
         'watermarkOptions' => null,
-        'showGridLines' => null,
-        'showHiddenSheets' => null,
         'hideWordTrackedChanges' => null,
         'cadOptions' => null,
         'hidePdfAnnotations' => null,
-        'hideComments' => null
+        'hideComments' => null,
+        'cellsOptions' => null
     ];
 
     /*
@@ -113,16 +111,15 @@ class SaveOptionsBaseDto implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'pageNumber' => 'PageNumber',
-        'numPagesToConvert' => 'NumPagesToConvert',
-        'convertPages' => 'ConvertPages',
-        'watermarkOptions' => 'WatermarkOptions',
-        'showGridLines' => 'ShowGridLines',
-        'showHiddenSheets' => 'ShowHiddenSheets',
-        'hideWordTrackedChanges' => 'HideWordTrackedChanges',
-        'cadOptions' => 'CadOptions',
-        'hidePdfAnnotations' => 'HidePdfAnnotations',
-        'hideComments' => 'HideComments'
+        'pageNumber' => 'pageNumber',
+        'numPagesToConvert' => 'numPagesToConvert',
+        'convertPages' => 'convertPages',
+        'watermarkOptions' => 'watermarkOptions',
+        'hideWordTrackedChanges' => 'hideWordTrackedChanges',
+        'cadOptions' => 'cadOptions',
+        'hidePdfAnnotations' => 'hidePdfAnnotations',
+        'hideComments' => 'hideComments',
+        'cellsOptions' => 'cellsOptions'
     ];
 
     /*
@@ -135,12 +132,11 @@ class SaveOptionsBaseDto implements ArrayAccess
         'numPagesToConvert' => 'setNumPagesToConvert',
         'convertPages' => 'setConvertPages',
         'watermarkOptions' => 'setWatermarkOptions',
-        'showGridLines' => 'setShowGridLines',
-        'showHiddenSheets' => 'setShowHiddenSheets',
         'hideWordTrackedChanges' => 'setHideWordTrackedChanges',
         'cadOptions' => 'setCadOptions',
         'hidePdfAnnotations' => 'setHidePdfAnnotations',
-        'hideComments' => 'setHideComments'
+        'hideComments' => 'setHideComments',
+        'cellsOptions' => 'setCellsOptions'
     ];
 
     /*
@@ -153,12 +149,11 @@ class SaveOptionsBaseDto implements ArrayAccess
         'numPagesToConvert' => 'getNumPagesToConvert',
         'convertPages' => 'getConvertPages',
         'watermarkOptions' => 'getWatermarkOptions',
-        'showGridLines' => 'getShowGridLines',
-        'showHiddenSheets' => 'getShowHiddenSheets',
         'hideWordTrackedChanges' => 'getHideWordTrackedChanges',
         'cadOptions' => 'getCadOptions',
         'hidePdfAnnotations' => 'getHidePdfAnnotations',
-        'hideComments' => 'getHideComments'
+        'hideComments' => 'getHideComments',
+        'cellsOptions' => 'getCellsOptions'
     ];
 
     /*
@@ -225,12 +220,11 @@ class SaveOptionsBaseDto implements ArrayAccess
         $this->container['numPagesToConvert'] = isset($data['numPagesToConvert']) ? $data['numPagesToConvert'] : null;
         $this->container['convertPages'] = isset($data['convertPages']) ? $data['convertPages'] : null;
         $this->container['watermarkOptions'] = isset($data['watermarkOptions']) ? $data['watermarkOptions'] : null;
-        $this->container['showGridLines'] = isset($data['showGridLines']) ? $data['showGridLines'] : null;
-        $this->container['showHiddenSheets'] = isset($data['showHiddenSheets']) ? $data['showHiddenSheets'] : null;
         $this->container['hideWordTrackedChanges'] = isset($data['hideWordTrackedChanges']) ? $data['hideWordTrackedChanges'] : null;
         $this->container['cadOptions'] = isset($data['cadOptions']) ? $data['cadOptions'] : null;
         $this->container['hidePdfAnnotations'] = isset($data['hidePdfAnnotations']) ? $data['hidePdfAnnotations'] : null;
         $this->container['hideComments'] = isset($data['hideComments']) ? $data['hideComments'] : null;
+        $this->container['cellsOptions'] = isset($data['cellsOptions']) ? $data['cellsOptions'] : null;
 
         // Initialize discriminator property with the model name.
         $discriminator = array_search('Type', self::$attributeMap);
@@ -251,12 +245,6 @@ class SaveOptionsBaseDto implements ArrayAccess
         }
         if ($this->container['numPagesToConvert'] === null) {
             $invalidProperties[] = "'numPagesToConvert' can't be null";
-        }
-        if ($this->container['showGridLines'] === null) {
-            $invalidProperties[] = "'showGridLines' can't be null";
-        }
-        if ($this->container['showHiddenSheets'] === null) {
-            $invalidProperties[] = "'showHiddenSheets' can't be null";
         }
         if ($this->container['hideWordTrackedChanges'] === null) {
             $invalidProperties[] = "'hideWordTrackedChanges' can't be null";
@@ -283,12 +271,6 @@ class SaveOptionsBaseDto implements ArrayAccess
             return false;
         }
         if ($this->container['numPagesToConvert'] === null) {
-            return false;
-        }
-        if ($this->container['showGridLines'] === null) {
-            return false;
-        }
-        if ($this->container['showHiddenSheets'] === null) {
             return false;
         }
         if ($this->container['hideWordTrackedChanges'] === null) {
@@ -401,54 +383,6 @@ class SaveOptionsBaseDto implements ArrayAccess
     }
 
     /*
-     * Gets showGridLines
-     *
-     * @return bool
-     */
-    public function getShowGridLines()
-    {
-        return $this->container['showGridLines'];
-    }
-
-    /*
-     * Sets showGridLines
-     *
-     * @param bool $showGridLines Show grid lines when converting Excel files
-     *
-     * @return $this
-     */
-    public function setShowGridLines($showGridLines)
-    {
-        $this->container['showGridLines'] = $showGridLines;
-
-        return $this;
-    }
-
-    /*
-     * Gets showHiddenSheets
-     *
-     * @return bool
-     */
-    public function getShowHiddenSheets()
-    {
-        return $this->container['showHiddenSheets'];
-    }
-
-    /*
-     * Sets showHiddenSheets
-     *
-     * @param bool $showHiddenSheets Show hidden sheets when converting Excel files
-     *
-     * @return $this
-     */
-    public function setShowHiddenSheets($showHiddenSheets)
-    {
-        $this->container['showHiddenSheets'] = $showHiddenSheets;
-
-        return $this;
-    }
-
-    /*
      * Gets hideWordTrackedChanges
      *
      * @return bool
@@ -540,6 +474,30 @@ class SaveOptionsBaseDto implements ArrayAccess
     public function setHideComments($hideComments)
     {
         $this->container['hideComments'] = $hideComments;
+
+        return $this;
+    }
+
+    /*
+     * Gets cellsOptions
+     *
+     * @return \GroupDocs\Conversion\Model\CellsOptionsDto
+     */
+    public function getCellsOptions()
+    {
+        return $this->container['cellsOptions'];
+    }
+
+    /*
+     * Sets cellsOptions
+     *
+     * @param \GroupDocs\Conversion\Model\CellsOptionsDto $cellsOptions Cells specific convert options
+     *
+     * @return $this
+     */
+    public function setCellsOptions($cellsOptions)
+    {
+        $this->container['cellsOptions'] = $cellsOptions;
 
         return $this;
     }

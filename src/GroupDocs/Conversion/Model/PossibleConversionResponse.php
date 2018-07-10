@@ -97,8 +97,8 @@ class PossibleConversionResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sourceFileType' => 'SourceFileType',
-        'possibleConversions' => 'PossibleConversions'
+        'sourceFileType' => 'sourceFileType',
+        'possibleConversions' => 'possibleConversions'
     ];
 
     /*

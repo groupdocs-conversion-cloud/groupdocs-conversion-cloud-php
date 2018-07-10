@@ -55,7 +55,8 @@ class SlidesSaveOptionsDto extends SaveOptionsBaseDto
      */
     protected static $swaggerTypes = [
         'convertFileType' => 'string',
-        'password' => 'string'
+        'password' => 'string',
+        'zoom' => 'int'
     ];
 
     /*
@@ -65,7 +66,8 @@ class SlidesSaveOptionsDto extends SaveOptionsBaseDto
      */
     protected static $swaggerFormats = [
         'convertFileType' => null,
-        'password' => null
+        'password' => null,
+        'zoom' => 'int32'
     ];
 
     /*
@@ -95,8 +97,9 @@ class SlidesSaveOptionsDto extends SaveOptionsBaseDto
      * @var string[]
      */
     protected static $attributeMap = [
-        'convertFileType' => 'ConvertFileType',
-        'password' => 'Password'
+        'convertFileType' => 'convertFileType',
+        'password' => 'password',
+        'zoom' => 'zoom'
     ];
 
     /*
@@ -106,7 +109,8 @@ class SlidesSaveOptionsDto extends SaveOptionsBaseDto
      */
     protected static $setters = [
         'convertFileType' => 'setConvertFileType',
-        'password' => 'setPassword'
+        'password' => 'setPassword',
+        'zoom' => 'setZoom'
     ];
 
     /*
@@ -116,7 +120,8 @@ class SlidesSaveOptionsDto extends SaveOptionsBaseDto
      */
     protected static $getters = [
         'convertFileType' => 'getConvertFileType',
-        'password' => 'getPassword'
+        'password' => 'getPassword',
+        'zoom' => 'getZoom'
     ];
 
     /*
@@ -166,6 +171,10 @@ class SlidesSaveOptionsDto extends SaveOptionsBaseDto
     const CONVERT_FILE_TYPE_PPSX = 'Ppsx';
     const CONVERT_FILE_TYPE_ODP = 'Odp';
     const CONVERT_FILE_TYPE_OTP = 'Otp';
+    const CONVERT_FILE_TYPE_POTX = 'Potx';
+    const CONVERT_FILE_TYPE_POTM = 'Potm';
+    const CONVERT_FILE_TYPE_PPTM = 'Pptm';
+    const CONVERT_FILE_TYPE_PPSM = 'Ppsm';
     
 
     
@@ -183,6 +192,10 @@ class SlidesSaveOptionsDto extends SaveOptionsBaseDto
             self::CONVERT_FILE_TYPE_PPSX,
             self::CONVERT_FILE_TYPE_ODP,
             self::CONVERT_FILE_TYPE_OTP,
+            self::CONVERT_FILE_TYPE_POTX,
+            self::CONVERT_FILE_TYPE_POTM,
+            self::CONVERT_FILE_TYPE_PPTM,
+            self::CONVERT_FILE_TYPE_PPSM,
         ];
     }
     
@@ -200,6 +213,7 @@ class SlidesSaveOptionsDto extends SaveOptionsBaseDto
 
         $this->container['convertFileType'] = isset($data['convertFileType']) ? $data['convertFileType'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
+        $this->container['zoom'] = isset($data['zoom']) ? $data['zoom'] : null;
     }
 
     /*
@@ -291,6 +305,30 @@ class SlidesSaveOptionsDto extends SaveOptionsBaseDto
     public function setPassword($password)
     {
         $this->container['password'] = $password;
+
+        return $this;
+    }
+
+    /*
+     * Gets zoom
+     *
+     * @return int
+     */
+    public function getZoom()
+    {
+        return $this->container['zoom'];
+    }
+
+    /*
+     * Sets zoom
+     *
+     * @param int $zoom Specifies the zoom level in percentage. Default is 100. Default zoom is supported till Microsoft Powerpoint 2010. Starting from Microsoft Powerpoint 2013 default zoom is no longer set to document, instead it appears to use the zoom factor of the last document that was opened.
+     *
+     * @return $this
+     */
+    public function setZoom($zoom)
+    {
+        $this->container['zoom'] = $zoom;
 
         return $this;
     }

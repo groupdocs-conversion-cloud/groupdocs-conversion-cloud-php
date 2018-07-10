@@ -35,15 +35,15 @@ class QuickConvertToStreamRequest
     /*
      * Initializes a new instance of the QuickConvertToStreamRequest class.
      *  
-     * @param \GroupDocs\Conversion\Model\QuickConversionSettings $settings The settings.
+     * @param \GroupDocs\Conversion\Model\QuickConversionRequest $request The settings.
      */
-    public function __construct($settings = null)             
+    public function __construct($request = null)             
     {
-        $this->settings = $settings;
+        $this->request = $request;
     }
 
     /*
      * The settings.
      */
-    public $settings;
+    public $request;
 }

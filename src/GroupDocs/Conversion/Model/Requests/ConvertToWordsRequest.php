@@ -35,19 +35,19 @@ class ConvertToWordsRequest
     /*
      * Initializes a new instance of the ConvertToWordsRequest class.
      *  
-     * @param \GroupDocs\Conversion\Model\WordsConversionSettings $settings The settings
+     * @param \GroupDocs\Conversion\Model\WordsConversionRequest $request The settings
      * @param string $outPath path to output document on file storage
      */
-    public function __construct($settings = null, $outPath = null)             
+    public function __construct($request = null, $outPath = null)             
     {
-        $this->settings = $settings;
+        $this->request = $request;
         $this->outPath = $outPath;
     }
 
     /*
      * The settings
      */
-    public $settings;
+    public $request;
 	
     /*
      * path to output document on file storage

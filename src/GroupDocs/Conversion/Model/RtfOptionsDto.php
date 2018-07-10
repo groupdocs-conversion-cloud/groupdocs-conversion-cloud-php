@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="AllPossibleConversionsResponse.php">
+ * <copyright company="Aspose Pty Ltd" file="RtfOptionsDto.php">
  *   Copyright (c) 2003-2018 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -26,7 +26,7 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 /*
- * AllPossibleConversionsResponse
+ * RtfOptionsDto
  */
 
 namespace GroupDocs\Conversion\Model;
@@ -35,11 +35,11 @@ use \ArrayAccess;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * AllPossibleConversionsResponse
+ * RtfOptionsDto
  *
- * @description All Possible conversions response class
+ * @description Options for converting to RTF
  */
-class AllPossibleConversionsResponse implements ArrayAccess
+class RtfOptionsDto implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "AllPossibleConversionsResponse";
+    protected static $swaggerModelName = "RtfOptionsDto";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -56,7 +56,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'conversions' => '\GroupDocs\Conversion\Model\PossibleConversionResponse[]'
+        'exportImagesForOldReaders' => 'bool'
     ];
 
     /*
@@ -65,7 +65,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'conversions' => null
+        'exportImagesForOldReaders' => null
     ];
 
     /*
@@ -95,7 +95,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'conversions' => 'conversions'
+        'exportImagesForOldReaders' => 'exportImagesForOldReaders'
     ];
 
     /*
@@ -104,7 +104,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'conversions' => 'setConversions'
+        'exportImagesForOldReaders' => 'setExportImagesForOldReaders'
     ];
 
     /*
@@ -113,7 +113,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'conversions' => 'getConversions'
+        'exportImagesForOldReaders' => 'getExportImagesForOldReaders'
     ];
 
     /*
@@ -176,7 +176,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['conversions'] = isset($data['conversions']) ? $data['conversions'] : null;
+        $this->container['exportImagesForOldReaders'] = isset($data['exportImagesForOldReaders']) ? $data['exportImagesForOldReaders'] : null;
     }
 
     /*
@@ -188,6 +188,9 @@ class AllPossibleConversionsResponse implements ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['exportImagesForOldReaders'] === null) {
+            $invalidProperties[] = "'exportImagesForOldReaders' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -200,30 +203,33 @@ class AllPossibleConversionsResponse implements ArrayAccess
     public function valid()
     {
 
+        if ($this->container['exportImagesForOldReaders'] === null) {
+            return false;
+        }
         return true;
     }
 
 
     /*
-     * Gets conversions
+     * Gets exportImagesForOldReaders
      *
-     * @return \GroupDocs\Conversion\Model\PossibleConversionResponse[]
+     * @return bool
      */
-    public function getConversions()
+    public function getExportImagesForOldReaders()
     {
-        return $this->container['conversions'];
+        return $this->container['exportImagesForOldReaders'];
     }
 
     /*
-     * Sets conversions
+     * Sets exportImagesForOldReaders
      *
-     * @param \GroupDocs\Conversion\Model\PossibleConversionResponse[] $conversions All possible conversions. List of PossibleConversionResponse
+     * @param bool $exportImagesForOldReaders Specifies whether the keywords for \"old readers\" are written to RTF or not. This can significantly affect the size of the RTF document. Default is False.
      *
      * @return $this
      */
-    public function setConversions($conversions)
+    public function setExportImagesForOldReaders($exportImagesForOldReaders)
     {
-        $this->container['conversions'] = $conversions;
+        $this->container['exportImagesForOldReaders'] = $exportImagesForOldReaders;
 
         return $this;
     }

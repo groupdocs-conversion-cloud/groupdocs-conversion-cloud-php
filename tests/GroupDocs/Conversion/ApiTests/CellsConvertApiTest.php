@@ -43,14 +43,14 @@ class CellsConvertApiTest extends BaseApiTest
         $testFile = Internal\TestFiles::getFileOnePageDocx();
         
 
-        $settings = new Model\CellsConversionSettings();
+        $payload = new Model\CellsConversionRequest();
         
-        $settings->setSourceFile(self::ToConversionFileInfo($testFile));
+        $payload->setSourceFile(self::ToConversionFileInfo($testFile));
         
         $options = new Model\CellsSaveOptionsDto();
-        $settings->setOptions($options);
+        $payload->setOptions($options);
         
-        $request = new Requests\ConvertToCellsRequest($settings);
+        $request = new Requests\ConvertToCellsRequest($payload);
         
         $response = self::$conversionApi->convertToCells($request);
         
@@ -69,14 +69,14 @@ class CellsConvertApiTest extends BaseApiTest
         $testFile = Internal\TestFiles::getFileOnePageDocx();
         
 
-        $settings = new Model\CellsConversionSettings();
+        $payload = new Model\CellsConversionRequest();
         
-        $settings->setSourceFile(self::ToConversionFileInfo($testFile));
+        $payload->setSourceFile(self::ToConversionFileInfo($testFile));
         
         $options = new Model\CellsSaveOptionsDto();
-        $settings->setOptions($options);
+        $payload->setOptions($options);
         
-        $request = new Requests\ConvertToCellsStreamRequest($settings);
+        $request = new Requests\ConvertToCellsStreamRequest($payload);
         
         $response = self::$conversionApi->convertToCellsStream($request);
         

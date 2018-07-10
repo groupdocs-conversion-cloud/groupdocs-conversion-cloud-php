@@ -35,15 +35,15 @@ class ConvertToImageStreamRequest
     /*
      * Initializes a new instance of the ConvertToImageStreamRequest class.
      *  
-     * @param \GroupDocs\Conversion\Model\ImageConversionSettings $settings The settings
+     * @param \GroupDocs\Conversion\Model\ImageConversionRequest $request The settings
      */
-    public function __construct($settings = null)             
+    public function __construct($request = null)             
     {
-        $this->settings = $settings;
+        $this->request = $request;
     }
 
     /*
      * The settings
      */
-    public $settings;
+    public $request;
 }

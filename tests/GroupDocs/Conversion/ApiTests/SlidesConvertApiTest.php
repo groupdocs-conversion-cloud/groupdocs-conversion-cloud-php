@@ -43,14 +43,14 @@ class SlidesConvertApiTest extends BaseApiTest
         $testFile = Internal\TestFiles::getFileOnePageDocx();
         
 
-        $settings = new Model\SlidesConversionSettings();
+        $payload = new Model\SlidesConversionRequest();
         
-        $settings->setSourceFile(self::ToConversionFileInfo($testFile));
+        $payload->setSourceFile(self::ToConversionFileInfo($testFile));
         
         $options = new Model\SlidesSaveOptionsDto();
-        $settings->setOptions($options);
+        $payload->setOptions($options);
         
-        $request = new Requests\ConvertToSlidesRequest($settings);
+        $request = new Requests\ConvertToSlidesRequest($payload);
         
         $response = self::$conversionApi->convertToSlides($request);
         
@@ -69,14 +69,14 @@ class SlidesConvertApiTest extends BaseApiTest
         $testFile = Internal\TestFiles::getFileOnePageDocx();
         
 
-        $settings = new Model\SlidesConversionSettings();
+        $payload = new Model\SlidesConversionRequest();
         
-        $settings->setSourceFile(self::ToConversionFileInfo($testFile));
+        $payload->setSourceFile(self::ToConversionFileInfo($testFile));
         
         $options = new Model\SlidesSaveOptionsDto();
-        $settings->setOptions($options);
+        $payload->setOptions($options);
         
-        $request = new Requests\ConvertToSlidesStreamRequest($settings);
+        $request = new Requests\ConvertToSlidesStreamRequest($payload);
         
         $response = self::$conversionApi->convertToSlidesStream($request);
         

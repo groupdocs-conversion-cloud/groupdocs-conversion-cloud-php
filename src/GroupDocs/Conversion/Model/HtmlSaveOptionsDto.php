@@ -97,9 +97,9 @@ class HtmlSaveOptionsDto extends SaveOptionsBaseDto
      * @var string[]
      */
     protected static $attributeMap = [
-        'usePdf' => 'UsePdf',
-        'fixedLayout' => 'FixedLayout',
-        'zoom' => 'Zoom'
+        'usePdf' => 'usePdf',
+        'fixedLayout' => 'fixedLayout',
+        'zoom' => 'zoom'
     ];
 
     /*

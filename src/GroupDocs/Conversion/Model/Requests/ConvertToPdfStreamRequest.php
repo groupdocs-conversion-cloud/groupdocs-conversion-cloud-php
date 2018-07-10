@@ -35,15 +35,15 @@ class ConvertToPdfStreamRequest
     /*
      * Initializes a new instance of the ConvertToPdfStreamRequest class.
      *  
-     * @param \GroupDocs\Conversion\Model\PdfConversionSettings $settings The settings.
+     * @param \GroupDocs\Conversion\Model\PdfConversionRequest $request The settings.
      */
-    public function __construct($settings = null)             
+    public function __construct($request = null)             
     {
-        $this->settings = $settings;
+        $this->request = $request;
     }
 
     /*
      * The settings.
      */
-    public $settings;
+    public $request;
 }

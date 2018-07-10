@@ -42,11 +42,11 @@ class QuickConvertApiTest extends BaseApiTest
     {
         $testFile = Internal\TestFiles::getFileOnePageDocx();
         
-        $settings = new Model\QuickConversionSettings();
-        $settings->setFormat("jpg");
-        $settings->setSourceFile(self::ToConversionFileInfo($testFile));
+        $payload = new Model\QuickConversionRequest();
+        $payload->setFormat("jpg");
+        $payload->setSourceFile(self::ToConversionFileInfo($testFile));
         
-        $request = new Requests\QuickConvertRequest($settings);
+        $request = new Requests\QuickConvertRequest($payload);
         
         $response = self::$conversionApi->quickConvert($request);
         
@@ -64,11 +64,11 @@ class QuickConvertApiTest extends BaseApiTest
     {
         $testFile = Internal\TestFiles::getFileOnePageDocx();
         
-        $settings = new Model\QuickConversionSettings();
-        $settings->setFormat("jpg");
-        $settings->setSourceFile(self::ToConversionFileInfo($testFile));
+        $payload = new Model\QuickConversionRequest();
+        $payload->setFormat("jpg");
+        $payload->setSourceFile(self::ToConversionFileInfo($testFile));
         
-        $request = new Requests\QuickConvertToStreamRequest($settings);
+        $request = new Requests\QuickConvertToStreamRequest($payload);
         
         $response = self::$conversionApi->quickConvertToStream($request);
         

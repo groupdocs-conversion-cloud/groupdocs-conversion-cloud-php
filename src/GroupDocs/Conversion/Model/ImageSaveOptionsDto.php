@@ -113,17 +113,17 @@ class ImageSaveOptionsDto extends SaveOptionsBaseDto
      * @var string[]
      */
     protected static $attributeMap = [
-        'width' => 'Width',
-        'height' => 'Height',
-        'usePdf' => 'UsePdf',
-        'convertFileType' => 'ConvertFileType',
-        'horizontalResolution' => 'HorizontalResolution',
-        'verticalResolution' => 'VerticalResolution',
-        'jpegQuality' => 'JpegQuality',
-        'tiffOptions' => 'TiffOptions',
-        'psdOptions' => 'PsdOptions',
-        'webpOptions' => 'WebpOptions',
-        'grayscale' => 'Grayscale'
+        'width' => 'width',
+        'height' => 'height',
+        'usePdf' => 'usePdf',
+        'convertFileType' => 'convertFileType',
+        'horizontalResolution' => 'horizontalResolution',
+        'verticalResolution' => 'verticalResolution',
+        'jpegQuality' => 'jpegQuality',
+        'tiffOptions' => 'tiffOptions',
+        'psdOptions' => 'psdOptions',
+        'webpOptions' => 'webpOptions',
+        'grayscale' => 'grayscale'
     ];
 
     /*
@@ -216,6 +216,7 @@ class ImageSaveOptionsDto extends SaveOptionsBaseDto
     const CONVERT_FILE_TYPE_PSD = 'Psd';
     const CONVERT_FILE_TYPE_WEBP = 'Webp';
     const CONVERT_FILE_TYPE_SVG = 'Svg';
+    const CONVERT_FILE_TYPE_JP2 = 'Jp2';
     
 
     
@@ -238,6 +239,7 @@ class ImageSaveOptionsDto extends SaveOptionsBaseDto
             self::CONVERT_FILE_TYPE_PSD,
             self::CONVERT_FILE_TYPE_WEBP,
             self::CONVERT_FILE_TYPE_SVG,
+            self::CONVERT_FILE_TYPE_JP2,
         ];
     }
     

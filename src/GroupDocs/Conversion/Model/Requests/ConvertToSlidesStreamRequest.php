@@ -35,15 +35,15 @@ class ConvertToSlidesStreamRequest
     /*
      * Initializes a new instance of the ConvertToSlidesStreamRequest class.
      *  
-     * @param \GroupDocs\Conversion\Model\SlidesConversionSettings $settings The settings
+     * @param \GroupDocs\Conversion\Model\SlidesConversionRequest $request The settings
      */
-    public function __construct($settings = null)             
+    public function __construct($request = null)             
     {
-        $this->settings = $settings;
+        $this->request = $request;
     }
 
     /*
      * The settings
      */
-    public $settings;
+    public $request;
 }

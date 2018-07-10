@@ -103,11 +103,11 @@ class PsdOptionsDto implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'channelBitsCount' => 'ChannelBitsCount',
-        'channelsCount' => 'ChannelsCount',
-        'colorMode' => 'ColorMode',
-        'compressionMethod' => 'CompressionMethod',
-        'version' => 'Version'
+        'channelBitsCount' => 'channelBitsCount',
+        'channelsCount' => 'channelsCount',
+        'colorMode' => 'colorMode',
+        'compressionMethod' => 'compressionMethod',
+        'version' => 'version'
     ];
 
     /*

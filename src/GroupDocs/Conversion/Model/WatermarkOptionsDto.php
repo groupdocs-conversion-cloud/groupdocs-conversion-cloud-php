@@ -64,7 +64,9 @@ class WatermarkOptionsDto implements ArrayAccess
         'top' => 'int',
         'left' => 'int',
         'rotationAngle' => 'int',
-        'transparency' => 'double'
+        'transparency' => 'double',
+        'background' => 'bool',
+        'image' => 'string'
     ];
 
     /*
@@ -81,7 +83,9 @@ class WatermarkOptionsDto implements ArrayAccess
         'top' => 'int32',
         'left' => 'int32',
         'rotationAngle' => 'int32',
-        'transparency' => 'double'
+        'transparency' => 'double',
+        'background' => null,
+        'image' => 'byte'
     ];
 
     /*
@@ -111,15 +115,17 @@ class WatermarkOptionsDto implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'text' => 'Text',
-        'font' => 'Font',
-        'color' => 'Color',
-        'width' => 'Width',
-        'height' => 'Height',
-        'top' => 'Top',
-        'left' => 'Left',
-        'rotationAngle' => 'RotationAngle',
-        'transparency' => 'Transparency'
+        'text' => 'text',
+        'font' => 'font',
+        'color' => 'color',
+        'width' => 'width',
+        'height' => 'height',
+        'top' => 'top',
+        'left' => 'left',
+        'rotationAngle' => 'rotationAngle',
+        'transparency' => 'transparency',
+        'background' => 'background',
+        'image' => 'image'
     ];
 
     /*
@@ -136,7 +142,9 @@ class WatermarkOptionsDto implements ArrayAccess
         'top' => 'setTop',
         'left' => 'setLeft',
         'rotationAngle' => 'setRotationAngle',
-        'transparency' => 'setTransparency'
+        'transparency' => 'setTransparency',
+        'background' => 'setBackground',
+        'image' => 'setImage'
     ];
 
     /*
@@ -153,7 +161,9 @@ class WatermarkOptionsDto implements ArrayAccess
         'top' => 'getTop',
         'left' => 'getLeft',
         'rotationAngle' => 'getRotationAngle',
-        'transparency' => 'getTransparency'
+        'transparency' => 'getTransparency',
+        'background' => 'getBackground',
+        'image' => 'getImage'
     ];
 
     /*
@@ -225,6 +235,8 @@ class WatermarkOptionsDto implements ArrayAccess
         $this->container['left'] = isset($data['left']) ? $data['left'] : null;
         $this->container['rotationAngle'] = isset($data['rotationAngle']) ? $data['rotationAngle'] : null;
         $this->container['transparency'] = isset($data['transparency']) ? $data['transparency'] : null;
+        $this->container['background'] = isset($data['background']) ? $data['background'] : null;
+        $this->container['image'] = isset($data['image']) ? $data['image'] : null;
     }
 
     /*
@@ -254,6 +266,13 @@ class WatermarkOptionsDto implements ArrayAccess
         if ($this->container['transparency'] === null) {
             $invalidProperties[] = "'transparency' can't be null";
         }
+        if ($this->container['background'] === null) {
+            $invalidProperties[] = "'background' can't be null";
+        }
+        if (!is_null($this->container['image']) && !preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $this->container['image'])) {
+            $invalidProperties[] = "invalid value for 'image', must be conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.";
+        }
+
         return $invalidProperties;
     }
 
@@ -282,6 +301,12 @@ class WatermarkOptionsDto implements ArrayAccess
             return false;
         }
         if ($this->container['transparency'] === null) {
+            return false;
+        }
+        if ($this->container['background'] === null) {
+            return false;
+        }
+        if (!preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $this->container['image'])) {
             return false;
         }
         return true;
@@ -500,6 +525,59 @@ class WatermarkOptionsDto implements ArrayAccess
     public function setTransparency($transparency)
     {
         $this->container['transparency'] = $transparency;
+
+        return $this;
+    }
+
+    /*
+     * Gets background
+     *
+     * @return bool
+     */
+    public function getBackground()
+    {
+        return $this->container['background'];
+    }
+
+    /*
+     * Sets background
+     *
+     * @param bool $background Indicates that the watermark is stamped as background. If the value is true, the watermark is layed at the bottom. By default is false and the watermark is layed on top.
+     *
+     * @return $this
+     */
+    public function setBackground($background)
+    {
+        $this->container['background'] = $background;
+
+        return $this;
+    }
+
+    /*
+     * Gets image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->container['image'];
+    }
+
+    /*
+     * Sets image
+     *
+     * @param string $image Image watermark
+     *
+     * @return $this
+     */
+    public function setImage($image)
+    {
+
+        if (!is_null($image) && (!preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $image))) {
+            throw new \InvalidArgumentException("invalid value for $image when calling WatermarkOptionsDto., must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.");
+        }
+
+        $this->container['image'] = $image;
 
         return $this;
     }

@@ -55,7 +55,8 @@ class CellsSaveOptionsDto extends SaveOptionsBaseDto
      */
     protected static $swaggerTypes = [
         'convertFileType' => 'string',
-        'password' => 'string'
+        'password' => 'string',
+        'zoom' => 'int'
     ];
 
     /*
@@ -65,7 +66,8 @@ class CellsSaveOptionsDto extends SaveOptionsBaseDto
      */
     protected static $swaggerFormats = [
         'convertFileType' => null,
-        'password' => null
+        'password' => null,
+        'zoom' => 'int32'
     ];
 
     /*
@@ -95,8 +97,9 @@ class CellsSaveOptionsDto extends SaveOptionsBaseDto
      * @var string[]
      */
     protected static $attributeMap = [
-        'convertFileType' => 'ConvertFileType',
-        'password' => 'Password'
+        'convertFileType' => 'convertFileType',
+        'password' => 'password',
+        'zoom' => 'zoom'
     ];
 
     /*
@@ -106,7 +109,8 @@ class CellsSaveOptionsDto extends SaveOptionsBaseDto
      */
     protected static $setters = [
         'convertFileType' => 'setConvertFileType',
-        'password' => 'setPassword'
+        'password' => 'setPassword',
+        'zoom' => 'setZoom'
     ];
 
     /*
@@ -116,7 +120,8 @@ class CellsSaveOptionsDto extends SaveOptionsBaseDto
      */
     protected static $getters = [
         'convertFileType' => 'getConvertFileType',
-        'password' => 'getPassword'
+        'password' => 'getPassword',
+        'zoom' => 'getZoom'
     ];
 
     /*
@@ -167,6 +172,8 @@ class CellsSaveOptionsDto extends SaveOptionsBaseDto
     const CONVERT_FILE_TYPE_XLSB = 'Xlsb';
     const CONVERT_FILE_TYPE_ODS = 'Ods';
     const CONVERT_FILE_TYPE_CSV = 'Csv';
+    const CONVERT_FILE_TYPE_XLTX = 'Xltx';
+    const CONVERT_FILE_TYPE_XLTM = 'Xltm';
     
 
     
@@ -185,6 +192,8 @@ class CellsSaveOptionsDto extends SaveOptionsBaseDto
             self::CONVERT_FILE_TYPE_XLSB,
             self::CONVERT_FILE_TYPE_ODS,
             self::CONVERT_FILE_TYPE_CSV,
+            self::CONVERT_FILE_TYPE_XLTX,
+            self::CONVERT_FILE_TYPE_XLTM,
         ];
     }
     
@@ -202,6 +211,7 @@ class CellsSaveOptionsDto extends SaveOptionsBaseDto
 
         $this->container['convertFileType'] = isset($data['convertFileType']) ? $data['convertFileType'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
+        $this->container['zoom'] = isset($data['zoom']) ? $data['zoom'] : null;
     }
 
     /*
@@ -293,6 +303,30 @@ class CellsSaveOptionsDto extends SaveOptionsBaseDto
     public function setPassword($password)
     {
         $this->container['password'] = $password;
+
+        return $this;
+    }
+
+    /*
+     * Gets zoom
+     *
+     * @return int
+     */
+    public function getZoom()
+    {
+        return $this->container['zoom'];
+    }
+
+    /*
+     * Sets zoom
+     *
+     * @param int $zoom Specifies the zoom level in percentage. Default is 100.
+     *
+     * @return $this
+     */
+    public function setZoom($zoom)
+    {
+        $this->container['zoom'] = $zoom;
 
         return $this;
     }

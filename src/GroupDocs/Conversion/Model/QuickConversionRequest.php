@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="AllPossibleConversionsResponse.php">
+ * <copyright company="Aspose Pty Ltd" file="QuickConversionRequest.php">
  *   Copyright (c) 2003-2018 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -26,20 +26,18 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 /*
- * AllPossibleConversionsResponse
+ * QuickConversionRequest
  */
 
 namespace GroupDocs\Conversion\Model;
-
-use \ArrayAccess;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * AllPossibleConversionsResponse
+ * QuickConversionRequest
  *
- * @description All Possible conversions response class
+ * @description QuickConversionSettings
  */
-class AllPossibleConversionsResponse implements ArrayAccess
+class QuickConversionRequest extends BaseConversionRequest 
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +46,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "AllPossibleConversionsResponse";
+    protected static $swaggerModelName = "QuickConversionRequest";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -56,7 +54,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'conversions' => '\GroupDocs\Conversion\Model\PossibleConversionResponse[]'
+        'format' => 'string'
     ];
 
     /*
@@ -65,7 +63,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'conversions' => null
+        'format' => null
     ];
 
     /*
@@ -75,7 +73,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /*
@@ -85,7 +83,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /*
@@ -95,7 +93,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'conversions' => 'conversions'
+        'format' => 'format'
     ];
 
     /*
@@ -104,7 +102,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'conversions' => 'setConversions'
+        'format' => 'setFormat'
     ];
 
     /*
@@ -113,7 +111,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'conversions' => 'getConversions'
+        'format' => 'getFormat'
     ];
 
     /*
@@ -124,7 +122,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /*
@@ -134,7 +132,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /*
@@ -144,7 +142,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /*
@@ -161,12 +159,6 @@ class AllPossibleConversionsResponse implements ArrayAccess
 
     
 
-    /*
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /*
      * Constructor
@@ -176,7 +168,9 @@ class AllPossibleConversionsResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['conversions'] = isset($data['conversions']) ? $data['conversions'] : null;
+        parent::__construct($data);
+
+        $this->container['format'] = isset($data['format']) ? $data['format'] : null;
     }
 
     /*
@@ -186,7 +180,7 @@ class AllPossibleConversionsResponse implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         return $invalidProperties;
     }
@@ -199,31 +193,34 @@ class AllPossibleConversionsResponse implements ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
         return true;
     }
 
 
     /*
-     * Gets conversions
+     * Gets format
      *
-     * @return \GroupDocs\Conversion\Model\PossibleConversionResponse[]
+     * @return string
      */
-    public function getConversions()
+    public function getFormat()
     {
-        return $this->container['conversions'];
+        return $this->container['format'];
     }
 
     /*
-     * Sets conversions
+     * Sets format
      *
-     * @param \GroupDocs\Conversion\Model\PossibleConversionResponse[] $conversions All possible conversions. List of PossibleConversionResponse
+     * @param string $format required target format
      *
      * @return $this
      */
-    public function setConversions($conversions)
+    public function setFormat($format)
     {
-        $this->container['conversions'] = $conversions;
+        $this->container['format'] = $format;
 
         return $this;
     }

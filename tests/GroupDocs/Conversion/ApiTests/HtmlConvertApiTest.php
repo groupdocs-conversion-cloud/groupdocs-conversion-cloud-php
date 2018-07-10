@@ -43,14 +43,14 @@ class HtmlConvertApiTest extends BaseApiTest
         $testFile = Internal\TestFiles::getFileOnePageDocx();
         
 
-        $settings = new Model\HtmlConversionSettings();
+        $payload = new Model\HtmlConversionRequest();
         
-        $settings->setSourceFile(self::ToConversionFileInfo($testFile));
+        $payload->setSourceFile(self::ToConversionFileInfo($testFile));
         
         $options = new Model\HtmlSaveOptionsDto();
-        $settings->setOptions($options);
+        $payload->setOptions($options);
         
-        $request = new Requests\ConvertToHtmlRequest($settings);
+        $request = new Requests\ConvertToHtmlRequest($payload);
         
         $response = self::$conversionApi->convertToHtml($request);
         
@@ -69,14 +69,14 @@ class HtmlConvertApiTest extends BaseApiTest
         $testFile = Internal\TestFiles::getFileOnePageDocx();
         
 
-        $settings = new Model\HtmlConversionSettings();
+        $payload = new Model\HtmlConversionRequest();
         
-        $settings->setSourceFile(self::ToConversionFileInfo($testFile));
+        $payload->setSourceFile(self::ToConversionFileInfo($testFile));
         
         $options = new Model\HtmlSaveOptionsDto();
-        $settings->setOptions($options);
+        $payload->setOptions($options);
         
-        $request = new Requests\ConvertToHtmlStreamRequest($settings);
+        $request = new Requests\ConvertToHtmlStreamRequest($payload);
         
         $response = self::$conversionApi->convertToHtmlStream($request);
         

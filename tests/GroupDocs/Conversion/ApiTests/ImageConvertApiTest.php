@@ -43,14 +43,14 @@ class ImageConvertApiTest extends BaseApiTest
         $testFile = Internal\TestFiles::getFileOnePageDocx();
         
 
-        $settings = new Model\ImageConversionSettings();
+        $payload = new Model\ImageConversionRequest();
         
-        $settings->setSourceFile(self::ToConversionFileInfo($testFile));
+        $payload->setSourceFile(self::ToConversionFileInfo($testFile));
         
         $options = new Model\ImageSaveOptionsDto();
-        $settings->setOptions($options);
+        $payload->setOptions($options);
         
-        $request = new Requests\ConvertToImageRequest($settings);
+        $request = new Requests\ConvertToImageRequest($payload);
         
         $response = self::$conversionApi->convertToImage($request);
         
@@ -69,14 +69,14 @@ class ImageConvertApiTest extends BaseApiTest
         $testFile = Internal\TestFiles::getFileOnePageDocx();
         
 
-        $settings = new Model\ImageConversionSettings();
+        $payload = new Model\ImageConversionRequest();
         
-        $settings->setSourceFile(self::ToConversionFileInfo($testFile));
+        $payload->setSourceFile(self::ToConversionFileInfo($testFile));
         
         $options = new Model\ImageSaveOptionsDto();
-        $settings->setOptions($options);
+        $payload->setOptions($options);
         
-        $request = new Requests\ConvertToImageStreamRequest($settings);
+        $request = new Requests\ConvertToImageStreamRequest($payload);
         
         $response = self::$conversionApi->convertToImageStream($request);
         

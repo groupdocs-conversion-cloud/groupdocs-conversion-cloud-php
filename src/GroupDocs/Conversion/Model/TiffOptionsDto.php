@@ -95,7 +95,7 @@ class TiffOptionsDto implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'compression' => 'Compression'
+        'compression' => 'compression'
     ];
 
     /*
