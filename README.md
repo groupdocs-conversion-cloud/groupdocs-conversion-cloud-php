@@ -85,10 +85,10 @@ GroupDocs.Conversion for Cloud SDK for PHP is licensed under [MIT License](LICEN
 
 ## Resources
 + [**Website**](https://www.groupdocs.cloud)
-+ [**Product Home**](https://products.groupdocs.cloud/conversion/cloud)
++ [**Product Home**](https://products.groupdocs.cloud/conversion)
 + [**Documentation**](https://docs.groupdocs.cloud/display/conversioncloud/Home)
 + [**Free Support Forum**](https://forum.groupdocs.cloud/c/conversion)
-+ [**Blog**](https://blog.groupdocs.cloud/category/groupdocs-conversion-cloud-product-family)
++ [**Blog**](https://blog.groupdocs.cloud/category/conversion)
 
 ## Contact Us
 Your feedback is very important to us. Please feel free to contact us using our [Support Forums](https://forum.groupdocs.cloud/c/conversion).
