@@ -5,7 +5,7 @@ This repository contains GroupDocs.Conversion Cloud SDK for PHP source code. Thi
 - PHP 5.5 or later
 
 ## Authorization
-To use SDK you need AppSID and AppKey authorization keys. You can your AppSID and AppKey at https://dashboard.groupdocs.cloud (free registration is required).  
+To use SDK you need AppSID and AppKey authorization keys. You can get your AppSID and AppKey at https://dashboard.groupdocs.cloud (free registration is required).  
 
 ## Installation & Usage
 ### Composer
@@ -46,7 +46,7 @@ require_once('/path/to/groupdocs-conversion-cloud-php/vendor/autoload.php');
 To run the unit tests set your AppSID and AppKey in [json.config](tests/GroupDocs/Conversion/config.json) and execute following commands:
 
 ```
-composer install
+php composer.phar install
 ./vendor/bin/phpunit
 ```
 
@@ -66,11 +66,11 @@ $configuration->setAppKey("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
 $conversionApi = new GroupDocs\Conversion\ConversionApi($configuration); 
 
 try {
-    $request = new GroupDocs\Conversion\Model\Requests\GetAllPossibleConversionsRequest();
-    $response = $conversionApi->getAllPossibleConversions($request);
+    $request = new GroupDocs\Conversion\Model\Requests\GetSupportedConversionTypesRequest();
+    $response = $conversionApi->getSupportedConversionTypes($request);
 
-    foreach ($response->getConversions() as $key => $conversion) {
-        echo $conversion->getSourceFileType() . " - " .  join(",", $conversion->getPossibleConversions()) . "\n";
+    foreach($response as $key => $format) {
+          echo $format->getSourceFormat();
     }
 } catch (Exception $e) {
     echo  "Something went wrong: ",  $e->getMessage(), "\n";
@@ -81,7 +81,7 @@ try {
 ```
 
 ## Licensing
-GroupDocs.Conversion for Cloud SDK for PHP is licensed under [MIT License](LICENSE).
+GroupDocs.Conversion Cloud SDK for PHP is licensed under [MIT License](LICENSE).
 
 ## Resources
 + [**Website**](https://www.groupdocs.cloud)

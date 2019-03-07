@@ -15,7 +15,7 @@ out/
 *.lic
 *.user
 Out/
-Out*/
+#Out*/
 Data/*Out*
 TestResults/
 *.ide
@@ -24,6 +24,9 @@ test-results/
 node_modules/
 *.userprefs
 packages/
+Plugins/Aspose_Words_NET_for_PHP/.idea/*
+Plugins/Aspose_Words_NET_for_PHP/vendor/*
+Plugins/Aspose_Words_NET_for_PHP/composer.lock
 *.gitattributes
 *.pyc
 # Built application files

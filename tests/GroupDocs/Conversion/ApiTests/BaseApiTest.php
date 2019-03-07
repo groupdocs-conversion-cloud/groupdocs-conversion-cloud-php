@@ -1,8 +1,8 @@
 <?php
 /*
 * --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose Pty Ltd" file="BaseApiTest.php">
-*   Copyright (c) 2003-2018 Aspose Pty Ltd
+* <copyright company="Aspose" file="BaseApiTest.php">
+*   Copyright (c) 2003-2019 Aspose Pty Ltd
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -28,35 +28,36 @@
 namespace GroupDocs\Conversion\ApiTests;
 
 use PHPUnit\Framework\TestCase;
-use Aspose\Storage\StorageApi;
 use GroupDocs\Conversion\Configuration;
 use GroupDocs\Conversion\ConversionApi;
-use GroupDocs\Conversion\Model;
+use GroupDocs\Conversion\StorageApi;
+use GroupDocs\Conversion\FileApi;
+use GroupDocs\Conversion\FolderApi;
 
 abstract class BaseApiTest extends \PHPUnit_Framework_TestCase
 {
-    protected static $config;
-    protected static $conversionApi;
-    protected static $storageApi;
-    
-    protected static $fontsFolder = "fonts";
-    protected static $fromUrlFolder = "tests\\from_url";
-    protected static $fromContentFolder = "tests\\from_content";
+    protected static $conversionConfig;
 
-    protected static $testFilesUploaded;
+    protected static $conversionApi;    
+    protected static $storageApi;
+    protected static $fileApi;
+    protected static $folderApi;
+    
+    protected static $testFilesUploaded = false;
 
     /**
      * Cleanup after each test case
      */
     public function tearDown()
     {
-        self::_removeTempFiles();
+        self::_deleteFolder("conversion");        
     }
 
-    private static function _removeTempFiles()
+    private static function _deleteFolder($folder)
     {
-        self::$storageApi->DeleteFolder("cache", null, "true");
-        self::$storageApi->DeleteFolder("tests", null, "true");
+        $request = new \GroupDocs\Conversion\Model\Requests\deleteFolderRequest($folder, null, true);
+
+        self::$folderApi->DeleteFolder($request);
     }
 
     /**
@@ -69,29 +70,29 @@ abstract class BaseApiTest extends \PHPUnit_Framework_TestCase
 
     private static function _initTests()
     {
-        $config = self::_getConfig();
+        $config = self::getConfig();
 
-        //TODO: Get your AppSID and AppKey at https://dashboard.groupdocs.cloud
+        //TODO: Get your AppSID and AppKey at https://dashboard.groupdocs.cloud 
         //      (free registration is required).
+
         $appSid = $config["AppSID"];
         $appKey = $config["AppKey"];
         $apiBaseUrl = $config["ApiBaseUrl"];
 
-        self::$storageApi = new StorageApi();
-        self::$storageApi->apiClient->appSid = $appSid;
-        self::$storageApi->apiClient->apiKey = $appKey;
-        self::$storageApi->apiClient->apiServer = $apiBaseUrl . "/v1";
+        self::$conversionConfig = new Configuration();
+        self::$conversionConfig->setAppSid($appSid);
+        self::$conversionConfig->setAppKey($appKey);
+        self::$conversionConfig->setApiBaseUrl($apiBaseUrl);
 
-        self::$config = new Configuration();
-        self::$config->setAppSid($appSid);
-        self::$config->setAppKey($appKey);
-        self::$config->setHost($apiBaseUrl);
-        self::$conversionApi = new ConversionApi(self::$config);
+        self::$conversionApi = new ConversionApi(self::$conversionConfig);
+        self::$storageApi = new StorageApi(self::$conversionConfig);
+        self::$fileApi = new FileApi(self::$conversionConfig);
+        self::$folderApi = new FolderApi(self::$conversionConfig);
 
         self::_uploadTestFiles();
     }
 
-    private static function _getConfig()
+    protected static function getConfig()
     {
         $contents = file_get_contents(realpath(__DIR__ . "/../config.json"));
         $config = \GuzzleHttp\json_decode($contents, true);
@@ -106,20 +107,14 @@ abstract class BaseApiTest extends \PHPUnit_Framework_TestCase
         }
 
         $folder = self::_getTestDataPath();
-        $dir_iterator = new \RecursiveDirectoryIterator($folder);
-        $iterator = new \RecursiveIteratorIterator($dir_iterator, \RecursiveIteratorIterator::SELF_FIRST);
-
-        foreach ($iterator as $file) {
-            if (!$file->isDir()) {
-                $filePath = $file->getPathName();
-
-                $filePathInStorage = str_replace($folder . '\\', "", $filePath);
-                $filePathInStorage = str_replace("\\", "/", $filePathInStorage);
-
-                $response = self::$storageApi->GetIsExist($filePathInStorage);
-                if (!$response->fileExist->isExist) {
-                    self::$storageApi->PutCreate($filePathInStorage, null, null, $filePath);
-                }
+        $files = Internal\TestFiles::getTestFilesList();
+        foreach ($files as $file) {
+            $path = $file->folder . $file->fileName;
+            $isExistRequest = new \GroupDocs\Conversion\Model\Requests\objectExistsRequest($path);
+            $isExistResponse = self::$storageApi->objectExists($isExistRequest);
+            if (!$isExistResponse->getExists()) {
+                $uploadRequest = new \GroupDocs\Conversion\Model\Requests\uploadFileRequest($path, $folder . DIRECTORY_SEPARATOR . $path);
+                $response = self::$fileApi->uploadFile($uploadRequest);
             }
         }
 
@@ -148,23 +143,6 @@ abstract class BaseApiTest extends \PHPUnit_Framework_TestCase
      */
     protected static function getTestFilePath($file)
     {
-        return realpath(self::_getTestDataPath() . DIRECTORY_SEPARATOR .  $file->folder . DIRECTORY_SEPARATOR . $file->fileName);
-    }
-
-    /**
-     * Check if hastack ends with needle
-     */
-    protected  static function endsWith($haystack, $needle)
-    {
-        return $needle === '' || substr_compare($haystack, $needle, -strlen($needle)) === 0;
-    }
-
-    protected static function ToConversionFileInfo($file)
-    {
-        $result = new Model\ConversionFileInfo();
-        $result->setFolder($file->folder);
-        $result->setName($file->fileName);
-        $result->setPassword($file->password);
-        return $result;
+        return realpath(self::_getTestDataPath() . DIRECTORY_SEPARATOR . $file->folder . $file->fileName);
     }
 }

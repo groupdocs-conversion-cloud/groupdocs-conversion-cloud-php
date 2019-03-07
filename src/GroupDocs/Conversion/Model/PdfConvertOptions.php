@@ -1,0 +1,1231 @@
+<?php
+/*
+ * --------------------------------------------------------------------------------------------------------------------
+ * <copyright company="Aspose Pty Ltd" file="PdfConvertOptions.php">
+ *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ * </copyright>
+ * <summary>
+ *   Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ * 
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
+ * 
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
+ * </summary>
+ * --------------------------------------------------------------------------------------------------------------------
+ */
+
+namespace GroupDocs\Conversion\Model;
+use \GroupDocs\Conversion\ObjectSerializer;
+
+/*
+ * PdfConvertOptions
+ *
+ * @description Options for to PDF conversion
+ */
+class PdfConvertOptions extends ConvertOptions 
+{
+    const DISCRIMINATOR = null;
+
+    /*
+     * The original name of the model.
+     *
+     * @var string
+     */
+    protected static $swaggerModelName = "PdfConvertOptions";
+
+    /*
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
+    protected static $swaggerTypes = [
+        'width' => 'int',
+        'height' => 'int',
+        'dpi' => 'double',
+        'password' => 'string',
+        'marginTop' => 'int',
+        'marginBottom' => 'int',
+        'marginLeft' => 'int',
+        'marginRight' => 'int',
+        'removePdfaCompliance' => 'bool',
+        'zoom' => 'int',
+        'linearize' => 'bool',
+        'linkDuplicateStreams' => 'bool',
+        'removeUnusedObjects' => 'bool',
+        'removeUnusedStreams' => 'bool',
+        'compressImages' => 'bool',
+        'imageQuality' => 'int',
+        'unembedFonts' => 'bool',
+        'grayscale' => 'bool',
+        'centerWindow' => 'bool',
+        'displayDocTitle' => 'bool',
+        'fitWindow' => 'bool',
+        'hideMenubar' => 'bool',
+        'hideToolBar' => 'bool',
+        'hideWindowUI' => 'bool',
+        'bookmarksOutlineLevel' => 'int',
+        'headingsOutlineLevels' => 'int',
+        'expandedOutlineLevels' => 'int'
+    ];
+
+    /*
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
+    protected static $swaggerFormats = [
+        'width' => 'int32',
+        'height' => 'int32',
+        'dpi' => 'double',
+        'password' => null,
+        'marginTop' => 'int32',
+        'marginBottom' => 'int32',
+        'marginLeft' => 'int32',
+        'marginRight' => 'int32',
+        'removePdfaCompliance' => null,
+        'zoom' => 'int32',
+        'linearize' => null,
+        'linkDuplicateStreams' => null,
+        'removeUnusedObjects' => null,
+        'removeUnusedStreams' => null,
+        'compressImages' => null,
+        'imageQuality' => 'int32',
+        'unembedFonts' => null,
+        'grayscale' => null,
+        'centerWindow' => null,
+        'displayDocTitle' => null,
+        'fitWindow' => null,
+        'hideMenubar' => null,
+        'hideToolBar' => null,
+        'hideWindowUI' => null,
+        'bookmarksOutlineLevel' => 'int32',
+        'headingsOutlineLevels' => 'int32',
+        'expandedOutlineLevels' => 'int32'
+    ];
+
+    /*
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
+     */
+    public static function swaggerTypes()
+    {
+        return self::$swaggerTypes + parent::swaggerTypes();
+    }
+
+    /*
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
+     */
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats + parent::swaggerFormats();
+    }
+
+    /*
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
+     *
+     * @var string[]
+     */
+    protected static $attributeMap = [
+        'width' => 'Width',
+        'height' => 'Height',
+        'dpi' => 'Dpi',
+        'password' => 'Password',
+        'marginTop' => 'MarginTop',
+        'marginBottom' => 'MarginBottom',
+        'marginLeft' => 'MarginLeft',
+        'marginRight' => 'MarginRight',
+        'removePdfaCompliance' => 'RemovePdfaCompliance',
+        'zoom' => 'Zoom',
+        'linearize' => 'Linearize',
+        'linkDuplicateStreams' => 'LinkDuplicateStreams',
+        'removeUnusedObjects' => 'RemoveUnusedObjects',
+        'removeUnusedStreams' => 'RemoveUnusedStreams',
+        'compressImages' => 'CompressImages',
+        'imageQuality' => 'ImageQuality',
+        'unembedFonts' => 'UnembedFonts',
+        'grayscale' => 'Grayscale',
+        'centerWindow' => 'CenterWindow',
+        'displayDocTitle' => 'DisplayDocTitle',
+        'fitWindow' => 'FitWindow',
+        'hideMenubar' => 'HideMenubar',
+        'hideToolBar' => 'HideToolBar',
+        'hideWindowUI' => 'HideWindowUI',
+        'bookmarksOutlineLevel' => 'BookmarksOutlineLevel',
+        'headingsOutlineLevels' => 'HeadingsOutlineLevels',
+        'expandedOutlineLevels' => 'ExpandedOutlineLevels'
+    ];
+
+    /*
+     * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @var string[]
+     */
+    protected static $setters = [
+        'width' => 'setWidth',
+        'height' => 'setHeight',
+        'dpi' => 'setDpi',
+        'password' => 'setPassword',
+        'marginTop' => 'setMarginTop',
+        'marginBottom' => 'setMarginBottom',
+        'marginLeft' => 'setMarginLeft',
+        'marginRight' => 'setMarginRight',
+        'removePdfaCompliance' => 'setRemovePdfaCompliance',
+        'zoom' => 'setZoom',
+        'linearize' => 'setLinearize',
+        'linkDuplicateStreams' => 'setLinkDuplicateStreams',
+        'removeUnusedObjects' => 'setRemoveUnusedObjects',
+        'removeUnusedStreams' => 'setRemoveUnusedStreams',
+        'compressImages' => 'setCompressImages',
+        'imageQuality' => 'setImageQuality',
+        'unembedFonts' => 'setUnembedFonts',
+        'grayscale' => 'setGrayscale',
+        'centerWindow' => 'setCenterWindow',
+        'displayDocTitle' => 'setDisplayDocTitle',
+        'fitWindow' => 'setFitWindow',
+        'hideMenubar' => 'setHideMenubar',
+        'hideToolBar' => 'setHideToolBar',
+        'hideWindowUI' => 'setHideWindowUI',
+        'bookmarksOutlineLevel' => 'setBookmarksOutlineLevel',
+        'headingsOutlineLevels' => 'setHeadingsOutlineLevels',
+        'expandedOutlineLevels' => 'setExpandedOutlineLevels'
+    ];
+
+    /*
+     * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @var string[]
+     */
+    protected static $getters = [
+        'width' => 'getWidth',
+        'height' => 'getHeight',
+        'dpi' => 'getDpi',
+        'password' => 'getPassword',
+        'marginTop' => 'getMarginTop',
+        'marginBottom' => 'getMarginBottom',
+        'marginLeft' => 'getMarginLeft',
+        'marginRight' => 'getMarginRight',
+        'removePdfaCompliance' => 'getRemovePdfaCompliance',
+        'zoom' => 'getZoom',
+        'linearize' => 'getLinearize',
+        'linkDuplicateStreams' => 'getLinkDuplicateStreams',
+        'removeUnusedObjects' => 'getRemoveUnusedObjects',
+        'removeUnusedStreams' => 'getRemoveUnusedStreams',
+        'compressImages' => 'getCompressImages',
+        'imageQuality' => 'getImageQuality',
+        'unembedFonts' => 'getUnembedFonts',
+        'grayscale' => 'getGrayscale',
+        'centerWindow' => 'getCenterWindow',
+        'displayDocTitle' => 'getDisplayDocTitle',
+        'fitWindow' => 'getFitWindow',
+        'hideMenubar' => 'getHideMenubar',
+        'hideToolBar' => 'getHideToolBar',
+        'hideWindowUI' => 'getHideWindowUI',
+        'bookmarksOutlineLevel' => 'getBookmarksOutlineLevel',
+        'headingsOutlineLevels' => 'getHeadingsOutlineLevels',
+        'expandedOutlineLevels' => 'getExpandedOutlineLevels'
+    ];
+
+    /*
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
+     *
+     * @return array
+     */
+    public static function attributeMap()
+    {
+        return parent::attributeMap() + self::$attributeMap;
+    }
+
+    /*
+     * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
+     */
+    public static function setters()
+    {
+        return parent::setters() + self::$setters;
+    }
+
+    /*
+     * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
+     */
+    public static function getters()
+    {
+        return parent::getters() + self::$getters;
+    }
+
+    /*
+     * The original name of the model.
+     *
+     * @return string
+     */
+    public function getModelName()
+    {
+        return self::$swaggerModelName;
+    }
+
+    
+
+    
+
+
+    /*
+     * Constructor
+     *
+     * @param mixed[] $data Associated array of property values
+     *                      initializing the model
+     */
+    public function __construct(array $data = null)
+    {
+        parent::__construct($data);
+
+        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
+        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
+        $this->container['dpi'] = isset($data['dpi']) ? $data['dpi'] : null;
+        $this->container['password'] = isset($data['password']) ? $data['password'] : null;
+        $this->container['marginTop'] = isset($data['marginTop']) ? $data['marginTop'] : null;
+        $this->container['marginBottom'] = isset($data['marginBottom']) ? $data['marginBottom'] : null;
+        $this->container['marginLeft'] = isset($data['marginLeft']) ? $data['marginLeft'] : null;
+        $this->container['marginRight'] = isset($data['marginRight']) ? $data['marginRight'] : null;
+        $this->container['removePdfaCompliance'] = isset($data['removePdfaCompliance']) ? $data['removePdfaCompliance'] : null;
+        $this->container['zoom'] = isset($data['zoom']) ? $data['zoom'] : null;
+        $this->container['linearize'] = isset($data['linearize']) ? $data['linearize'] : null;
+        $this->container['linkDuplicateStreams'] = isset($data['linkDuplicateStreams']) ? $data['linkDuplicateStreams'] : null;
+        $this->container['removeUnusedObjects'] = isset($data['removeUnusedObjects']) ? $data['removeUnusedObjects'] : null;
+        $this->container['removeUnusedStreams'] = isset($data['removeUnusedStreams']) ? $data['removeUnusedStreams'] : null;
+        $this->container['compressImages'] = isset($data['compressImages']) ? $data['compressImages'] : null;
+        $this->container['imageQuality'] = isset($data['imageQuality']) ? $data['imageQuality'] : null;
+        $this->container['unembedFonts'] = isset($data['unembedFonts']) ? $data['unembedFonts'] : null;
+        $this->container['grayscale'] = isset($data['grayscale']) ? $data['grayscale'] : null;
+        $this->container['centerWindow'] = isset($data['centerWindow']) ? $data['centerWindow'] : null;
+        $this->container['displayDocTitle'] = isset($data['displayDocTitle']) ? $data['displayDocTitle'] : null;
+        $this->container['fitWindow'] = isset($data['fitWindow']) ? $data['fitWindow'] : null;
+        $this->container['hideMenubar'] = isset($data['hideMenubar']) ? $data['hideMenubar'] : null;
+        $this->container['hideToolBar'] = isset($data['hideToolBar']) ? $data['hideToolBar'] : null;
+        $this->container['hideWindowUI'] = isset($data['hideWindowUI']) ? $data['hideWindowUI'] : null;
+        $this->container['bookmarksOutlineLevel'] = isset($data['bookmarksOutlineLevel']) ? $data['bookmarksOutlineLevel'] : null;
+        $this->container['headingsOutlineLevels'] = isset($data['headingsOutlineLevels']) ? $data['headingsOutlineLevels'] : null;
+        $this->container['expandedOutlineLevels'] = isset($data['expandedOutlineLevels']) ? $data['expandedOutlineLevels'] : null;
+    }
+
+    /*
+     * Show all the invalid properties with reasons.
+     *
+     * @return array invalid properties with reasons
+     */
+    public function listInvalidProperties()
+    {
+        $invalidProperties = parent::listInvalidProperties();
+
+        if ($this->container['width'] === null) {
+            $invalidProperties[] = "'width' can't be null";
+        }
+        if ($this->container['height'] === null) {
+            $invalidProperties[] = "'height' can't be null";
+        }
+        if ($this->container['dpi'] === null) {
+            $invalidProperties[] = "'dpi' can't be null";
+        }
+        if ($this->container['marginTop'] === null) {
+            $invalidProperties[] = "'marginTop' can't be null";
+        }
+        if ($this->container['marginBottom'] === null) {
+            $invalidProperties[] = "'marginBottom' can't be null";
+        }
+        if ($this->container['marginLeft'] === null) {
+            $invalidProperties[] = "'marginLeft' can't be null";
+        }
+        if ($this->container['marginRight'] === null) {
+            $invalidProperties[] = "'marginRight' can't be null";
+        }
+        if ($this->container['removePdfaCompliance'] === null) {
+            $invalidProperties[] = "'removePdfaCompliance' can't be null";
+        }
+        if ($this->container['zoom'] === null) {
+            $invalidProperties[] = "'zoom' can't be null";
+        }
+        if ($this->container['linearize'] === null) {
+            $invalidProperties[] = "'linearize' can't be null";
+        }
+        if ($this->container['linkDuplicateStreams'] === null) {
+            $invalidProperties[] = "'linkDuplicateStreams' can't be null";
+        }
+        if ($this->container['removeUnusedObjects'] === null) {
+            $invalidProperties[] = "'removeUnusedObjects' can't be null";
+        }
+        if ($this->container['removeUnusedStreams'] === null) {
+            $invalidProperties[] = "'removeUnusedStreams' can't be null";
+        }
+        if ($this->container['compressImages'] === null) {
+            $invalidProperties[] = "'compressImages' can't be null";
+        }
+        if ($this->container['imageQuality'] === null) {
+            $invalidProperties[] = "'imageQuality' can't be null";
+        }
+        if ($this->container['unembedFonts'] === null) {
+            $invalidProperties[] = "'unembedFonts' can't be null";
+        }
+        if ($this->container['grayscale'] === null) {
+            $invalidProperties[] = "'grayscale' can't be null";
+        }
+        if ($this->container['centerWindow'] === null) {
+            $invalidProperties[] = "'centerWindow' can't be null";
+        }
+        if ($this->container['displayDocTitle'] === null) {
+            $invalidProperties[] = "'displayDocTitle' can't be null";
+        }
+        if ($this->container['fitWindow'] === null) {
+            $invalidProperties[] = "'fitWindow' can't be null";
+        }
+        if ($this->container['hideMenubar'] === null) {
+            $invalidProperties[] = "'hideMenubar' can't be null";
+        }
+        if ($this->container['hideToolBar'] === null) {
+            $invalidProperties[] = "'hideToolBar' can't be null";
+        }
+        if ($this->container['hideWindowUI'] === null) {
+            $invalidProperties[] = "'hideWindowUI' can't be null";
+        }
+        if ($this->container['bookmarksOutlineLevel'] === null) {
+            $invalidProperties[] = "'bookmarksOutlineLevel' can't be null";
+        }
+        if ($this->container['headingsOutlineLevels'] === null) {
+            $invalidProperties[] = "'headingsOutlineLevels' can't be null";
+        }
+        if ($this->container['expandedOutlineLevels'] === null) {
+            $invalidProperties[] = "'expandedOutlineLevels' can't be null";
+        }
+        return $invalidProperties;
+    }
+
+    /*
+     * Validate all the properties in the model
+     * return true if all passed
+     *
+     * @return bool True if all properties are valid
+     */
+    public function valid()
+    {
+        if (!parent::valid()) {
+            return false;
+        }
+
+        if ($this->container['width'] === null) {
+            return false;
+        }
+        if ($this->container['height'] === null) {
+            return false;
+        }
+        if ($this->container['dpi'] === null) {
+            return false;
+        }
+        if ($this->container['marginTop'] === null) {
+            return false;
+        }
+        if ($this->container['marginBottom'] === null) {
+            return false;
+        }
+        if ($this->container['marginLeft'] === null) {
+            return false;
+        }
+        if ($this->container['marginRight'] === null) {
+            return false;
+        }
+        if ($this->container['removePdfaCompliance'] === null) {
+            return false;
+        }
+        if ($this->container['zoom'] === null) {
+            return false;
+        }
+        if ($this->container['linearize'] === null) {
+            return false;
+        }
+        if ($this->container['linkDuplicateStreams'] === null) {
+            return false;
+        }
+        if ($this->container['removeUnusedObjects'] === null) {
+            return false;
+        }
+        if ($this->container['removeUnusedStreams'] === null) {
+            return false;
+        }
+        if ($this->container['compressImages'] === null) {
+            return false;
+        }
+        if ($this->container['imageQuality'] === null) {
+            return false;
+        }
+        if ($this->container['unembedFonts'] === null) {
+            return false;
+        }
+        if ($this->container['grayscale'] === null) {
+            return false;
+        }
+        if ($this->container['centerWindow'] === null) {
+            return false;
+        }
+        if ($this->container['displayDocTitle'] === null) {
+            return false;
+        }
+        if ($this->container['fitWindow'] === null) {
+            return false;
+        }
+        if ($this->container['hideMenubar'] === null) {
+            return false;
+        }
+        if ($this->container['hideToolBar'] === null) {
+            return false;
+        }
+        if ($this->container['hideWindowUI'] === null) {
+            return false;
+        }
+        if ($this->container['bookmarksOutlineLevel'] === null) {
+            return false;
+        }
+        if ($this->container['headingsOutlineLevels'] === null) {
+            return false;
+        }
+        if ($this->container['expandedOutlineLevels'] === null) {
+            return false;
+        }
+        return true;
+    }
+
+
+    /*
+     * Gets width
+     *
+     * @return int
+     */
+    public function getWidth()
+    {
+        return $this->container['width'];
+    }
+
+    /*
+     * Sets width
+     *
+     * @param int $width Desired page width in pixels after conversion
+     *
+     * @return $this
+     */
+    public function setWidth($width)
+    {
+        $this->container['width'] = $width;
+
+        return $this;
+    }
+
+    /*
+     * Gets height
+     *
+     * @return int
+     */
+    public function getHeight()
+    {
+        return $this->container['height'];
+    }
+
+    /*
+     * Sets height
+     *
+     * @param int $height Desired page height in pixels after conversion
+     *
+     * @return $this
+     */
+    public function setHeight($height)
+    {
+        $this->container['height'] = $height;
+
+        return $this;
+    }
+
+    /*
+     * Gets dpi
+     *
+     * @return double
+     */
+    public function getDpi()
+    {
+        return $this->container['dpi'];
+    }
+
+    /*
+     * Sets dpi
+     *
+     * @param double $dpi Desired page DPI after conversion. The default resolution is: 96dpi
+     *
+     * @return $this
+     */
+    public function setDpi($dpi)
+    {
+        $this->container['dpi'] = $dpi;
+
+        return $this;
+    }
+
+    /*
+     * Gets password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->container['password'];
+    }
+
+    /*
+     * Sets password
+     *
+     * @param string $password Set this property if you want to protect the converted document with a password
+     *
+     * @return $this
+     */
+    public function setPassword($password)
+    {
+        $this->container['password'] = $password;
+
+        return $this;
+    }
+
+    /*
+     * Gets marginTop
+     *
+     * @return int
+     */
+    public function getMarginTop()
+    {
+        return $this->container['marginTop'];
+    }
+
+    /*
+     * Sets marginTop
+     *
+     * @param int $marginTop Desired page top margin in pixels after conversion
+     *
+     * @return $this
+     */
+    public function setMarginTop($marginTop)
+    {
+        $this->container['marginTop'] = $marginTop;
+
+        return $this;
+    }
+
+    /*
+     * Gets marginBottom
+     *
+     * @return int
+     */
+    public function getMarginBottom()
+    {
+        return $this->container['marginBottom'];
+    }
+
+    /*
+     * Sets marginBottom
+     *
+     * @param int $marginBottom Desired page bottom margin in pixels after conversion
+     *
+     * @return $this
+     */
+    public function setMarginBottom($marginBottom)
+    {
+        $this->container['marginBottom'] = $marginBottom;
+
+        return $this;
+    }
+
+    /*
+     * Gets marginLeft
+     *
+     * @return int
+     */
+    public function getMarginLeft()
+    {
+        return $this->container['marginLeft'];
+    }
+
+    /*
+     * Sets marginLeft
+     *
+     * @param int $marginLeft Desired page left margin in pixels after conversion
+     *
+     * @return $this
+     */
+    public function setMarginLeft($marginLeft)
+    {
+        $this->container['marginLeft'] = $marginLeft;
+
+        return $this;
+    }
+
+    /*
+     * Gets marginRight
+     *
+     * @return int
+     */
+    public function getMarginRight()
+    {
+        return $this->container['marginRight'];
+    }
+
+    /*
+     * Sets marginRight
+     *
+     * @param int $marginRight Desired page right margin in pixels after conversion
+     *
+     * @return $this
+     */
+    public function setMarginRight($marginRight)
+    {
+        $this->container['marginRight'] = $marginRight;
+
+        return $this;
+    }
+
+    /*
+     * Gets removePdfaCompliance
+     *
+     * @return bool
+     */
+    public function getRemovePdfaCompliance()
+    {
+        return $this->container['removePdfaCompliance'];
+    }
+
+    /*
+     * Sets removePdfaCompliance
+     *
+     * @param bool $removePdfaCompliance Remove Pdf-A Compliance
+     *
+     * @return $this
+     */
+    public function setRemovePdfaCompliance($removePdfaCompliance)
+    {
+        $this->container['removePdfaCompliance'] = $removePdfaCompliance;
+
+        return $this;
+    }
+
+    /*
+     * Gets zoom
+     *
+     * @return int
+     */
+    public function getZoom()
+    {
+        return $this->container['zoom'];
+    }
+
+    /*
+     * Sets zoom
+     *
+     * @param int $zoom Specifies the zoom level in percentage. Default is 100.
+     *
+     * @return $this
+     */
+    public function setZoom($zoom)
+    {
+        $this->container['zoom'] = $zoom;
+
+        return $this;
+    }
+
+    /*
+     * Gets linearize
+     *
+     * @return bool
+     */
+    public function getLinearize()
+    {
+        return $this->container['linearize'];
+    }
+
+    /*
+     * Sets linearize
+     *
+     * @param bool $linearize Linearize PDF Document for the Web
+     *
+     * @return $this
+     */
+    public function setLinearize($linearize)
+    {
+        $this->container['linearize'] = $linearize;
+
+        return $this;
+    }
+
+    /*
+     * Gets linkDuplicateStreams
+     *
+     * @return bool
+     */
+    public function getLinkDuplicateStreams()
+    {
+        return $this->container['linkDuplicateStreams'];
+    }
+
+    /*
+     * Sets linkDuplicateStreams
+     *
+     * @param bool $linkDuplicateStreams Link duplicate streams
+     *
+     * @return $this
+     */
+    public function setLinkDuplicateStreams($linkDuplicateStreams)
+    {
+        $this->container['linkDuplicateStreams'] = $linkDuplicateStreams;
+
+        return $this;
+    }
+
+    /*
+     * Gets removeUnusedObjects
+     *
+     * @return bool
+     */
+    public function getRemoveUnusedObjects()
+    {
+        return $this->container['removeUnusedObjects'];
+    }
+
+    /*
+     * Sets removeUnusedObjects
+     *
+     * @param bool $removeUnusedObjects Remove unused objects
+     *
+     * @return $this
+     */
+    public function setRemoveUnusedObjects($removeUnusedObjects)
+    {
+        $this->container['removeUnusedObjects'] = $removeUnusedObjects;
+
+        return $this;
+    }
+
+    /*
+     * Gets removeUnusedStreams
+     *
+     * @return bool
+     */
+    public function getRemoveUnusedStreams()
+    {
+        return $this->container['removeUnusedStreams'];
+    }
+
+    /*
+     * Sets removeUnusedStreams
+     *
+     * @param bool $removeUnusedStreams Remove unused streams
+     *
+     * @return $this
+     */
+    public function setRemoveUnusedStreams($removeUnusedStreams)
+    {
+        $this->container['removeUnusedStreams'] = $removeUnusedStreams;
+
+        return $this;
+    }
+
+    /*
+     * Gets compressImages
+     *
+     * @return bool
+     */
+    public function getCompressImages()
+    {
+        return $this->container['compressImages'];
+    }
+
+    /*
+     * Sets compressImages
+     *
+     * @param bool $compressImages If CompressImages set to true, all images in the document are recompressed. The compression is defined by the ImageQuality property.
+     *
+     * @return $this
+     */
+    public function setCompressImages($compressImages)
+    {
+        $this->container['compressImages'] = $compressImages;
+
+        return $this;
+    }
+
+    /*
+     * Gets imageQuality
+     *
+     * @return int
+     */
+    public function getImageQuality()
+    {
+        return $this->container['imageQuality'];
+    }
+
+    /*
+     * Sets imageQuality
+     *
+     * @param int $imageQuality Value in percent where 100% is unchanged quality and image size. To decrease the image size, use ImageQuality less than 100
+     *
+     * @return $this
+     */
+    public function setImageQuality($imageQuality)
+    {
+        $this->container['imageQuality'] = $imageQuality;
+
+        return $this;
+    }
+
+    /*
+     * Gets unembedFonts
+     *
+     * @return bool
+     */
+    public function getUnembedFonts()
+    {
+        return $this->container['unembedFonts'];
+    }
+
+    /*
+     * Sets unembedFonts
+     *
+     * @param bool $unembedFonts Make fonts not embedded if set to true
+     *
+     * @return $this
+     */
+    public function setUnembedFonts($unembedFonts)
+    {
+        $this->container['unembedFonts'] = $unembedFonts;
+
+        return $this;
+    }
+
+    /*
+     * Gets grayscale
+     *
+     * @return bool
+     */
+    public function getGrayscale()
+    {
+        return $this->container['grayscale'];
+    }
+
+    /*
+     * Sets grayscale
+     *
+     * @param bool $grayscale Convert a PDF from RGB colorspace to Grayscale
+     *
+     * @return $this
+     */
+    public function setGrayscale($grayscale)
+    {
+        $this->container['grayscale'] = $grayscale;
+
+        return $this;
+    }
+
+    /*
+     * Gets centerWindow
+     *
+     * @return bool
+     */
+    public function getCenterWindow()
+    {
+        return $this->container['centerWindow'];
+    }
+
+    /*
+     * Sets centerWindow
+     *
+     * @param bool $centerWindow Specify whether position of the document's window will be centered on the screen. Default: false.
+     *
+     * @return $this
+     */
+    public function setCenterWindow($centerWindow)
+    {
+        $this->container['centerWindow'] = $centerWindow;
+
+        return $this;
+    }
+
+    /*
+     * Gets displayDocTitle
+     *
+     * @return bool
+     */
+    public function getDisplayDocTitle()
+    {
+        return $this->container['displayDocTitle'];
+    }
+
+    /*
+     * Sets displayDocTitle
+     *
+     * @param bool $displayDocTitle Specifying whether document's window title bar should display document title. Default: false.
+     *
+     * @return $this
+     */
+    public function setDisplayDocTitle($displayDocTitle)
+    {
+        $this->container['displayDocTitle'] = $displayDocTitle;
+
+        return $this;
+    }
+
+    /*
+     * Gets fitWindow
+     *
+     * @return bool
+     */
+    public function getFitWindow()
+    {
+        return $this->container['fitWindow'];
+    }
+
+    /*
+     * Sets fitWindow
+     *
+     * @param bool $fitWindow Specify whether document window must be resized to fit the first displayed page. Default: false.
+     *
+     * @return $this
+     */
+    public function setFitWindow($fitWindow)
+    {
+        $this->container['fitWindow'] = $fitWindow;
+
+        return $this;
+    }
+
+    /*
+     * Gets hideMenubar
+     *
+     * @return bool
+     */
+    public function getHideMenubar()
+    {
+        return $this->container['hideMenubar'];
+    }
+
+    /*
+     * Sets hideMenubar
+     *
+     * @param bool $hideMenubar Specify whether menu bar should be hidden when document is active. Default: false.
+     *
+     * @return $this
+     */
+    public function setHideMenubar($hideMenubar)
+    {
+        $this->container['hideMenubar'] = $hideMenubar;
+
+        return $this;
+    }
+
+    /*
+     * Gets hideToolBar
+     *
+     * @return bool
+     */
+    public function getHideToolBar()
+    {
+        return $this->container['hideToolBar'];
+    }
+
+    /*
+     * Sets hideToolBar
+     *
+     * @param bool $hideToolBar Specifying whether toolbar should be hidden when document is active. Default: false.
+     *
+     * @return $this
+     */
+    public function setHideToolBar($hideToolBar)
+    {
+        $this->container['hideToolBar'] = $hideToolBar;
+
+        return $this;
+    }
+
+    /*
+     * Gets hideWindowUI
+     *
+     * @return bool
+     */
+    public function getHideWindowUI()
+    {
+        return $this->container['hideWindowUI'];
+    }
+
+    /*
+     * Sets hideWindowUI
+     *
+     * @param bool $hideWindowUI Specify whether user interface elements should be hidden when document is active. Default: false.
+     *
+     * @return $this
+     */
+    public function setHideWindowUI($hideWindowUI)
+    {
+        $this->container['hideWindowUI'] = $hideWindowUI;
+
+        return $this;
+    }
+
+    /*
+     * Gets bookmarksOutlineLevel
+     *
+     * @return int
+     */
+    public function getBookmarksOutlineLevel()
+    {
+        return $this->container['bookmarksOutlineLevel'];
+    }
+
+    /*
+     * Sets bookmarksOutlineLevel
+     *
+     * @param int $bookmarksOutlineLevel Specifies the default level in the document outline at which to display Word bookmarks. Default is 0. Valid range is 0 to 9.
+     *
+     * @return $this
+     */
+    public function setBookmarksOutlineLevel($bookmarksOutlineLevel)
+    {
+        $this->container['bookmarksOutlineLevel'] = $bookmarksOutlineLevel;
+
+        return $this;
+    }
+
+    /*
+     * Gets headingsOutlineLevels
+     *
+     * @return int
+     */
+    public function getHeadingsOutlineLevels()
+    {
+        return $this->container['headingsOutlineLevels'];
+    }
+
+    /*
+     * Sets headingsOutlineLevels
+     *
+     * @param int $headingsOutlineLevels Specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the document outline. Default is 0. Valid range is 0 to 9.
+     *
+     * @return $this
+     */
+    public function setHeadingsOutlineLevels($headingsOutlineLevels)
+    {
+        $this->container['headingsOutlineLevels'] = $headingsOutlineLevels;
+
+        return $this;
+    }
+
+    /*
+     * Gets expandedOutlineLevels
+     *
+     * @return int
+     */
+    public function getExpandedOutlineLevels()
+    {
+        return $this->container['expandedOutlineLevels'];
+    }
+
+    /*
+     * Sets expandedOutlineLevels
+     *
+     * @param int $expandedOutlineLevels Specifies how many levels in the document outline to show expanded when the file is viewed. Default is 0. Valid range is 0 to 9. Note that this options will not work when saving to XPS.
+     *
+     * @return $this
+     */
+    public function setExpandedOutlineLevels($expandedOutlineLevels)
+    {
+        $this->container['expandedOutlineLevels'] = $expandedOutlineLevels;
+
+        return $this;
+    }
+    /*
+     * Returns true if offset exists. False otherwise.
+     *
+     * @param integer $offset Offset
+     *
+     * @return boolean
+     */
+    public function offsetExists($offset)
+    {
+        return isset($this->container[$offset]);
+    }
+
+    /*
+     * Gets offset.
+     *
+     * @param integer $offset Offset
+     *
+     * @return mixed
+     */
+    public function offsetGet($offset)
+    {
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+    }
+
+    /*
+     * Sets value based on offset.
+     *
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
+     *
+     * @return void
+     */
+    public function offsetSet($offset, $value)
+    {
+        if (is_null($offset)) {
+            $this->container[] = $value;
+        } else {
+            $this->container[$offset] = $value;
+        }
+    }
+
+    /*
+     * Unsets offset.
+     *
+     * @param integer $offset Offset
+     *
+     * @return void
+     */
+    public function offsetUnset($offset)
+    {
+        unset($this->container[$offset]);
+    }
+
+    /*
+     * Gets the string presentation of the object
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
+            return json_encode(
+                ObjectSerializer::sanitizeForSerialization($this),
+                JSON_PRETTY_PRINT
+            );
+        }
+
+        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+    }
+}
+
+
