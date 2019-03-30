@@ -53,7 +53,8 @@ class HtmlConvertOptions extends ConvertOptions
     protected static $swaggerTypes = [
         'usePdf' => 'bool',
         'fixedLayout' => 'bool',
-        'zoom' => 'int'
+        'zoom' => 'int',
+        'watermarkOptions' => '\GroupDocs\Conversion\Model\WatermarkOptions'
     ];
 
     /*
@@ -64,7 +65,8 @@ class HtmlConvertOptions extends ConvertOptions
     protected static $swaggerFormats = [
         'usePdf' => null,
         'fixedLayout' => null,
-        'zoom' => 'int32'
+        'zoom' => 'int32',
+        'watermarkOptions' => null
     ];
 
     /*
@@ -96,7 +98,8 @@ class HtmlConvertOptions extends ConvertOptions
     protected static $attributeMap = [
         'usePdf' => 'UsePdf',
         'fixedLayout' => 'FixedLayout',
-        'zoom' => 'Zoom'
+        'zoom' => 'Zoom',
+        'watermarkOptions' => 'WatermarkOptions'
     ];
 
     /*
@@ -107,7 +110,8 @@ class HtmlConvertOptions extends ConvertOptions
     protected static $setters = [
         'usePdf' => 'setUsePdf',
         'fixedLayout' => 'setFixedLayout',
-        'zoom' => 'setZoom'
+        'zoom' => 'setZoom',
+        'watermarkOptions' => 'setWatermarkOptions'
     ];
 
     /*
@@ -118,7 +122,8 @@ class HtmlConvertOptions extends ConvertOptions
     protected static $getters = [
         'usePdf' => 'getUsePdf',
         'fixedLayout' => 'getFixedLayout',
-        'zoom' => 'getZoom'
+        'zoom' => 'getZoom',
+        'watermarkOptions' => 'getWatermarkOptions'
     ];
 
     /*
@@ -180,6 +185,7 @@ class HtmlConvertOptions extends ConvertOptions
         $this->container['usePdf'] = isset($data['usePdf']) ? $data['usePdf'] : null;
         $this->container['fixedLayout'] = isset($data['fixedLayout']) ? $data['fixedLayout'] : null;
         $this->container['zoom'] = isset($data['zoom']) ? $data['zoom'] : null;
+        $this->container['watermarkOptions'] = isset($data['watermarkOptions']) ? $data['watermarkOptions'] : null;
     }
 
     /*
@@ -296,6 +302,30 @@ class HtmlConvertOptions extends ConvertOptions
     public function setZoom($zoom)
     {
         $this->container['zoom'] = $zoom;
+
+        return $this;
+    }
+
+    /*
+     * Gets watermarkOptions
+     *
+     * @return \GroupDocs\Conversion\Model\WatermarkOptions
+     */
+    public function getWatermarkOptions()
+    {
+        return $this->container['watermarkOptions'];
+    }
+
+    /*
+     * Sets watermarkOptions
+     *
+     * @param \GroupDocs\Conversion\Model\WatermarkOptions $watermarkOptions Watermark specific options
+     *
+     * @return $this
+     */
+    public function setWatermarkOptions($watermarkOptions)
+    {
+        $this->container['watermarkOptions'] = $watermarkOptions;
 
         return $this;
     }

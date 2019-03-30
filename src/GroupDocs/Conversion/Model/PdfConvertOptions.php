@@ -59,6 +59,7 @@ class PdfConvertOptions extends ConvertOptions
         'marginBottom' => 'int',
         'marginLeft' => 'int',
         'marginRight' => 'int',
+        'pdfFormat' => 'string',
         'removePdfaCompliance' => 'bool',
         'zoom' => 'int',
         'linearize' => 'bool',
@@ -70,14 +71,20 @@ class PdfConvertOptions extends ConvertOptions
         'unembedFonts' => 'bool',
         'grayscale' => 'bool',
         'centerWindow' => 'bool',
+        'direction' => 'string',
         'displayDocTitle' => 'bool',
         'fitWindow' => 'bool',
         'hideMenubar' => 'bool',
         'hideToolBar' => 'bool',
         'hideWindowUI' => 'bool',
+        'nonFullScreenPageMode' => 'string',
+        'pageLayout' => 'string',
+        'pageMode' => 'string',
         'bookmarksOutlineLevel' => 'int',
         'headingsOutlineLevels' => 'int',
-        'expandedOutlineLevels' => 'int'
+        'expandedOutlineLevels' => 'int',
+        'rotate' => 'string',
+        'watermarkOptions' => '\GroupDocs\Conversion\Model\WatermarkOptions'
     ];
 
     /*
@@ -94,6 +101,7 @@ class PdfConvertOptions extends ConvertOptions
         'marginBottom' => 'int32',
         'marginLeft' => 'int32',
         'marginRight' => 'int32',
+        'pdfFormat' => null,
         'removePdfaCompliance' => null,
         'zoom' => 'int32',
         'linearize' => null,
@@ -105,14 +113,20 @@ class PdfConvertOptions extends ConvertOptions
         'unembedFonts' => null,
         'grayscale' => null,
         'centerWindow' => null,
+        'direction' => null,
         'displayDocTitle' => null,
         'fitWindow' => null,
         'hideMenubar' => null,
         'hideToolBar' => null,
         'hideWindowUI' => null,
+        'nonFullScreenPageMode' => null,
+        'pageLayout' => null,
+        'pageMode' => null,
         'bookmarksOutlineLevel' => 'int32',
         'headingsOutlineLevels' => 'int32',
-        'expandedOutlineLevels' => 'int32'
+        'expandedOutlineLevels' => 'int32',
+        'rotate' => null,
+        'watermarkOptions' => null
     ];
 
     /*
@@ -150,6 +164,7 @@ class PdfConvertOptions extends ConvertOptions
         'marginBottom' => 'MarginBottom',
         'marginLeft' => 'MarginLeft',
         'marginRight' => 'MarginRight',
+        'pdfFormat' => 'PdfFormat',
         'removePdfaCompliance' => 'RemovePdfaCompliance',
         'zoom' => 'Zoom',
         'linearize' => 'Linearize',
@@ -161,14 +176,20 @@ class PdfConvertOptions extends ConvertOptions
         'unembedFonts' => 'UnembedFonts',
         'grayscale' => 'Grayscale',
         'centerWindow' => 'CenterWindow',
+        'direction' => 'Direction',
         'displayDocTitle' => 'DisplayDocTitle',
         'fitWindow' => 'FitWindow',
         'hideMenubar' => 'HideMenubar',
         'hideToolBar' => 'HideToolBar',
         'hideWindowUI' => 'HideWindowUI',
+        'nonFullScreenPageMode' => 'NonFullScreenPageMode',
+        'pageLayout' => 'PageLayout',
+        'pageMode' => 'PageMode',
         'bookmarksOutlineLevel' => 'BookmarksOutlineLevel',
         'headingsOutlineLevels' => 'HeadingsOutlineLevels',
-        'expandedOutlineLevels' => 'ExpandedOutlineLevels'
+        'expandedOutlineLevels' => 'ExpandedOutlineLevels',
+        'rotate' => 'Rotate',
+        'watermarkOptions' => 'WatermarkOptions'
     ];
 
     /*
@@ -185,6 +206,7 @@ class PdfConvertOptions extends ConvertOptions
         'marginBottom' => 'setMarginBottom',
         'marginLeft' => 'setMarginLeft',
         'marginRight' => 'setMarginRight',
+        'pdfFormat' => 'setPdfFormat',
         'removePdfaCompliance' => 'setRemovePdfaCompliance',
         'zoom' => 'setZoom',
         'linearize' => 'setLinearize',
@@ -196,14 +218,20 @@ class PdfConvertOptions extends ConvertOptions
         'unembedFonts' => 'setUnembedFonts',
         'grayscale' => 'setGrayscale',
         'centerWindow' => 'setCenterWindow',
+        'direction' => 'setDirection',
         'displayDocTitle' => 'setDisplayDocTitle',
         'fitWindow' => 'setFitWindow',
         'hideMenubar' => 'setHideMenubar',
         'hideToolBar' => 'setHideToolBar',
         'hideWindowUI' => 'setHideWindowUI',
+        'nonFullScreenPageMode' => 'setNonFullScreenPageMode',
+        'pageLayout' => 'setPageLayout',
+        'pageMode' => 'setPageMode',
         'bookmarksOutlineLevel' => 'setBookmarksOutlineLevel',
         'headingsOutlineLevels' => 'setHeadingsOutlineLevels',
-        'expandedOutlineLevels' => 'setExpandedOutlineLevels'
+        'expandedOutlineLevels' => 'setExpandedOutlineLevels',
+        'rotate' => 'setRotate',
+        'watermarkOptions' => 'setWatermarkOptions'
     ];
 
     /*
@@ -220,6 +248,7 @@ class PdfConvertOptions extends ConvertOptions
         'marginBottom' => 'getMarginBottom',
         'marginLeft' => 'getMarginLeft',
         'marginRight' => 'getMarginRight',
+        'pdfFormat' => 'getPdfFormat',
         'removePdfaCompliance' => 'getRemovePdfaCompliance',
         'zoom' => 'getZoom',
         'linearize' => 'getLinearize',
@@ -231,14 +260,20 @@ class PdfConvertOptions extends ConvertOptions
         'unembedFonts' => 'getUnembedFonts',
         'grayscale' => 'getGrayscale',
         'centerWindow' => 'getCenterWindow',
+        'direction' => 'getDirection',
         'displayDocTitle' => 'getDisplayDocTitle',
         'fitWindow' => 'getFitWindow',
         'hideMenubar' => 'getHideMenubar',
         'hideToolBar' => 'getHideToolBar',
         'hideWindowUI' => 'getHideWindowUI',
+        'nonFullScreenPageMode' => 'getNonFullScreenPageMode',
+        'pageLayout' => 'getPageLayout',
+        'pageMode' => 'getPageMode',
         'bookmarksOutlineLevel' => 'getBookmarksOutlineLevel',
         'headingsOutlineLevels' => 'getHeadingsOutlineLevels',
-        'expandedOutlineLevels' => 'getExpandedOutlineLevels'
+        'expandedOutlineLevels' => 'getExpandedOutlineLevels',
+        'rotate' => 'getRotate',
+        'watermarkOptions' => 'getWatermarkOptions'
     ];
 
     /*
@@ -282,8 +317,156 @@ class PdfConvertOptions extends ConvertOptions
         return self::$swaggerModelName;
     }
 
+    const PDF_FORMAT__DEFAULT = 'Default';
+    const PDF_FORMAT_PDF_A_1_A = 'PdfA_1A';
+    const PDF_FORMAT_PDF_A_1_B = 'PdfA_1B';
+    const PDF_FORMAT_PDF_A_2_A = 'PdfA_2A';
+    const PDF_FORMAT_PDF_A_3_A = 'PdfA_3A';
+    const PDF_FORMAT_PDF_A_2_B = 'PdfA_2B';
+    const PDF_FORMAT_PDF_A_2_U = 'PdfA_2U';
+    const PDF_FORMAT_PDF_A_3_B = 'PdfA_3B';
+    const PDF_FORMAT_PDF_A_3_U = 'PdfA_3U';
+    const PDF_FORMAT_V1_3 = 'v1_3';
+    const PDF_FORMAT_V1_4 = 'v1_4';
+    const PDF_FORMAT_V1_5 = 'v1_5';
+    const PDF_FORMAT_V1_6 = 'v1_6';
+    const PDF_FORMAT_V1_7 = 'v1_7';
+    const PDF_FORMAT_PDF_X_1_A = 'PdfX_1A';
+    const PDF_FORMAT_PDF_X3 = 'PdfX3';
+    const DIRECTION_L2_R = 'L2R';
+    const DIRECTION_R2_L = 'R2L';
+    const NON_FULL_SCREEN_PAGE_MODE_USE_NONE = 'UseNone';
+    const NON_FULL_SCREEN_PAGE_MODE_USE_OUTLINES = 'UseOutlines';
+    const NON_FULL_SCREEN_PAGE_MODE_USE_THUMBS = 'UseThumbs';
+    const NON_FULL_SCREEN_PAGE_MODE_FULL_SCREEN = 'FullScreen';
+    const NON_FULL_SCREEN_PAGE_MODE_USE_OC = 'UseOC';
+    const NON_FULL_SCREEN_PAGE_MODE_USE_ATTACHMENTS = 'UseAttachments';
+    const PAGE_LAYOUT__DEFAULT = 'Default';
+    const PAGE_LAYOUT_SINGLE_PAGE = 'SinglePage';
+    const PAGE_LAYOUT_ONE_COLUMN = 'OneColumn';
+    const PAGE_LAYOUT_TWO_COLUMN_LEFT = 'TwoColumnLeft';
+    const PAGE_LAYOUT_TWO_COLUMN_RIGHT = 'TwoColumnRight';
+    const PAGE_LAYOUT_TWO_PAGE_LEFT = 'TwoPageLeft';
+    const PAGE_LAYOUT_TWO_PAGE_RIGHT = 'TwoPageRight';
+    const PAGE_MODE_USE_NONE = 'UseNone';
+    const PAGE_MODE_USE_OUTLINES = 'UseOutlines';
+    const PAGE_MODE_USE_THUMBS = 'UseThumbs';
+    const PAGE_MODE_FULL_SCREEN = 'FullScreen';
+    const PAGE_MODE_USE_OC = 'UseOC';
+    const PAGE_MODE_USE_ATTACHMENTS = 'UseAttachments';
+    const ROTATE_NONE = 'None';
+    const ROTATE_ON90 = 'On90';
+    const ROTATE_ON180 = 'On180';
+    const ROTATE_ON270 = 'On270';
     
 
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPdfFormatAllowableValues()
+    {
+        return [
+            self::PDF_FORMAT__DEFAULT,
+            self::PDF_FORMAT_PDF_A_1_A,
+            self::PDF_FORMAT_PDF_A_1_B,
+            self::PDF_FORMAT_PDF_A_2_A,
+            self::PDF_FORMAT_PDF_A_3_A,
+            self::PDF_FORMAT_PDF_A_2_B,
+            self::PDF_FORMAT_PDF_A_2_U,
+            self::PDF_FORMAT_PDF_A_3_B,
+            self::PDF_FORMAT_PDF_A_3_U,
+            self::PDF_FORMAT_V1_3,
+            self::PDF_FORMAT_V1_4,
+            self::PDF_FORMAT_V1_5,
+            self::PDF_FORMAT_V1_6,
+            self::PDF_FORMAT_V1_7,
+            self::PDF_FORMAT_PDF_X_1_A,
+            self::PDF_FORMAT_PDF_X3,
+        ];
+    }
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDirectionAllowableValues()
+    {
+        return [
+            self::DIRECTION_L2_R,
+            self::DIRECTION_R2_L,
+        ];
+    }
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNonFullScreenPageModeAllowableValues()
+    {
+        return [
+            self::NON_FULL_SCREEN_PAGE_MODE_USE_NONE,
+            self::NON_FULL_SCREEN_PAGE_MODE_USE_OUTLINES,
+            self::NON_FULL_SCREEN_PAGE_MODE_USE_THUMBS,
+            self::NON_FULL_SCREEN_PAGE_MODE_FULL_SCREEN,
+            self::NON_FULL_SCREEN_PAGE_MODE_USE_OC,
+            self::NON_FULL_SCREEN_PAGE_MODE_USE_ATTACHMENTS,
+        ];
+    }
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPageLayoutAllowableValues()
+    {
+        return [
+            self::PAGE_LAYOUT__DEFAULT,
+            self::PAGE_LAYOUT_SINGLE_PAGE,
+            self::PAGE_LAYOUT_ONE_COLUMN,
+            self::PAGE_LAYOUT_TWO_COLUMN_LEFT,
+            self::PAGE_LAYOUT_TWO_COLUMN_RIGHT,
+            self::PAGE_LAYOUT_TWO_PAGE_LEFT,
+            self::PAGE_LAYOUT_TWO_PAGE_RIGHT,
+        ];
+    }
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPageModeAllowableValues()
+    {
+        return [
+            self::PAGE_MODE_USE_NONE,
+            self::PAGE_MODE_USE_OUTLINES,
+            self::PAGE_MODE_USE_THUMBS,
+            self::PAGE_MODE_FULL_SCREEN,
+            self::PAGE_MODE_USE_OC,
+            self::PAGE_MODE_USE_ATTACHMENTS,
+        ];
+    }
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRotateAllowableValues()
+    {
+        return [
+            self::ROTATE_NONE,
+            self::ROTATE_ON90,
+            self::ROTATE_ON180,
+            self::ROTATE_ON270,
+        ];
+    }
     
 
 
@@ -305,6 +488,7 @@ class PdfConvertOptions extends ConvertOptions
         $this->container['marginBottom'] = isset($data['marginBottom']) ? $data['marginBottom'] : null;
         $this->container['marginLeft'] = isset($data['marginLeft']) ? $data['marginLeft'] : null;
         $this->container['marginRight'] = isset($data['marginRight']) ? $data['marginRight'] : null;
+        $this->container['pdfFormat'] = isset($data['pdfFormat']) ? $data['pdfFormat'] : null;
         $this->container['removePdfaCompliance'] = isset($data['removePdfaCompliance']) ? $data['removePdfaCompliance'] : null;
         $this->container['zoom'] = isset($data['zoom']) ? $data['zoom'] : null;
         $this->container['linearize'] = isset($data['linearize']) ? $data['linearize'] : null;
@@ -316,14 +500,20 @@ class PdfConvertOptions extends ConvertOptions
         $this->container['unembedFonts'] = isset($data['unembedFonts']) ? $data['unembedFonts'] : null;
         $this->container['grayscale'] = isset($data['grayscale']) ? $data['grayscale'] : null;
         $this->container['centerWindow'] = isset($data['centerWindow']) ? $data['centerWindow'] : null;
+        $this->container['direction'] = isset($data['direction']) ? $data['direction'] : null;
         $this->container['displayDocTitle'] = isset($data['displayDocTitle']) ? $data['displayDocTitle'] : null;
         $this->container['fitWindow'] = isset($data['fitWindow']) ? $data['fitWindow'] : null;
         $this->container['hideMenubar'] = isset($data['hideMenubar']) ? $data['hideMenubar'] : null;
         $this->container['hideToolBar'] = isset($data['hideToolBar']) ? $data['hideToolBar'] : null;
         $this->container['hideWindowUI'] = isset($data['hideWindowUI']) ? $data['hideWindowUI'] : null;
+        $this->container['nonFullScreenPageMode'] = isset($data['nonFullScreenPageMode']) ? $data['nonFullScreenPageMode'] : null;
+        $this->container['pageLayout'] = isset($data['pageLayout']) ? $data['pageLayout'] : null;
+        $this->container['pageMode'] = isset($data['pageMode']) ? $data['pageMode'] : null;
         $this->container['bookmarksOutlineLevel'] = isset($data['bookmarksOutlineLevel']) ? $data['bookmarksOutlineLevel'] : null;
         $this->container['headingsOutlineLevels'] = isset($data['headingsOutlineLevels']) ? $data['headingsOutlineLevels'] : null;
         $this->container['expandedOutlineLevels'] = isset($data['expandedOutlineLevels']) ? $data['expandedOutlineLevels'] : null;
+        $this->container['rotate'] = isset($data['rotate']) ? $data['rotate'] : null;
+        $this->container['watermarkOptions'] = isset($data['watermarkOptions']) ? $data['watermarkOptions'] : null;
     }
 
     /*
@@ -356,6 +546,17 @@ class PdfConvertOptions extends ConvertOptions
         if ($this->container['marginRight'] === null) {
             $invalidProperties[] = "'marginRight' can't be null";
         }
+        if ($this->container['pdfFormat'] === null) {
+            $invalidProperties[] = "'pdfFormat' can't be null";
+        }
+        $allowedValues = $this->getPdfFormatAllowableValues();
+        if (!in_array($this->container['pdfFormat'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'pdfFormat', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['removePdfaCompliance'] === null) {
             $invalidProperties[] = "'removePdfaCompliance' can't be null";
         }
@@ -389,6 +590,17 @@ class PdfConvertOptions extends ConvertOptions
         if ($this->container['centerWindow'] === null) {
             $invalidProperties[] = "'centerWindow' can't be null";
         }
+        if ($this->container['direction'] === null) {
+            $invalidProperties[] = "'direction' can't be null";
+        }
+        $allowedValues = $this->getDirectionAllowableValues();
+        if (!in_array($this->container['direction'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'direction', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['displayDocTitle'] === null) {
             $invalidProperties[] = "'displayDocTitle' can't be null";
         }
@@ -404,6 +616,39 @@ class PdfConvertOptions extends ConvertOptions
         if ($this->container['hideWindowUI'] === null) {
             $invalidProperties[] = "'hideWindowUI' can't be null";
         }
+        if ($this->container['nonFullScreenPageMode'] === null) {
+            $invalidProperties[] = "'nonFullScreenPageMode' can't be null";
+        }
+        $allowedValues = $this->getNonFullScreenPageModeAllowableValues();
+        if (!in_array($this->container['nonFullScreenPageMode'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'nonFullScreenPageMode', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['pageLayout'] === null) {
+            $invalidProperties[] = "'pageLayout' can't be null";
+        }
+        $allowedValues = $this->getPageLayoutAllowableValues();
+        if (!in_array($this->container['pageLayout'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'pageLayout', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['pageMode'] === null) {
+            $invalidProperties[] = "'pageMode' can't be null";
+        }
+        $allowedValues = $this->getPageModeAllowableValues();
+        if (!in_array($this->container['pageMode'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'pageMode', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['bookmarksOutlineLevel'] === null) {
             $invalidProperties[] = "'bookmarksOutlineLevel' can't be null";
         }
@@ -413,6 +658,17 @@ class PdfConvertOptions extends ConvertOptions
         if ($this->container['expandedOutlineLevels'] === null) {
             $invalidProperties[] = "'expandedOutlineLevels' can't be null";
         }
+        if ($this->container['rotate'] === null) {
+            $invalidProperties[] = "'rotate' can't be null";
+        }
+        $allowedValues = $this->getRotateAllowableValues();
+        if (!in_array($this->container['rotate'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'rotate', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -449,6 +705,13 @@ class PdfConvertOptions extends ConvertOptions
         if ($this->container['marginRight'] === null) {
             return false;
         }
+        if ($this->container['pdfFormat'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getPdfFormatAllowableValues();
+        if (!in_array($this->container['pdfFormat'], $allowedValues)) {
+            return false;
+        }
         if ($this->container['removePdfaCompliance'] === null) {
             return false;
         }
@@ -482,6 +745,13 @@ class PdfConvertOptions extends ConvertOptions
         if ($this->container['centerWindow'] === null) {
             return false;
         }
+        if ($this->container['direction'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getDirectionAllowableValues();
+        if (!in_array($this->container['direction'], $allowedValues)) {
+            return false;
+        }
         if ($this->container['displayDocTitle'] === null) {
             return false;
         }
@@ -497,6 +767,27 @@ class PdfConvertOptions extends ConvertOptions
         if ($this->container['hideWindowUI'] === null) {
             return false;
         }
+        if ($this->container['nonFullScreenPageMode'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getNonFullScreenPageModeAllowableValues();
+        if (!in_array($this->container['nonFullScreenPageMode'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['pageLayout'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getPageLayoutAllowableValues();
+        if (!in_array($this->container['pageLayout'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['pageMode'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getPageModeAllowableValues();
+        if (!in_array($this->container['pageMode'], $allowedValues)) {
+            return false;
+        }
         if ($this->container['bookmarksOutlineLevel'] === null) {
             return false;
         }
@@ -504,6 +795,13 @@ class PdfConvertOptions extends ConvertOptions
             return false;
         }
         if ($this->container['expandedOutlineLevels'] === null) {
+            return false;
+        }
+        if ($this->container['rotate'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getRotateAllowableValues();
+        if (!in_array($this->container['rotate'], $allowedValues)) {
             return false;
         }
         return true;
@@ -698,6 +996,35 @@ class PdfConvertOptions extends ConvertOptions
     public function setMarginRight($marginRight)
     {
         $this->container['marginRight'] = $marginRight;
+
+        return $this;
+    }
+
+    /*
+     * Gets pdfFormat
+     *
+     * @return string
+     */
+    public function getPdfFormat()
+    {
+        return $this->container['pdfFormat'];
+    }
+
+    /*
+     * Sets pdfFormat
+     *
+     * @param string $pdfFormat Set the pdf format of the converted document.
+     *
+     * @return $this
+     */
+    public function setPdfFormat($pdfFormat)
+    {
+        $allowedValues = $this->getPdfFormatAllowableValues();
+        if ((!is_numeric($pdfFormat) && !in_array($pdfFormat, $allowedValues)) || (is_numeric($pdfFormat) && !in_array($allowedValues[$pdfFormat], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'pdfFormat', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['pdfFormat'] = $pdfFormat;
 
         return $this;
     }
@@ -967,6 +1294,35 @@ class PdfConvertOptions extends ConvertOptions
     }
 
     /*
+     * Gets direction
+     *
+     * @return string
+     */
+    public function getDirection()
+    {
+        return $this->container['direction'];
+    }
+
+    /*
+     * Sets direction
+     *
+     * @param string $direction Sets reading order of text: L2R (left to right) or R2L (right to left). Default: L2R.
+     *
+     * @return $this
+     */
+    public function setDirection($direction)
+    {
+        $allowedValues = $this->getDirectionAllowableValues();
+        if ((!is_numeric($direction) && !in_array($direction, $allowedValues)) || (is_numeric($direction) && !in_array($allowedValues[$direction], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'direction', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['direction'] = $direction;
+
+        return $this;
+    }
+
+    /*
      * Gets displayDocTitle
      *
      * @return bool
@@ -1087,6 +1443,93 @@ class PdfConvertOptions extends ConvertOptions
     }
 
     /*
+     * Gets nonFullScreenPageMode
+     *
+     * @return string
+     */
+    public function getNonFullScreenPageMode()
+    {
+        return $this->container['nonFullScreenPageMode'];
+    }
+
+    /*
+     * Sets nonFullScreenPageMode
+     *
+     * @param string $nonFullScreenPageMode Sets page mode, specifying how to display the document on exiting full-screen mode.
+     *
+     * @return $this
+     */
+    public function setNonFullScreenPageMode($nonFullScreenPageMode)
+    {
+        $allowedValues = $this->getNonFullScreenPageModeAllowableValues();
+        if ((!is_numeric($nonFullScreenPageMode) && !in_array($nonFullScreenPageMode, $allowedValues)) || (is_numeric($nonFullScreenPageMode) && !in_array($allowedValues[$nonFullScreenPageMode], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'nonFullScreenPageMode', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['nonFullScreenPageMode'] = $nonFullScreenPageMode;
+
+        return $this;
+    }
+
+    /*
+     * Gets pageLayout
+     *
+     * @return string
+     */
+    public function getPageLayout()
+    {
+        return $this->container['pageLayout'];
+    }
+
+    /*
+     * Sets pageLayout
+     *
+     * @param string $pageLayout Sets page layout which shall be used when the document is opened.
+     *
+     * @return $this
+     */
+    public function setPageLayout($pageLayout)
+    {
+        $allowedValues = $this->getPageLayoutAllowableValues();
+        if ((!is_numeric($pageLayout) && !in_array($pageLayout, $allowedValues)) || (is_numeric($pageLayout) && !in_array($allowedValues[$pageLayout], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'pageLayout', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['pageLayout'] = $pageLayout;
+
+        return $this;
+    }
+
+    /*
+     * Gets pageMode
+     *
+     * @return string
+     */
+    public function getPageMode()
+    {
+        return $this->container['pageMode'];
+    }
+
+    /*
+     * Sets pageMode
+     *
+     * @param string $pageMode Sets page mode, specifying how document should be displayed when opened.
+     *
+     * @return $this
+     */
+    public function setPageMode($pageMode)
+    {
+        $allowedValues = $this->getPageModeAllowableValues();
+        if ((!is_numeric($pageMode) && !in_array($pageMode, $allowedValues)) || (is_numeric($pageMode) && !in_array($allowedValues[$pageMode], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'pageMode', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['pageMode'] = $pageMode;
+
+        return $this;
+    }
+
+    /*
      * Gets bookmarksOutlineLevel
      *
      * @return int
@@ -1154,6 +1597,59 @@ class PdfConvertOptions extends ConvertOptions
     public function setExpandedOutlineLevels($expandedOutlineLevels)
     {
         $this->container['expandedOutlineLevels'] = $expandedOutlineLevels;
+
+        return $this;
+    }
+
+    /*
+     * Gets rotate
+     *
+     * @return string
+     */
+    public function getRotate()
+    {
+        return $this->container['rotate'];
+    }
+
+    /*
+     * Sets rotate
+     *
+     * @param string $rotate Rotate page
+     *
+     * @return $this
+     */
+    public function setRotate($rotate)
+    {
+        $allowedValues = $this->getRotateAllowableValues();
+        if ((!is_numeric($rotate) && !in_array($rotate, $allowedValues)) || (is_numeric($rotate) && !in_array($allowedValues[$rotate], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'rotate', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['rotate'] = $rotate;
+
+        return $this;
+    }
+
+    /*
+     * Gets watermarkOptions
+     *
+     * @return \GroupDocs\Conversion\Model\WatermarkOptions
+     */
+    public function getWatermarkOptions()
+    {
+        return $this->container['watermarkOptions'];
+    }
+
+    /*
+     * Sets watermarkOptions
+     *
+     * @param \GroupDocs\Conversion\Model\WatermarkOptions $watermarkOptions Watermark specific options
+     *
+     * @return $this
+     */
+    public function setWatermarkOptions($watermarkOptions)
+    {
+        $this->container['watermarkOptions'] = $watermarkOptions;
 
         return $this;
     }

@@ -47,9 +47,27 @@ class ConversionApiTest extends BaseApiTest
         
         $request = new Requests\ConvertDocumentRequest($convertSettings);
         
-        self::$conversionApi->convertDocument($request);
+        $result = self::$conversionApi->convertDocument($request);
 
-        $this->assertTrue(true);
+        $this->assertTrue(sizeof($result) > 0);
+    }
+
+    /**
+     * Converts source document to specified type
+     *
+     */
+    public function testConvertDocumentDownload() {
+        $convertSettings = new Model\ConvertSettings();
+        $convertSettings->setFilePath(Internal\TestFiles::getFileOnePageDocx()->getPath());
+        $convertSettings->setFormat("pdf");
+        $convertSettings->setConvertOptions(new Model\PdfConvertOptions());
+        
+        $request = new Requests\ConvertDocumentRequest($convertSettings);
+        
+        $result = self::$conversionApi->convertDocumentDownload($request);
+
+        $size = $result->getSize();
+        $this->assertGreaterThan(0, $size);
     }
 
     /**

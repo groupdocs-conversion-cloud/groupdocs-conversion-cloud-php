@@ -51,7 +51,7 @@ class TiffConvertOptions extends ImageConvertOptions
      * @var string[]
      */
     protected static $swaggerTypes = [
-        
+        'compression' => 'string'
     ];
 
     /*
@@ -60,7 +60,7 @@ class TiffConvertOptions extends ImageConvertOptions
      * @var string[]
      */
     protected static $swaggerFormats = [
-        
+        'compression' => null
     ];
 
     /*
@@ -90,7 +90,7 @@ class TiffConvertOptions extends ImageConvertOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'compression' => 'Compression'
     ];
 
     /*
@@ -99,7 +99,7 @@ class TiffConvertOptions extends ImageConvertOptions
      * @var string[]
      */
     protected static $setters = [
-        
+        'compression' => 'setCompression'
     ];
 
     /*
@@ -108,7 +108,7 @@ class TiffConvertOptions extends ImageConvertOptions
      * @var string[]
      */
     protected static $getters = [
-        
+        'compression' => 'getCompression'
     ];
 
     /*
@@ -152,8 +152,29 @@ class TiffConvertOptions extends ImageConvertOptions
         return self::$swaggerModelName;
     }
 
+    const COMPRESSION_LZW = 'Lzw';
+    const COMPRESSION_NONE = 'None';
+    const COMPRESSION_CCITT3 = 'Ccitt3';
+    const COMPRESSION_CCITT4 = 'Ccitt4';
+    const COMPRESSION_RLE = 'Rle';
     
 
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCompressionAllowableValues()
+    {
+        return [
+            self::COMPRESSION_LZW,
+            self::COMPRESSION_NONE,
+            self::COMPRESSION_CCITT3,
+            self::COMPRESSION_CCITT4,
+            self::COMPRESSION_RLE,
+        ];
+    }
     
 
 
@@ -167,6 +188,7 @@ class TiffConvertOptions extends ImageConvertOptions
     {
         parent::__construct($data);
 
+        $this->container['compression'] = isset($data['compression']) ? $data['compression'] : null;
     }
 
     /*
@@ -177,6 +199,14 @@ class TiffConvertOptions extends ImageConvertOptions
     public function listInvalidProperties()
     {
         $invalidProperties = parent::listInvalidProperties();
+
+        $allowedValues = $this->getCompressionAllowableValues();
+        if (!in_array($this->container['compression'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'compression', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -193,9 +223,42 @@ class TiffConvertOptions extends ImageConvertOptions
             return false;
         }
 
+        $allowedValues = $this->getCompressionAllowableValues();
+        if (!in_array($this->container['compression'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
+
+    /*
+     * Gets compression
+     *
+     * @return string
+     */
+    public function getCompression()
+    {
+        return $this->container['compression'];
+    }
+
+    /*
+     * Sets compression
+     *
+     * @param string $compression Set Tiff compression
+     *
+     * @return $this
+     */
+    public function setCompression($compression)
+    {
+        $allowedValues = $this->getCompressionAllowableValues();
+        if ((!is_numeric($compression) && !in_array($compression, $allowedValues)) || (is_numeric($compression) && !in_array($allowedValues[$compression], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'compression', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['compression'] = $compression;
+
+        return $this;
+    }
     /*
      * Returns true if offset exists. False otherwise.
      *

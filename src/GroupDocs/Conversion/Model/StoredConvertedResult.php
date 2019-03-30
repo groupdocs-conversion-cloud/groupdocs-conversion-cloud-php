@@ -55,6 +55,7 @@ class StoredConvertedResult implements ArrayAccess
     protected static $swaggerTypes = [
         'name' => 'string',
         'size' => 'int',
+        'path' => 'string',
         'url' => 'string'
     ];
 
@@ -66,6 +67,7 @@ class StoredConvertedResult implements ArrayAccess
     protected static $swaggerFormats = [
         'name' => null,
         'size' => 'int64',
+        'path' => null,
         'url' => null
     ];
 
@@ -98,6 +100,7 @@ class StoredConvertedResult implements ArrayAccess
     protected static $attributeMap = [
         'name' => 'Name',
         'size' => 'Size',
+        'path' => 'Path',
         'url' => 'Url'
     ];
 
@@ -109,6 +112,7 @@ class StoredConvertedResult implements ArrayAccess
     protected static $setters = [
         'name' => 'setName',
         'size' => 'setSize',
+        'path' => 'setPath',
         'url' => 'setUrl'
     ];
 
@@ -120,6 +124,7 @@ class StoredConvertedResult implements ArrayAccess
     protected static $getters = [
         'name' => 'getName',
         'size' => 'getSize',
+        'path' => 'getPath',
         'url' => 'getUrl'
     ];
 
@@ -185,6 +190,7 @@ class StoredConvertedResult implements ArrayAccess
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['path'] = isset($data['path']) ? $data['path'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
@@ -268,6 +274,30 @@ class StoredConvertedResult implements ArrayAccess
     }
 
     /*
+     * Gets path
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->container['path'];
+    }
+
+    /*
+     * Sets path
+     *
+     * @param string $path Path of resource file in storage
+     *
+     * @return $this
+     */
+    public function setPath($path)
+    {
+        $this->container['path'] = $path;
+
+        return $this;
+    }
+
+    /*
      * Gets url
      *
      * @return string
@@ -280,7 +310,7 @@ class StoredConvertedResult implements ArrayAccess
     /*
      * Sets url
      *
-     * @param string $url Uri in the storage of the covnerted item
+     * @param string $url Uri in the storage of the converted item
      *
      * @return $this
      */

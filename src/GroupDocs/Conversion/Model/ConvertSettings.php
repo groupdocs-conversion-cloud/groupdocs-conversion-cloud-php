@@ -53,7 +53,7 @@ class ConvertSettings implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'storage' => 'string',
+        'storageName' => 'string',
         'filePath' => 'string',
         'format' => 'string',
         'loadOptions' => '\GroupDocs\Conversion\Model\LoadOptions',
@@ -67,7 +67,7 @@ class ConvertSettings implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'storage' => null,
+        'storageName' => null,
         'filePath' => null,
         'format' => null,
         'loadOptions' => null,
@@ -102,7 +102,7 @@ class ConvertSettings implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'storage' => 'Storage',
+        'storageName' => 'StorageName',
         'filePath' => 'FilePath',
         'format' => 'Format',
         'loadOptions' => 'LoadOptions',
@@ -116,7 +116,7 @@ class ConvertSettings implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'storage' => 'setStorage',
+        'storageName' => 'setStorageName',
         'filePath' => 'setFilePath',
         'format' => 'setFormat',
         'loadOptions' => 'setLoadOptions',
@@ -130,7 +130,7 @@ class ConvertSettings implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'storage' => 'getStorage',
+        'storageName' => 'getStorageName',
         'filePath' => 'getFilePath',
         'format' => 'getFormat',
         'loadOptions' => 'getLoadOptions',
@@ -198,7 +198,7 @@ class ConvertSettings implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['storage'] = isset($data['storage']) ? $data['storage'] : null;
+        $this->container['storageName'] = isset($data['storageName']) ? $data['storageName'] : null;
         $this->container['filePath'] = isset($data['filePath']) ? $data['filePath'] : null;
         $this->container['format'] = isset($data['format']) ? $data['format'] : null;
         $this->container['loadOptions'] = isset($data['loadOptions']) ? $data['loadOptions'] : null;
@@ -258,25 +258,25 @@ class ConvertSettings implements ArrayAccess
 
 
     /*
-     * Gets storage
+     * Gets storageName
      *
      * @return string
      */
-    public function getStorage()
+    public function getStorageName()
     {
-        return $this->container['storage'];
+        return $this->container['storageName'];
     }
 
     /*
-     * Sets storage
+     * Sets storageName
      *
-     * @param string $storage Storage which contains the file
+     * @param string $storageName StorageName which contains the file
      *
      * @return $this
      */
-    public function setStorage($storage)
+    public function setStorageName($storageName)
     {
-        $this->container['storage'] = $storage;
+        $this->container['storageName'] = $storageName;
 
         return $this;
     }

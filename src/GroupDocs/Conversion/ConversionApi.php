@@ -96,11 +96,12 @@ class ConversionApi
      *
      * @throws \GroupDocs\Conversion\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \GroupDocs\Conversion\Model\StoredConvertedResult[]
      */
     public function convertDocument(Requests\convertDocumentRequest $request)
     {
-        $this->convertDocumentWithHttpInfo($request);
+        list($response) = $this->convertDocumentWithHttpInfo($request);
+        return $response;
     }
 
     /*
@@ -112,11 +113,11 @@ class ConversionApi
      *
      * @throws \GroupDocs\Conversion\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GroupDocs\Conversion\Model\StoredConvertedResult[], HTTP status code, HTTP response headers (array of strings)
      */
     public function convertDocumentWithHttpInfo(Requests\convertDocumentRequest $request)
     {
-        $returnType = '';
+        $returnType = '\GroupDocs\Conversion\Model\StoredConvertedResult[]';
         $request = $this->convertDocumentRequest($request);
 
         try {
@@ -142,10 +143,32 @@ class ConversionApi
                 throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode);
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+            
+            if ($this->config->getDebug()) {
+                $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+            case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\GroupDocs\Conversion\Model\StoredConvertedResult[]', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                break;
             }
             throw $e;
         }
@@ -183,14 +206,32 @@ class ConversionApi
      */
     public function convertDocumentAsyncWithHttpInfo(Requests\convertDocumentRequest $request) 
     {
-        $returnType = '';
+        $returnType = '\GroupDocs\Conversion\Model\StoredConvertedResult[]';
         $request = $this->convertDocumentRequest($request);
 
         return $this->client
             ->sendAsync($request, $this->_createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    
+                    if ($this->config->getDebug()) {
+                        $this->_writeResponseLog($response->getStatusCode(), $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {        
                     $response = $exception->getResponse();
@@ -315,6 +356,277 @@ class ConversionApi
         
         return $req;
     }
+
+    
+    /*
+     * Operation convertDocumentDownload
+     *
+     * Converts specified input document to format specified in the convertSettings with specified options and download
+     *
+     * @param Requests\convertDocumentRequest $request is a request object for operation
+     *
+     * @throws \GroupDocs\Conversion\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GroupDocs\Conversion\Model\StoredConvertedResult[]
+     */
+    public function convertDocumentDownload(Requests\convertDocumentRequest $request)
+    {
+        list($response) = $this->convertDocumentDownloadWithHttpInfo($request);
+        return $response;
+    }
+
+    /*
+     * Operation convertDocumentWithHttpInfo
+     *
+     * Converts specified input document to format specified in the convertSettings with specified options
+     *
+     * @param Requests\convertDocumentRequest $request is a request object for operation
+     *
+     * @throws \GroupDocs\Conversion\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GroupDocs\Conversion\Model\StoredConvertedResult[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function convertDocumentDownloadWithHttpInfo(Requests\convertDocumentRequest $request)
+    {
+        $returnType = '\SplFileObject';
+        $request = $this->convertDocumentDownloadRequest($request);
+
+        try {
+            $options = $this->_createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                $responseBody = $e->getResponse()->getBody();
+                $content = $responseBody->getContents();
+                $error = json_decode($content);
+
+                $errorCode = $e->getCode();
+                $errorMessage = $error->Error != null && $error->Error->Message != null
+                    ? $error->Error->Message
+                    : $e->getMessage();
+                
+                throw new ApiException($errorMessage, $errorCode);
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {          
+                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode);
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+            
+            if ($this->config->getDebug()) {
+                $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                break;
+            }
+            throw $e;
+        }
+    }
+
+    /*
+     * Operation convertDocumentDownloadAsync
+     *
+     * Converts specified input document to format specified in the convertSettings with specified options and download
+     *
+     * @param Requests\convertDocumentRequest $request is a request object for operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function convertDocumentDownloadAsync(Requests\convertDocumentRequest $request) 
+    {
+        return $this->convertDocumentDownloadAsyncWithHttpInfo($request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /*
+     * Operation convertDocumentDownloadAsyncWithHttpInfo
+     *
+     * Converts specified input document to format specified in the convertSettings with specified options and download
+     *
+     * @param Requests\convertDocumentRequest $request is a request object for operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function convertDocumentDownloadAsyncWithHttpInfo(Requests\convertDocumentRequest $request) 
+    {
+        $returnType = '\SplFileObject';
+        $request = $this->convertDocumentDownloadRequest($request);
+
+        return $this->client
+            ->sendAsync($request, $this->_createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    
+                    if ($this->config->getDebug()) {
+                        $this->_writeResponseLog($response->getStatusCode(), $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {        
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();        
+          
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode
+                    );
+                }
+            );
+    }
+
+    /*
+     * Create request for operation 'convertDocumentDownload'
+     *
+     * @param Requests\convertDocumentRequest $request is a request object for operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function convertDocumentDownloadRequest(Requests\convertDocumentRequest $request)
+    {
+        // verify the required parameter 'convertSettings' is set
+        if ($request->convertSettings === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $convertSettings when calling convertDocument');
+        }
+
+        $resourcePath = '/conversion';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = "";
+        $multipart = false;
+    
+
+    
+    
+        $resourcePath = $this->_buildUrl($resourcePath, $queryParams);
+
+        // body params
+        $_tempBody = null;
+        if (isset($request->convertSettings)) {
+            if (is_string($request->convertSettings)) {
+                $_tempBody = "\"" . $request->convertSettings . "\"";   
+            } else {
+                $_tempBody = $request->convertSettings;
+            }
+        }
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'filename' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = $formParams["data"];
+            }
+        }
+    
+        $this->_requestToken();
+
+        if ($this->accessToken !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->accessToken;
+        }
+
+        $defaultHeaders = [];
+        
+        if ($this->config->getClientName()) {
+            $defaultHeaders['x-groupdocs-client'] = $this->config->getClientName();
+        }
+
+        if ($this->config->getClientVersion()) {
+            $defaultHeaders['x-groupdocs-client-version'] = $this->config->getClientVersion();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+    
+        $req = new Request(
+            'POST',
+            $resourcePath,
+            $headers,
+            $httpBody
+        );
+        if ($this->config->getDebug()) {
+            $this->_writeRequestLog('POST', $resourcePath, $headers, $httpBody);
+        }
+        
+        return $req;
+    }    
 
     /*
      * Operation getSupportedConversionTypes
@@ -503,9 +815,9 @@ class ConversionApi
             }
         }
         // query params
-        if ($request->storage !== null) {
-            $localName = lcfirst('Storage');
-            $localValue = is_bool($request->storage) ? ($request->storage ? 'true' : 'false') : $request->storage;
+        if ($request->storageName !== null) {
+            $localName = lcfirst('StorageName');
+            $localValue = is_bool($request->storageName) ? ($request->storageName ? 'true' : 'false') : $request->storageName;
             if (strpos($resourcePath, '{' . $localName . '}') !== false) {
                 $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
             } else {
@@ -791,13 +1103,13 @@ class getSupportedConversionTypesRequest
      * Initializes a new instance of the getSupportedConversionTypesRequest class.
      *  
      * @param string $filePath Absolute path to a document in the storage
-     * @param string $storage Storage which contains the document
+     * @param string $storageName StorageName which contains the document
      * @param string $format If provided only supported conversions for specified format will be returned
      */
-    public function __construct($filePath = null, $storage = null, $format = null)             
+    public function __construct($filePath = null, $storageName = null, $format = null)             
     {
         $this->filePath = $filePath;
-        $this->storage = $storage;
+        $this->storageName = $storageName;
         $this->format = $format;
     }
 
@@ -807,9 +1119,9 @@ class getSupportedConversionTypesRequest
     public $filePath;
 	
     /*
-     * Storage which contains the document
+     * StorageName which contains the document
      */
-    public $storage;
+    public $storageName;
 	
     /*
      * If provided only supported conversions for specified format will be returned

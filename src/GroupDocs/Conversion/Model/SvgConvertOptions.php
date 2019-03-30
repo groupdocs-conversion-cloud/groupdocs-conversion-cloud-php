@@ -55,7 +55,8 @@ class SvgConvertOptions extends ConvertOptions
         'height' => 'int',
         'grayscale' => 'bool',
         'rotateAngle' => 'int',
-        'usePdf' => 'bool'
+        'usePdf' => 'bool',
+        'watermarkOptions' => '\GroupDocs\Conversion\Model\WatermarkOptions'
     ];
 
     /*
@@ -68,7 +69,8 @@ class SvgConvertOptions extends ConvertOptions
         'height' => 'int32',
         'grayscale' => null,
         'rotateAngle' => 'int32',
-        'usePdf' => null
+        'usePdf' => null,
+        'watermarkOptions' => null
     ];
 
     /*
@@ -102,7 +104,8 @@ class SvgConvertOptions extends ConvertOptions
         'height' => 'Height',
         'grayscale' => 'Grayscale',
         'rotateAngle' => 'RotateAngle',
-        'usePdf' => 'UsePdf'
+        'usePdf' => 'UsePdf',
+        'watermarkOptions' => 'WatermarkOptions'
     ];
 
     /*
@@ -115,7 +118,8 @@ class SvgConvertOptions extends ConvertOptions
         'height' => 'setHeight',
         'grayscale' => 'setGrayscale',
         'rotateAngle' => 'setRotateAngle',
-        'usePdf' => 'setUsePdf'
+        'usePdf' => 'setUsePdf',
+        'watermarkOptions' => 'setWatermarkOptions'
     ];
 
     /*
@@ -128,7 +132,8 @@ class SvgConvertOptions extends ConvertOptions
         'height' => 'getHeight',
         'grayscale' => 'getGrayscale',
         'rotateAngle' => 'getRotateAngle',
-        'usePdf' => 'getUsePdf'
+        'usePdf' => 'getUsePdf',
+        'watermarkOptions' => 'getWatermarkOptions'
     ];
 
     /*
@@ -192,6 +197,7 @@ class SvgConvertOptions extends ConvertOptions
         $this->container['grayscale'] = isset($data['grayscale']) ? $data['grayscale'] : null;
         $this->container['rotateAngle'] = isset($data['rotateAngle']) ? $data['rotateAngle'] : null;
         $this->container['usePdf'] = isset($data['usePdf']) ? $data['usePdf'] : null;
+        $this->container['watermarkOptions'] = isset($data['watermarkOptions']) ? $data['watermarkOptions'] : null;
     }
 
     /*
@@ -368,6 +374,30 @@ class SvgConvertOptions extends ConvertOptions
     public function setUsePdf($usePdf)
     {
         $this->container['usePdf'] = $usePdf;
+
+        return $this;
+    }
+
+    /*
+     * Gets watermarkOptions
+     *
+     * @return \GroupDocs\Conversion\Model\WatermarkOptions
+     */
+    public function getWatermarkOptions()
+    {
+        return $this->container['watermarkOptions'];
+    }
+
+    /*
+     * Sets watermarkOptions
+     *
+     * @param \GroupDocs\Conversion\Model\WatermarkOptions $watermarkOptions Watermark specific options
+     *
+     * @return $this
+     */
+    public function setWatermarkOptions($watermarkOptions)
+    {
+        $this->container['watermarkOptions'] = $watermarkOptions;
 
         return $this;
     }

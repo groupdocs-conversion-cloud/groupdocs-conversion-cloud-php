@@ -52,7 +52,8 @@ class PresentationConvertOptions extends ConvertOptions
      */
     protected static $swaggerTypes = [
         'password' => 'string',
-        'zoom' => 'int'
+        'zoom' => 'int',
+        'watermarkOptions' => '\GroupDocs\Conversion\Model\WatermarkOptions'
     ];
 
     /*
@@ -62,7 +63,8 @@ class PresentationConvertOptions extends ConvertOptions
      */
     protected static $swaggerFormats = [
         'password' => null,
-        'zoom' => 'int32'
+        'zoom' => 'int32',
+        'watermarkOptions' => null
     ];
 
     /*
@@ -93,7 +95,8 @@ class PresentationConvertOptions extends ConvertOptions
      */
     protected static $attributeMap = [
         'password' => 'Password',
-        'zoom' => 'Zoom'
+        'zoom' => 'Zoom',
+        'watermarkOptions' => 'WatermarkOptions'
     ];
 
     /*
@@ -103,7 +106,8 @@ class PresentationConvertOptions extends ConvertOptions
      */
     protected static $setters = [
         'password' => 'setPassword',
-        'zoom' => 'setZoom'
+        'zoom' => 'setZoom',
+        'watermarkOptions' => 'setWatermarkOptions'
     ];
 
     /*
@@ -113,7 +117,8 @@ class PresentationConvertOptions extends ConvertOptions
      */
     protected static $getters = [
         'password' => 'getPassword',
-        'zoom' => 'getZoom'
+        'zoom' => 'getZoom',
+        'watermarkOptions' => 'getWatermarkOptions'
     ];
 
     /*
@@ -174,6 +179,7 @@ class PresentationConvertOptions extends ConvertOptions
 
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['zoom'] = isset($data['zoom']) ? $data['zoom'] : null;
+        $this->container['watermarkOptions'] = isset($data['watermarkOptions']) ? $data['watermarkOptions'] : null;
     }
 
     /*
@@ -254,6 +260,30 @@ class PresentationConvertOptions extends ConvertOptions
     public function setZoom($zoom)
     {
         $this->container['zoom'] = $zoom;
+
+        return $this;
+    }
+
+    /*
+     * Gets watermarkOptions
+     *
+     * @return \GroupDocs\Conversion\Model\WatermarkOptions
+     */
+    public function getWatermarkOptions()
+    {
+        return $this->container['watermarkOptions'];
+    }
+
+    /*
+     * Sets watermarkOptions
+     *
+     * @param \GroupDocs\Conversion\Model\WatermarkOptions $watermarkOptions Watermark specific options
+     *
+     * @return $this
+     */
+    public function setWatermarkOptions($watermarkOptions)
+    {
+        $this->container['watermarkOptions'] = $watermarkOptions;
 
         return $this;
     }

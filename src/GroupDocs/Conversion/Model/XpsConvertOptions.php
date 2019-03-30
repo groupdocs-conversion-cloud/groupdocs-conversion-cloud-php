@@ -59,7 +59,8 @@ class XpsConvertOptions extends ConvertOptions
         'marginBottom' => 'int',
         'marginLeft' => 'int',
         'marginRight' => 'int',
-        'usePdf' => 'bool'
+        'usePdf' => 'bool',
+        'watermarkOptions' => '\GroupDocs\Conversion\Model\WatermarkOptions'
     ];
 
     /*
@@ -76,7 +77,8 @@ class XpsConvertOptions extends ConvertOptions
         'marginBottom' => 'int32',
         'marginLeft' => 'int32',
         'marginRight' => 'int32',
-        'usePdf' => null
+        'usePdf' => null,
+        'watermarkOptions' => null
     ];
 
     /*
@@ -114,7 +116,8 @@ class XpsConvertOptions extends ConvertOptions
         'marginBottom' => 'MarginBottom',
         'marginLeft' => 'MarginLeft',
         'marginRight' => 'MarginRight',
-        'usePdf' => 'UsePdf'
+        'usePdf' => 'UsePdf',
+        'watermarkOptions' => 'WatermarkOptions'
     ];
 
     /*
@@ -131,7 +134,8 @@ class XpsConvertOptions extends ConvertOptions
         'marginBottom' => 'setMarginBottom',
         'marginLeft' => 'setMarginLeft',
         'marginRight' => 'setMarginRight',
-        'usePdf' => 'setUsePdf'
+        'usePdf' => 'setUsePdf',
+        'watermarkOptions' => 'setWatermarkOptions'
     ];
 
     /*
@@ -148,7 +152,8 @@ class XpsConvertOptions extends ConvertOptions
         'marginBottom' => 'getMarginBottom',
         'marginLeft' => 'getMarginLeft',
         'marginRight' => 'getMarginRight',
-        'usePdf' => 'getUsePdf'
+        'usePdf' => 'getUsePdf',
+        'watermarkOptions' => 'getWatermarkOptions'
     ];
 
     /*
@@ -216,6 +221,7 @@ class XpsConvertOptions extends ConvertOptions
         $this->container['marginLeft'] = isset($data['marginLeft']) ? $data['marginLeft'] : null;
         $this->container['marginRight'] = isset($data['marginRight']) ? $data['marginRight'] : null;
         $this->container['usePdf'] = isset($data['usePdf']) ? $data['usePdf'] : null;
+        $this->container['watermarkOptions'] = isset($data['watermarkOptions']) ? $data['watermarkOptions'] : null;
     }
 
     /*
@@ -506,6 +512,30 @@ class XpsConvertOptions extends ConvertOptions
     public function setUsePdf($usePdf)
     {
         $this->container['usePdf'] = $usePdf;
+
+        return $this;
+    }
+
+    /*
+     * Gets watermarkOptions
+     *
+     * @return \GroupDocs\Conversion\Model\WatermarkOptions
+     */
+    public function getWatermarkOptions()
+    {
+        return $this->container['watermarkOptions'];
+    }
+
+    /*
+     * Sets watermarkOptions
+     *
+     * @param \GroupDocs\Conversion\Model\WatermarkOptions $watermarkOptions Watermark specific options
+     *
+     * @return $this
+     */
+    public function setWatermarkOptions($watermarkOptions)
+    {
+        $this->container['watermarkOptions'] = $watermarkOptions;
 
         return $this;
     }

@@ -57,7 +57,8 @@ class ImageConvertOptions extends ConvertOptions
         'verticalResolution' => 'int',
         'grayscale' => 'bool',
         'rotateAngle' => 'int',
-        'usePdf' => 'bool'
+        'usePdf' => 'bool',
+        'watermarkOptions' => '\GroupDocs\Conversion\Model\WatermarkOptions'
     ];
 
     /*
@@ -72,7 +73,8 @@ class ImageConvertOptions extends ConvertOptions
         'verticalResolution' => 'int32',
         'grayscale' => null,
         'rotateAngle' => 'int32',
-        'usePdf' => null
+        'usePdf' => null,
+        'watermarkOptions' => null
     ];
 
     /*
@@ -108,7 +110,8 @@ class ImageConvertOptions extends ConvertOptions
         'verticalResolution' => 'VerticalResolution',
         'grayscale' => 'Grayscale',
         'rotateAngle' => 'RotateAngle',
-        'usePdf' => 'UsePdf'
+        'usePdf' => 'UsePdf',
+        'watermarkOptions' => 'WatermarkOptions'
     ];
 
     /*
@@ -123,7 +126,8 @@ class ImageConvertOptions extends ConvertOptions
         'verticalResolution' => 'setVerticalResolution',
         'grayscale' => 'setGrayscale',
         'rotateAngle' => 'setRotateAngle',
-        'usePdf' => 'setUsePdf'
+        'usePdf' => 'setUsePdf',
+        'watermarkOptions' => 'setWatermarkOptions'
     ];
 
     /*
@@ -138,7 +142,8 @@ class ImageConvertOptions extends ConvertOptions
         'verticalResolution' => 'getVerticalResolution',
         'grayscale' => 'getGrayscale',
         'rotateAngle' => 'getRotateAngle',
-        'usePdf' => 'getUsePdf'
+        'usePdf' => 'getUsePdf',
+        'watermarkOptions' => 'getWatermarkOptions'
     ];
 
     /*
@@ -204,6 +209,7 @@ class ImageConvertOptions extends ConvertOptions
         $this->container['grayscale'] = isset($data['grayscale']) ? $data['grayscale'] : null;
         $this->container['rotateAngle'] = isset($data['rotateAngle']) ? $data['rotateAngle'] : null;
         $this->container['usePdf'] = isset($data['usePdf']) ? $data['usePdf'] : null;
+        $this->container['watermarkOptions'] = isset($data['watermarkOptions']) ? $data['watermarkOptions'] : null;
     }
 
     /*
@@ -440,6 +446,30 @@ class ImageConvertOptions extends ConvertOptions
     public function setUsePdf($usePdf)
     {
         $this->container['usePdf'] = $usePdf;
+
+        return $this;
+    }
+
+    /*
+     * Gets watermarkOptions
+     *
+     * @return \GroupDocs\Conversion\Model\WatermarkOptions
+     */
+    public function getWatermarkOptions()
+    {
+        return $this->container['watermarkOptions'];
+    }
+
+    /*
+     * Sets watermarkOptions
+     *
+     * @param \GroupDocs\Conversion\Model\WatermarkOptions $watermarkOptions Watermark specific options
+     *
+     * @return $this
+     */
+    public function setWatermarkOptions($watermarkOptions)
+    {
+        $this->container['watermarkOptions'] = $watermarkOptions;
 
         return $this;
     }

@@ -53,7 +53,8 @@ class SpreadsheetConvertOptions extends ConvertOptions
     protected static $swaggerTypes = [
         'password' => 'string',
         'zoom' => 'int',
-        'usePdf' => 'bool'
+        'usePdf' => 'bool',
+        'watermarkOptions' => '\GroupDocs\Conversion\Model\WatermarkOptions'
     ];
 
     /*
@@ -64,7 +65,8 @@ class SpreadsheetConvertOptions extends ConvertOptions
     protected static $swaggerFormats = [
         'password' => null,
         'zoom' => 'int32',
-        'usePdf' => null
+        'usePdf' => null,
+        'watermarkOptions' => null
     ];
 
     /*
@@ -96,7 +98,8 @@ class SpreadsheetConvertOptions extends ConvertOptions
     protected static $attributeMap = [
         'password' => 'Password',
         'zoom' => 'Zoom',
-        'usePdf' => 'UsePdf'
+        'usePdf' => 'UsePdf',
+        'watermarkOptions' => 'WatermarkOptions'
     ];
 
     /*
@@ -107,7 +110,8 @@ class SpreadsheetConvertOptions extends ConvertOptions
     protected static $setters = [
         'password' => 'setPassword',
         'zoom' => 'setZoom',
-        'usePdf' => 'setUsePdf'
+        'usePdf' => 'setUsePdf',
+        'watermarkOptions' => 'setWatermarkOptions'
     ];
 
     /*
@@ -118,7 +122,8 @@ class SpreadsheetConvertOptions extends ConvertOptions
     protected static $getters = [
         'password' => 'getPassword',
         'zoom' => 'getZoom',
-        'usePdf' => 'getUsePdf'
+        'usePdf' => 'getUsePdf',
+        'watermarkOptions' => 'getWatermarkOptions'
     ];
 
     /*
@@ -180,6 +185,7 @@ class SpreadsheetConvertOptions extends ConvertOptions
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['zoom'] = isset($data['zoom']) ? $data['zoom'] : null;
         $this->container['usePdf'] = isset($data['usePdf']) ? $data['usePdf'] : null;
+        $this->container['watermarkOptions'] = isset($data['watermarkOptions']) ? $data['watermarkOptions'] : null;
     }
 
     /*
@@ -290,6 +296,30 @@ class SpreadsheetConvertOptions extends ConvertOptions
     public function setUsePdf($usePdf)
     {
         $this->container['usePdf'] = $usePdf;
+
+        return $this;
+    }
+
+    /*
+     * Gets watermarkOptions
+     *
+     * @return \GroupDocs\Conversion\Model\WatermarkOptions
+     */
+    public function getWatermarkOptions()
+    {
+        return $this->container['watermarkOptions'];
+    }
+
+    /*
+     * Sets watermarkOptions
+     *
+     * @param \GroupDocs\Conversion\Model\WatermarkOptions $watermarkOptions Watermark specific options
+     *
+     * @return $this
+     */
+    public function setWatermarkOptions($watermarkOptions)
+    {
+        $this->container['watermarkOptions'] = $watermarkOptions;
 
         return $this;
     }

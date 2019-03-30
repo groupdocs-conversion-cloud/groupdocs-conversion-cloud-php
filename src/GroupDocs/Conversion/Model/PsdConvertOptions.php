@@ -53,6 +53,8 @@ class PsdConvertOptions extends ImageConvertOptions
     protected static $swaggerTypes = [
         'channelBitsCount' => 'int',
         'channelsCount' => 'int',
+        'colorMode' => 'string',
+        'compressionMethod' => 'string',
         'version' => 'int'
     ];
 
@@ -64,6 +66,8 @@ class PsdConvertOptions extends ImageConvertOptions
     protected static $swaggerFormats = [
         'channelBitsCount' => null,
         'channelsCount' => null,
+        'colorMode' => null,
+        'compressionMethod' => null,
         'version' => 'int32'
     ];
 
@@ -96,6 +100,8 @@ class PsdConvertOptions extends ImageConvertOptions
     protected static $attributeMap = [
         'channelBitsCount' => 'ChannelBitsCount',
         'channelsCount' => 'ChannelsCount',
+        'colorMode' => 'ColorMode',
+        'compressionMethod' => 'CompressionMethod',
         'version' => 'Version'
     ];
 
@@ -107,6 +113,8 @@ class PsdConvertOptions extends ImageConvertOptions
     protected static $setters = [
         'channelBitsCount' => 'setChannelBitsCount',
         'channelsCount' => 'setChannelsCount',
+        'colorMode' => 'setColorMode',
+        'compressionMethod' => 'setCompressionMethod',
         'version' => 'setVersion'
     ];
 
@@ -118,6 +126,8 @@ class PsdConvertOptions extends ImageConvertOptions
     protected static $getters = [
         'channelBitsCount' => 'getChannelBitsCount',
         'channelsCount' => 'getChannelsCount',
+        'colorMode' => 'getColorMode',
+        'compressionMethod' => 'getCompressionMethod',
         'version' => 'getVersion'
     ];
 
@@ -162,8 +172,54 @@ class PsdConvertOptions extends ImageConvertOptions
         return self::$swaggerModelName;
     }
 
+    const COLOR_MODE_BITMAP = 'Bitmap';
+    const COLOR_MODE_GRAYSCALE = 'Grayscale';
+    const COLOR_MODE_INDEXED = 'Indexed';
+    const COLOR_MODE_RGB = 'Rgb';
+    const COLOR_MODE_CMYK = 'Cmyk';
+    const COLOR_MODE_MULTICHANNEL = 'Multichannel';
+    const COLOR_MODE_DUOTONE = 'Duotone';
+    const COLOR_MODE_LAB = 'Lab';
+    const COMPRESSION_METHOD_RAW = 'Raw';
+    const COMPRESSION_METHOD_RLE = 'Rle';
+    const COMPRESSION_METHOD_ZIP_WITHOUT_PREDICTION = 'ZipWithoutPrediction';
+    const COMPRESSION_METHOD_ZIP_WITH_PREDICTION = 'ZipWithPrediction';
     
 
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getColorModeAllowableValues()
+    {
+        return [
+            self::COLOR_MODE_BITMAP,
+            self::COLOR_MODE_GRAYSCALE,
+            self::COLOR_MODE_INDEXED,
+            self::COLOR_MODE_RGB,
+            self::COLOR_MODE_CMYK,
+            self::COLOR_MODE_MULTICHANNEL,
+            self::COLOR_MODE_DUOTONE,
+            self::COLOR_MODE_LAB,
+        ];
+    }
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCompressionMethodAllowableValues()
+    {
+        return [
+            self::COMPRESSION_METHOD_RAW,
+            self::COMPRESSION_METHOD_RLE,
+            self::COMPRESSION_METHOD_ZIP_WITHOUT_PREDICTION,
+            self::COMPRESSION_METHOD_ZIP_WITH_PREDICTION,
+        ];
+    }
     
 
 
@@ -179,6 +235,8 @@ class PsdConvertOptions extends ImageConvertOptions
 
         $this->container['channelBitsCount'] = isset($data['channelBitsCount']) ? $data['channelBitsCount'] : null;
         $this->container['channelsCount'] = isset($data['channelsCount']) ? $data['channelsCount'] : null;
+        $this->container['colorMode'] = isset($data['colorMode']) ? $data['colorMode'] : null;
+        $this->container['compressionMethod'] = isset($data['compressionMethod']) ? $data['compressionMethod'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
 
@@ -197,6 +255,28 @@ class PsdConvertOptions extends ImageConvertOptions
         if ($this->container['channelsCount'] === null) {
             $invalidProperties[] = "'channelsCount' can't be null";
         }
+        if ($this->container['colorMode'] === null) {
+            $invalidProperties[] = "'colorMode' can't be null";
+        }
+        $allowedValues = $this->getColorModeAllowableValues();
+        if (!in_array($this->container['colorMode'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'colorMode', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['compressionMethod'] === null) {
+            $invalidProperties[] = "'compressionMethod' can't be null";
+        }
+        $allowedValues = $this->getCompressionMethodAllowableValues();
+        if (!in_array($this->container['compressionMethod'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'compressionMethod', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['version'] === null) {
             $invalidProperties[] = "'version' can't be null";
         }
@@ -219,6 +299,20 @@ class PsdConvertOptions extends ImageConvertOptions
             return false;
         }
         if ($this->container['channelsCount'] === null) {
+            return false;
+        }
+        if ($this->container['colorMode'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getColorModeAllowableValues();
+        if (!in_array($this->container['colorMode'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['compressionMethod'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getCompressionMethodAllowableValues();
+        if (!in_array($this->container['compressionMethod'], $allowedValues)) {
             return false;
         }
         if ($this->container['version'] === null) {
@@ -272,6 +366,64 @@ class PsdConvertOptions extends ImageConvertOptions
     public function setChannelsCount($channelsCount)
     {
         $this->container['channelsCount'] = $channelsCount;
+
+        return $this;
+    }
+
+    /*
+     * Gets colorMode
+     *
+     * @return string
+     */
+    public function getColorMode()
+    {
+        return $this->container['colorMode'];
+    }
+
+    /*
+     * Sets colorMode
+     *
+     * @param string $colorMode Psd color mode
+     *
+     * @return $this
+     */
+    public function setColorMode($colorMode)
+    {
+        $allowedValues = $this->getColorModeAllowableValues();
+        if ((!is_numeric($colorMode) && !in_array($colorMode, $allowedValues)) || (is_numeric($colorMode) && !in_array($allowedValues[$colorMode], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'colorMode', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['colorMode'] = $colorMode;
+
+        return $this;
+    }
+
+    /*
+     * Gets compressionMethod
+     *
+     * @return string
+     */
+    public function getCompressionMethod()
+    {
+        return $this->container['compressionMethod'];
+    }
+
+    /*
+     * Sets compressionMethod
+     *
+     * @param string $compressionMethod Psd compression method
+     *
+     * @return $this
+     */
+    public function setCompressionMethod($compressionMethod)
+    {
+        $allowedValues = $this->getCompressionMethodAllowableValues();
+        if ((!is_numeric($compressionMethod) && !in_array($compressionMethod, $allowedValues)) || (is_numeric($compressionMethod) && !in_array($allowedValues[$compressionMethod], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'compressionMethod', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['compressionMethod'] = $compressionMethod;
 
         return $this;
     }

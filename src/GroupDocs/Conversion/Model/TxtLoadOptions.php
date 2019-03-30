@@ -51,7 +51,9 @@ class TxtLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'detectNumberingWithWhitespaces' => 'bool'
+        'detectNumberingWithWhitespaces' => 'bool',
+        'trailingSpacesOptions' => 'string',
+        'leadingSpacesOptions' => 'string'
     ];
 
     /*
@@ -60,7 +62,9 @@ class TxtLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'detectNumberingWithWhitespaces' => null
+        'detectNumberingWithWhitespaces' => null,
+        'trailingSpacesOptions' => null,
+        'leadingSpacesOptions' => null
     ];
 
     /*
@@ -90,7 +94,9 @@ class TxtLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        'detectNumberingWithWhitespaces' => 'DetectNumberingWithWhitespaces'
+        'detectNumberingWithWhitespaces' => 'DetectNumberingWithWhitespaces',
+        'trailingSpacesOptions' => 'TrailingSpacesOptions',
+        'leadingSpacesOptions' => 'LeadingSpacesOptions'
     ];
 
     /*
@@ -99,7 +105,9 @@ class TxtLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $setters = [
-        'detectNumberingWithWhitespaces' => 'setDetectNumberingWithWhitespaces'
+        'detectNumberingWithWhitespaces' => 'setDetectNumberingWithWhitespaces',
+        'trailingSpacesOptions' => 'setTrailingSpacesOptions',
+        'leadingSpacesOptions' => 'setLeadingSpacesOptions'
     ];
 
     /*
@@ -108,7 +116,9 @@ class TxtLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $getters = [
-        'detectNumberingWithWhitespaces' => 'getDetectNumberingWithWhitespaces'
+        'detectNumberingWithWhitespaces' => 'getDetectNumberingWithWhitespaces',
+        'trailingSpacesOptions' => 'getTrailingSpacesOptions',
+        'leadingSpacesOptions' => 'getLeadingSpacesOptions'
     ];
 
     /*
@@ -152,8 +162,40 @@ class TxtLoadOptions extends LoadOptions
         return self::$swaggerModelName;
     }
 
+    const TRAILING_SPACES_OPTIONS_PRESERVE = 'Preserve';
+    const TRAILING_SPACES_OPTIONS_TRIM = 'Trim';
+    const LEADING_SPACES_OPTIONS_CONVERT_TO_INDENT = 'ConvertToIndent';
+    const LEADING_SPACES_OPTIONS_PRESERVE = 'Preserve';
+    const LEADING_SPACES_OPTIONS_TRIM = 'Trim';
     
 
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTrailingSpacesOptionsAllowableValues()
+    {
+        return [
+            self::TRAILING_SPACES_OPTIONS_PRESERVE,
+            self::TRAILING_SPACES_OPTIONS_TRIM,
+        ];
+    }
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getLeadingSpacesOptionsAllowableValues()
+    {
+        return [
+            self::LEADING_SPACES_OPTIONS_CONVERT_TO_INDENT,
+            self::LEADING_SPACES_OPTIONS_PRESERVE,
+            self::LEADING_SPACES_OPTIONS_TRIM,
+        ];
+    }
     
 
 
@@ -168,6 +210,8 @@ class TxtLoadOptions extends LoadOptions
         parent::__construct($data);
 
         $this->container['detectNumberingWithWhitespaces'] = isset($data['detectNumberingWithWhitespaces']) ? $data['detectNumberingWithWhitespaces'] : null;
+        $this->container['trailingSpacesOptions'] = isset($data['trailingSpacesOptions']) ? $data['trailingSpacesOptions'] : null;
+        $this->container['leadingSpacesOptions'] = isset($data['leadingSpacesOptions']) ? $data['leadingSpacesOptions'] : null;
     }
 
     /*
@@ -182,6 +226,28 @@ class TxtLoadOptions extends LoadOptions
         if ($this->container['detectNumberingWithWhitespaces'] === null) {
             $invalidProperties[] = "'detectNumberingWithWhitespaces' can't be null";
         }
+        if ($this->container['trailingSpacesOptions'] === null) {
+            $invalidProperties[] = "'trailingSpacesOptions' can't be null";
+        }
+        $allowedValues = $this->getTrailingSpacesOptionsAllowableValues();
+        if (!in_array($this->container['trailingSpacesOptions'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'trailingSpacesOptions', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['leadingSpacesOptions'] === null) {
+            $invalidProperties[] = "'leadingSpacesOptions' can't be null";
+        }
+        $allowedValues = $this->getLeadingSpacesOptionsAllowableValues();
+        if (!in_array($this->container['leadingSpacesOptions'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'leadingSpacesOptions', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -198,6 +264,20 @@ class TxtLoadOptions extends LoadOptions
         }
 
         if ($this->container['detectNumberingWithWhitespaces'] === null) {
+            return false;
+        }
+        if ($this->container['trailingSpacesOptions'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getTrailingSpacesOptionsAllowableValues();
+        if (!in_array($this->container['trailingSpacesOptions'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['leadingSpacesOptions'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getLeadingSpacesOptionsAllowableValues();
+        if (!in_array($this->container['leadingSpacesOptions'], $allowedValues)) {
             return false;
         }
         return true;
@@ -224,6 +304,64 @@ class TxtLoadOptions extends LoadOptions
     public function setDetectNumberingWithWhitespaces($detectNumberingWithWhitespaces)
     {
         $this->container['detectNumberingWithWhitespaces'] = $detectNumberingWithWhitespaces;
+
+        return $this;
+    }
+
+    /*
+     * Gets trailingSpacesOptions
+     *
+     * @return string
+     */
+    public function getTrailingSpacesOptions()
+    {
+        return $this->container['trailingSpacesOptions'];
+    }
+
+    /*
+     * Sets trailingSpacesOptions
+     *
+     * @param string $trailingSpacesOptions Gets or sets preferred option of a trailing space handling. Default value is Trim.
+     *
+     * @return $this
+     */
+    public function setTrailingSpacesOptions($trailingSpacesOptions)
+    {
+        $allowedValues = $this->getTrailingSpacesOptionsAllowableValues();
+        if ((!is_numeric($trailingSpacesOptions) && !in_array($trailingSpacesOptions, $allowedValues)) || (is_numeric($trailingSpacesOptions) && !in_array($allowedValues[$trailingSpacesOptions], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'trailingSpacesOptions', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['trailingSpacesOptions'] = $trailingSpacesOptions;
+
+        return $this;
+    }
+
+    /*
+     * Gets leadingSpacesOptions
+     *
+     * @return string
+     */
+    public function getLeadingSpacesOptions()
+    {
+        return $this->container['leadingSpacesOptions'];
+    }
+
+    /*
+     * Sets leadingSpacesOptions
+     *
+     * @param string $leadingSpacesOptions Gets or sets preferred option of a leading space handling. Default value is ConvertToIndent.
+     *
+     * @return $this
+     */
+    public function setLeadingSpacesOptions($leadingSpacesOptions)
+    {
+        $allowedValues = $this->getLeadingSpacesOptionsAllowableValues();
+        if ((!is_numeric($leadingSpacesOptions) && !in_array($leadingSpacesOptions, $allowedValues)) || (is_numeric($leadingSpacesOptions) && !in_array($allowedValues[$leadingSpacesOptions], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'leadingSpacesOptions', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['leadingSpacesOptions'] = $leadingSpacesOptions;
 
         return $this;
     }
