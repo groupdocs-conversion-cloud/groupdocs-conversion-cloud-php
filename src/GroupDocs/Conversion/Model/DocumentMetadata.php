@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="ImageConvertOptions.php">
+ * <copyright company="Aspose Pty Ltd" file="DocumentMetadata.php">
  *   Copyright (c) 2003-2019 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -27,14 +27,16 @@
  */
 
 namespace GroupDocs\Conversion\Model;
+
+use \ArrayAccess;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * ImageConvertOptions
+ * DocumentMetadata
  *
- * @description Options for to Image conversion
+ * @description Contains a document metadata
  */
-class ImageConvertOptions extends ConvertOptions 
+class DocumentMetadata implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -43,7 +45,7 @@ class ImageConvertOptions extends ConvertOptions
      *
      * @var string
      */
-    protected static $swaggerModelName = "ImageConvertOptions";
+    protected static $swaggerModelName = "DocumentMetadata";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -51,18 +53,20 @@ class ImageConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $swaggerTypes = [
+        'fileType' => 'string',
+        'pageCount' => 'int',
+        'size' => 'int',
         'width' => 'int',
         'height' => 'int',
         'horizontalResolution' => 'int',
         'verticalResolution' => 'int',
-        'grayscale' => 'bool',
-        'rotateAngle' => 'int',
-        'usePdf' => 'bool',
-        'watermarkOptions' => '\GroupDocs\Conversion\Model\WatermarkOptions',
-        'brightness' => 'int',
-        'contrast' => 'int',
-        'gamma' => 'double',
-        'flipMode' => 'string'
+        'bitsPerPixel' => 'int',
+        'title' => 'string',
+        'author' => 'string',
+        'createdDate' => '\DateTime',
+        'modifiedDate' => '\DateTime',
+        'layers' => 'string[]',
+        'isPasswordProtected' => 'bool'
     ];
 
     /*
@@ -71,18 +75,20 @@ class ImageConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $swaggerFormats = [
+        'fileType' => null,
+        'pageCount' => 'int32',
+        'size' => 'int64',
         'width' => 'int32',
         'height' => 'int32',
         'horizontalResolution' => 'int32',
         'verticalResolution' => 'int32',
-        'grayscale' => null,
-        'rotateAngle' => 'int32',
-        'usePdf' => null,
-        'watermarkOptions' => null,
-        'brightness' => 'int32',
-        'contrast' => 'int32',
-        'gamma' => 'double',
-        'flipMode' => null
+        'bitsPerPixel' => 'int32',
+        'title' => null,
+        'author' => null,
+        'createdDate' => 'date-time',
+        'modifiedDate' => 'date-time',
+        'layers' => null,
+        'isPasswordProtected' => null
     ];
 
     /*
@@ -92,7 +98,7 @@ class ImageConvertOptions extends ConvertOptions
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /*
@@ -102,7 +108,7 @@ class ImageConvertOptions extends ConvertOptions
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /*
@@ -112,18 +118,20 @@ class ImageConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $attributeMap = [
+        'fileType' => 'FileType',
+        'pageCount' => 'PageCount',
+        'size' => 'Size',
         'width' => 'Width',
         'height' => 'Height',
         'horizontalResolution' => 'HorizontalResolution',
         'verticalResolution' => 'VerticalResolution',
-        'grayscale' => 'Grayscale',
-        'rotateAngle' => 'RotateAngle',
-        'usePdf' => 'UsePdf',
-        'watermarkOptions' => 'WatermarkOptions',
-        'brightness' => 'Brightness',
-        'contrast' => 'Contrast',
-        'gamma' => 'Gamma',
-        'flipMode' => 'FlipMode'
+        'bitsPerPixel' => 'BitsPerPixel',
+        'title' => 'Title',
+        'author' => 'Author',
+        'createdDate' => 'CreatedDate',
+        'modifiedDate' => 'ModifiedDate',
+        'layers' => 'Layers',
+        'isPasswordProtected' => 'IsPasswordProtected'
     ];
 
     /*
@@ -132,18 +140,20 @@ class ImageConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $setters = [
+        'fileType' => 'setFileType',
+        'pageCount' => 'setPageCount',
+        'size' => 'setSize',
         'width' => 'setWidth',
         'height' => 'setHeight',
         'horizontalResolution' => 'setHorizontalResolution',
         'verticalResolution' => 'setVerticalResolution',
-        'grayscale' => 'setGrayscale',
-        'rotateAngle' => 'setRotateAngle',
-        'usePdf' => 'setUsePdf',
-        'watermarkOptions' => 'setWatermarkOptions',
-        'brightness' => 'setBrightness',
-        'contrast' => 'setContrast',
-        'gamma' => 'setGamma',
-        'flipMode' => 'setFlipMode'
+        'bitsPerPixel' => 'setBitsPerPixel',
+        'title' => 'setTitle',
+        'author' => 'setAuthor',
+        'createdDate' => 'setCreatedDate',
+        'modifiedDate' => 'setModifiedDate',
+        'layers' => 'setLayers',
+        'isPasswordProtected' => 'setIsPasswordProtected'
     ];
 
     /*
@@ -152,18 +162,20 @@ class ImageConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $getters = [
+        'fileType' => 'getFileType',
+        'pageCount' => 'getPageCount',
+        'size' => 'getSize',
         'width' => 'getWidth',
         'height' => 'getHeight',
         'horizontalResolution' => 'getHorizontalResolution',
         'verticalResolution' => 'getVerticalResolution',
-        'grayscale' => 'getGrayscale',
-        'rotateAngle' => 'getRotateAngle',
-        'usePdf' => 'getUsePdf',
-        'watermarkOptions' => 'getWatermarkOptions',
-        'brightness' => 'getBrightness',
-        'contrast' => 'getContrast',
-        'gamma' => 'getGamma',
-        'flipMode' => 'getFlipMode'
+        'bitsPerPixel' => 'getBitsPerPixel',
+        'title' => 'getTitle',
+        'author' => 'getAuthor',
+        'createdDate' => 'getCreatedDate',
+        'modifiedDate' => 'getModifiedDate',
+        'layers' => 'getLayers',
+        'isPasswordProtected' => 'getIsPasswordProtected'
     ];
 
     /*
@@ -174,7 +186,7 @@ class ImageConvertOptions extends ConvertOptions
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /*
@@ -184,7 +196,7 @@ class ImageConvertOptions extends ConvertOptions
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /*
@@ -194,7 +206,7 @@ class ImageConvertOptions extends ConvertOptions
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /*
@@ -207,29 +219,16 @@ class ImageConvertOptions extends ConvertOptions
         return self::$swaggerModelName;
     }
 
-    const FLIP_MODE_NONE = 'None';
-    const FLIP_MODE_FLIP_X = 'FlipX';
-    const FLIP_MODE_FLIP_Y = 'FlipY';
-    const FLIP_MODE_FLIP_XY = 'FlipXY';
     
 
     
+
     /*
-     * Gets allowable values of the enum
+     * Associative array for storing property values
      *
-     * @return string[]
+     * @var mixed[]
      */
-    public function getFlipModeAllowableValues()
-    {
-        return [
-            self::FLIP_MODE_NONE,
-            self::FLIP_MODE_FLIP_X,
-            self::FLIP_MODE_FLIP_Y,
-            self::FLIP_MODE_FLIP_XY,
-        ];
-    }
-    
-
+    protected $container = [];
 
     /*
      * Constructor
@@ -239,20 +238,20 @@ class ImageConvertOptions extends ConvertOptions
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
+        $this->container['fileType'] = isset($data['fileType']) ? $data['fileType'] : null;
+        $this->container['pageCount'] = isset($data['pageCount']) ? $data['pageCount'] : null;
+        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
         $this->container['horizontalResolution'] = isset($data['horizontalResolution']) ? $data['horizontalResolution'] : null;
         $this->container['verticalResolution'] = isset($data['verticalResolution']) ? $data['verticalResolution'] : null;
-        $this->container['grayscale'] = isset($data['grayscale']) ? $data['grayscale'] : null;
-        $this->container['rotateAngle'] = isset($data['rotateAngle']) ? $data['rotateAngle'] : null;
-        $this->container['usePdf'] = isset($data['usePdf']) ? $data['usePdf'] : null;
-        $this->container['watermarkOptions'] = isset($data['watermarkOptions']) ? $data['watermarkOptions'] : null;
-        $this->container['brightness'] = isset($data['brightness']) ? $data['brightness'] : null;
-        $this->container['contrast'] = isset($data['contrast']) ? $data['contrast'] : null;
-        $this->container['gamma'] = isset($data['gamma']) ? $data['gamma'] : null;
-        $this->container['flipMode'] = isset($data['flipMode']) ? $data['flipMode'] : null;
+        $this->container['bitsPerPixel'] = isset($data['bitsPerPixel']) ? $data['bitsPerPixel'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['author'] = isset($data['author']) ? $data['author'] : null;
+        $this->container['createdDate'] = isset($data['createdDate']) ? $data['createdDate'] : null;
+        $this->container['modifiedDate'] = isset($data['modifiedDate']) ? $data['modifiedDate'] : null;
+        $this->container['layers'] = isset($data['layers']) ? $data['layers'] : null;
+        $this->container['isPasswordProtected'] = isset($data['isPasswordProtected']) ? $data['isPasswordProtected'] : null;
     }
 
     /*
@@ -262,8 +261,14 @@ class ImageConvertOptions extends ConvertOptions
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
+        if ($this->container['pageCount'] === null) {
+            $invalidProperties[] = "'pageCount' can't be null";
+        }
+        if ($this->container['size'] === null) {
+            $invalidProperties[] = "'size' can't be null";
+        }
         if ($this->container['width'] === null) {
             $invalidProperties[] = "'width' can't be null";
         }
@@ -276,35 +281,18 @@ class ImageConvertOptions extends ConvertOptions
         if ($this->container['verticalResolution'] === null) {
             $invalidProperties[] = "'verticalResolution' can't be null";
         }
-        if ($this->container['grayscale'] === null) {
-            $invalidProperties[] = "'grayscale' can't be null";
+        if ($this->container['bitsPerPixel'] === null) {
+            $invalidProperties[] = "'bitsPerPixel' can't be null";
         }
-        if ($this->container['rotateAngle'] === null) {
-            $invalidProperties[] = "'rotateAngle' can't be null";
+        if ($this->container['createdDate'] === null) {
+            $invalidProperties[] = "'createdDate' can't be null";
         }
-        if ($this->container['usePdf'] === null) {
-            $invalidProperties[] = "'usePdf' can't be null";
+        if ($this->container['modifiedDate'] === null) {
+            $invalidProperties[] = "'modifiedDate' can't be null";
         }
-        if ($this->container['brightness'] === null) {
-            $invalidProperties[] = "'brightness' can't be null";
+        if ($this->container['isPasswordProtected'] === null) {
+            $invalidProperties[] = "'isPasswordProtected' can't be null";
         }
-        if ($this->container['contrast'] === null) {
-            $invalidProperties[] = "'contrast' can't be null";
-        }
-        if ($this->container['gamma'] === null) {
-            $invalidProperties[] = "'gamma' can't be null";
-        }
-        if ($this->container['flipMode'] === null) {
-            $invalidProperties[] = "'flipMode' can't be null";
-        }
-        $allowedValues = $this->getFlipModeAllowableValues();
-        if (!in_array($this->container['flipMode'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'flipMode', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -316,10 +304,13 @@ class ImageConvertOptions extends ConvertOptions
      */
     public function valid()
     {
-        if (!parent::valid()) {
+
+        if ($this->container['pageCount'] === null) {
             return false;
         }
-
+        if ($this->container['size'] === null) {
+            return false;
+        }
         if ($this->container['width'] === null) {
             return false;
         }
@@ -332,34 +323,93 @@ class ImageConvertOptions extends ConvertOptions
         if ($this->container['verticalResolution'] === null) {
             return false;
         }
-        if ($this->container['grayscale'] === null) {
+        if ($this->container['bitsPerPixel'] === null) {
             return false;
         }
-        if ($this->container['rotateAngle'] === null) {
+        if ($this->container['createdDate'] === null) {
             return false;
         }
-        if ($this->container['usePdf'] === null) {
+        if ($this->container['modifiedDate'] === null) {
             return false;
         }
-        if ($this->container['brightness'] === null) {
-            return false;
-        }
-        if ($this->container['contrast'] === null) {
-            return false;
-        }
-        if ($this->container['gamma'] === null) {
-            return false;
-        }
-        if ($this->container['flipMode'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getFlipModeAllowableValues();
-        if (!in_array($this->container['flipMode'], $allowedValues)) {
+        if ($this->container['isPasswordProtected'] === null) {
             return false;
         }
         return true;
     }
 
+
+    /*
+     * Gets fileType
+     *
+     * @return string
+     */
+    public function getFileType()
+    {
+        return $this->container['fileType'];
+    }
+
+    /*
+     * Sets fileType
+     *
+     * @param string $fileType Document file type
+     *
+     * @return $this
+     */
+    public function setFileType($fileType)
+    {
+        $this->container['fileType'] = $fileType;
+
+        return $this;
+    }
+
+    /*
+     * Gets pageCount
+     *
+     * @return int
+     */
+    public function getPageCount()
+    {
+        return $this->container['pageCount'];
+    }
+
+    /*
+     * Sets pageCount
+     *
+     * @param int $pageCount Gets pages count if applicable to the current document format
+     *
+     * @return $this
+     */
+    public function setPageCount($pageCount)
+    {
+        $this->container['pageCount'] = $pageCount;
+
+        return $this;
+    }
+
+    /*
+     * Gets size
+     *
+     * @return int
+     */
+    public function getSize()
+    {
+        return $this->container['size'];
+    }
+
+    /*
+     * Sets size
+     *
+     * @param int $size Document bytes size
+     *
+     * @return $this
+     */
+    public function setSize($size)
+    {
+        $this->container['size'] = $size;
+
+        return $this;
+    }
 
     /*
      * Gets width
@@ -374,7 +424,7 @@ class ImageConvertOptions extends ConvertOptions
     /*
      * Sets width
      *
-     * @param int $width Desired image width after conversion
+     * @param int $width Returns detected width if applicable to the current document format
      *
      * @return $this
      */
@@ -398,7 +448,7 @@ class ImageConvertOptions extends ConvertOptions
     /*
      * Sets height
      *
-     * @param int $height Desired image height after conversion
+     * @param int $height Returns detected height if applicable to the current document format
      *
      * @return $this
      */
@@ -422,7 +472,7 @@ class ImageConvertOptions extends ConvertOptions
     /*
      * Sets horizontalResolution
      *
-     * @param int $horizontalResolution Desired image horizontal resolution after conversion. The default resolution is the resolution of the input file or 96dpi
+     * @param int $horizontalResolution Returns detected horizontal resolution if applicable to the current document format
      *
      * @return $this
      */
@@ -446,7 +496,7 @@ class ImageConvertOptions extends ConvertOptions
     /*
      * Sets verticalResolution
      *
-     * @param int $verticalResolution Desired image vertical resolution after conversion. The default resolution is the resolution of the input file or 96dpi
+     * @param int $verticalResolution Returns detected vertical resolution if applicable to the current document format
      *
      * @return $this
      */
@@ -458,198 +508,169 @@ class ImageConvertOptions extends ConvertOptions
     }
 
     /*
-     * Gets grayscale
-     *
-     * @return bool
-     */
-    public function getGrayscale()
-    {
-        return $this->container['grayscale'];
-    }
-
-    /*
-     * Sets grayscale
-     *
-     * @param bool $grayscale Convert to grayscale image
-     *
-     * @return $this
-     */
-    public function setGrayscale($grayscale)
-    {
-        $this->container['grayscale'] = $grayscale;
-
-        return $this;
-    }
-
-    /*
-     * Gets rotateAngle
+     * Gets bitsPerPixel
      *
      * @return int
      */
-    public function getRotateAngle()
+    public function getBitsPerPixel()
     {
-        return $this->container['rotateAngle'];
+        return $this->container['bitsPerPixel'];
     }
 
     /*
-     * Sets rotateAngle
+     * Sets bitsPerPixel
      *
-     * @param int $rotateAngle Image rotation angle
+     * @param int $bitsPerPixel Returns detected bits per pixel if applicable to the current document format
      *
      * @return $this
      */
-    public function setRotateAngle($rotateAngle)
+    public function setBitsPerPixel($bitsPerPixel)
     {
-        $this->container['rotateAngle'] = $rotateAngle;
+        $this->container['bitsPerPixel'] = $bitsPerPixel;
 
         return $this;
     }
 
     /*
-     * Gets usePdf
-     *
-     * @return bool
-     */
-    public function getUsePdf()
-    {
-        return $this->container['usePdf'];
-    }
-
-    /*
-     * Sets usePdf
-     *
-     * @param bool $usePdf If true, the input firstly is converted to PDF and after that to desired format
-     *
-     * @return $this
-     */
-    public function setUsePdf($usePdf)
-    {
-        $this->container['usePdf'] = $usePdf;
-
-        return $this;
-    }
-
-    /*
-     * Gets watermarkOptions
-     *
-     * @return \GroupDocs\Conversion\Model\WatermarkOptions
-     */
-    public function getWatermarkOptions()
-    {
-        return $this->container['watermarkOptions'];
-    }
-
-    /*
-     * Sets watermarkOptions
-     *
-     * @param \GroupDocs\Conversion\Model\WatermarkOptions $watermarkOptions Watermark specific options
-     *
-     * @return $this
-     */
-    public function setWatermarkOptions($watermarkOptions)
-    {
-        $this->container['watermarkOptions'] = $watermarkOptions;
-
-        return $this;
-    }
-
-    /*
-     * Gets brightness
-     *
-     * @return int
-     */
-    public function getBrightness()
-    {
-        return $this->container['brightness'];
-    }
-
-    /*
-     * Sets brightness
-     *
-     * @param int $brightness Adjust image brightness
-     *
-     * @return $this
-     */
-    public function setBrightness($brightness)
-    {
-        $this->container['brightness'] = $brightness;
-
-        return $this;
-    }
-
-    /*
-     * Gets contrast
-     *
-     * @return int
-     */
-    public function getContrast()
-    {
-        return $this->container['contrast'];
-    }
-
-    /*
-     * Sets contrast
-     *
-     * @param int $contrast Adjust image contrast
-     *
-     * @return $this
-     */
-    public function setContrast($contrast)
-    {
-        $this->container['contrast'] = $contrast;
-
-        return $this;
-    }
-
-    /*
-     * Gets gamma
-     *
-     * @return double
-     */
-    public function getGamma()
-    {
-        return $this->container['gamma'];
-    }
-
-    /*
-     * Sets gamma
-     *
-     * @param double $gamma Adjust image gamma
-     *
-     * @return $this
-     */
-    public function setGamma($gamma)
-    {
-        $this->container['gamma'] = $gamma;
-
-        return $this;
-    }
-
-    /*
-     * Gets flipMode
+     * Gets title
      *
      * @return string
      */
-    public function getFlipMode()
+    public function getTitle()
     {
-        return $this->container['flipMode'];
+        return $this->container['title'];
     }
 
     /*
-     * Sets flipMode
+     * Sets title
      *
-     * @param string $flipMode Image flip mode
+     * @param string $title Returns document title width if applicable to the current document format
      *
      * @return $this
      */
-    public function setFlipMode($flipMode)
+    public function setTitle($title)
     {
-        $allowedValues = $this->getFlipModeAllowableValues();
-        if ((!is_numeric($flipMode) && !in_array($flipMode, $allowedValues)) || (is_numeric($flipMode) && !in_array($allowedValues[$flipMode], $allowedValues))) {
-            throw new \InvalidArgumentException(sprintf("Invalid value for 'flipMode', must be one of '%s'", implode("', '", $allowedValues)));
-        }
-			
-        $this->container['flipMode'] = $flipMode;
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /*
+     * Gets author
+     *
+     * @return string
+     */
+    public function getAuthor()
+    {
+        return $this->container['author'];
+    }
+
+    /*
+     * Sets author
+     *
+     * @param string $author Returns detected document author if applicable to the current document format
+     *
+     * @return $this
+     */
+    public function setAuthor($author)
+    {
+        $this->container['author'] = $author;
+
+        return $this;
+    }
+
+    /*
+     * Gets createdDate
+     *
+     * @return \DateTime
+     */
+    public function getCreatedDate()
+    {
+        return $this->container['createdDate'];
+    }
+
+    /*
+     * Sets createdDate
+     *
+     * @param \DateTime $createdDate Returns detected document creation date if it's applicable to the current document format
+     *
+     * @return $this
+     */
+    public function setCreatedDate($createdDate)
+    {
+        $this->container['createdDate'] = $createdDate;
+
+        return $this;
+    }
+
+    /*
+     * Gets modifiedDate
+     *
+     * @return \DateTime
+     */
+    public function getModifiedDate()
+    {
+        return $this->container['modifiedDate'];
+    }
+
+    /*
+     * Sets modifiedDate
+     *
+     * @param \DateTime $modifiedDate Returns detected document modification date if applicable to the current document format
+     *
+     * @return $this
+     */
+    public function setModifiedDate($modifiedDate)
+    {
+        $this->container['modifiedDate'] = $modifiedDate;
+
+        return $this;
+    }
+
+    /*
+     * Gets layers
+     *
+     * @return string[]
+     */
+    public function getLayers()
+    {
+        return $this->container['layers'];
+    }
+
+    /*
+     * Sets layers
+     *
+     * @param string[] $layers Returns list of layer names if applicable to the current document format
+     *
+     * @return $this
+     */
+    public function setLayers($layers)
+    {
+        $this->container['layers'] = $layers;
+
+        return $this;
+    }
+
+    /*
+     * Gets isPasswordProtected
+     *
+     * @return bool
+     */
+    public function getIsPasswordProtected()
+    {
+        return $this->container['isPasswordProtected'];
+    }
+
+    /*
+     * Sets isPasswordProtected
+     *
+     * @param bool $isPasswordProtected Is document password protected
+     *
+     * @return $this
+     */
+    public function setIsPasswordProtected($isPasswordProtected)
+    {
+        $this->container['isPasswordProtected'] = $isPasswordProtected;
 
         return $this;
     }

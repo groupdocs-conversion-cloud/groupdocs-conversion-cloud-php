@@ -29,7 +29,8 @@ namespace GroupDocs\Conversion\ApiTests;
 
 use PHPUnit\Framework\TestCase;
 use GroupDocs\Conversion\Configuration;
-use GroupDocs\Conversion\ConversionApi;
+use GroupDocs\Conversion\ConvertApi;
+use GroupDocs\Conversion\InfoApi;
 use GroupDocs\Conversion\StorageApi;
 use GroupDocs\Conversion\FileApi;
 use GroupDocs\Conversion\FolderApi;
@@ -38,7 +39,8 @@ abstract class BaseApiTest extends \PHPUnit_Framework_TestCase
 {
     protected static $conversionConfig;
 
-    protected static $conversionApi;    
+    protected static $convertApi;    
+    protected static $infoApi;
     protected static $storageApi;
     protected static $fileApi;
     protected static $folderApi;
@@ -84,7 +86,8 @@ abstract class BaseApiTest extends \PHPUnit_Framework_TestCase
         self::$conversionConfig->setAppKey($appKey);
         self::$conversionConfig->setApiBaseUrl($apiBaseUrl);
 
-        self::$conversionApi = new ConversionApi(self::$conversionConfig);
+        self::$convertApi = new ConvertApi(self::$conversionConfig);
+        self::$infoApi = new InfoApi(self::$conversionConfig);
         self::$storageApi = new StorageApi(self::$conversionConfig);
         self::$fileApi = new FileApi(self::$conversionConfig);
         self::$folderApi = new FolderApi(self::$conversionConfig);

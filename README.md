@@ -63,11 +63,11 @@ $configuration = new GroupDocs\Conversion\Configuration();
 $configuration->setAppSid("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX");
 $configuration->setAppKey("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
 
-$conversionApi = new GroupDocs\Conversion\ConversionApi($configuration); 
+$api = new GroupDocs\Conversion\InfoApi($configuration); 
 
 try {
     $request = new GroupDocs\Conversion\Model\Requests\GetSupportedConversionTypesRequest();
-    $response = $conversionApi->getSupportedConversionTypes($request);
+    $response = $api->getSupportedConversionTypes($request);
 
     foreach($response as $key => $format) {
           echo $format->getSourceFormat();

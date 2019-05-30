@@ -28,59 +28,34 @@
 namespace GroupDocs\Conversion\ApiTests;
 
 use GroupDocs\Conversion\Configuration;
-use GroupDocs\Conversion\ConversionApi;
+use GroupDocs\Conversion\InfoApi;
 use GroupDocs\Conversion\Model;
 use GroupDocs\Conversion\Model\Requests;
 
-class ConversionApiTest extends BaseApiTest
+class InfoApiTest extends BaseApiTest
 {
-    /**
-     * Converts source document to specified type
-     *
-     */
-    public function testConvertDocument() {
-        $convertSettings = new Model\ConvertSettings();
-        $convertSettings->setFilePath(Internal\TestFiles::getFileOnePageDocx()->getPath());
-        $convertSettings->setFormat("pdf");
-        $convertSettings->setConvertOptions(new Model\PdfConvertOptions());
-        $convertSettings->setOutputPath("converted");
-        
-        $request = new Requests\ConvertDocumentRequest($convertSettings);
-        
-        $result = self::$conversionApi->convertDocument($request);
-
-        $this->assertTrue(sizeof($result) > 0);
-    }
-
-    /**
-     * Converts source document to specified type
-     *
-     */
-    public function testConvertDocumentDownload() {
-        $convertSettings = new Model\ConvertSettings();
-        $convertSettings->setFilePath(Internal\TestFiles::getFileOnePageDocx()->getPath());
-        $convertSettings->setFormat("pdf");
-        $convertSettings->setConvertOptions(new Model\PdfConvertOptions());
-        
-        $request = new Requests\ConvertDocumentRequest($convertSettings);
-        
-        $result = self::$conversionApi->convertDocumentDownload($request);
-
-        $size = $result->getSize();
-        $this->assertGreaterThan(0, $size);
-    }
-
     /**
      * Retrieves list of supported file formats.
      *
      */
     public function testGetSupportedConversionTypes() {
         $request = new Requests\GetSupportedConversionTypesRequest();
-        $response = self::$conversionApi->getSupportedConversionTypes($request);
+        $response = self::$infoApi->getSupportedConversionTypes($request);
 
         $this->assertTrue(sizeof($response) > 0);
         foreach($response as $key => $format) {
             $this->assertFalse($format->getSourceFormat() == null);
         }
+    }
+
+    /**
+     * Retrieves document metadata.
+     *
+     */
+    public function testGetDocumentMetadataTypes() {
+        $request = new Requests\GetDocumentMetadataRequest(Internal\TestFiles::getFileFourPagesDocx()->getPath());
+        $response = self::$infoApi->getDocumentMetadata($request);
+
+        $this->assertTrue(4 == $response->getPageCount());
     }
 }

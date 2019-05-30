@@ -28,7 +28,7 @@
 namespace GroupDocs\Conversion\ApiTests;
 
 use GroupDocs\Conversion\Configuration;
-use GroupDocs\Conversion\ConversionApi;
+use GroupDocs\Conversion\InfoApi;
 use GroupDocs\Conversion\Model\Requests;
 
 class AuthApiTest extends \PHPUnit_Framework_TestCase
@@ -49,9 +49,9 @@ class AuthApiTest extends \PHPUnit_Framework_TestCase
         $conversionConfig->setAppKey("test");
         $conversionConfig->setApiBaseUrl($apiBaseUrl);
 
-        $conversionApi = new ConversionApi($conversionConfig);
+        $infoApi = new InfoApi($conversionConfig);
         $request = new Requests\getSupportedConversionTypesRequest();
-        $response = $conversionApi->getSupportedConversionTypes($request);
+        $response = $infoApi->getSupportedConversionTypes($request);
     }
 
     /**
@@ -70,9 +70,9 @@ class AuthApiTest extends \PHPUnit_Framework_TestCase
         $conversionConfig->setAppKey("test");
         $conversionConfig->setApiBaseUrl($apiBaseUrl);
 
-        $conversionApi = new ConversionApi($conversionConfig);
+        $infoApi = new InfoApi($conversionConfig);
         $request = new Requests\getSupportedConversionTypesRequest();
-        $response = $conversionApi->getSupportedConversionTypes($request);
+        $response = $infoApi->getSupportedConversionTypes($request);
     }
 
     protected static function getConfig()
