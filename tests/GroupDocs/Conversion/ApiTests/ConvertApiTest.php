@@ -2,7 +2,7 @@
 /**
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose Pty Ltd" file="AuthApiTest.php">
-*   Copyright (c) 2003-2019 Aspose Pty Ltd
+*   Copyright (c) 2003-2020 Aspose Pty Ltd
 * </copyright>
 * <summary>
 *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -41,8 +41,8 @@ class ConvertApiTest extends BaseApiTest
     public function testConvertDocument() {
         $convertSettings = new Model\ConvertSettings();
         $convertSettings->setFilePath(Internal\TestFiles::getFileOnePageDocx()->getPath());
-        $convertSettings->setFormat("pdf");
-        $convertSettings->setConvertOptions(new Model\PdfConvertOptions());
+        $convertSettings->setFormat("jpg");
+        $convertSettings->setConvertOptions(new Model\JpgConvertOptions());
         $convertSettings->setOutputPath("converted");
         
         $request = new Requests\ConvertDocumentRequest($convertSettings);

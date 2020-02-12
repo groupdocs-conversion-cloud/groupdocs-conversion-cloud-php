@@ -2,7 +2,7 @@
 /**
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose Pty Ltd" file="FolderApiTest.php">
-*   Copyright (c) 2003-2019 Aspose Pty Ltd
+*   Copyright (c) 2003-2020 Aspose Pty Ltd
 * </copyright>
 * <summary>
 *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -35,7 +35,7 @@ class FolderApiTest extends BaseApiTest
 {
     public function testGetFilesList()
     {
-        $request = new Requests\getFilesListRequest("cad");
+        $request = new Requests\getFilesListRequest("WordProcessing");
        
         $response = self::$folderApi->getFilesList($request);
 

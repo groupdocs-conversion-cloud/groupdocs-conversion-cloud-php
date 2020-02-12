@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="WordProcessingLoadOptions.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -56,7 +56,10 @@ class WordProcessingLoadOptions extends LoadOptions
         'fontSubstitutes' => 'map[string,string]',
         'password' => 'string',
         'hideWordTrackedChanges' => 'bool',
-        'hideComments' => 'bool'
+        'hideComments' => 'bool',
+        'bookmarksOutlineLevel' => 'int',
+        'headingsOutlineLevels' => 'int',
+        'expandedOutlineLevels' => 'int'
     ];
 
     /*
@@ -70,7 +73,10 @@ class WordProcessingLoadOptions extends LoadOptions
         'fontSubstitutes' => null,
         'password' => null,
         'hideWordTrackedChanges' => null,
-        'hideComments' => null
+        'hideComments' => null,
+        'bookmarksOutlineLevel' => 'int32',
+        'headingsOutlineLevels' => 'int32',
+        'expandedOutlineLevels' => 'int32'
     ];
 
     /*
@@ -105,7 +111,10 @@ class WordProcessingLoadOptions extends LoadOptions
         'fontSubstitutes' => 'FontSubstitutes',
         'password' => 'Password',
         'hideWordTrackedChanges' => 'HideWordTrackedChanges',
-        'hideComments' => 'HideComments'
+        'hideComments' => 'HideComments',
+        'bookmarksOutlineLevel' => 'BookmarksOutlineLevel',
+        'headingsOutlineLevels' => 'HeadingsOutlineLevels',
+        'expandedOutlineLevels' => 'ExpandedOutlineLevels'
     ];
 
     /*
@@ -119,7 +128,10 @@ class WordProcessingLoadOptions extends LoadOptions
         'fontSubstitutes' => 'setFontSubstitutes',
         'password' => 'setPassword',
         'hideWordTrackedChanges' => 'setHideWordTrackedChanges',
-        'hideComments' => 'setHideComments'
+        'hideComments' => 'setHideComments',
+        'bookmarksOutlineLevel' => 'setBookmarksOutlineLevel',
+        'headingsOutlineLevels' => 'setHeadingsOutlineLevels',
+        'expandedOutlineLevels' => 'setExpandedOutlineLevels'
     ];
 
     /*
@@ -133,7 +145,10 @@ class WordProcessingLoadOptions extends LoadOptions
         'fontSubstitutes' => 'getFontSubstitutes',
         'password' => 'getPassword',
         'hideWordTrackedChanges' => 'getHideWordTrackedChanges',
-        'hideComments' => 'getHideComments'
+        'hideComments' => 'getHideComments',
+        'bookmarksOutlineLevel' => 'getBookmarksOutlineLevel',
+        'headingsOutlineLevels' => 'getHeadingsOutlineLevels',
+        'expandedOutlineLevels' => 'getExpandedOutlineLevels'
     ];
 
     /*
@@ -198,6 +213,9 @@ class WordProcessingLoadOptions extends LoadOptions
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['hideWordTrackedChanges'] = isset($data['hideWordTrackedChanges']) ? $data['hideWordTrackedChanges'] : null;
         $this->container['hideComments'] = isset($data['hideComments']) ? $data['hideComments'] : null;
+        $this->container['bookmarksOutlineLevel'] = isset($data['bookmarksOutlineLevel']) ? $data['bookmarksOutlineLevel'] : null;
+        $this->container['headingsOutlineLevels'] = isset($data['headingsOutlineLevels']) ? $data['headingsOutlineLevels'] : null;
+        $this->container['expandedOutlineLevels'] = isset($data['expandedOutlineLevels']) ? $data['expandedOutlineLevels'] : null;
     }
 
     /*
@@ -217,6 +235,15 @@ class WordProcessingLoadOptions extends LoadOptions
         }
         if ($this->container['hideComments'] === null) {
             $invalidProperties[] = "'hideComments' can't be null";
+        }
+        if ($this->container['bookmarksOutlineLevel'] === null) {
+            $invalidProperties[] = "'bookmarksOutlineLevel' can't be null";
+        }
+        if ($this->container['headingsOutlineLevels'] === null) {
+            $invalidProperties[] = "'headingsOutlineLevels' can't be null";
+        }
+        if ($this->container['expandedOutlineLevels'] === null) {
+            $invalidProperties[] = "'expandedOutlineLevels' can't be null";
         }
         return $invalidProperties;
     }
@@ -240,6 +267,15 @@ class WordProcessingLoadOptions extends LoadOptions
             return false;
         }
         if ($this->container['hideComments'] === null) {
+            return false;
+        }
+        if ($this->container['bookmarksOutlineLevel'] === null) {
+            return false;
+        }
+        if ($this->container['headingsOutlineLevels'] === null) {
+            return false;
+        }
+        if ($this->container['expandedOutlineLevels'] === null) {
             return false;
         }
         return true;
@@ -386,6 +422,78 @@ class WordProcessingLoadOptions extends LoadOptions
     public function setHideComments($hideComments)
     {
         $this->container['hideComments'] = $hideComments;
+
+        return $this;
+    }
+
+    /*
+     * Gets bookmarksOutlineLevel
+     *
+     * @return int
+     */
+    public function getBookmarksOutlineLevel()
+    {
+        return $this->container['bookmarksOutlineLevel'];
+    }
+
+    /*
+     * Sets bookmarksOutlineLevel
+     *
+     * @param int $bookmarksOutlineLevel Specifies the default level in the document outline at which to display Word bookmarks. Default is 0. Valid range is 0 to 9.
+     *
+     * @return $this
+     */
+    public function setBookmarksOutlineLevel($bookmarksOutlineLevel)
+    {
+        $this->container['bookmarksOutlineLevel'] = $bookmarksOutlineLevel;
+
+        return $this;
+    }
+
+    /*
+     * Gets headingsOutlineLevels
+     *
+     * @return int
+     */
+    public function getHeadingsOutlineLevels()
+    {
+        return $this->container['headingsOutlineLevels'];
+    }
+
+    /*
+     * Sets headingsOutlineLevels
+     *
+     * @param int $headingsOutlineLevels Specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the document outline. Default is 0. Valid range is 0 to 9.
+     *
+     * @return $this
+     */
+    public function setHeadingsOutlineLevels($headingsOutlineLevels)
+    {
+        $this->container['headingsOutlineLevels'] = $headingsOutlineLevels;
+
+        return $this;
+    }
+
+    /*
+     * Gets expandedOutlineLevels
+     *
+     * @return int
+     */
+    public function getExpandedOutlineLevels()
+    {
+        return $this->container['expandedOutlineLevels'];
+    }
+
+    /*
+     * Sets expandedOutlineLevels
+     *
+     * @param int $expandedOutlineLevels Specifies how many levels in the document outline to show expanded when the file is viewed. Default is 0. Valid range is 0 to 9. Note that this options will not work when saving to XPS.
+     *
+     * @return $this
+     */
+    public function setExpandedOutlineLevels($expandedOutlineLevels)
+    {
+        $this->container['expandedOutlineLevels'] = $expandedOutlineLevels;
 
         return $this;
     }

@@ -3,7 +3,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="TestFiles.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -40,7 +40,7 @@ class TestFiles
     {
         $file = new TestFile();
         $file->fileName = "one-page.docx";
-        $file->folder = "words\\docx\\";
+        $file->folder = "WordProcessing\\";
         return $file;
     }
 
@@ -56,61 +56,16 @@ class TestFiles
     {
         $file = new TestFile();
         $file->fileName = "password-protected.docx";
-        $file->folder = "words\\docx\\";
+        $file->folder = "WordProcessing\\";
         $file->password = "password";
         return $file;
-    }
-
-    public static function getFileTwoHiddenPagesVsd()
-    {
-        $file = new TestFile();
-        $file->fileName = "two-hidden-pages.vsd";
-        $file->folder = "diagram\\vsd\\";
-        return $file;
-    }
-    public static function getFileWithHiddenRowsAndColumns()
-    {
-        $file = new TestFile();
-        $file->fileName = "with-hidden-rows-and-columns.xlsx";
-        $file->folder = "cells\\xlsx\\";
-        return $file;
-    }
-    public static function getFileThreeLayoutsDwf()
-    {
-        $file = new TestFile();
-        $file->fileName = "three-layouts.dwf";
-        $file->folder = "cad\\dwf\\";
-        return $file;
-    }
-    public static function getFileProjectMpp()
-    {
-        $file = new TestFile();
-        $file->fileName = "sample.mpp";
-        $file->folder = "project\\mpp\\";
-        return $file;
-    }
-
-    public static function getFileUsesCustomFontPptx()
-    {
-        $file = new TestFile();
-        $file->fileName = "uses-custom-font.pptx";
-        $file->folder = "slides\\pptx\\";
-        return $file;
-    }
-
-    public static function getFileFontTtf()
-    {
-        $file = new TestFile();
-        $file->fileName = "foo.ttf";
-        $file->folder = "font\\ttf\\";
-        return $file;
-    }
+    }    
 
     public static function getFileFourPagesDocx()
     {
         $file = new TestFile();
         $file->fileName = "four-pages.docx";
-        $file->folder = "words\\docx\\";
+        $file->folder = "WordProcessing\\";
         return $file;
     }
 
@@ -119,12 +74,6 @@ class TestFiles
         return array(
             self::getFileOnePageDocx(),
             self::getFilePasswordProtectedDocx(),
-            self::getFileTwoHiddenPagesVsd(),
-            self::getFileWithHiddenRowsAndColumns(),
-            self::getFileThreeLayoutsDwf(),
-            self::getFileProjectMpp(),
-            self::getFileUsesCustomFontPptx(),
-            self::getFileFontTtf(),
             self::getFileFourPagesDocx()
         );
     }      

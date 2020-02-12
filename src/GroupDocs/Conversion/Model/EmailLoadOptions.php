@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="EmailLoadOptions.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -56,7 +56,9 @@ class EmailLoadOptions extends LoadOptions
         'displayEmailAddress' => 'bool',
         'displayToEmailAddress' => 'bool',
         'displayCcEmailAddress' => 'bool',
-        'displayBccEmailAddress' => 'bool'
+        'displayBccEmailAddress' => 'bool',
+        'timeZoneOffset' => 'string',
+        'convertAttachments' => 'bool'
     ];
 
     /*
@@ -70,7 +72,9 @@ class EmailLoadOptions extends LoadOptions
         'displayEmailAddress' => null,
         'displayToEmailAddress' => null,
         'displayCcEmailAddress' => null,
-        'displayBccEmailAddress' => null
+        'displayBccEmailAddress' => null,
+        'timeZoneOffset' => null,
+        'convertAttachments' => null
     ];
 
     /*
@@ -105,7 +109,9 @@ class EmailLoadOptions extends LoadOptions
         'displayEmailAddress' => 'DisplayEmailAddress',
         'displayToEmailAddress' => 'DisplayToEmailAddress',
         'displayCcEmailAddress' => 'DisplayCcEmailAddress',
-        'displayBccEmailAddress' => 'DisplayBccEmailAddress'
+        'displayBccEmailAddress' => 'DisplayBccEmailAddress',
+        'timeZoneOffset' => 'TimeZoneOffset',
+        'convertAttachments' => 'ConvertAttachments'
     ];
 
     /*
@@ -119,7 +125,9 @@ class EmailLoadOptions extends LoadOptions
         'displayEmailAddress' => 'setDisplayEmailAddress',
         'displayToEmailAddress' => 'setDisplayToEmailAddress',
         'displayCcEmailAddress' => 'setDisplayCcEmailAddress',
-        'displayBccEmailAddress' => 'setDisplayBccEmailAddress'
+        'displayBccEmailAddress' => 'setDisplayBccEmailAddress',
+        'timeZoneOffset' => 'setTimeZoneOffset',
+        'convertAttachments' => 'setConvertAttachments'
     ];
 
     /*
@@ -133,7 +141,9 @@ class EmailLoadOptions extends LoadOptions
         'displayEmailAddress' => 'getDisplayEmailAddress',
         'displayToEmailAddress' => 'getDisplayToEmailAddress',
         'displayCcEmailAddress' => 'getDisplayCcEmailAddress',
-        'displayBccEmailAddress' => 'getDisplayBccEmailAddress'
+        'displayBccEmailAddress' => 'getDisplayBccEmailAddress',
+        'timeZoneOffset' => 'getTimeZoneOffset',
+        'convertAttachments' => 'getConvertAttachments'
     ];
 
     /*
@@ -198,6 +208,8 @@ class EmailLoadOptions extends LoadOptions
         $this->container['displayToEmailAddress'] = isset($data['displayToEmailAddress']) ? $data['displayToEmailAddress'] : null;
         $this->container['displayCcEmailAddress'] = isset($data['displayCcEmailAddress']) ? $data['displayCcEmailAddress'] : null;
         $this->container['displayBccEmailAddress'] = isset($data['displayBccEmailAddress']) ? $data['displayBccEmailAddress'] : null;
+        $this->container['timeZoneOffset'] = isset($data['timeZoneOffset']) ? $data['timeZoneOffset'] : null;
+        $this->container['convertAttachments'] = isset($data['convertAttachments']) ? $data['convertAttachments'] : null;
     }
 
     /*
@@ -226,6 +238,9 @@ class EmailLoadOptions extends LoadOptions
         }
         if ($this->container['displayBccEmailAddress'] === null) {
             $invalidProperties[] = "'displayBccEmailAddress' can't be null";
+        }
+        if ($this->container['convertAttachments'] === null) {
+            $invalidProperties[] = "'convertAttachments' can't be null";
         }
         return $invalidProperties;
     }
@@ -258,6 +273,9 @@ class EmailLoadOptions extends LoadOptions
             return false;
         }
         if ($this->container['displayBccEmailAddress'] === null) {
+            return false;
+        }
+        if ($this->container['convertAttachments'] === null) {
             return false;
         }
         return true;
@@ -404,6 +422,54 @@ class EmailLoadOptions extends LoadOptions
     public function setDisplayBccEmailAddress($displayBccEmailAddress)
     {
         $this->container['displayBccEmailAddress'] = $displayBccEmailAddress;
+
+        return $this;
+    }
+
+    /*
+     * Gets timeZoneOffset
+     *
+     * @return string
+     */
+    public function getTimeZoneOffset()
+    {
+        return $this->container['timeZoneOffset'];
+    }
+
+    /*
+     * Sets timeZoneOffset
+     *
+     * @param string $timeZoneOffset Gets or sets the Coordinated Universal Time (UTC) offset for the message dates. This property defines the time zone difference, between the localtime and UTC.
+     *
+     * @return $this
+     */
+    public function setTimeZoneOffset($timeZoneOffset)
+    {
+        $this->container['timeZoneOffset'] = $timeZoneOffset;
+
+        return $this;
+    }
+
+    /*
+     * Gets convertAttachments
+     *
+     * @return bool
+     */
+    public function getConvertAttachments()
+    {
+        return $this->container['convertAttachments'];
+    }
+
+    /*
+     * Sets convertAttachments
+     *
+     * @param bool $convertAttachments Option to convert attachments in source email or not. Default: false.
+     *
+     * @return $this
+     */
+    public function setConvertAttachments($convertAttachments)
+    {
+        $this->container['convertAttachments'] = $convertAttachments;
 
         return $this;
     }

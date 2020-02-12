@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="CsvLoadOptions.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -55,7 +55,8 @@ class CsvLoadOptions extends LoadOptions
         'isMultiEncoded' => 'bool',
         'hasFormula' => 'bool',
         'convertNumericData' => 'bool',
-        'convertDateTimeData' => 'bool'
+        'convertDateTimeData' => 'bool',
+        'encoding' => 'string'
     ];
 
     /*
@@ -68,7 +69,8 @@ class CsvLoadOptions extends LoadOptions
         'isMultiEncoded' => null,
         'hasFormula' => null,
         'convertNumericData' => null,
-        'convertDateTimeData' => null
+        'convertDateTimeData' => null,
+        'encoding' => null
     ];
 
     /*
@@ -102,7 +104,8 @@ class CsvLoadOptions extends LoadOptions
         'isMultiEncoded' => 'IsMultiEncoded',
         'hasFormula' => 'HasFormula',
         'convertNumericData' => 'ConvertNumericData',
-        'convertDateTimeData' => 'ConvertDateTimeData'
+        'convertDateTimeData' => 'ConvertDateTimeData',
+        'encoding' => 'Encoding'
     ];
 
     /*
@@ -115,7 +118,8 @@ class CsvLoadOptions extends LoadOptions
         'isMultiEncoded' => 'setIsMultiEncoded',
         'hasFormula' => 'setHasFormula',
         'convertNumericData' => 'setConvertNumericData',
-        'convertDateTimeData' => 'setConvertDateTimeData'
+        'convertDateTimeData' => 'setConvertDateTimeData',
+        'encoding' => 'setEncoding'
     ];
 
     /*
@@ -128,7 +132,8 @@ class CsvLoadOptions extends LoadOptions
         'isMultiEncoded' => 'getIsMultiEncoded',
         'hasFormula' => 'getHasFormula',
         'convertNumericData' => 'getConvertNumericData',
-        'convertDateTimeData' => 'getConvertDateTimeData'
+        'convertDateTimeData' => 'getConvertDateTimeData',
+        'encoding' => 'getEncoding'
     ];
 
     /*
@@ -192,6 +197,7 @@ class CsvLoadOptions extends LoadOptions
         $this->container['hasFormula'] = isset($data['hasFormula']) ? $data['hasFormula'] : null;
         $this->container['convertNumericData'] = isset($data['convertNumericData']) ? $data['convertNumericData'] : null;
         $this->container['convertDateTimeData'] = isset($data['convertDateTimeData']) ? $data['convertDateTimeData'] : null;
+        $this->container['encoding'] = isset($data['encoding']) ? $data['encoding'] : null;
     }
 
     /*
@@ -368,6 +374,30 @@ class CsvLoadOptions extends LoadOptions
     public function setConvertDateTimeData($convertDateTimeData)
     {
         $this->container['convertDateTimeData'] = $convertDateTimeData;
+
+        return $this;
+    }
+
+    /*
+     * Gets encoding
+     *
+     * @return string
+     */
+    public function getEncoding()
+    {
+        return $this->container['encoding'];
+    }
+
+    /*
+     * Sets encoding
+     *
+     * @param string $encoding File encoding
+     *
+     * @return $this
+     */
+    public function setEncoding($encoding)
+    {
+        $this->container['encoding'] = $encoding;
 
         return $this;
     }

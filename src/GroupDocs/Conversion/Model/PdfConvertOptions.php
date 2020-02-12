@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="PdfConvertOptions.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -74,15 +74,12 @@ class PdfConvertOptions extends ConvertOptions
         'direction' => 'string',
         'displayDocTitle' => 'bool',
         'fitWindow' => 'bool',
-        'hideMenubar' => 'bool',
+        'hideMenuBar' => 'bool',
         'hideToolBar' => 'bool',
         'hideWindowUI' => 'bool',
         'nonFullScreenPageMode' => 'string',
         'pageLayout' => 'string',
         'pageMode' => 'string',
-        'bookmarksOutlineLevel' => 'int',
-        'headingsOutlineLevels' => 'int',
-        'expandedOutlineLevels' => 'int',
         'rotate' => 'string',
         'watermarkOptions' => '\GroupDocs\Conversion\Model\WatermarkOptions'
     ];
@@ -116,15 +113,12 @@ class PdfConvertOptions extends ConvertOptions
         'direction' => null,
         'displayDocTitle' => null,
         'fitWindow' => null,
-        'hideMenubar' => null,
+        'hideMenuBar' => null,
         'hideToolBar' => null,
         'hideWindowUI' => null,
         'nonFullScreenPageMode' => null,
         'pageLayout' => null,
         'pageMode' => null,
-        'bookmarksOutlineLevel' => 'int32',
-        'headingsOutlineLevels' => 'int32',
-        'expandedOutlineLevels' => 'int32',
         'rotate' => null,
         'watermarkOptions' => null
     ];
@@ -179,15 +173,12 @@ class PdfConvertOptions extends ConvertOptions
         'direction' => 'Direction',
         'displayDocTitle' => 'DisplayDocTitle',
         'fitWindow' => 'FitWindow',
-        'hideMenubar' => 'HideMenubar',
+        'hideMenuBar' => 'HideMenuBar',
         'hideToolBar' => 'HideToolBar',
         'hideWindowUI' => 'HideWindowUI',
         'nonFullScreenPageMode' => 'NonFullScreenPageMode',
         'pageLayout' => 'PageLayout',
         'pageMode' => 'PageMode',
-        'bookmarksOutlineLevel' => 'BookmarksOutlineLevel',
-        'headingsOutlineLevels' => 'HeadingsOutlineLevels',
-        'expandedOutlineLevels' => 'ExpandedOutlineLevels',
         'rotate' => 'Rotate',
         'watermarkOptions' => 'WatermarkOptions'
     ];
@@ -221,15 +212,12 @@ class PdfConvertOptions extends ConvertOptions
         'direction' => 'setDirection',
         'displayDocTitle' => 'setDisplayDocTitle',
         'fitWindow' => 'setFitWindow',
-        'hideMenubar' => 'setHideMenubar',
+        'hideMenuBar' => 'setHideMenuBar',
         'hideToolBar' => 'setHideToolBar',
         'hideWindowUI' => 'setHideWindowUI',
         'nonFullScreenPageMode' => 'setNonFullScreenPageMode',
         'pageLayout' => 'setPageLayout',
         'pageMode' => 'setPageMode',
-        'bookmarksOutlineLevel' => 'setBookmarksOutlineLevel',
-        'headingsOutlineLevels' => 'setHeadingsOutlineLevels',
-        'expandedOutlineLevels' => 'setExpandedOutlineLevels',
         'rotate' => 'setRotate',
         'watermarkOptions' => 'setWatermarkOptions'
     ];
@@ -263,15 +251,12 @@ class PdfConvertOptions extends ConvertOptions
         'direction' => 'getDirection',
         'displayDocTitle' => 'getDisplayDocTitle',
         'fitWindow' => 'getFitWindow',
-        'hideMenubar' => 'getHideMenubar',
+        'hideMenuBar' => 'getHideMenuBar',
         'hideToolBar' => 'getHideToolBar',
         'hideWindowUI' => 'getHideWindowUI',
         'nonFullScreenPageMode' => 'getNonFullScreenPageMode',
         'pageLayout' => 'getPageLayout',
         'pageMode' => 'getPageMode',
-        'bookmarksOutlineLevel' => 'getBookmarksOutlineLevel',
-        'headingsOutlineLevels' => 'getHeadingsOutlineLevels',
-        'expandedOutlineLevels' => 'getExpandedOutlineLevels',
         'rotate' => 'getRotate',
         'watermarkOptions' => 'getWatermarkOptions'
     ];
@@ -503,15 +488,12 @@ class PdfConvertOptions extends ConvertOptions
         $this->container['direction'] = isset($data['direction']) ? $data['direction'] : null;
         $this->container['displayDocTitle'] = isset($data['displayDocTitle']) ? $data['displayDocTitle'] : null;
         $this->container['fitWindow'] = isset($data['fitWindow']) ? $data['fitWindow'] : null;
-        $this->container['hideMenubar'] = isset($data['hideMenubar']) ? $data['hideMenubar'] : null;
+        $this->container['hideMenuBar'] = isset($data['hideMenuBar']) ? $data['hideMenuBar'] : null;
         $this->container['hideToolBar'] = isset($data['hideToolBar']) ? $data['hideToolBar'] : null;
         $this->container['hideWindowUI'] = isset($data['hideWindowUI']) ? $data['hideWindowUI'] : null;
         $this->container['nonFullScreenPageMode'] = isset($data['nonFullScreenPageMode']) ? $data['nonFullScreenPageMode'] : null;
         $this->container['pageLayout'] = isset($data['pageLayout']) ? $data['pageLayout'] : null;
         $this->container['pageMode'] = isset($data['pageMode']) ? $data['pageMode'] : null;
-        $this->container['bookmarksOutlineLevel'] = isset($data['bookmarksOutlineLevel']) ? $data['bookmarksOutlineLevel'] : null;
-        $this->container['headingsOutlineLevels'] = isset($data['headingsOutlineLevels']) ? $data['headingsOutlineLevels'] : null;
-        $this->container['expandedOutlineLevels'] = isset($data['expandedOutlineLevels']) ? $data['expandedOutlineLevels'] : null;
         $this->container['rotate'] = isset($data['rotate']) ? $data['rotate'] : null;
         $this->container['watermarkOptions'] = isset($data['watermarkOptions']) ? $data['watermarkOptions'] : null;
     }
@@ -607,8 +589,8 @@ class PdfConvertOptions extends ConvertOptions
         if ($this->container['fitWindow'] === null) {
             $invalidProperties[] = "'fitWindow' can't be null";
         }
-        if ($this->container['hideMenubar'] === null) {
-            $invalidProperties[] = "'hideMenubar' can't be null";
+        if ($this->container['hideMenuBar'] === null) {
+            $invalidProperties[] = "'hideMenuBar' can't be null";
         }
         if ($this->container['hideToolBar'] === null) {
             $invalidProperties[] = "'hideToolBar' can't be null";
@@ -649,15 +631,6 @@ class PdfConvertOptions extends ConvertOptions
             );
         }
 
-        if ($this->container['bookmarksOutlineLevel'] === null) {
-            $invalidProperties[] = "'bookmarksOutlineLevel' can't be null";
-        }
-        if ($this->container['headingsOutlineLevels'] === null) {
-            $invalidProperties[] = "'headingsOutlineLevels' can't be null";
-        }
-        if ($this->container['expandedOutlineLevels'] === null) {
-            $invalidProperties[] = "'expandedOutlineLevels' can't be null";
-        }
         if ($this->container['rotate'] === null) {
             $invalidProperties[] = "'rotate' can't be null";
         }
@@ -758,7 +731,7 @@ class PdfConvertOptions extends ConvertOptions
         if ($this->container['fitWindow'] === null) {
             return false;
         }
-        if ($this->container['hideMenubar'] === null) {
+        if ($this->container['hideMenuBar'] === null) {
             return false;
         }
         if ($this->container['hideToolBar'] === null) {
@@ -786,15 +759,6 @@ class PdfConvertOptions extends ConvertOptions
         }
         $allowedValues = $this->getPageModeAllowableValues();
         if (!in_array($this->container['pageMode'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['bookmarksOutlineLevel'] === null) {
-            return false;
-        }
-        if ($this->container['headingsOutlineLevels'] === null) {
-            return false;
-        }
-        if ($this->container['expandedOutlineLevels'] === null) {
             return false;
         }
         if ($this->container['rotate'] === null) {
@@ -1371,25 +1335,25 @@ class PdfConvertOptions extends ConvertOptions
     }
 
     /*
-     * Gets hideMenubar
+     * Gets hideMenuBar
      *
      * @return bool
      */
-    public function getHideMenubar()
+    public function getHideMenuBar()
     {
-        return $this->container['hideMenubar'];
+        return $this->container['hideMenuBar'];
     }
 
     /*
-     * Sets hideMenubar
+     * Sets hideMenuBar
      *
-     * @param bool $hideMenubar Specify whether menu bar should be hidden when document is active. Default: false.
+     * @param bool $hideMenuBar Specify whether menu bar should be hidden when document is active. Default: false.
      *
      * @return $this
      */
-    public function setHideMenubar($hideMenubar)
+    public function setHideMenuBar($hideMenuBar)
     {
-        $this->container['hideMenubar'] = $hideMenubar;
+        $this->container['hideMenuBar'] = $hideMenuBar;
 
         return $this;
     }
@@ -1525,78 +1489,6 @@ class PdfConvertOptions extends ConvertOptions
         }
 			
         $this->container['pageMode'] = $pageMode;
-
-        return $this;
-    }
-
-    /*
-     * Gets bookmarksOutlineLevel
-     *
-     * @return int
-     */
-    public function getBookmarksOutlineLevel()
-    {
-        return $this->container['bookmarksOutlineLevel'];
-    }
-
-    /*
-     * Sets bookmarksOutlineLevel
-     *
-     * @param int $bookmarksOutlineLevel Specifies the default level in the document outline at which to display Word bookmarks. Default is 0. Valid range is 0 to 9.
-     *
-     * @return $this
-     */
-    public function setBookmarksOutlineLevel($bookmarksOutlineLevel)
-    {
-        $this->container['bookmarksOutlineLevel'] = $bookmarksOutlineLevel;
-
-        return $this;
-    }
-
-    /*
-     * Gets headingsOutlineLevels
-     *
-     * @return int
-     */
-    public function getHeadingsOutlineLevels()
-    {
-        return $this->container['headingsOutlineLevels'];
-    }
-
-    /*
-     * Sets headingsOutlineLevels
-     *
-     * @param int $headingsOutlineLevels Specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the document outline. Default is 0. Valid range is 0 to 9.
-     *
-     * @return $this
-     */
-    public function setHeadingsOutlineLevels($headingsOutlineLevels)
-    {
-        $this->container['headingsOutlineLevels'] = $headingsOutlineLevels;
-
-        return $this;
-    }
-
-    /*
-     * Gets expandedOutlineLevels
-     *
-     * @return int
-     */
-    public function getExpandedOutlineLevels()
-    {
-        return $this->container['expandedOutlineLevels'];
-    }
-
-    /*
-     * Sets expandedOutlineLevels
-     *
-     * @param int $expandedOutlineLevels Specifies how many levels in the document outline to show expanded when the file is viewed. Default is 0. Valid range is 0 to 9. Note that this options will not work when saving to XPS.
-     *
-     * @return $this
-     */
-    public function setExpandedOutlineLevels($expandedOutlineLevels)
-    {
-        $this->container['expandedOutlineLevels'] = $expandedOutlineLevels;
 
         return $this;
     }

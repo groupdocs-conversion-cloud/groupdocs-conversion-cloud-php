@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="TxtLoadOptions.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -53,7 +53,8 @@ class TxtLoadOptions extends LoadOptions
     protected static $swaggerTypes = [
         'detectNumberingWithWhitespaces' => 'bool',
         'trailingSpacesOptions' => 'string',
-        'leadingSpacesOptions' => 'string'
+        'leadingSpacesOptions' => 'string',
+        'encoding' => 'string'
     ];
 
     /*
@@ -64,7 +65,8 @@ class TxtLoadOptions extends LoadOptions
     protected static $swaggerFormats = [
         'detectNumberingWithWhitespaces' => null,
         'trailingSpacesOptions' => null,
-        'leadingSpacesOptions' => null
+        'leadingSpacesOptions' => null,
+        'encoding' => null
     ];
 
     /*
@@ -96,7 +98,8 @@ class TxtLoadOptions extends LoadOptions
     protected static $attributeMap = [
         'detectNumberingWithWhitespaces' => 'DetectNumberingWithWhitespaces',
         'trailingSpacesOptions' => 'TrailingSpacesOptions',
-        'leadingSpacesOptions' => 'LeadingSpacesOptions'
+        'leadingSpacesOptions' => 'LeadingSpacesOptions',
+        'encoding' => 'Encoding'
     ];
 
     /*
@@ -107,7 +110,8 @@ class TxtLoadOptions extends LoadOptions
     protected static $setters = [
         'detectNumberingWithWhitespaces' => 'setDetectNumberingWithWhitespaces',
         'trailingSpacesOptions' => 'setTrailingSpacesOptions',
-        'leadingSpacesOptions' => 'setLeadingSpacesOptions'
+        'leadingSpacesOptions' => 'setLeadingSpacesOptions',
+        'encoding' => 'setEncoding'
     ];
 
     /*
@@ -118,7 +122,8 @@ class TxtLoadOptions extends LoadOptions
     protected static $getters = [
         'detectNumberingWithWhitespaces' => 'getDetectNumberingWithWhitespaces',
         'trailingSpacesOptions' => 'getTrailingSpacesOptions',
-        'leadingSpacesOptions' => 'getLeadingSpacesOptions'
+        'leadingSpacesOptions' => 'getLeadingSpacesOptions',
+        'encoding' => 'getEncoding'
     ];
 
     /*
@@ -212,6 +217,7 @@ class TxtLoadOptions extends LoadOptions
         $this->container['detectNumberingWithWhitespaces'] = isset($data['detectNumberingWithWhitespaces']) ? $data['detectNumberingWithWhitespaces'] : null;
         $this->container['trailingSpacesOptions'] = isset($data['trailingSpacesOptions']) ? $data['trailingSpacesOptions'] : null;
         $this->container['leadingSpacesOptions'] = isset($data['leadingSpacesOptions']) ? $data['leadingSpacesOptions'] : null;
+        $this->container['encoding'] = isset($data['encoding']) ? $data['encoding'] : null;
     }
 
     /*
@@ -362,6 +368,30 @@ class TxtLoadOptions extends LoadOptions
         }
 			
         $this->container['leadingSpacesOptions'] = $leadingSpacesOptions;
+
+        return $this;
+    }
+
+    /*
+     * Gets encoding
+     *
+     * @return string
+     */
+    public function getEncoding()
+    {
+        return $this->container['encoding'];
+    }
+
+    /*
+     * Sets encoding
+     *
+     * @param string $encoding Gets or sets the encoding that will be used when loading Txt document. Can be null. Default is null.
+     *
+     * @return $this
+     */
+    public function setEncoding($encoding)
+    {
+        $this->container['encoding'] = $encoding;
 
         return $this;
     }
