@@ -58,7 +58,9 @@ class EmailLoadOptions extends LoadOptions
         'displayCcEmailAddress' => 'bool',
         'displayBccEmailAddress' => 'bool',
         'timeZoneOffset' => 'string',
-        'convertAttachments' => 'bool'
+        'convertAttachments' => 'bool',
+        'fieldLabels' => '\GroupDocs\Conversion\Model\FieldLabel[]',
+        'preserveOriginalDate' => 'bool'
     ];
 
     /*
@@ -74,7 +76,9 @@ class EmailLoadOptions extends LoadOptions
         'displayCcEmailAddress' => null,
         'displayBccEmailAddress' => null,
         'timeZoneOffset' => null,
-        'convertAttachments' => null
+        'convertAttachments' => null,
+        'fieldLabels' => null,
+        'preserveOriginalDate' => null
     ];
 
     /*
@@ -111,7 +115,9 @@ class EmailLoadOptions extends LoadOptions
         'displayCcEmailAddress' => 'DisplayCcEmailAddress',
         'displayBccEmailAddress' => 'DisplayBccEmailAddress',
         'timeZoneOffset' => 'TimeZoneOffset',
-        'convertAttachments' => 'ConvertAttachments'
+        'convertAttachments' => 'ConvertAttachments',
+        'fieldLabels' => 'FieldLabels',
+        'preserveOriginalDate' => 'PreserveOriginalDate'
     ];
 
     /*
@@ -127,7 +133,9 @@ class EmailLoadOptions extends LoadOptions
         'displayCcEmailAddress' => 'setDisplayCcEmailAddress',
         'displayBccEmailAddress' => 'setDisplayBccEmailAddress',
         'timeZoneOffset' => 'setTimeZoneOffset',
-        'convertAttachments' => 'setConvertAttachments'
+        'convertAttachments' => 'setConvertAttachments',
+        'fieldLabels' => 'setFieldLabels',
+        'preserveOriginalDate' => 'setPreserveOriginalDate'
     ];
 
     /*
@@ -143,7 +151,9 @@ class EmailLoadOptions extends LoadOptions
         'displayCcEmailAddress' => 'getDisplayCcEmailAddress',
         'displayBccEmailAddress' => 'getDisplayBccEmailAddress',
         'timeZoneOffset' => 'getTimeZoneOffset',
-        'convertAttachments' => 'getConvertAttachments'
+        'convertAttachments' => 'getConvertAttachments',
+        'fieldLabels' => 'getFieldLabels',
+        'preserveOriginalDate' => 'getPreserveOriginalDate'
     ];
 
     /*
@@ -210,6 +220,8 @@ class EmailLoadOptions extends LoadOptions
         $this->container['displayBccEmailAddress'] = isset($data['displayBccEmailAddress']) ? $data['displayBccEmailAddress'] : null;
         $this->container['timeZoneOffset'] = isset($data['timeZoneOffset']) ? $data['timeZoneOffset'] : null;
         $this->container['convertAttachments'] = isset($data['convertAttachments']) ? $data['convertAttachments'] : null;
+        $this->container['fieldLabels'] = isset($data['fieldLabels']) ? $data['fieldLabels'] : null;
+        $this->container['preserveOriginalDate'] = isset($data['preserveOriginalDate']) ? $data['preserveOriginalDate'] : null;
     }
 
     /*
@@ -241,6 +253,9 @@ class EmailLoadOptions extends LoadOptions
         }
         if ($this->container['convertAttachments'] === null) {
             $invalidProperties[] = "'convertAttachments' can't be null";
+        }
+        if ($this->container['preserveOriginalDate'] === null) {
+            $invalidProperties[] = "'preserveOriginalDate' can't be null";
         }
         return $invalidProperties;
     }
@@ -276,6 +291,9 @@ class EmailLoadOptions extends LoadOptions
             return false;
         }
         if ($this->container['convertAttachments'] === null) {
+            return false;
+        }
+        if ($this->container['preserveOriginalDate'] === null) {
             return false;
         }
         return true;
@@ -470,6 +488,54 @@ class EmailLoadOptions extends LoadOptions
     public function setConvertAttachments($convertAttachments)
     {
         $this->container['convertAttachments'] = $convertAttachments;
+
+        return $this;
+    }
+
+    /*
+     * Gets fieldLabels
+     *
+     * @return \GroupDocs\Conversion\Model\FieldLabel[]
+     */
+    public function getFieldLabels()
+    {
+        return $this->container['fieldLabels'];
+    }
+
+    /*
+     * Sets fieldLabels
+     *
+     * @param \GroupDocs\Conversion\Model\FieldLabel[] $fieldLabels The mapping between email message field and field text representation
+     *
+     * @return $this
+     */
+    public function setFieldLabels($fieldLabels)
+    {
+        $this->container['fieldLabels'] = $fieldLabels;
+
+        return $this;
+    }
+
+    /*
+     * Gets preserveOriginalDate
+     *
+     * @return bool
+     */
+    public function getPreserveOriginalDate()
+    {
+        return $this->container['preserveOriginalDate'];
+    }
+
+    /*
+     * Sets preserveOriginalDate
+     *
+     * @param bool $preserveOriginalDate Defines whether need to keep original date header string in mail message when saving or not (Default value is true)
+     *
+     * @return $this
+     */
+    public function setPreserveOriginalDate($preserveOriginalDate)
+    {
+        $this->container['preserveOriginalDate'] = $preserveOriginalDate;
 
         return $this;
     }

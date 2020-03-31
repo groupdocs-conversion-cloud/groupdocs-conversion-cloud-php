@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="HtmlConvertOptions.php">
+ * <copyright company="Aspose Pty Ltd" file="FieldLabel.php">
  *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -27,14 +27,16 @@
  */
 
 namespace GroupDocs\Conversion\Model;
+
+use \ArrayAccess;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * HtmlConvertOptions
+ * FieldLabel
  *
- * @description Options for to Html conversion
+ * @description Represents field label
  */
-class HtmlConvertOptions extends ConvertOptions 
+class FieldLabel implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -43,7 +45,7 @@ class HtmlConvertOptions extends ConvertOptions
      *
      * @var string
      */
-    protected static $swaggerModelName = "HtmlConvertOptions";
+    protected static $swaggerModelName = "FieldLabel";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -51,11 +53,8 @@ class HtmlConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'usePdf' => 'bool',
-        'fixedLayout' => 'bool',
-        'fixedLayoutShowBorders' => 'bool',
-        'zoom' => 'int',
-        'watermarkOptions' => '\GroupDocs\Conversion\Model\WatermarkOptions'
+        'field' => 'string',
+        'label' => 'string'
     ];
 
     /*
@@ -64,11 +63,8 @@ class HtmlConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'usePdf' => null,
-        'fixedLayout' => null,
-        'fixedLayoutShowBorders' => null,
-        'zoom' => 'int32',
-        'watermarkOptions' => null
+        'field' => null,
+        'label' => null
     ];
 
     /*
@@ -78,7 +74,7 @@ class HtmlConvertOptions extends ConvertOptions
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /*
@@ -88,7 +84,7 @@ class HtmlConvertOptions extends ConvertOptions
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /*
@@ -98,11 +94,8 @@ class HtmlConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        'usePdf' => 'UsePdf',
-        'fixedLayout' => 'FixedLayout',
-        'fixedLayoutShowBorders' => 'FixedLayoutShowBorders',
-        'zoom' => 'Zoom',
-        'watermarkOptions' => 'WatermarkOptions'
+        'field' => 'Field',
+        'label' => 'Label'
     ];
 
     /*
@@ -111,11 +104,8 @@ class HtmlConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $setters = [
-        'usePdf' => 'setUsePdf',
-        'fixedLayout' => 'setFixedLayout',
-        'fixedLayoutShowBorders' => 'setFixedLayoutShowBorders',
-        'zoom' => 'setZoom',
-        'watermarkOptions' => 'setWatermarkOptions'
+        'field' => 'setField',
+        'label' => 'setLabel'
     ];
 
     /*
@@ -124,11 +114,8 @@ class HtmlConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $getters = [
-        'usePdf' => 'getUsePdf',
-        'fixedLayout' => 'getFixedLayout',
-        'fixedLayoutShowBorders' => 'getFixedLayoutShowBorders',
-        'zoom' => 'getZoom',
-        'watermarkOptions' => 'getWatermarkOptions'
+        'field' => 'getField',
+        'label' => 'getLabel'
     ];
 
     /*
@@ -139,7 +126,7 @@ class HtmlConvertOptions extends ConvertOptions
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /*
@@ -149,7 +136,7 @@ class HtmlConvertOptions extends ConvertOptions
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /*
@@ -159,7 +146,7 @@ class HtmlConvertOptions extends ConvertOptions
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /*
@@ -172,10 +159,61 @@ class HtmlConvertOptions extends ConvertOptions
         return self::$swaggerModelName;
     }
 
+    const FIELD_START = 'Start';
+    const FIELD_TAB_FIELD = 'TabField';
+    const FIELD_SUBJECT = 'Subject';
+    const FIELD_SHOW_TIME_AS = 'ShowTimeAs';
+    const FIELD_SENT = 'Sent';
+    const FIELD_REQUIRED_ATTENDEES = 'RequiredAttendees';
+    const FIELD_RECURRENCE_PATTERN = 'RecurrencePattern';
+    const FIELD_RECURRENCE = 'Recurrence';
+    const FIELD_PAGE_HEADER = 'PageHeader';
+    const FIELD_ORGANIZER = 'Organizer';
+    const FIELD_LOCATION = 'Location';
+    const FIELD_IMPORTANCE = 'Importance';
+    const FIELD_FROM = 'From';
+    const FIELD_END = 'End';
+    const FIELD_BCC = 'Bcc';
+    const FIELD_ATTACHMENTS = 'Attachments';
+    const FIELD_TO = 'To';
     
 
     
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFieldAllowableValues()
+    {
+        return [
+            self::FIELD_START,
+            self::FIELD_TAB_FIELD,
+            self::FIELD_SUBJECT,
+            self::FIELD_SHOW_TIME_AS,
+            self::FIELD_SENT,
+            self::FIELD_REQUIRED_ATTENDEES,
+            self::FIELD_RECURRENCE_PATTERN,
+            self::FIELD_RECURRENCE,
+            self::FIELD_PAGE_HEADER,
+            self::FIELD_ORGANIZER,
+            self::FIELD_LOCATION,
+            self::FIELD_IMPORTANCE,
+            self::FIELD_FROM,
+            self::FIELD_END,
+            self::FIELD_BCC,
+            self::FIELD_ATTACHMENTS,
+            self::FIELD_TO,
+        ];
+    }
+    
 
+    /*
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /*
      * Constructor
@@ -185,13 +223,8 @@ class HtmlConvertOptions extends ConvertOptions
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['usePdf'] = isset($data['usePdf']) ? $data['usePdf'] : null;
-        $this->container['fixedLayout'] = isset($data['fixedLayout']) ? $data['fixedLayout'] : null;
-        $this->container['fixedLayoutShowBorders'] = isset($data['fixedLayoutShowBorders']) ? $data['fixedLayoutShowBorders'] : null;
-        $this->container['zoom'] = isset($data['zoom']) ? $data['zoom'] : null;
-        $this->container['watermarkOptions'] = isset($data['watermarkOptions']) ? $data['watermarkOptions'] : null;
+        $this->container['field'] = isset($data['field']) ? $data['field'] : null;
+        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
     }
 
     /*
@@ -201,20 +234,19 @@ class HtmlConvertOptions extends ConvertOptions
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
-        if ($this->container['usePdf'] === null) {
-            $invalidProperties[] = "'usePdf' can't be null";
+        if ($this->container['field'] === null) {
+            $invalidProperties[] = "'field' can't be null";
         }
-        if ($this->container['fixedLayout'] === null) {
-            $invalidProperties[] = "'fixedLayout' can't be null";
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!in_array($this->container['field'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'field', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['fixedLayoutShowBorders'] === null) {
-            $invalidProperties[] = "'fixedLayoutShowBorders' can't be null";
-        }
-        if ($this->container['zoom'] === null) {
-            $invalidProperties[] = "'zoom' can't be null";
-        }
+
         return $invalidProperties;
     }
 
@@ -226,20 +258,12 @@ class HtmlConvertOptions extends ConvertOptions
      */
     public function valid()
     {
-        if (!parent::valid()) {
-            return false;
-        }
 
-        if ($this->container['usePdf'] === null) {
+        if ($this->container['field'] === null) {
             return false;
         }
-        if ($this->container['fixedLayout'] === null) {
-            return false;
-        }
-        if ($this->container['fixedLayoutShowBorders'] === null) {
-            return false;
-        }
-        if ($this->container['zoom'] === null) {
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!in_array($this->container['field'], $allowedValues)) {
             return false;
         }
         return true;
@@ -247,121 +271,54 @@ class HtmlConvertOptions extends ConvertOptions
 
 
     /*
-     * Gets usePdf
+     * Gets field
      *
-     * @return bool
+     * @return string
      */
-    public function getUsePdf()
+    public function getField()
     {
-        return $this->container['usePdf'];
+        return $this->container['field'];
     }
 
     /*
-     * Sets usePdf
+     * Sets field
      *
-     * @param bool $usePdf If true, the input firstly is converted to PDF and after that to desired format
+     * @param string $field The field name
      *
      * @return $this
      */
-    public function setUsePdf($usePdf)
+    public function setField($field)
     {
-        $this->container['usePdf'] = $usePdf;
+        $allowedValues = $this->getFieldAllowableValues();
+        if ((!is_numeric($field) && !in_array($field, $allowedValues)) || (is_numeric($field) && !in_array($allowedValues[$field], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'field', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['field'] = $field;
 
         return $this;
     }
 
     /*
-     * Gets fixedLayout
+     * Gets label
      *
-     * @return bool
+     * @return string
      */
-    public function getFixedLayout()
+    public function getLabel()
     {
-        return $this->container['fixedLayout'];
+        return $this->container['label'];
     }
 
     /*
-     * Sets fixedLayout
+     * Sets label
      *
-     * @param bool $fixedLayout If true fixed layout will be used e.g. absolutely positioned html elements Default:  true
+     * @param string $label The label e.g. \"Sender\"
      *
      * @return $this
      */
-    public function setFixedLayout($fixedLayout)
+    public function setLabel($label)
     {
-        $this->container['fixedLayout'] = $fixedLayout;
-
-        return $this;
-    }
-
-    /*
-     * Gets fixedLayoutShowBorders
-     *
-     * @return bool
-     */
-    public function getFixedLayoutShowBorders()
-    {
-        return $this->container['fixedLayoutShowBorders'];
-    }
-
-    /*
-     * Sets fixedLayoutShowBorders
-     *
-     * @param bool $fixedLayoutShowBorders Show page borders when converting to fixed layout. Default is True
-     *
-     * @return $this
-     */
-    public function setFixedLayoutShowBorders($fixedLayoutShowBorders)
-    {
-        $this->container['fixedLayoutShowBorders'] = $fixedLayoutShowBorders;
-
-        return $this;
-    }
-
-    /*
-     * Gets zoom
-     *
-     * @return int
-     */
-    public function getZoom()
-    {
-        return $this->container['zoom'];
-    }
-
-    /*
-     * Sets zoom
-     *
-     * @param int $zoom Specifies the zoom level in percentage. Default is 100.
-     *
-     * @return $this
-     */
-    public function setZoom($zoom)
-    {
-        $this->container['zoom'] = $zoom;
-
-        return $this;
-    }
-
-    /*
-     * Gets watermarkOptions
-     *
-     * @return \GroupDocs\Conversion\Model\WatermarkOptions
-     */
-    public function getWatermarkOptions()
-    {
-        return $this->container['watermarkOptions'];
-    }
-
-    /*
-     * Sets watermarkOptions
-     *
-     * @param \GroupDocs\Conversion\Model\WatermarkOptions $watermarkOptions Watermark specific options
-     *
-     * @return $this
-     */
-    public function setWatermarkOptions($watermarkOptions)
-    {
-        $this->container['watermarkOptions'] = $watermarkOptions;
+        $this->container['label'] = $label;
 
         return $this;
     }

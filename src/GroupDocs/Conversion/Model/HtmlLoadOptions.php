@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="HtmlConvertOptions.php">
+ * <copyright company="Aspose Pty Ltd" file="HtmlLoadOptions.php">
  *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -30,11 +30,11 @@ namespace GroupDocs\Conversion\Model;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * HtmlConvertOptions
+ * HtmlLoadOptions
  *
- * @description Options for to Html conversion
+ * @description Html document load options
  */
-class HtmlConvertOptions extends ConvertOptions 
+class HtmlLoadOptions extends LoadOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -43,7 +43,7 @@ class HtmlConvertOptions extends ConvertOptions
      *
      * @var string
      */
-    protected static $swaggerModelName = "HtmlConvertOptions";
+    protected static $swaggerModelName = "HtmlLoadOptions";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -51,11 +51,7 @@ class HtmlConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'usePdf' => 'bool',
-        'fixedLayout' => 'bool',
-        'fixedLayoutShowBorders' => 'bool',
-        'zoom' => 'int',
-        'watermarkOptions' => '\GroupDocs\Conversion\Model\WatermarkOptions'
+        'pageNumbering' => 'bool'
     ];
 
     /*
@@ -64,11 +60,7 @@ class HtmlConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'usePdf' => null,
-        'fixedLayout' => null,
-        'fixedLayoutShowBorders' => null,
-        'zoom' => 'int32',
-        'watermarkOptions' => null
+        'pageNumbering' => null
     ];
 
     /*
@@ -98,11 +90,7 @@ class HtmlConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        'usePdf' => 'UsePdf',
-        'fixedLayout' => 'FixedLayout',
-        'fixedLayoutShowBorders' => 'FixedLayoutShowBorders',
-        'zoom' => 'Zoom',
-        'watermarkOptions' => 'WatermarkOptions'
+        'pageNumbering' => 'PageNumbering'
     ];
 
     /*
@@ -111,11 +99,7 @@ class HtmlConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $setters = [
-        'usePdf' => 'setUsePdf',
-        'fixedLayout' => 'setFixedLayout',
-        'fixedLayoutShowBorders' => 'setFixedLayoutShowBorders',
-        'zoom' => 'setZoom',
-        'watermarkOptions' => 'setWatermarkOptions'
+        'pageNumbering' => 'setPageNumbering'
     ];
 
     /*
@@ -124,11 +108,7 @@ class HtmlConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $getters = [
-        'usePdf' => 'getUsePdf',
-        'fixedLayout' => 'getFixedLayout',
-        'fixedLayoutShowBorders' => 'getFixedLayoutShowBorders',
-        'zoom' => 'getZoom',
-        'watermarkOptions' => 'getWatermarkOptions'
+        'pageNumbering' => 'getPageNumbering'
     ];
 
     /*
@@ -187,11 +167,7 @@ class HtmlConvertOptions extends ConvertOptions
     {
         parent::__construct($data);
 
-        $this->container['usePdf'] = isset($data['usePdf']) ? $data['usePdf'] : null;
-        $this->container['fixedLayout'] = isset($data['fixedLayout']) ? $data['fixedLayout'] : null;
-        $this->container['fixedLayoutShowBorders'] = isset($data['fixedLayoutShowBorders']) ? $data['fixedLayoutShowBorders'] : null;
-        $this->container['zoom'] = isset($data['zoom']) ? $data['zoom'] : null;
-        $this->container['watermarkOptions'] = isset($data['watermarkOptions']) ? $data['watermarkOptions'] : null;
+        $this->container['pageNumbering'] = isset($data['pageNumbering']) ? $data['pageNumbering'] : null;
     }
 
     /*
@@ -203,17 +179,8 @@ class HtmlConvertOptions extends ConvertOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['usePdf'] === null) {
-            $invalidProperties[] = "'usePdf' can't be null";
-        }
-        if ($this->container['fixedLayout'] === null) {
-            $invalidProperties[] = "'fixedLayout' can't be null";
-        }
-        if ($this->container['fixedLayoutShowBorders'] === null) {
-            $invalidProperties[] = "'fixedLayoutShowBorders' can't be null";
-        }
-        if ($this->container['zoom'] === null) {
-            $invalidProperties[] = "'zoom' can't be null";
+        if ($this->container['pageNumbering'] === null) {
+            $invalidProperties[] = "'pageNumbering' can't be null";
         }
         return $invalidProperties;
     }
@@ -230,16 +197,7 @@ class HtmlConvertOptions extends ConvertOptions
             return false;
         }
 
-        if ($this->container['usePdf'] === null) {
-            return false;
-        }
-        if ($this->container['fixedLayout'] === null) {
-            return false;
-        }
-        if ($this->container['fixedLayoutShowBorders'] === null) {
-            return false;
-        }
-        if ($this->container['zoom'] === null) {
+        if ($this->container['pageNumbering'] === null) {
             return false;
         }
         return true;
@@ -247,121 +205,25 @@ class HtmlConvertOptions extends ConvertOptions
 
 
     /*
-     * Gets usePdf
+     * Gets pageNumbering
      *
      * @return bool
      */
-    public function getUsePdf()
+    public function getPageNumbering()
     {
-        return $this->container['usePdf'];
+        return $this->container['pageNumbering'];
     }
 
     /*
-     * Sets usePdf
+     * Sets pageNumbering
      *
-     * @param bool $usePdf If true, the input firstly is converted to PDF and after that to desired format
+     * @param bool $pageNumbering Enable or disable generation of page numbering in converted document. Default: false
      *
      * @return $this
      */
-    public function setUsePdf($usePdf)
+    public function setPageNumbering($pageNumbering)
     {
-        $this->container['usePdf'] = $usePdf;
-
-        return $this;
-    }
-
-    /*
-     * Gets fixedLayout
-     *
-     * @return bool
-     */
-    public function getFixedLayout()
-    {
-        return $this->container['fixedLayout'];
-    }
-
-    /*
-     * Sets fixedLayout
-     *
-     * @param bool $fixedLayout If true fixed layout will be used e.g. absolutely positioned html elements Default:  true
-     *
-     * @return $this
-     */
-    public function setFixedLayout($fixedLayout)
-    {
-        $this->container['fixedLayout'] = $fixedLayout;
-
-        return $this;
-    }
-
-    /*
-     * Gets fixedLayoutShowBorders
-     *
-     * @return bool
-     */
-    public function getFixedLayoutShowBorders()
-    {
-        return $this->container['fixedLayoutShowBorders'];
-    }
-
-    /*
-     * Sets fixedLayoutShowBorders
-     *
-     * @param bool $fixedLayoutShowBorders Show page borders when converting to fixed layout. Default is True
-     *
-     * @return $this
-     */
-    public function setFixedLayoutShowBorders($fixedLayoutShowBorders)
-    {
-        $this->container['fixedLayoutShowBorders'] = $fixedLayoutShowBorders;
-
-        return $this;
-    }
-
-    /*
-     * Gets zoom
-     *
-     * @return int
-     */
-    public function getZoom()
-    {
-        return $this->container['zoom'];
-    }
-
-    /*
-     * Sets zoom
-     *
-     * @param int $zoom Specifies the zoom level in percentage. Default is 100.
-     *
-     * @return $this
-     */
-    public function setZoom($zoom)
-    {
-        $this->container['zoom'] = $zoom;
-
-        return $this;
-    }
-
-    /*
-     * Gets watermarkOptions
-     *
-     * @return \GroupDocs\Conversion\Model\WatermarkOptions
-     */
-    public function getWatermarkOptions()
-    {
-        return $this->container['watermarkOptions'];
-    }
-
-    /*
-     * Sets watermarkOptions
-     *
-     * @param \GroupDocs\Conversion\Model\WatermarkOptions $watermarkOptions Watermark specific options
-     *
-     * @return $this
-     */
-    public function setWatermarkOptions($watermarkOptions)
-    {
-        $this->container['watermarkOptions'] = $watermarkOptions;
+        $this->container['pageNumbering'] = $pageNumbering;
 
         return $this;
     }
