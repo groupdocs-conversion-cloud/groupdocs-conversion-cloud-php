@@ -69,4 +69,21 @@ class ConvertApiTest extends BaseApiTest
         $size = $result->getSize();
         $this->assertGreaterThan(0, $size);
     }
+
+    /**
+     * Converts source document to specified type without storage
+     *
+     */
+    public function testConvertDocumentDirect() {
+
+        $format ="pdf";
+        $path = self::getTestFilePath(Internal\TestFiles::getFileFourPagesDocx());
+
+        $request = new Requests\ConvertDocumentDirectRequest($format, $path);
+        
+        $result = self::$convertApi->ConvertDocumentDirect($request);
+
+        $size = $result->getSize();
+        $this->assertGreaterThan(0, $size);
+    }    
 }
