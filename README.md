@@ -97,13 +97,14 @@ php composer.phar install ./vendor/bin/phpunit
 use GroupDocs\Conversion\Model;
 use GroupDocs\Conversion\Model\Requests;
 
-$AppSid = "";
-$AppKey = "";
+//Get Client Id and Client Secret from https://dashboard.groupdocs.cloud
+$myClientId = "";
+$myClientSecret = "";
 
+// Create instance of the API
 $configuration = new GroupDocs\Conversion\Configuration();
-$configuration->setAppSid($AppSid);
-$configuration->setAppKey($AppKey);
-
+$configuration->setAppSid($myClientId);
+$configuration->setAppKey($myClientSecret);
 $apiInstance = new GroupDocs\Conversion\ConvertApi($configuration);
 
 // Prepare convert settings
