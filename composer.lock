@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c433d01749c705f70ab1b36e53a441b8",
+    "content-hash": "41dc435d631fc7715fd442f288e57994",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -1218,6 +1218,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2017-12-04T08:55:13+00:00"
         },
         {
@@ -2768,5 +2769,6 @@
     "platform-dev": [],
     "platform-overrides": {
         "php": "5.6.32"
-    }
+    },
+    "plugin-api-version": "1.1.0"
 }

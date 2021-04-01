@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="WatermarkOptions.php">
- *   Copyright (c) 2003-2020 Aspose Pty Ltd
+ *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -56,6 +56,8 @@ class WatermarkOptions implements ArrayAccess
         'text' => 'string',
         'fontName' => 'string',
         'fontSize' => 'int',
+        'bold' => 'bool',
+        'italic' => 'bool',
         'color' => 'string',
         'width' => 'int',
         'height' => 'int',
@@ -76,6 +78,8 @@ class WatermarkOptions implements ArrayAccess
         'text' => null,
         'fontName' => null,
         'fontSize' => 'int32',
+        'bold' => null,
+        'italic' => null,
         'color' => null,
         'width' => 'int32',
         'height' => 'int32',
@@ -117,6 +121,8 @@ class WatermarkOptions implements ArrayAccess
         'text' => 'Text',
         'fontName' => 'FontName',
         'fontSize' => 'FontSize',
+        'bold' => 'Bold',
+        'italic' => 'Italic',
         'color' => 'Color',
         'width' => 'Width',
         'height' => 'Height',
@@ -137,6 +143,8 @@ class WatermarkOptions implements ArrayAccess
         'text' => 'setText',
         'fontName' => 'setFontName',
         'fontSize' => 'setFontSize',
+        'bold' => 'setBold',
+        'italic' => 'setItalic',
         'color' => 'setColor',
         'width' => 'setWidth',
         'height' => 'setHeight',
@@ -157,6 +165,8 @@ class WatermarkOptions implements ArrayAccess
         'text' => 'getText',
         'fontName' => 'getFontName',
         'fontSize' => 'getFontSize',
+        'bold' => 'getBold',
+        'italic' => 'getItalic',
         'color' => 'getColor',
         'width' => 'getWidth',
         'height' => 'getHeight',
@@ -231,6 +241,8 @@ class WatermarkOptions implements ArrayAccess
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
         $this->container['fontName'] = isset($data['fontName']) ? $data['fontName'] : null;
         $this->container['fontSize'] = isset($data['fontSize']) ? $data['fontSize'] : null;
+        $this->container['bold'] = isset($data['bold']) ? $data['bold'] : null;
+        $this->container['italic'] = isset($data['italic']) ? $data['italic'] : null;
         $this->container['color'] = isset($data['color']) ? $data['color'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
@@ -253,6 +265,12 @@ class WatermarkOptions implements ArrayAccess
 
         if ($this->container['fontSize'] === null) {
             $invalidProperties[] = "'fontSize' can't be null";
+        }
+        if ($this->container['bold'] === null) {
+            $invalidProperties[] = "'bold' can't be null";
+        }
+        if ($this->container['italic'] === null) {
+            $invalidProperties[] = "'italic' can't be null";
         }
         if ($this->container['width'] === null) {
             $invalidProperties[] = "'width' can't be null";
@@ -288,6 +306,12 @@ class WatermarkOptions implements ArrayAccess
     {
 
         if ($this->container['fontSize'] === null) {
+            return false;
+        }
+        if ($this->container['bold'] === null) {
+            return false;
+        }
+        if ($this->container['italic'] === null) {
             return false;
         }
         if ($this->container['width'] === null) {
@@ -383,6 +407,54 @@ class WatermarkOptions implements ArrayAccess
     public function setFontSize($fontSize)
     {
         $this->container['fontSize'] = $fontSize;
+
+        return $this;
+    }
+
+    /*
+     * Gets bold
+     *
+     * @return bool
+     */
+    public function getBold()
+    {
+        return $this->container['bold'];
+    }
+
+    /*
+     * Sets bold
+     *
+     * @param bool $bold Watermark font bold style if text watermark is applied
+     *
+     * @return $this
+     */
+    public function setBold($bold)
+    {
+        $this->container['bold'] = $bold;
+
+        return $this;
+    }
+
+    /*
+     * Gets italic
+     *
+     * @return bool
+     */
+    public function getItalic()
+    {
+        return $this->container['italic'];
+    }
+
+    /*
+     * Sets italic
+     *
+     * @param bool $italic Watermark font italic style if text watermark is applied
+     *
+     * @return $this
+     */
+    public function setItalic($italic)
+    {
+        $this->container['italic'] = $italic;
 
         return $this;
     }

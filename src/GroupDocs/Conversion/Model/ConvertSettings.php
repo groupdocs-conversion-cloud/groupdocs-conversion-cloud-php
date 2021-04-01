@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="ConvertSettings.php">
- *   Copyright (c) 2003-2020 Aspose Pty Ltd
+ *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -58,7 +58,8 @@ class ConvertSettings implements ArrayAccess
         'format' => 'string',
         'loadOptions' => '\GroupDocs\Conversion\Model\LoadOptions',
         'convertOptions' => '\GroupDocs\Conversion\Model\ConvertOptions',
-        'outputPath' => 'string'
+        'outputPath' => 'string',
+        'fontsPath' => 'string'
     ];
 
     /*
@@ -72,7 +73,8 @@ class ConvertSettings implements ArrayAccess
         'format' => null,
         'loadOptions' => null,
         'convertOptions' => null,
-        'outputPath' => null
+        'outputPath' => null,
+        'fontsPath' => null
     ];
 
     /*
@@ -107,7 +109,8 @@ class ConvertSettings implements ArrayAccess
         'format' => 'Format',
         'loadOptions' => 'LoadOptions',
         'convertOptions' => 'ConvertOptions',
-        'outputPath' => 'OutputPath'
+        'outputPath' => 'OutputPath',
+        'fontsPath' => 'FontsPath'
     ];
 
     /*
@@ -121,7 +124,8 @@ class ConvertSettings implements ArrayAccess
         'format' => 'setFormat',
         'loadOptions' => 'setLoadOptions',
         'convertOptions' => 'setConvertOptions',
-        'outputPath' => 'setOutputPath'
+        'outputPath' => 'setOutputPath',
+        'fontsPath' => 'setFontsPath'
     ];
 
     /*
@@ -135,7 +139,8 @@ class ConvertSettings implements ArrayAccess
         'format' => 'getFormat',
         'loadOptions' => 'getLoadOptions',
         'convertOptions' => 'getConvertOptions',
-        'outputPath' => 'getOutputPath'
+        'outputPath' => 'getOutputPath',
+        'fontsPath' => 'getFontsPath'
     ];
 
     /*
@@ -204,6 +209,7 @@ class ConvertSettings implements ArrayAccess
         $this->container['loadOptions'] = isset($data['loadOptions']) ? $data['loadOptions'] : null;
         $this->container['convertOptions'] = isset($data['convertOptions']) ? $data['convertOptions'] : null;
         $this->container['outputPath'] = isset($data['outputPath']) ? $data['outputPath'] : null;
+        $this->container['fontsPath'] = isset($data['fontsPath']) ? $data['fontsPath'] : null;
     }
 
     /*
@@ -407,6 +413,30 @@ class ConvertSettings implements ArrayAccess
     public function setOutputPath($outputPath)
     {
         $this->container['outputPath'] = $outputPath;
+
+        return $this;
+    }
+
+    /*
+     * Gets fontsPath
+     *
+     * @return string
+     */
+    public function getFontsPath()
+    {
+        return $this->container['fontsPath'];
+    }
+
+    /*
+     * Sets fontsPath
+     *
+     * @param string $fontsPath The path to directory containing custom fonts in storage
+     *
+     * @return $this
+     */
+    public function setFontsPath($fontsPath)
+    {
+        $this->container['fontsPath'] = $fontsPath;
 
         return $this;
     }

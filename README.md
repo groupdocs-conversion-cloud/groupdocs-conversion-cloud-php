@@ -1,64 +1,26 @@
-![](https://img.shields.io/badge/api-v2.0-lightgrey) ![Packagist Version](https://img.shields.io/packagist/v/groupdocscloud/groupdocs-conversion-cloud) ![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/groupdocscloud/groupdocs-conversion-cloud) [![GitHub license](https://img.shields.io/github/license/groupdocs-conversion-cloud/groupdocs-conversion-cloud-php)](https://github.com/groupdocs-conversion-cloud/groupdocs-conversion-cloud-php/blob/master/LICENSE) 
+# GroupDocs.Conversion Cloud SDK for PHP
 
-# PHP SDK to Convert Documents in the Cloud
+This repository contains GroupDocs.Conversion Cloud SDK for PHP source code. This SDK allows you to work with GroupDocs.Conversion Cloud REST APIs in your PHP applications.
 
-[GroupDocs.Conversion Cloud SDK for PHP](https://products.groupdocs.cloud/conversion/php) wraps GroupDocs.Conversion RESTful APIs so you may integrate **Document Conversion** features in your own apps with zero initial cost.
+## Dependencies
 
-GroupDocs.Conversion Cloud API allows the developers to convert between 50+ file formats including Word documents, Excel spreadsheets, PowerPoint presentations, PDF, OpenDocument files, images & more.
+- PHP 5.5 or later
 
-## Document Conversion REST API
+## Authorization
 
-- Convert the whole document to the desired target format.
-- Convert specific document page(s) or a page range.
-- Auto-detect source document format without requiring the file extension.
-- Load source document with extended options, such as specify password for password-protected documents.
-- Load specific part of the document.
-- Show or hide document comments.
-- Obtain all supported conversion formats list.
-- Replace missing fonts with any other font.
-- Add text or image watermarks to any page.
-- Specify resolution and quality for resultant images.
-- Extract metadata & basic information about the source document.
-- Integrated storage API.
+To use SDK you need AppSID and AppKey authorization keys. You can get your AppSID and AppKey at <https://dashboard.groupdocs.cloud> (free registration is required).  
 
-Check out the [Developer's Guide](https://docs.groupdocs.cloud/conversion/developer-guide/) to know more about GroupDocs.Conversion REST API.
+## Installation & Usage
 
-## Microsoft File Formats
+### Composer
 
-**Microsoft Word:** DOC, DOCM, DOCX, DOT, DOTM, DOTX\
-**Microsoft Excel:** XLS, XLSX, XLSB, XLSM\
-**Microsoft PowerPoint:** PPT, PPTX, PPS, PPSX\
-**Microsoft Project:** MPP, MPT\
-**Microsoft Outlook:** MSG, EML\
-**Microsoft Visio:** VSD, VDX, VSS, VSX, VST, VTX, VSDX, VDW, VSSX, VSTX, VSDM, VSTM, VSSM\
-**Microsoft OneNote:** ONE
-
-## Other Formats
-
-**Page Layout Formats:** PDF, XPS\
-**OpenDocument:** ODT, OTT, ODS, ODP, OTP, OTS, ODG\
-**CAD:** DXF, DWG, IFC, STL\
-**Images:** DCM, BMP, GIF, JPG, PNG, TIFF, WebP, DjVu, SVG, DNG, ICO\
-**Web:** HTML, MHT, MHTML\
-**Emails:** EML, EMLX\
-**eBooks:** EPUB, MOBI\
-**Metafile:** WMF, EMF\
-**LaTeX:** TEX\
-**Others:** TXT, RTF, CSV, TSV, XML
-
-## Get Started with GroupDocs.Conversion Cloud SDK for PHP
-
-First create an account at [GroupDocs for Cloud](https://dashboard.groupdocs.cloud/) and get your application information. Next, follow the installation steps as given below.
-
-### Install via Composer
-
-The package is available at [Packagist](https://packagist.org/) and it can be installed via [Composer](http://getcomposer.org/) by executing following command.
+The package is available at [Packagist](https://packagist.org/) and it can be installed via [Composer](http://getcomposer.org/) by executing following command:
 
 ```shell
 composer require groupdocscloud/groupdocs-conversion-cloud
 ```
 
-You can also install the package directly from this repository. Add the following to `composer.json`, then run `composer install`.
+Or you can install SDK via [Composer](http://getcomposer.org/) directly from this repository, add the following to `composer.json`:
 
 ```javascript
 {
@@ -74,54 +36,67 @@ You can also install the package directly from this repository. Add the followin
 }
 ```
 
-### Install Manually
+Then run `composer install`
 
-Clone or download this repository, then run `composer install` in the root directory to install dependencies and include `autoload.php` into your code file.
+### Manual Installation
+
+Clone or download this repository, then run `composer install` in the root directory to install dependencies and include `autoload.php` into your code file:
 
 ```php
 require_once('/path/to/groupdocs-conversion-cloud-php/vendor/autoload.php');
 ```
 
-### Tests
+## Tests
 
-Set your application information in [json.config](tests/GroupDocs/Conversion/config.json) and execute the following command to run the unit tests.
+To run the unit tests set your AppSID and AppKey in [json.config](tests/GroupDocs/Conversion/config.json) and execute following commands:
 
 ```shell
 php composer.phar install ./vendor/bin/phpunit
 ```
 
-## Convert DOCX to PDF in the Cloud
+## Getting Started
+
+Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```php
-// Get application information from https://dashboard.groupdocs.cloud
-use GroupDocs\Conversion\Model;
-use GroupDocs\Conversion\Model\Requests;
+<?php
 
-//Get Client Id and Client Secret from https://dashboard.groupdocs.cloud
-$myClientId = "";
-$myClientSecret = "";
+require_once(__DIR__ . '/vendor/autoload.php');
 
-// Create instance of the API
+//TODO: Get your AppSID and AppKey at https://dashboard.groupdocs.cloud (free registration is required).
 $configuration = new GroupDocs\Conversion\Configuration();
-$configuration->setAppSid($myClientId);
-$configuration->setAppKey($myClientSecret);
-$apiInstance = new GroupDocs\Conversion\ConvertApi($configuration);
+$configuration->setAppSid("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX");
+$configuration->setAppKey("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
 
-// Prepare convert settings
-$settings = new Model\ConvertSettings();
-$settings->setFilePath("WordProcessing/four-pages.docx");
-$settings->setFormat("pdf");
-$settings->setOutputPath("converted");
+$api = new GroupDocs\Conversion\InfoApi($configuration);
 
-// Convert
-$result = $apiInstance->convertDocument(new Requests\ConvertDocumentRequest($settings));
+try {
+    $request = new GroupDocs\Conversion\Model\Requests\GetSupportedConversionTypesRequest();
+    $response = $api->getSupportedConversionTypes($request);
+
+    foreach($response as $key => $format) {
+          echo $format->getSourceFormat();
+    }
+} catch (Exception $e) {
+    echo  "Something went wrong: ",  $e->getMessage(), "\n";
+    PHP_EOL;
+}
+
+?>
 ```
 
-## GroupDocs.Conversion Cloud SDKs in Popular Languages
+## Licensing
 
-| .NET | Java | PHP | Python | Ruby | Node.js | Android |
-|---|---|---|---|---|---|---|
-| [GitHub](https://github.com/groupdocs-conversion-cloud/groupdocs-conversion-cloud-dotnet) | [GitHub](https://github.com/groupdocs-conversion-cloud/groupdocs-conversion-cloud-java) | [GitHub](https://github.com/groupdocs-conversion-cloud/groupdocs-conversion-cloud-php) | [GitHub](https://github.com/groupdocs-conversion-cloud/groupdocs-conversion-cloud-python) | [GitHub](https://github.com/groupdocs-conversion-cloud/groupdocs-conversion-cloud-ruby)  | [GitHub](https://github.com/groupdocs-conversion-cloud/groupdocs-conversion-cloud-node) | [GitHub](https://github.com/groupdocs-conversion-cloud/groupdocs-conversion-cloud-android) |
-| [NuGet](https://www.nuget.org/packages/GroupDocs.Conversion-Cloud/) | [Maven](https://repository.groupdocs.cloud/webapp/#/artifacts/browse/tree/General/repo/com/groupdocs/groupdocs-conversion-cloud) | [Composer](https://packagist.org/packages/groupdocscloud/groupdocs-conversion-cloud) | [PIP](https://pypi.org/project/groupdocs-conversion-cloud/) | [GEM](https://rubygems.org/gems/groupdocs_conversion_cloud)  | [NPM](https://www.npmjs.com/package/groupdocs-conversion-cloud) |  | 
+GroupDocs.Conversion Cloud SDK for PHP is licensed under [MIT License](LICENSE).
 
-[Home](https://www.groupdocs.cloud/) | [Product Page](https://products.groupdocs.cloud/conversion/php) | [Documentation](https://docs.groupdocs.cloud/conversion/) | [Live Demo](https://products.groupdocs.app/conversion/total) | [API Reference](https://apireference.groupdocs.cloud/conversion/) | [Code Samples](https://github.com/groupdocs-conversion-cloud/groupdocs-conversion-cloud-php-samples) | [Blog](https://blog.groupdocs.cloud/category/conversion/) | [Free Support](https://forum.groupdocs.cloud/c/conversion) | [Free Trial](https://dashboard.groupdocs.cloud)
+## Resources
+
++[**Website**](https://www.groupdocs.cloud)
++[**Product Home**](https://products.groupdocs.cloud/conversion)
++[**Documentation**](https://docs.groupdocs.cloud/conversion)
++[**Free Support Forum**](https://forum.groupdocs.cloud/c/conversion)
++[**Blog**](https://blog.groupdocs.cloud/category/conversion)
+
+## Contact Us
+
+Your feedback is very important to us. Please feel free to contact us using our [Support Forums](https://forum.groupdocs.cloud/c/conversion).
