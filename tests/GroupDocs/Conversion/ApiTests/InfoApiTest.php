@@ -58,4 +58,24 @@ class InfoApiTest extends BaseApiTest
 
         $this->assertTrue(4 == $response->getPageCount());
     }
+
+    /**
+     * Check error when file not exist.
+     *
+     */    
+    public function testGetInfoReturnsFileNotFound()
+    {
+        try 
+        {
+            $request = new Requests\GetDocumentMetadataRequest(Internal\TestFiles::getFileNotExist()->getPath());
+            $response = self::$infoApi->getDocumentMetadata($request);
+        }
+        catch (\GroupDocs\Conversion\ApiException $ex) 
+        {            
+            $this->assertTrue(strpos($ex->getMessage(), "AmazonS3 Storage exception: The specified key does not exist.") === 0);
+            return;
+        }
+        $this->fail("ApiException expected");      
+    
+    }    
 }
