@@ -66,7 +66,8 @@ class WatermarkOptions implements ArrayAccess
         'rotationAngle' => 'int',
         'transparency' => 'double',
         'background' => 'bool',
-        'image' => 'string'
+        'image' => 'string',
+        'autoAlign' => 'bool'
     ];
 
     /*
@@ -88,7 +89,8 @@ class WatermarkOptions implements ArrayAccess
         'rotationAngle' => 'int32',
         'transparency' => 'double',
         'background' => null,
-        'image' => null
+        'image' => null,
+        'autoAlign' => null
     ];
 
     /*
@@ -131,7 +133,8 @@ class WatermarkOptions implements ArrayAccess
         'rotationAngle' => 'RotationAngle',
         'transparency' => 'Transparency',
         'background' => 'Background',
-        'image' => 'Image'
+        'image' => 'Image',
+        'autoAlign' => 'AutoAlign'
     ];
 
     /*
@@ -153,7 +156,8 @@ class WatermarkOptions implements ArrayAccess
         'rotationAngle' => 'setRotationAngle',
         'transparency' => 'setTransparency',
         'background' => 'setBackground',
-        'image' => 'setImage'
+        'image' => 'setImage',
+        'autoAlign' => 'setAutoAlign'
     ];
 
     /*
@@ -175,7 +179,8 @@ class WatermarkOptions implements ArrayAccess
         'rotationAngle' => 'getRotationAngle',
         'transparency' => 'getTransparency',
         'background' => 'getBackground',
-        'image' => 'getImage'
+        'image' => 'getImage',
+        'autoAlign' => 'getAutoAlign'
     ];
 
     /*
@@ -252,6 +257,7 @@ class WatermarkOptions implements ArrayAccess
         $this->container['transparency'] = isset($data['transparency']) ? $data['transparency'] : null;
         $this->container['background'] = isset($data['background']) ? $data['background'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
+        $this->container['autoAlign'] = isset($data['autoAlign']) ? $data['autoAlign'] : null;
     }
 
     /*
@@ -293,6 +299,9 @@ class WatermarkOptions implements ArrayAccess
         if ($this->container['background'] === null) {
             $invalidProperties[] = "'background' can't be null";
         }
+        if ($this->container['autoAlign'] === null) {
+            $invalidProperties[] = "'autoAlign' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -333,6 +342,9 @@ class WatermarkOptions implements ArrayAccess
             return false;
         }
         if ($this->container['background'] === null) {
+            return false;
+        }
+        if ($this->container['autoAlign'] === null) {
             return false;
         }
         return true;
@@ -671,6 +683,30 @@ class WatermarkOptions implements ArrayAccess
     public function setImage($image)
     {
         $this->container['image'] = $image;
+
+        return $this;
+    }
+
+    /*
+     * Gets autoAlign
+     *
+     * @return bool
+     */
+    public function getAutoAlign()
+    {
+        return $this->container['autoAlign'];
+    }
+
+    /*
+     * Sets autoAlign
+     *
+     * @param bool $autoAlign Auto scale the watermark. If the value is true the font size and the position is automatically calculated to fit the page size.
+     *
+     * @return $this
+     */
+    public function setAutoAlign($autoAlign)
+    {
+        $this->container['autoAlign'] = $autoAlign;
 
         return $this;
     }

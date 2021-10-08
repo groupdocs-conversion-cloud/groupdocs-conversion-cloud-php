@@ -56,7 +56,8 @@ class WordProcessingConvertOptions extends ConvertOptions
         'dpi' => 'double',
         'password' => 'string',
         'zoom' => 'int',
-        'watermarkOptions' => '\GroupDocs\Conversion\Model\WatermarkOptions'
+        'watermarkOptions' => '\GroupDocs\Conversion\Model\WatermarkOptions',
+        'pdfRecognitionMode' => 'string'
     ];
 
     /*
@@ -70,7 +71,8 @@ class WordProcessingConvertOptions extends ConvertOptions
         'dpi' => 'double',
         'password' => null,
         'zoom' => 'int32',
-        'watermarkOptions' => null
+        'watermarkOptions' => null,
+        'pdfRecognitionMode' => null
     ];
 
     /*
@@ -105,7 +107,8 @@ class WordProcessingConvertOptions extends ConvertOptions
         'dpi' => 'Dpi',
         'password' => 'Password',
         'zoom' => 'Zoom',
-        'watermarkOptions' => 'WatermarkOptions'
+        'watermarkOptions' => 'WatermarkOptions',
+        'pdfRecognitionMode' => 'PdfRecognitionMode'
     ];
 
     /*
@@ -119,7 +122,8 @@ class WordProcessingConvertOptions extends ConvertOptions
         'dpi' => 'setDpi',
         'password' => 'setPassword',
         'zoom' => 'setZoom',
-        'watermarkOptions' => 'setWatermarkOptions'
+        'watermarkOptions' => 'setWatermarkOptions',
+        'pdfRecognitionMode' => 'setPdfRecognitionMode'
     ];
 
     /*
@@ -133,7 +137,8 @@ class WordProcessingConvertOptions extends ConvertOptions
         'dpi' => 'getDpi',
         'password' => 'getPassword',
         'zoom' => 'getZoom',
-        'watermarkOptions' => 'getWatermarkOptions'
+        'watermarkOptions' => 'getWatermarkOptions',
+        'pdfRecognitionMode' => 'getPdfRecognitionMode'
     ];
 
     /*
@@ -177,8 +182,23 @@ class WordProcessingConvertOptions extends ConvertOptions
         return self::$swaggerModelName;
     }
 
+    const PDF_RECOGNITION_MODE_TEXTBOX = 'Textbox';
+    const PDF_RECOGNITION_MODE_FLOW = 'Flow';
     
 
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPdfRecognitionModeAllowableValues()
+    {
+        return [
+            self::PDF_RECOGNITION_MODE_TEXTBOX,
+            self::PDF_RECOGNITION_MODE_FLOW,
+        ];
+    }
     
 
 
@@ -198,6 +218,7 @@ class WordProcessingConvertOptions extends ConvertOptions
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['zoom'] = isset($data['zoom']) ? $data['zoom'] : null;
         $this->container['watermarkOptions'] = isset($data['watermarkOptions']) ? $data['watermarkOptions'] : null;
+        $this->container['pdfRecognitionMode'] = isset($data['pdfRecognitionMode']) ? $data['pdfRecognitionMode'] : null;
     }
 
     /*
@@ -221,6 +242,17 @@ class WordProcessingConvertOptions extends ConvertOptions
         if ($this->container['zoom'] === null) {
             $invalidProperties[] = "'zoom' can't be null";
         }
+        if ($this->container['pdfRecognitionMode'] === null) {
+            $invalidProperties[] = "'pdfRecognitionMode' can't be null";
+        }
+        $allowedValues = $this->getPdfRecognitionModeAllowableValues();
+        if (!in_array($this->container['pdfRecognitionMode'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'pdfRecognitionMode', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -246,6 +278,13 @@ class WordProcessingConvertOptions extends ConvertOptions
             return false;
         }
         if ($this->container['zoom'] === null) {
+            return false;
+        }
+        if ($this->container['pdfRecognitionMode'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getPdfRecognitionModeAllowableValues();
+        if (!in_array($this->container['pdfRecognitionMode'], $allowedValues)) {
             return false;
         }
         return true;
@@ -392,6 +431,35 @@ class WordProcessingConvertOptions extends ConvertOptions
     public function setWatermarkOptions($watermarkOptions)
     {
         $this->container['watermarkOptions'] = $watermarkOptions;
+
+        return $this;
+    }
+
+    /*
+     * Gets pdfRecognitionMode
+     *
+     * @return string
+     */
+    public function getPdfRecognitionMode()
+    {
+        return $this->container['pdfRecognitionMode'];
+    }
+
+    /*
+     * Sets pdfRecognitionMode
+     *
+     * @param string $pdfRecognitionMode Recognition mode when converting from pdf
+     *
+     * @return $this
+     */
+    public function setPdfRecognitionMode($pdfRecognitionMode)
+    {
+        $allowedValues = $this->getPdfRecognitionModeAllowableValues();
+        if ((!is_numeric($pdfRecognitionMode) && !in_array($pdfRecognitionMode, $allowedValues)) || (is_numeric($pdfRecognitionMode) && !in_array($allowedValues[$pdfRecognitionMode], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'pdfRecognitionMode', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['pdfRecognitionMode'] = $pdfRecognitionMode;
 
         return $this;
     }
