@@ -169,12 +169,15 @@ class ObjectSerializer
      */
     public static function toString($value)
     {
-        if (date(\DATE_ATOM, preg_match("/^[1-9][0-9]*$/", $value)[0]) instanceof \DateTime) { // datetime in ISO8601 format
-            $datetime = preg_match("/^[1-9][0-9]*$/", $value)[0];
-            return date(\DATE_ATOM, $datetime);
-        } else {
+        try {
+            if (date(\DATE_ATOM, preg_match("/^[1-9][0-9]*$/", $value)[0]) instanceof \DateTime) { // datetime in ISO8601 format
+                $datetime = preg_match("/^[1-9][0-9]*$/", $value)[0];
+                return date(\DATE_ATOM, $datetime);
+            }
+        } catch (\Exception $e) {
             return $value;
         }
+        return $value;
     }
 
     /*
