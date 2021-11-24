@@ -176,8 +176,7 @@ class ObjectSerializer
         }
         
         if (date(\DATE_ATOM, $matches[0]) instanceof \DateTime) { // datetime in ISO8601 format
-            $datetime = $matches[0];
-            return date(\DATE_ATOM, $datetime);
+            return date(\DATE_ATOM, $matches[0]);
         }
 
         return $value;
