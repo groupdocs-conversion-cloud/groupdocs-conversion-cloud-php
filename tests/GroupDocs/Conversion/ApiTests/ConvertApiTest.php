@@ -2,7 +2,7 @@
 /**
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose Pty Ltd" file="AuthApiTest.php">
-*   Copyright (c) 2003-2021 Aspose Pty Ltd
+*   Copyright (c) 2003-2022 Aspose Pty Ltd
 * </copyright>
 * <summary>
 *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -85,5 +85,27 @@ class ConvertApiTest extends BaseApiTest
 
         $size = $result->getSize();
         $this->assertGreaterThan(0, $size);
-    }    
+    } 
+    
+    /**
+     * Converts source document to specified type without storage
+     * using options
+     */
+    public function testConvertDocumentDirectOptions() {
+
+        $format ="pdf";
+        $testFile = Internal\TestFiles::getFilePasswordProtectedDocx();
+        $path = self::getTestFilePath($testFile);
+
+        $loadOptions = new Model\DocxLoadOptions();
+        $loadOptions->setFormat("docx");
+        $loadOptions->setPassword($testFile->password);
+
+        $request = new Requests\ConvertDocumentDirectRequest($format, $path, null, null, $loadOptions);
+        
+        $result = self::$convertApi->ConvertDocumentDirect($request);
+
+        $size = $result->getSize();
+        $this->assertGreaterThan(0, $size);
+    }     
 }

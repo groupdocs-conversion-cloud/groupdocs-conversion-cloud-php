@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="StorageApi.php">
- *   Copyright (c) 2003-2021 Aspose Pty Ltd
+ *   Copyright (c) 2003-2022 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -120,58 +120,47 @@ class StorageApi
         $returnType = '\GroupDocs\Conversion\Model\DiscUsage';
         $request = $this->getDiscUsageRequest($request);
 
+        $options = $this->_createHttpClientOption();
         try {
-            $options = $this->_createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                $responseBody = $e->getResponse()->getBody();
-                $content = $responseBody->getContents();
-                $error = json_decode($content);
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse()->getBody();
+            $content = $responseBody->getContents();
+            $error = json_decode($content);
 
-                $errorCode = $e->getCode();
-                $errorMessage = $error->error != null && $error->error->message != null
-                    ? $error->error->message
-                    : $e->getMessage();
-                
-                throw new ApiException($errorMessage, $errorCode);
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {          
-                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode);
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
+            $errorCode = $e->getCode();
+            $errorMessage = $error != null && property_exists($error, 'message')
+                ? $error->message
+                : ($error != null && property_exists($error, 'error') && $error->error != null && $error->error->message != null ? $error->error->message : $e->getMessage());
             
-            if ($this->config->getDebug()) {
-                $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            case 200:
-                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\GroupDocs\Conversion\Model\DiscUsage', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                break;
-            }
-            throw $e;
+            throw new ApiException($errorMessage, $errorCode);
         }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {          
+            throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode);
+        }
+
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+        }
+        
+        if ($this->config->getDebug()) {
+            $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
     }
 
     /*
@@ -303,11 +292,18 @@ class StorageApi
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'filename' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    if($formParamName == 'file')
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'filename' => $formParamName,
+                            'contents' => $formParamValue
+                        ];
+                    else 
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contenttype' => 'application/json',
+                            'contents' => $formParamValue
+                        ];  
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
@@ -389,58 +385,47 @@ class StorageApi
         $returnType = '\GroupDocs\Conversion\Model\FileVersions';
         $request = $this->getFileVersionsRequest($request);
 
+        $options = $this->_createHttpClientOption();
         try {
-            $options = $this->_createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                $responseBody = $e->getResponse()->getBody();
-                $content = $responseBody->getContents();
-                $error = json_decode($content);
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse()->getBody();
+            $content = $responseBody->getContents();
+            $error = json_decode($content);
 
-                $errorCode = $e->getCode();
-                $errorMessage = $error->error != null && $error->error->message != null
-                    ? $error->error->message
-                    : $e->getMessage();
-                
-                throw new ApiException($errorMessage, $errorCode);
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {          
-                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode);
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
+            $errorCode = $e->getCode();
+            $errorMessage = $error != null && property_exists($error, 'message')
+                ? $error->message
+                : ($error != null && property_exists($error, 'error') && $error->error != null && $error->error->message != null ? $error->error->message : $e->getMessage());
             
-            if ($this->config->getDebug()) {
-                $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            case 200:
-                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\GroupDocs\Conversion\Model\FileVersions', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                break;
-            }
-            throw $e;
+            throw new ApiException($errorMessage, $errorCode);
         }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {          
+            throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode);
+        }
+
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+        }
+        
+        if ($this->config->getDebug()) {
+            $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
     }
 
     /*
@@ -581,11 +566,18 @@ class StorageApi
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'filename' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    if($formParamName == 'file')
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'filename' => $formParamName,
+                            'contents' => $formParamValue
+                        ];
+                    else 
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contenttype' => 'application/json',
+                            'contents' => $formParamValue
+                        ];  
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
@@ -667,58 +659,47 @@ class StorageApi
         $returnType = '\GroupDocs\Conversion\Model\ObjectExist';
         $request = $this->objectExistsRequest($request);
 
+        $options = $this->_createHttpClientOption();
         try {
-            $options = $this->_createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                $responseBody = $e->getResponse()->getBody();
-                $content = $responseBody->getContents();
-                $error = json_decode($content);
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse()->getBody();
+            $content = $responseBody->getContents();
+            $error = json_decode($content);
 
-                $errorCode = $e->getCode();
-                $errorMessage = $error->error != null && $error->error->message != null
-                    ? $error->error->message
-                    : $e->getMessage();
-                
-                throw new ApiException($errorMessage, $errorCode);
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {          
-                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode);
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
+            $errorCode = $e->getCode();
+            $errorMessage = $error != null && property_exists($error, 'message')
+                ? $error->message
+                : ($error != null && property_exists($error, 'error') && $error->error != null && $error->error->message != null ? $error->error->message : $e->getMessage());
             
-            if ($this->config->getDebug()) {
-                $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            case 200:
-                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\GroupDocs\Conversion\Model\ObjectExist', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                break;
-            }
-            throw $e;
+            throw new ApiException($errorMessage, $errorCode);
         }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {          
+            throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode);
+        }
+
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+        }
+        
+        if ($this->config->getDebug()) {
+            $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
     }
 
     /*
@@ -869,11 +850,18 @@ class StorageApi
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'filename' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    if($formParamName == 'file')
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'filename' => $formParamName,
+                            'contents' => $formParamValue
+                        ];
+                    else 
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contenttype' => 'application/json',
+                            'contents' => $formParamValue
+                        ];  
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
@@ -955,58 +943,47 @@ class StorageApi
         $returnType = '\GroupDocs\Conversion\Model\StorageExist';
         $request = $this->storageExistsRequest($request);
 
+        $options = $this->_createHttpClientOption();
         try {
-            $options = $this->_createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                $responseBody = $e->getResponse()->getBody();
-                $content = $responseBody->getContents();
-                $error = json_decode($content);
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse()->getBody();
+            $content = $responseBody->getContents();
+            $error = json_decode($content);
 
-                $errorCode = $e->getCode();
-                $errorMessage = $error->error != null && $error->error->message != null
-                    ? $error->error->message
-                    : $e->getMessage();
-                
-                throw new ApiException($errorMessage, $errorCode);
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {          
-                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode);
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
+            $errorCode = $e->getCode();
+            $errorMessage = $error != null && property_exists($error, 'message')
+                ? $error->message
+                : ($error != null && property_exists($error, 'error') && $error->error != null && $error->error->message != null ? $error->error->message : $e->getMessage());
             
-            if ($this->config->getDebug()) {
-                $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            case 200:
-                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\GroupDocs\Conversion\Model\StorageExist', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                break;
-            }
-            throw $e;
+            throw new ApiException($errorMessage, $errorCode);
         }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {          
+            throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode);
+        }
+
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+        }
+        
+        if ($this->config->getDebug()) {
+            $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
     }
 
     /*
@@ -1137,11 +1114,18 @@ class StorageApi
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'filename' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    if($formParamName == 'file')
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'filename' => $formParamName,
+                            'contents' => $formParamValue
+                        ];
+                    else 
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contenttype' => 'application/json',
+                            'contents' => $formParamValue
+                        ];  
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
@@ -1292,7 +1276,7 @@ class StorageApi
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="getDiscUsageRequest.php">
- *   Copyright (c) 2003-2021 Aspose Pty Ltd
+ *   Copyright (c) 2003-2022 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1341,7 +1325,7 @@ class getDiscUsageRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="getFileVersionsRequest.php">
- *   Copyright (c) 2003-2021 Aspose Pty Ltd
+ *   Copyright (c) 2003-2022 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1397,7 +1381,7 @@ class getFileVersionsRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="objectExistsRequest.php">
- *   Copyright (c) 2003-2021 Aspose Pty Ltd
+ *   Copyright (c) 2003-2022 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1460,7 +1444,7 @@ class objectExistsRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="storageExistsRequest.php">
- *   Copyright (c) 2003-2021 Aspose Pty Ltd
+ *   Copyright (c) 2003-2022 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy

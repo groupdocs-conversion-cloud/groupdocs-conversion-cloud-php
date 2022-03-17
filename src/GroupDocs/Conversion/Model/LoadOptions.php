@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="LoadOptions.php">
- *   Copyright (c) 2003-2021 Aspose Pty Ltd
+ *   Copyright (c) 2003-2022 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -53,7 +53,7 @@ class LoadOptions implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        
+        'format' => 'string'
     ];
 
     /*
@@ -62,7 +62,7 @@ class LoadOptions implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        
+        'format' => null
     ];
 
     /*
@@ -92,7 +92,7 @@ class LoadOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'format' => 'Format'
     ];
 
     /*
@@ -101,7 +101,7 @@ class LoadOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'format' => 'setFormat'
     ];
 
     /*
@@ -110,7 +110,7 @@ class LoadOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'format' => 'getFormat'
     ];
 
     /*
@@ -173,6 +173,7 @@ class LoadOptions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['format'] = isset($data['format']) ? $data['format'] : null;
 
         // Initialize discriminator property with the model name.
         $discriminator = array_search('Type', self::$attributeMap);
@@ -203,6 +204,30 @@ class LoadOptions implements ArrayAccess
         return true;
     }
 
+
+    /*
+     * Gets format
+     *
+     * @return string
+     */
+    public function getFormat()
+    {
+        return $this->container['format'];
+    }
+
+    /*
+     * Sets format
+     *
+     * @param string $format The format of input file, (\"docx\", for example). This field must be filled with correct input file format when using ConvertDirect method, which accept input file as binary stream, and, because of that, API can correctly handle LoadOptions. In regular conversion, the input file format taken from the input file name and this field ignored.
+     *
+     * @return $this
+     */
+    public function setFormat($format)
+    {
+        $this->container['format'] = $format;
+
+        return $this;
+    }
     /*
      * Returns true if offset exists. False otherwise.
      *

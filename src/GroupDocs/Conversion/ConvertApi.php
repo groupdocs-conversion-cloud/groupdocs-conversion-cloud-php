@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="ConvertApi.php">
- *   Copyright (c) 2003-2021 Aspose Pty Ltd
+ *   Copyright (c) 2003-2022 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -120,58 +120,47 @@ class ConvertApi
         $returnType = '\GroupDocs\Conversion\Model\StoredConvertedResult[]';
         $request = $this->convertDocumentRequest($request);
 
+        $options = $this->_createHttpClientOption();
         try {
-            $options = $this->_createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                $responseBody = $e->getResponse()->getBody();
-                $content = $responseBody->getContents();
-                $error = json_decode($content);
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse()->getBody();
+            $content = $responseBody->getContents();
+            $error = json_decode($content);
 
-                $errorCode = $e->getCode();
-                $errorMessage = $error->error != null && $error->error->message != null
-                    ? $error->error->message
-                    : $e->getMessage();
-                
-                throw new ApiException($errorMessage, $errorCode);
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {          
-                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode);
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
+            $errorCode = $e->getCode();
+            $errorMessage = $error != null && property_exists($error, 'message')
+                ? $error->message
+                : ($error != null && property_exists($error, 'error') && $error->error != null && $error->error->message != null ? $error->error->message : $e->getMessage());
             
-            if ($this->config->getDebug()) {
-                $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            case 200:
-                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\GroupDocs\Conversion\Model\StoredConvertedResult[]', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                break;
-            }
-            throw $e;
+            throw new ApiException($errorMessage, $errorCode);
         }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {          
+            throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode);
+        }
+
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+        }
+        
+        if ($this->config->getDebug()) {
+            $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
     }
 
     /*
@@ -265,10 +254,7 @@ class ConvertApi
         $headerParams = [];
         $httpBody = "";
         $multipart = false;
-    
-
-    
-    
+            
         $resourcePath = $this->_buildUrl($resourcePath, $queryParams);
 
         // body params
@@ -304,11 +290,18 @@ class ConvertApi
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'filename' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    if($formParamName == 'file')
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'filename' => $formParamName,
+                            'contents' => $formParamValue
+                        ];
+                    else 
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contenttype' => 'application/json',
+                            'contents' => $formParamValue
+                        ];  
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
@@ -391,58 +384,47 @@ class ConvertApi
         $returnType = '\SplFileObject';
         $request = $this->convertDocumentDownloadRequest($request);
 
+        $options = $this->_createHttpClientOption();
         try {
-            $options = $this->_createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                $responseBody = $e->getResponse()->getBody();
-                $content = $responseBody->getContents();
-                $error = json_decode($content);
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse()->getBody();
+            $content = $responseBody->getContents();
+            $error = json_decode($content);
 
-                $errorCode = $e->getCode();
-                $errorMessage = $error->error != null && $error->error->message != null
-                    ? $error->error->message
-                    : $e->getMessage();
-                
-                throw new ApiException($errorMessage, $errorCode);
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {          
-                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode);
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
+            $errorCode = $e->getCode();
+            $errorMessage = $error != null && property_exists($error, 'message')
+                ? $error->message
+                : ($error != null && property_exists($error, 'error') && $error->error != null && $error->error->message != null ? $error->error->message : $e->getMessage());
             
-            if ($this->config->getDebug()) {
-                $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            case 200:
-                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                break;
-            }
-            throw $e;
+            throw new ApiException($errorMessage, $errorCode);
         }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {          
+            throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode);
+        }
+
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+        }
+        
+        if ($this->config->getDebug()) {
+            $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
     }
 
     /*
@@ -575,11 +557,18 @@ class ConvertApi
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'filename' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    if($formParamName == 'file')
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'filename' => $formParamName,
+                            'contents' => $formParamValue
+                        ];
+                    else 
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contenttype' => 'application/json',
+                            'contents' => $formParamValue
+                        ];  
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
@@ -661,58 +650,47 @@ class ConvertApi
         $returnType = '\SplFileObject';
         $request = $this->convertDocumentDirectRequest($request);
 
+        $options = $this->_createHttpClientOption();
         try {
-            $options = $this->_createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                $responseBody = $e->getResponse()->getBody();
-                $content = $responseBody->getContents();
-                $error = json_decode($content);
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse()->getBody();
+            $content = $responseBody->getContents();
+            $error = json_decode($content);
 
-                $errorCode = $e->getCode();
-                $errorMessage = $error->error != null && $error->error->message != null
-                    ? $error->error->message
-                    : $e->getMessage();
-                
-                throw new ApiException($errorMessage, $errorCode);
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {          
-                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode);
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
+            $errorCode = $e->getCode();
+            $errorMessage = $error != null && property_exists($error, 'message')
+                ? $error->message
+                : ($error != null && property_exists($error, 'error') && $error->error != null && $error->error->message != null ? $error->error->message : $e->getMessage());
             
-            if ($this->config->getDebug()) {
-                $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            case 200:
-                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                break;
-            }
-            throw $e;
+            throw new ApiException($errorMessage, $errorCode);
         }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {          
+            throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode);
+        }
+
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+        }
+        
+        if ($this->config->getDebug()) {
+            $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
     }
 
     /*
@@ -855,6 +833,14 @@ class ConvertApi
             $contents = fread($handle, $fsize);
             $formParams['file'] = $contents;
         }
+        // form params
+        if ($request->loadOptions !== null) {
+            $formParams['loadOptions'] = ObjectSerializer::toFormValue($request->loadOptions);
+        }
+        // form params
+        if ($request->convertOptions !== null) {
+            $formParams['convertOptions'] = ObjectSerializer::toFormValue($request->convertOptions);
+        }
         // body params
         $_tempBody = null;
 
@@ -881,11 +867,18 @@ class ConvertApi
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'filename' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    if($formParamName == 'file')
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'filename' => $formParamName,
+                            'contents' => $formParamValue
+                        ];
+                    else 
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contenttype' => 'application/json',
+                            'contents' => $formParamValue
+                        ];  
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
@@ -1036,7 +1029,7 @@ class ConvertApi
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="convertDocumentRequest.php">
- *   Copyright (c) 2003-2021 Aspose Pty Ltd
+ *   Copyright (c) 2003-2022 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1085,7 +1078,7 @@ class convertDocumentRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="convertDocumentDirectRequest.php">
- *   Copyright (c) 2003-2021 Aspose Pty Ltd
+ *   Copyright (c) 2003-2022 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1123,13 +1116,17 @@ class convertDocumentDirectRequest
      * @param \SplFileObject $file Input file to convert
      * @param int $fromPage Page start conversion from
      * @param int $pagesCount Number of pages to convert
+     * @param string $loadOptions Input file load options
+     * @param string $convertOptions Conversion options
      */
-    public function __construct($format, $file, $fromPage = null, $pagesCount = null)             
+    public function __construct($format, $file, $fromPage = null, $pagesCount = null, $loadOptions = null, $convertOptions = null)             
     {
         $this->format = $format;
         $this->file = $file;
         $this->fromPage = $fromPage;
         $this->pagesCount = $pagesCount;
+        $this->loadOptions = $loadOptions;
+        $this->convertOptions = $convertOptions;
     }
 
     /*
@@ -1151,4 +1148,14 @@ class convertDocumentDirectRequest
      * Number of pages to convert
      */
     public $pagesCount;
+	
+    /*
+     * Input file load options
+     */
+    public $loadOptions;
+	
+    /*
+     * Conversion options
+     */
+    public $convertOptions;
 }
