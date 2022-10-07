@@ -31,15 +31,15 @@ use GroupDocs\Conversion\Configuration;
 use GroupDocs\Conversion\InfoApi;
 use GroupDocs\Conversion\Model\Requests;
 
-class AuthApiTest extends \PHPUnit_Framework_TestCase
+class AuthApiTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * Throws error when AppSid not found
      */
     public function testErrorWhenAppSidNotFound()
     {
-        $this->setExpectedExceptionRegExp(
-            \GroupDocs\Conversion\ApiException::class, "/invalid_client/");
+        $this->expectException(\GroupDocs\Conversion\ApiException::class);
+        $this->expectExceptionMessage('invalid_client');            
 
         $config = self::getConfig();
         $apiBaseUrl = $config["ApiBaseUrl"];
@@ -59,8 +59,8 @@ class AuthApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testErrorWhenAppKeyNotFound()
     {
-        $this->setExpectedExceptionRegExp(
-            \GroupDocs\Conversion\ApiException::class, "/invalid_client/");
+        $this->expectException(\GroupDocs\Conversion\ApiException::class);
+        $this->expectExceptionMessage('invalid_client'); 
 
         $config = self::getConfig();
         $apiBaseUrl = $config["ApiBaseUrl"];

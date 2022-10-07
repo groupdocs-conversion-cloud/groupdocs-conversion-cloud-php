@@ -35,7 +35,7 @@ use GroupDocs\Conversion\StorageApi;
 use GroupDocs\Conversion\FileApi;
 use GroupDocs\Conversion\FolderApi;
 
-abstract class BaseApiTest extends \PHPUnit_Framework_TestCase
+abstract class BaseApiTest extends \PHPUnit\Framework\TestCase
 {
     protected static $conversionConfig;
 
@@ -50,7 +50,7 @@ abstract class BaseApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Cleanup after each test case
      */
-    public function tearDown()
+    public function tearDown(): void
     {
         self::_deleteFolder("conversion");        
     }
@@ -65,7 +65,7 @@ abstract class BaseApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Setup before each test suite
      */
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         self::_initTests();
     }
