@@ -58,7 +58,6 @@ class ImageConvertOptions extends ConvertOptions
         'grayscale' => 'bool',
         'rotateAngle' => 'int',
         'usePdf' => 'bool',
-        'watermarkOptions' => '\GroupDocs\Conversion\Model\WatermarkOptions',
         'brightness' => 'int',
         'contrast' => 'int',
         'gamma' => 'double',
@@ -78,7 +77,6 @@ class ImageConvertOptions extends ConvertOptions
         'grayscale' => null,
         'rotateAngle' => 'int32',
         'usePdf' => null,
-        'watermarkOptions' => null,
         'brightness' => 'int32',
         'contrast' => 'int32',
         'gamma' => 'double',
@@ -119,7 +117,6 @@ class ImageConvertOptions extends ConvertOptions
         'grayscale' => 'Grayscale',
         'rotateAngle' => 'RotateAngle',
         'usePdf' => 'UsePdf',
-        'watermarkOptions' => 'WatermarkOptions',
         'brightness' => 'Brightness',
         'contrast' => 'Contrast',
         'gamma' => 'Gamma',
@@ -139,7 +136,6 @@ class ImageConvertOptions extends ConvertOptions
         'grayscale' => 'setGrayscale',
         'rotateAngle' => 'setRotateAngle',
         'usePdf' => 'setUsePdf',
-        'watermarkOptions' => 'setWatermarkOptions',
         'brightness' => 'setBrightness',
         'contrast' => 'setContrast',
         'gamma' => 'setGamma',
@@ -159,7 +155,6 @@ class ImageConvertOptions extends ConvertOptions
         'grayscale' => 'getGrayscale',
         'rotateAngle' => 'getRotateAngle',
         'usePdf' => 'getUsePdf',
-        'watermarkOptions' => 'getWatermarkOptions',
         'brightness' => 'getBrightness',
         'contrast' => 'getContrast',
         'gamma' => 'getGamma',
@@ -248,7 +243,6 @@ class ImageConvertOptions extends ConvertOptions
         $this->container['grayscale'] = isset($data['grayscale']) ? $data['grayscale'] : null;
         $this->container['rotateAngle'] = isset($data['rotateAngle']) ? $data['rotateAngle'] : null;
         $this->container['usePdf'] = isset($data['usePdf']) ? $data['usePdf'] : null;
-        $this->container['watermarkOptions'] = isset($data['watermarkOptions']) ? $data['watermarkOptions'] : null;
         $this->container['brightness'] = isset($data['brightness']) ? $data['brightness'] : null;
         $this->container['contrast'] = isset($data['contrast']) ? $data['contrast'] : null;
         $this->container['gamma'] = isset($data['gamma']) ? $data['gamma'] : null;
@@ -525,30 +519,6 @@ class ImageConvertOptions extends ConvertOptions
     public function setUsePdf($usePdf)
     {
         $this->container['usePdf'] = $usePdf;
-
-        return $this;
-    }
-
-    /*
-     * Gets watermarkOptions
-     *
-     * @return \GroupDocs\Conversion\Model\WatermarkOptions
-     */
-    public function getWatermarkOptions()
-    {
-        return $this->container['watermarkOptions'];
-    }
-
-    /*
-     * Sets watermarkOptions
-     *
-     * @param \GroupDocs\Conversion\Model\WatermarkOptions $watermarkOptions Watermark specific options
-     *
-     * @return $this
-     */
-    public function setWatermarkOptions($watermarkOptions)
-    {
-        $this->container['watermarkOptions'] = $watermarkOptions;
 
         return $this;
     }

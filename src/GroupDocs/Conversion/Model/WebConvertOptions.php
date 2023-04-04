@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="HtmlLoadOptions.php">
+ * <copyright company="Aspose Pty Ltd" file="WebConvertOptions.php">
  *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -30,11 +30,11 @@ namespace GroupDocs\Conversion\Model;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * HtmlLoadOptions
+ * WebConvertOptions
  *
- * @description Html document load options
+ * @description Options for to Html conversion
  */
-class HtmlLoadOptions extends LoadOptions 
+class WebConvertOptions extends ConvertOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -43,7 +43,7 @@ class HtmlLoadOptions extends LoadOptions
      *
      * @var string
      */
-    protected static $swaggerModelName = "HtmlLoadOptions";
+    protected static $swaggerModelName = "WebConvertOptions";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -51,7 +51,10 @@ class HtmlLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'pageNumbering' => 'bool'
+        'usePdf' => 'bool',
+        'fixedLayout' => 'bool',
+        'fixedLayoutShowBorders' => 'bool',
+        'zoom' => 'int'
     ];
 
     /*
@@ -60,7 +63,10 @@ class HtmlLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'pageNumbering' => null
+        'usePdf' => null,
+        'fixedLayout' => null,
+        'fixedLayoutShowBorders' => null,
+        'zoom' => 'int32'
     ];
 
     /*
@@ -90,7 +96,10 @@ class HtmlLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        'pageNumbering' => 'PageNumbering'
+        'usePdf' => 'UsePdf',
+        'fixedLayout' => 'FixedLayout',
+        'fixedLayoutShowBorders' => 'FixedLayoutShowBorders',
+        'zoom' => 'Zoom'
     ];
 
     /*
@@ -99,7 +108,10 @@ class HtmlLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $setters = [
-        'pageNumbering' => 'setPageNumbering'
+        'usePdf' => 'setUsePdf',
+        'fixedLayout' => 'setFixedLayout',
+        'fixedLayoutShowBorders' => 'setFixedLayoutShowBorders',
+        'zoom' => 'setZoom'
     ];
 
     /*
@@ -108,7 +120,10 @@ class HtmlLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $getters = [
-        'pageNumbering' => 'getPageNumbering'
+        'usePdf' => 'getUsePdf',
+        'fixedLayout' => 'getFixedLayout',
+        'fixedLayoutShowBorders' => 'getFixedLayoutShowBorders',
+        'zoom' => 'getZoom'
     ];
 
     /*
@@ -167,7 +182,10 @@ class HtmlLoadOptions extends LoadOptions
     {
         parent::__construct($data);
 
-        $this->container['pageNumbering'] = isset($data['pageNumbering']) ? $data['pageNumbering'] : null;
+        $this->container['usePdf'] = isset($data['usePdf']) ? $data['usePdf'] : null;
+        $this->container['fixedLayout'] = isset($data['fixedLayout']) ? $data['fixedLayout'] : null;
+        $this->container['fixedLayoutShowBorders'] = isset($data['fixedLayoutShowBorders']) ? $data['fixedLayoutShowBorders'] : null;
+        $this->container['zoom'] = isset($data['zoom']) ? $data['zoom'] : null;
     }
 
     /*
@@ -179,8 +197,17 @@ class HtmlLoadOptions extends LoadOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['pageNumbering'] === null) {
-            $invalidProperties[] = "'pageNumbering' can't be null";
+        if ($this->container['usePdf'] === null) {
+            $invalidProperties[] = "'usePdf' can't be null";
+        }
+        if ($this->container['fixedLayout'] === null) {
+            $invalidProperties[] = "'fixedLayout' can't be null";
+        }
+        if ($this->container['fixedLayoutShowBorders'] === null) {
+            $invalidProperties[] = "'fixedLayoutShowBorders' can't be null";
+        }
+        if ($this->container['zoom'] === null) {
+            $invalidProperties[] = "'zoom' can't be null";
         }
         return $invalidProperties;
     }
@@ -197,7 +224,16 @@ class HtmlLoadOptions extends LoadOptions
             return false;
         }
 
-        if ($this->container['pageNumbering'] === null) {
+        if ($this->container['usePdf'] === null) {
+            return false;
+        }
+        if ($this->container['fixedLayout'] === null) {
+            return false;
+        }
+        if ($this->container['fixedLayoutShowBorders'] === null) {
+            return false;
+        }
+        if ($this->container['zoom'] === null) {
             return false;
         }
         return true;
@@ -205,25 +241,97 @@ class HtmlLoadOptions extends LoadOptions
 
 
     /*
-     * Gets pageNumbering
+     * Gets usePdf
      *
      * @return bool
      */
-    public function getPageNumbering()
+    public function getUsePdf()
     {
-        return $this->container['pageNumbering'];
+        return $this->container['usePdf'];
     }
 
     /*
-     * Sets pageNumbering
+     * Sets usePdf
      *
-     * @param bool $pageNumbering Enable or disable generation of page numbering in converted document. Default: false
+     * @param bool $usePdf If true, the input firstly is converted to PDF and after that to desired format
      *
      * @return $this
      */
-    public function setPageNumbering($pageNumbering)
+    public function setUsePdf($usePdf)
     {
-        $this->container['pageNumbering'] = $pageNumbering;
+        $this->container['usePdf'] = $usePdf;
+
+        return $this;
+    }
+
+    /*
+     * Gets fixedLayout
+     *
+     * @return bool
+     */
+    public function getFixedLayout()
+    {
+        return $this->container['fixedLayout'];
+    }
+
+    /*
+     * Sets fixedLayout
+     *
+     * @param bool $fixedLayout If true fixed layout will be used e.g. absolutely positioned html elements Default:  true
+     *
+     * @return $this
+     */
+    public function setFixedLayout($fixedLayout)
+    {
+        $this->container['fixedLayout'] = $fixedLayout;
+
+        return $this;
+    }
+
+    /*
+     * Gets fixedLayoutShowBorders
+     *
+     * @return bool
+     */
+    public function getFixedLayoutShowBorders()
+    {
+        return $this->container['fixedLayoutShowBorders'];
+    }
+
+    /*
+     * Sets fixedLayoutShowBorders
+     *
+     * @param bool $fixedLayoutShowBorders Show page borders when converting to fixed layout. Default is True
+     *
+     * @return $this
+     */
+    public function setFixedLayoutShowBorders($fixedLayoutShowBorders)
+    {
+        $this->container['fixedLayoutShowBorders'] = $fixedLayoutShowBorders;
+
+        return $this;
+    }
+
+    /*
+     * Gets zoom
+     *
+     * @return int
+     */
+    public function getZoom()
+    {
+        return $this->container['zoom'];
+    }
+
+    /*
+     * Sets zoom
+     *
+     * @param int $zoom Specifies the zoom level in percentage. Default is 100.
+     *
+     * @return $this
+     */
+    public function setZoom($zoom)
+    {
+        $this->container['zoom'] = $zoom;
 
         return $this;
     }

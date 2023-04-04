@@ -29,9 +29,9 @@ namespace GroupDocs\Conversion\ApiTests;
 
 use GroupDocs\Conversion\Model\Requests;
 
-require_once "BaseApiTest.php";
+require_once "BaseApiTestCase.php";
 
-class FolderApiTest extends BaseApiTest
+class FolderApiTest extends BaseApiTestCase
 {
     public function testGetFilesList()
     {

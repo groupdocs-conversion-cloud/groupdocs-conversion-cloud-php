@@ -32,7 +32,7 @@ use GroupDocs\Conversion\InfoApi;
 use GroupDocs\Conversion\Model;
 use GroupDocs\Conversion\Model\Requests;
 
-class InfoApiTest extends BaseApiTest
+class InfoApiTest extends BaseApiTestCase
 {
     /**
      * Retrieves list of supported file formats.

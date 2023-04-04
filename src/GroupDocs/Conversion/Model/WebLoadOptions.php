@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="CgmConvertOptions.php">
+ * <copyright company="Aspose Pty Ltd" file="WebLoadOptions.php">
  *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -30,11 +30,11 @@ namespace GroupDocs\Conversion\Model;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * CgmConvertOptions
+ * WebLoadOptions
  *
- * @description Cgm convert options
+ * @description Html document load options
  */
-class CgmConvertOptions extends ImageConvertOptions 
+class WebLoadOptions extends LoadOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -43,7 +43,7 @@ class CgmConvertOptions extends ImageConvertOptions
      *
      * @var string
      */
-    protected static $swaggerModelName = "CgmConvertOptions";
+    protected static $swaggerModelName = "WebLoadOptions";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -51,7 +51,7 @@ class CgmConvertOptions extends ImageConvertOptions
      * @var string[]
      */
     protected static $swaggerTypes = [
-        
+        'pageNumbering' => 'bool'
     ];
 
     /*
@@ -60,7 +60,7 @@ class CgmConvertOptions extends ImageConvertOptions
      * @var string[]
      */
     protected static $swaggerFormats = [
-        
+        'pageNumbering' => null
     ];
 
     /*
@@ -90,7 +90,7 @@ class CgmConvertOptions extends ImageConvertOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'pageNumbering' => 'PageNumbering'
     ];
 
     /*
@@ -99,7 +99,7 @@ class CgmConvertOptions extends ImageConvertOptions
      * @var string[]
      */
     protected static $setters = [
-        
+        'pageNumbering' => 'setPageNumbering'
     ];
 
     /*
@@ -108,7 +108,7 @@ class CgmConvertOptions extends ImageConvertOptions
      * @var string[]
      */
     protected static $getters = [
-        
+        'pageNumbering' => 'getPageNumbering'
     ];
 
     /*
@@ -167,6 +167,7 @@ class CgmConvertOptions extends ImageConvertOptions
     {
         parent::__construct($data);
 
+        $this->container['pageNumbering'] = isset($data['pageNumbering']) ? $data['pageNumbering'] : null;
     }
 
     /*
@@ -178,6 +179,9 @@ class CgmConvertOptions extends ImageConvertOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['pageNumbering'] === null) {
+            $invalidProperties[] = "'pageNumbering' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -193,9 +197,36 @@ class CgmConvertOptions extends ImageConvertOptions
             return false;
         }
 
+        if ($this->container['pageNumbering'] === null) {
+            return false;
+        }
         return true;
     }
 
+
+    /*
+     * Gets pageNumbering
+     *
+     * @return bool
+     */
+    public function getPageNumbering()
+    {
+        return $this->container['pageNumbering'];
+    }
+
+    /*
+     * Sets pageNumbering
+     *
+     * @param bool $pageNumbering Enable or disable generation of page numbering in converted document. Default: false
+     *
+     * @return $this
+     */
+    public function setPageNumbering($pageNumbering)
+    {
+        $this->container['pageNumbering'] = $pageNumbering;
+
+        return $this;
+    }
     /*
      * Returns true if offset exists. False otherwise.
      *

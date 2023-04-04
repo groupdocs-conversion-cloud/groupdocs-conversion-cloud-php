@@ -55,7 +55,8 @@ class ConvertOptions implements ArrayAccess
     protected static $swaggerTypes = [
         'fromPage' => 'int',
         'pagesCount' => 'int',
-        'pages' => 'int[]'
+        'pages' => 'int[]',
+        'watermarkOptions' => '\GroupDocs\Conversion\Model\WatermarkOptions'
     ];
 
     /*
@@ -66,7 +67,8 @@ class ConvertOptions implements ArrayAccess
     protected static $swaggerFormats = [
         'fromPage' => 'int32',
         'pagesCount' => 'int32',
-        'pages' => 'int32'
+        'pages' => 'int32',
+        'watermarkOptions' => null
     ];
 
     /*
@@ -98,7 +100,8 @@ class ConvertOptions implements ArrayAccess
     protected static $attributeMap = [
         'fromPage' => 'FromPage',
         'pagesCount' => 'PagesCount',
-        'pages' => 'Pages'
+        'pages' => 'Pages',
+        'watermarkOptions' => 'WatermarkOptions'
     ];
 
     /*
@@ -109,7 +112,8 @@ class ConvertOptions implements ArrayAccess
     protected static $setters = [
         'fromPage' => 'setFromPage',
         'pagesCount' => 'setPagesCount',
-        'pages' => 'setPages'
+        'pages' => 'setPages',
+        'watermarkOptions' => 'setWatermarkOptions'
     ];
 
     /*
@@ -120,7 +124,8 @@ class ConvertOptions implements ArrayAccess
     protected static $getters = [
         'fromPage' => 'getFromPage',
         'pagesCount' => 'getPagesCount',
-        'pages' => 'getPages'
+        'pages' => 'getPages',
+        'watermarkOptions' => 'getWatermarkOptions'
     ];
 
     /*
@@ -186,6 +191,7 @@ class ConvertOptions implements ArrayAccess
         $this->container['fromPage'] = isset($data['fromPage']) ? $data['fromPage'] : null;
         $this->container['pagesCount'] = isset($data['pagesCount']) ? $data['pagesCount'] : null;
         $this->container['pages'] = isset($data['pages']) ? $data['pages'] : null;
+        $this->container['watermarkOptions'] = isset($data['watermarkOptions']) ? $data['watermarkOptions'] : null;
 
         // Initialize discriminator property with the model name.
         $discriminator = array_search('Type', self::$attributeMap);
@@ -297,6 +303,30 @@ class ConvertOptions implements ArrayAccess
     public function setPages($pages)
     {
         $this->container['pages'] = $pages;
+
+        return $this;
+    }
+
+    /*
+     * Gets watermarkOptions
+     *
+     * @return \GroupDocs\Conversion\Model\WatermarkOptions
+     */
+    public function getWatermarkOptions()
+    {
+        return $this->container['watermarkOptions'];
+    }
+
+    /*
+     * Sets watermarkOptions
+     *
+     * @param \GroupDocs\Conversion\Model\WatermarkOptions $watermarkOptions Watermark specific options
+     *
+     * @return $this
+     */
+    public function setWatermarkOptions($watermarkOptions)
+    {
+        $this->container['watermarkOptions'] = $watermarkOptions;
 
         return $this;
     }

@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="SvgConvertOptions.php">
+ * <copyright company="Aspose Pty Ltd" file="EBookConvertOptions.php">
  *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -30,11 +30,11 @@ namespace GroupDocs\Conversion\Model;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * SvgConvertOptions
+ * EBookConvertOptions
  *
- * @description Svg convert options
+ * @description Ebook convert options
  */
-class SvgConvertOptions extends ConvertOptions 
+class EBookConvertOptions extends ConvertOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -43,7 +43,7 @@ class SvgConvertOptions extends ConvertOptions
      *
      * @var string
      */
-    protected static $swaggerModelName = "SvgConvertOptions";
+    protected static $swaggerModelName = "EBookConvertOptions";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -51,12 +51,8 @@ class SvgConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'width' => 'int',
-        'height' => 'int',
-        'grayscale' => 'bool',
-        'rotateAngle' => 'int',
-        'usePdf' => 'bool',
-        'watermarkOptions' => '\GroupDocs\Conversion\Model\WatermarkOptions'
+        'pageSize' => 'string',
+        'pageOrientation' => 'string'
     ];
 
     /*
@@ -65,12 +61,8 @@ class SvgConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'width' => 'int32',
-        'height' => 'int32',
-        'grayscale' => null,
-        'rotateAngle' => 'int32',
-        'usePdf' => null,
-        'watermarkOptions' => null
+        'pageSize' => null,
+        'pageOrientation' => null
     ];
 
     /*
@@ -100,12 +92,8 @@ class SvgConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        'width' => 'Width',
-        'height' => 'Height',
-        'grayscale' => 'Grayscale',
-        'rotateAngle' => 'RotateAngle',
-        'usePdf' => 'UsePdf',
-        'watermarkOptions' => 'WatermarkOptions'
+        'pageSize' => 'PageSize',
+        'pageOrientation' => 'PageOrientation'
     ];
 
     /*
@@ -114,12 +102,8 @@ class SvgConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $setters = [
-        'width' => 'setWidth',
-        'height' => 'setHeight',
-        'grayscale' => 'setGrayscale',
-        'rotateAngle' => 'setRotateAngle',
-        'usePdf' => 'setUsePdf',
-        'watermarkOptions' => 'setWatermarkOptions'
+        'pageSize' => 'setPageSize',
+        'pageOrientation' => 'setPageOrientation'
     ];
 
     /*
@@ -128,12 +112,8 @@ class SvgConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $getters = [
-        'width' => 'getWidth',
-        'height' => 'getHeight',
-        'grayscale' => 'getGrayscale',
-        'rotateAngle' => 'getRotateAngle',
-        'usePdf' => 'getUsePdf',
-        'watermarkOptions' => 'getWatermarkOptions'
+        'pageSize' => 'getPageSize',
+        'pageOrientation' => 'getPageOrientation'
     ];
 
     /*
@@ -177,8 +157,72 @@ class SvgConvertOptions extends ConvertOptions
         return self::$swaggerModelName;
     }
 
+    const PAGE_SIZE__DEFAULT = 'Default';
+    const PAGE_SIZE_A3 = 'A3';
+    const PAGE_SIZE_STATEMENT = 'Statement';
+    const PAGE_SIZE_QUARTO = 'Quarto';
+    const PAGE_SIZE_PAPER11X17 = 'Paper11x17';
+    const PAGE_SIZE_PAPER10X14 = 'Paper10x14';
+    const PAGE_SIZE_LETTER = 'Letter';
+    const PAGE_SIZE_LEGAL = 'Legal';
+    const PAGE_SIZE_LEDGER = 'Ledger';
+    const PAGE_SIZE_FOLIO = 'Folio';
+    const PAGE_SIZE_EXECUTIVE = 'Executive';
+    const PAGE_SIZE_ENVELOPE_DL = 'EnvelopeDL';
+    const PAGE_SIZE_CUSTOM = 'Custom';
+    const PAGE_SIZE_B5 = 'B5';
+    const PAGE_SIZE_B4 = 'B4';
+    const PAGE_SIZE_A5 = 'A5';
+    const PAGE_SIZE_A4 = 'A4';
+    const PAGE_SIZE_TABLOID = 'Tabloid';
+    const PAGE_ORIENTATION__DEFAULT = 'Default';
+    const PAGE_ORIENTATION_LANDSCAPE = 'Landscape';
+    const PAGE_ORIENTATION_PORTRAIT = 'Portrait';
     
 
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPageSizeAllowableValues()
+    {
+        return [
+            self::PAGE_SIZE__DEFAULT,
+            self::PAGE_SIZE_A3,
+            self::PAGE_SIZE_STATEMENT,
+            self::PAGE_SIZE_QUARTO,
+            self::PAGE_SIZE_PAPER11X17,
+            self::PAGE_SIZE_PAPER10X14,
+            self::PAGE_SIZE_LETTER,
+            self::PAGE_SIZE_LEGAL,
+            self::PAGE_SIZE_LEDGER,
+            self::PAGE_SIZE_FOLIO,
+            self::PAGE_SIZE_EXECUTIVE,
+            self::PAGE_SIZE_ENVELOPE_DL,
+            self::PAGE_SIZE_CUSTOM,
+            self::PAGE_SIZE_B5,
+            self::PAGE_SIZE_B4,
+            self::PAGE_SIZE_A5,
+            self::PAGE_SIZE_A4,
+            self::PAGE_SIZE_TABLOID,
+        ];
+    }
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPageOrientationAllowableValues()
+    {
+        return [
+            self::PAGE_ORIENTATION__DEFAULT,
+            self::PAGE_ORIENTATION_LANDSCAPE,
+            self::PAGE_ORIENTATION_PORTRAIT,
+        ];
+    }
     
 
 
@@ -192,12 +236,8 @@ class SvgConvertOptions extends ConvertOptions
     {
         parent::__construct($data);
 
-        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
-        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
-        $this->container['grayscale'] = isset($data['grayscale']) ? $data['grayscale'] : null;
-        $this->container['rotateAngle'] = isset($data['rotateAngle']) ? $data['rotateAngle'] : null;
-        $this->container['usePdf'] = isset($data['usePdf']) ? $data['usePdf'] : null;
-        $this->container['watermarkOptions'] = isset($data['watermarkOptions']) ? $data['watermarkOptions'] : null;
+        $this->container['pageSize'] = isset($data['pageSize']) ? $data['pageSize'] : null;
+        $this->container['pageOrientation'] = isset($data['pageOrientation']) ? $data['pageOrientation'] : null;
     }
 
     /*
@@ -209,21 +249,28 @@ class SvgConvertOptions extends ConvertOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['width'] === null) {
-            $invalidProperties[] = "'width' can't be null";
+        if ($this->container['pageSize'] === null) {
+            $invalidProperties[] = "'pageSize' can't be null";
         }
-        if ($this->container['height'] === null) {
-            $invalidProperties[] = "'height' can't be null";
+        $allowedValues = $this->getPageSizeAllowableValues();
+        if (!in_array($this->container['pageSize'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'pageSize', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['grayscale'] === null) {
-            $invalidProperties[] = "'grayscale' can't be null";
+
+        if ($this->container['pageOrientation'] === null) {
+            $invalidProperties[] = "'pageOrientation' can't be null";
         }
-        if ($this->container['rotateAngle'] === null) {
-            $invalidProperties[] = "'rotateAngle' can't be null";
+        $allowedValues = $this->getPageOrientationAllowableValues();
+        if (!in_array($this->container['pageOrientation'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'pageOrientation', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['usePdf'] === null) {
-            $invalidProperties[] = "'usePdf' can't be null";
-        }
+
         return $invalidProperties;
     }
 
@@ -239,19 +286,18 @@ class SvgConvertOptions extends ConvertOptions
             return false;
         }
 
-        if ($this->container['width'] === null) {
+        if ($this->container['pageSize'] === null) {
             return false;
         }
-        if ($this->container['height'] === null) {
+        $allowedValues = $this->getPageSizeAllowableValues();
+        if (!in_array($this->container['pageSize'], $allowedValues)) {
             return false;
         }
-        if ($this->container['grayscale'] === null) {
+        if ($this->container['pageOrientation'] === null) {
             return false;
         }
-        if ($this->container['rotateAngle'] === null) {
-            return false;
-        }
-        if ($this->container['usePdf'] === null) {
+        $allowedValues = $this->getPageOrientationAllowableValues();
+        if (!in_array($this->container['pageOrientation'], $allowedValues)) {
             return false;
         }
         return true;
@@ -259,145 +305,59 @@ class SvgConvertOptions extends ConvertOptions
 
 
     /*
-     * Gets width
+     * Gets pageSize
      *
-     * @return int
+     * @return string
      */
-    public function getWidth()
+    public function getPageSize()
     {
-        return $this->container['width'];
+        return $this->container['pageSize'];
     }
 
     /*
-     * Sets width
+     * Sets pageSize
      *
-     * @param int $width Desired image width after conversion
+     * @param string $pageSize Specifies page size
      *
      * @return $this
      */
-    public function setWidth($width)
+    public function setPageSize($pageSize)
     {
-        $this->container['width'] = $width;
+        $allowedValues = $this->getPageSizeAllowableValues();
+        if ((!is_numeric($pageSize) && !in_array($pageSize, $allowedValues)) || (is_numeric($pageSize) && !in_array($allowedValues[$pageSize], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'pageSize', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['pageSize'] = $pageSize;
 
         return $this;
     }
 
     /*
-     * Gets height
+     * Gets pageOrientation
      *
-     * @return int
+     * @return string
      */
-    public function getHeight()
+    public function getPageOrientation()
     {
-        return $this->container['height'];
+        return $this->container['pageOrientation'];
     }
 
     /*
-     * Sets height
+     * Sets pageOrientation
      *
-     * @param int $height Desired image height after conversion
+     * @param string $pageOrientation Specifies page orientation
      *
      * @return $this
      */
-    public function setHeight($height)
+    public function setPageOrientation($pageOrientation)
     {
-        $this->container['height'] = $height;
-
-        return $this;
-    }
-
-    /*
-     * Gets grayscale
-     *
-     * @return bool
-     */
-    public function getGrayscale()
-    {
-        return $this->container['grayscale'];
-    }
-
-    /*
-     * Sets grayscale
-     *
-     * @param bool $grayscale Convert to grayscale image
-     *
-     * @return $this
-     */
-    public function setGrayscale($grayscale)
-    {
-        $this->container['grayscale'] = $grayscale;
-
-        return $this;
-    }
-
-    /*
-     * Gets rotateAngle
-     *
-     * @return int
-     */
-    public function getRotateAngle()
-    {
-        return $this->container['rotateAngle'];
-    }
-
-    /*
-     * Sets rotateAngle
-     *
-     * @param int $rotateAngle Image rotation angle
-     *
-     * @return $this
-     */
-    public function setRotateAngle($rotateAngle)
-    {
-        $this->container['rotateAngle'] = $rotateAngle;
-
-        return $this;
-    }
-
-    /*
-     * Gets usePdf
-     *
-     * @return bool
-     */
-    public function getUsePdf()
-    {
-        return $this->container['usePdf'];
-    }
-
-    /*
-     * Sets usePdf
-     *
-     * @param bool $usePdf If true, the input firstly is converted to PDF and after that to desired format
-     *
-     * @return $this
-     */
-    public function setUsePdf($usePdf)
-    {
-        $this->container['usePdf'] = $usePdf;
-
-        return $this;
-    }
-
-    /*
-     * Gets watermarkOptions
-     *
-     * @return \GroupDocs\Conversion\Model\WatermarkOptions
-     */
-    public function getWatermarkOptions()
-    {
-        return $this->container['watermarkOptions'];
-    }
-
-    /*
-     * Sets watermarkOptions
-     *
-     * @param \GroupDocs\Conversion\Model\WatermarkOptions $watermarkOptions Watermark specific options
-     *
-     * @return $this
-     */
-    public function setWatermarkOptions($watermarkOptions)
-    {
-        $this->container['watermarkOptions'] = $watermarkOptions;
+        $allowedValues = $this->getPageOrientationAllowableValues();
+        if ((!is_numeric($pageOrientation) && !in_array($pageOrientation, $allowedValues)) || (is_numeric($pageOrientation) && !in_array($allowedValues[$pageOrientation], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'pageOrientation', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['pageOrientation'] = $pageOrientation;
 
         return $this;
     }

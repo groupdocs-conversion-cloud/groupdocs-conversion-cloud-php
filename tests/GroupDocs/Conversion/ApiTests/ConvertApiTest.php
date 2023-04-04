@@ -32,7 +32,7 @@ use GroupDocs\Conversion\ConvertApi;
 use GroupDocs\Conversion\Model;
 use GroupDocs\Conversion\Model\Requests;
 
-class ConvertApiTest extends BaseApiTest
+class ConvertApiTest extends BaseApiTestCase
 {
     /**
      * Converts source document to specified type

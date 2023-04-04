@@ -1,7 +1,7 @@
 <?php
 /*
 * --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file="BaseApiTest.php">
+* <copyright company="Aspose" file="BaseApiTestCase.php">
 *   Copyright (c) 2003-2023 Aspose Pty Ltd
 * </copyright>
 * <summary>
@@ -35,7 +35,7 @@ use GroupDocs\Conversion\StorageApi;
 use GroupDocs\Conversion\FileApi;
 use GroupDocs\Conversion\FolderApi;
 
-abstract class BaseApiTest extends \PHPUnit\Framework\TestCase
+class BaseApiTestCase extends \PHPUnit\Framework\TestCase
 {
     protected static $conversionConfig;
 
@@ -50,7 +50,7 @@ abstract class BaseApiTest extends \PHPUnit\Framework\TestCase
     /**
      * Cleanup after each test case
      */
-    public function tearDown(): void
+    protected function tearDown(): void
     {
         self::_deleteFolder("conversion");        
     }

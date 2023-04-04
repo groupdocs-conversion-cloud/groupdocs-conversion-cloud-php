@@ -80,8 +80,7 @@ class PdfConvertOptions extends ConvertOptions
         'nonFullScreenPageMode' => 'string',
         'pageLayout' => 'string',
         'pageMode' => 'string',
-        'rotate' => 'string',
-        'watermarkOptions' => '\GroupDocs\Conversion\Model\WatermarkOptions'
+        'rotate' => 'string'
     ];
 
     /*
@@ -119,8 +118,7 @@ class PdfConvertOptions extends ConvertOptions
         'nonFullScreenPageMode' => null,
         'pageLayout' => null,
         'pageMode' => null,
-        'rotate' => null,
-        'watermarkOptions' => null
+        'rotate' => null
     ];
 
     /*
@@ -179,8 +177,7 @@ class PdfConvertOptions extends ConvertOptions
         'nonFullScreenPageMode' => 'NonFullScreenPageMode',
         'pageLayout' => 'PageLayout',
         'pageMode' => 'PageMode',
-        'rotate' => 'Rotate',
-        'watermarkOptions' => 'WatermarkOptions'
+        'rotate' => 'Rotate'
     ];
 
     /*
@@ -218,8 +215,7 @@ class PdfConvertOptions extends ConvertOptions
         'nonFullScreenPageMode' => 'setNonFullScreenPageMode',
         'pageLayout' => 'setPageLayout',
         'pageMode' => 'setPageMode',
-        'rotate' => 'setRotate',
-        'watermarkOptions' => 'setWatermarkOptions'
+        'rotate' => 'setRotate'
     ];
 
     /*
@@ -257,8 +253,7 @@ class PdfConvertOptions extends ConvertOptions
         'nonFullScreenPageMode' => 'getNonFullScreenPageMode',
         'pageLayout' => 'getPageLayout',
         'pageMode' => 'getPageMode',
-        'rotate' => 'getRotate',
-        'watermarkOptions' => 'getWatermarkOptions'
+        'rotate' => 'getRotate'
     ];
 
     /*
@@ -495,7 +490,6 @@ class PdfConvertOptions extends ConvertOptions
         $this->container['pageLayout'] = isset($data['pageLayout']) ? $data['pageLayout'] : null;
         $this->container['pageMode'] = isset($data['pageMode']) ? $data['pageMode'] : null;
         $this->container['rotate'] = isset($data['rotate']) ? $data['rotate'] : null;
-        $this->container['watermarkOptions'] = isset($data['watermarkOptions']) ? $data['watermarkOptions'] : null;
     }
 
     /*
@@ -1518,30 +1512,6 @@ class PdfConvertOptions extends ConvertOptions
         }
 			
         $this->container['rotate'] = $rotate;
-
-        return $this;
-    }
-
-    /*
-     * Gets watermarkOptions
-     *
-     * @return \GroupDocs\Conversion\Model\WatermarkOptions
-     */
-    public function getWatermarkOptions()
-    {
-        return $this->container['watermarkOptions'];
-    }
-
-    /*
-     * Sets watermarkOptions
-     *
-     * @param \GroupDocs\Conversion\Model\WatermarkOptions $watermarkOptions Watermark specific options
-     *
-     * @return $this
-     */
-    public function setWatermarkOptions($watermarkOptions)
-    {
-        $this->container['watermarkOptions'] = $watermarkOptions;
 
         return $this;
     }

@@ -56,7 +56,6 @@ class WordProcessingConvertOptions extends ConvertOptions
         'dpi' => 'double',
         'password' => 'string',
         'zoom' => 'int',
-        'watermarkOptions' => '\GroupDocs\Conversion\Model\WatermarkOptions',
         'pdfRecognitionMode' => 'string',
         'pageSize' => 'string',
         'pageOrientation' => 'string'
@@ -73,7 +72,6 @@ class WordProcessingConvertOptions extends ConvertOptions
         'dpi' => 'double',
         'password' => null,
         'zoom' => 'int32',
-        'watermarkOptions' => null,
         'pdfRecognitionMode' => null,
         'pageSize' => null,
         'pageOrientation' => null
@@ -111,7 +109,6 @@ class WordProcessingConvertOptions extends ConvertOptions
         'dpi' => 'Dpi',
         'password' => 'Password',
         'zoom' => 'Zoom',
-        'watermarkOptions' => 'WatermarkOptions',
         'pdfRecognitionMode' => 'PdfRecognitionMode',
         'pageSize' => 'PageSize',
         'pageOrientation' => 'PageOrientation'
@@ -128,7 +125,6 @@ class WordProcessingConvertOptions extends ConvertOptions
         'dpi' => 'setDpi',
         'password' => 'setPassword',
         'zoom' => 'setZoom',
-        'watermarkOptions' => 'setWatermarkOptions',
         'pdfRecognitionMode' => 'setPdfRecognitionMode',
         'pageSize' => 'setPageSize',
         'pageOrientation' => 'setPageOrientation'
@@ -145,7 +141,6 @@ class WordProcessingConvertOptions extends ConvertOptions
         'dpi' => 'getDpi',
         'password' => 'getPassword',
         'zoom' => 'getZoom',
-        'watermarkOptions' => 'getWatermarkOptions',
         'pdfRecognitionMode' => 'getPdfRecognitionMode',
         'pageSize' => 'getPageSize',
         'pageOrientation' => 'getPageOrientation'
@@ -291,7 +286,6 @@ class WordProcessingConvertOptions extends ConvertOptions
         $this->container['dpi'] = isset($data['dpi']) ? $data['dpi'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['zoom'] = isset($data['zoom']) ? $data['zoom'] : null;
-        $this->container['watermarkOptions'] = isset($data['watermarkOptions']) ? $data['watermarkOptions'] : null;
         $this->container['pdfRecognitionMode'] = isset($data['pdfRecognitionMode']) ? $data['pdfRecognitionMode'] : null;
         $this->container['pageSize'] = isset($data['pageSize']) ? $data['pageSize'] : null;
         $this->container['pageOrientation'] = isset($data['pageOrientation']) ? $data['pageOrientation'] : null;
@@ -519,30 +513,6 @@ class WordProcessingConvertOptions extends ConvertOptions
     public function setZoom($zoom)
     {
         $this->container['zoom'] = $zoom;
-
-        return $this;
-    }
-
-    /*
-     * Gets watermarkOptions
-     *
-     * @return \GroupDocs\Conversion\Model\WatermarkOptions
-     */
-    public function getWatermarkOptions()
-    {
-        return $this->container['watermarkOptions'];
-    }
-
-    /*
-     * Sets watermarkOptions
-     *
-     * @param \GroupDocs\Conversion\Model\WatermarkOptions $watermarkOptions Watermark specific options
-     *
-     * @return $this
-     */
-    public function setWatermarkOptions($watermarkOptions)
-    {
-        $this->container['watermarkOptions'] = $watermarkOptions;
 
         return $this;
     }
