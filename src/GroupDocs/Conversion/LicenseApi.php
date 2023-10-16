@@ -337,6 +337,255 @@ class LicenseApi
     }
 
     /*
+     * Operation getLicenseInfo
+     *
+     * Get license information
+     *
+     * @throws \GroupDocs\Conversion\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GroupDocs\Conversion\Model\LicenseInfo
+     */
+    public function getLicenseInfo()
+    {
+        list($response) = $this->getLicenseInfoWithHttpInfo();
+        return $response;
+    }
+
+    /*
+     * Operation getLicenseInfoWithHttpInfo
+     *
+     * Get license information
+     *
+     * @throws \GroupDocs\Conversion\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GroupDocs\Conversion\Model\LicenseInfo, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getLicenseInfoWithHttpInfo()
+    {
+        $returnType = '\GroupDocs\Conversion\Model\LicenseInfo';
+        $request = $this->getLicenseInfoRequest();
+
+        $options = $this->_createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse()->getBody();
+            $content = $responseBody->getContents();
+            $error = json_decode($content);
+
+            $errorCode = $e->getCode();
+            $errorMessage = $error != null && property_exists($error, 'message')
+                ? $error->message
+                : ($error != null && property_exists($error, 'error') && $error->error != null && $error->error->message != null ? $error->error->message : $e->getMessage());
+            
+            throw new ApiException($errorMessage, $errorCode);
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {          
+            throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode);
+        }
+
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+        }
+        
+        if ($this->config->getDebug()) {
+            $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /*
+     * Operation getLicenseInfoAsync
+     *
+     * Get license information
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getLicenseInfoAsync() 
+    {
+        return $this->getLicenseInfoAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /*
+     * Operation getLicenseInfoAsyncWithHttpInfo
+     *
+     * Get license information
+     *
+     * @param Requests\getLicenseInfoRequest $request is a request object for operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getLicenseInfoAsyncWithHttpInfo() 
+    {
+        $returnType = '\GroupDocs\Conversion\Model\LicenseInfo';
+        $request = $this->getLicenseInfoRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->_createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    
+                    if ($this->config->getDebug()) {
+                        $this->_writeResponseLog($response->getStatusCode(), $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {        
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();        
+          
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode
+                    );
+                }
+            );
+    }
+
+    /*
+     * Create request for operation 'getLicenseInfo'
+     *
+     * @param Requests\getLicenseInfoRequest $request is a request object for operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getLicenseInfoRequest()
+    {
+
+        $resourcePath = '/conversion/license';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = "";
+        $multipart = false;
+    
+
+    
+    
+        $resourcePath = $this->_buildUrl($resourcePath, $queryParams);
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    if($formParamName == 'file')
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'filename' => $formParamName,
+                            'contents' => $formParamValue
+                        ];
+                    else 
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contenttype' => 'application/json',
+                            'contents' => $formParamValue
+                        ];  
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = $formParams["data"];
+            }
+        }
+    
+        $this->_requestToken();
+
+        if ($this->accessToken !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->accessToken;
+        }
+
+        $defaultHeaders = [];
+        
+        if ($this->config->getClientName()) {
+            $defaultHeaders['x-groupdocs-client'] = $this->config->getClientName();
+        }
+
+        if ($this->config->getClientVersion()) {
+            $defaultHeaders['x-groupdocs-client-version'] = $this->config->getClientVersion();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+    
+        $req = new Request(
+            'GET',
+            $resourcePath,
+            $headers,
+            $httpBody
+        );
+        if ($this->config->getDebug()) {
+            $this->_writeRequestLog('GET', $resourcePath, $headers, $httpBody);
+        }
+        
+        return $req;
+    }
+
+    /*
      * Create http client option
      *
      * @throws \RuntimeException on file opening failure
