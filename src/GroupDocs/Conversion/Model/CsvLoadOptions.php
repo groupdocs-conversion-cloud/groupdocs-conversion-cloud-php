@@ -34,7 +34,7 @@ use \GroupDocs\Conversion\ObjectSerializer;
  *
  * @description Csv document load options
  */
-class CsvLoadOptions extends LoadOptions 
+class CsvLoadOptions extends SpreadsheetLoadOptions 
 {
     const DISCRIMINATOR = null;
 
