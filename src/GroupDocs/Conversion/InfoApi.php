@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="InfoApi.php">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) 2003-2024 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -749,7 +749,7 @@ class InfoApi
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="getDocumentMetadataRequest.php">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) 2003-2024 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -805,7 +805,7 @@ class getDocumentMetadataRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="getSupportedConversionTypesRequest.php">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) 2003-2024 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
