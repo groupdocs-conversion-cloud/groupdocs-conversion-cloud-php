@@ -53,7 +53,7 @@ class WordProcessingConvertOptions extends ConvertOptions
     protected static $swaggerTypes = [
         'width' => 'int',
         'height' => 'int',
-        'dpi' => 'double',
+        'dpi' => 'int',
         'password' => 'string',
         'zoom' => 'int',
         'pdfRecognitionMode' => 'string',
@@ -69,7 +69,7 @@ class WordProcessingConvertOptions extends ConvertOptions
     protected static $swaggerFormats = [
         'width' => 'int32',
         'height' => 'int32',
-        'dpi' => 'double',
+        'dpi' => 'int32',
         'password' => null,
         'zoom' => 'int32',
         'pdfRecognitionMode' => null,
@@ -448,7 +448,7 @@ class WordProcessingConvertOptions extends ConvertOptions
     /*
      * Gets dpi
      *
-     * @return double
+     * @return int
      */
     public function getDpi()
     {
@@ -458,7 +458,7 @@ class WordProcessingConvertOptions extends ConvertOptions
     /*
      * Sets dpi
      *
-     * @param double $dpi Desired page DPI after conversion. The default resolution is: 96dpi
+     * @param int $dpi Desired page DPI after conversion. The default resolution is: 96dpi
      *
      * @return $this
      */
