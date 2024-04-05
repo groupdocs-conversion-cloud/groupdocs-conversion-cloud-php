@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="CadLoadOptions.php">
+ * <copyright company="Aspose Pty Ltd" file="Cf2LoadOptions.php">
  *   Copyright (c) 2003-2024 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -30,11 +30,11 @@ namespace GroupDocs\Conversion\Model;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * CadLoadOptions
+ * Cf2LoadOptions
  *
- * @description Options for loading CAD documents
+ * @description Cf2 load options
  */
-class CadLoadOptions extends LoadOptions 
+class Cf2LoadOptions extends CadLoadOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -43,7 +43,7 @@ class CadLoadOptions extends LoadOptions
      *
      * @var string
      */
-    protected static $swaggerModelName = "CadLoadOptions";
+    protected static $swaggerModelName = "Cf2LoadOptions";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -51,9 +51,7 @@ class CadLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'layoutNames' => 'string[]',
-        'backgroundColor' => 'string',
-        'drawType' => 'string'
+        
     ];
 
     /*
@@ -62,9 +60,7 @@ class CadLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'layoutNames' => null,
-        'backgroundColor' => null,
-        'drawType' => null
+        
     ];
 
     /*
@@ -94,9 +90,7 @@ class CadLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        'layoutNames' => 'LayoutNames',
-        'backgroundColor' => 'BackgroundColor',
-        'drawType' => 'DrawType'
+        
     ];
 
     /*
@@ -105,9 +99,7 @@ class CadLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $setters = [
-        'layoutNames' => 'setLayoutNames',
-        'backgroundColor' => 'setBackgroundColor',
-        'drawType' => 'setDrawType'
+        
     ];
 
     /*
@@ -116,9 +108,7 @@ class CadLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $getters = [
-        'layoutNames' => 'getLayoutNames',
-        'backgroundColor' => 'getBackgroundColor',
-        'drawType' => 'getDrawType'
+        
     ];
 
     /*
@@ -162,23 +152,8 @@ class CadLoadOptions extends LoadOptions
         return self::$swaggerModelName;
     }
 
-    const DRAW_TYPE_USE_DRAW_COLOR = 'UseDrawColor';
-    const DRAW_TYPE_USE_OBJECT_COLOR = 'UseObjectColor';
     
 
-    
-    /*
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getDrawTypeAllowableValues()
-    {
-        return [
-            self::DRAW_TYPE_USE_DRAW_COLOR,
-            self::DRAW_TYPE_USE_OBJECT_COLOR,
-        ];
-    }
     
 
 
@@ -192,9 +167,6 @@ class CadLoadOptions extends LoadOptions
     {
         parent::__construct($data);
 
-        $this->container['layoutNames'] = isset($data['layoutNames']) ? $data['layoutNames'] : null;
-        $this->container['backgroundColor'] = isset($data['backgroundColor']) ? $data['backgroundColor'] : null;
-        $this->container['drawType'] = isset($data['drawType']) ? $data['drawType'] : null;
     }
 
     /*
@@ -205,17 +177,6 @@ class CadLoadOptions extends LoadOptions
     public function listInvalidProperties()
     {
         $invalidProperties = parent::listInvalidProperties();
-
-        if ($this->container['drawType'] === null) {
-            $invalidProperties[] = "'drawType' can't be null";
-        }
-        $allowedValues = $this->getDrawTypeAllowableValues();
-        if (!in_array($this->container['drawType'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'drawType', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -232,93 +193,9 @@ class CadLoadOptions extends LoadOptions
             return false;
         }
 
-        if ($this->container['drawType'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getDrawTypeAllowableValues();
-        if (!in_array($this->container['drawType'], $allowedValues)) {
-            return false;
-        }
         return true;
     }
 
-
-    /*
-     * Gets layoutNames
-     *
-     * @return string[]
-     */
-    public function getLayoutNames()
-    {
-        return $this->container['layoutNames'];
-    }
-
-    /*
-     * Sets layoutNames
-     *
-     * @param string[] $layoutNames Render specific CAD layouts
-     *
-     * @return $this
-     */
-    public function setLayoutNames($layoutNames)
-    {
-        $this->container['layoutNames'] = $layoutNames;
-
-        return $this;
-    }
-
-    /*
-     * Gets backgroundColor
-     *
-     * @return string
-     */
-    public function getBackgroundColor()
-    {
-        return $this->container['backgroundColor'];
-    }
-
-    /*
-     * Sets backgroundColor
-     *
-     * @param string $backgroundColor Gets or sets a background color.
-     *
-     * @return $this
-     */
-    public function setBackgroundColor($backgroundColor)
-    {
-        $this->container['backgroundColor'] = $backgroundColor;
-
-        return $this;
-    }
-
-    /*
-     * Gets drawType
-     *
-     * @return string
-     */
-    public function getDrawType()
-    {
-        return $this->container['drawType'];
-    }
-
-    /*
-     * Sets drawType
-     *
-     * @param string $drawType Gets or sets type of drawing.
-     *
-     * @return $this
-     */
-    public function setDrawType($drawType)
-    {
-        $allowedValues = $this->getDrawTypeAllowableValues();
-        if ((!is_numeric($drawType) && !in_array($drawType, $allowedValues)) || (is_numeric($drawType) && !in_array($allowedValues[$drawType], $allowedValues))) {
-            throw new \InvalidArgumentException(sprintf("Invalid value for 'drawType', must be one of '%s'", implode("', '", $allowedValues)));
-        }
-			
-        $this->container['drawType'] = $drawType;
-
-        return $this;
-    }
     /*
      * Returns true if offset exists. False otherwise.
      *
