@@ -53,7 +53,6 @@ class EmailLoadOptions extends LoadOptions
     protected static $swaggerTypes = [
         'displayHeader' => 'bool',
         'displayFromEmailAddress' => 'bool',
-        'displayEmailAddress' => 'bool',
         'displayToEmailAddress' => 'bool',
         'displayCcEmailAddress' => 'bool',
         'displayBccEmailAddress' => 'bool',
@@ -71,7 +70,6 @@ class EmailLoadOptions extends LoadOptions
     protected static $swaggerFormats = [
         'displayHeader' => null,
         'displayFromEmailAddress' => null,
-        'displayEmailAddress' => null,
         'displayToEmailAddress' => null,
         'displayCcEmailAddress' => null,
         'displayBccEmailAddress' => null,
@@ -110,7 +108,6 @@ class EmailLoadOptions extends LoadOptions
     protected static $attributeMap = [
         'displayHeader' => 'DisplayHeader',
         'displayFromEmailAddress' => 'DisplayFromEmailAddress',
-        'displayEmailAddress' => 'DisplayEmailAddress',
         'displayToEmailAddress' => 'DisplayToEmailAddress',
         'displayCcEmailAddress' => 'DisplayCcEmailAddress',
         'displayBccEmailAddress' => 'DisplayBccEmailAddress',
@@ -128,7 +125,6 @@ class EmailLoadOptions extends LoadOptions
     protected static $setters = [
         'displayHeader' => 'setDisplayHeader',
         'displayFromEmailAddress' => 'setDisplayFromEmailAddress',
-        'displayEmailAddress' => 'setDisplayEmailAddress',
         'displayToEmailAddress' => 'setDisplayToEmailAddress',
         'displayCcEmailAddress' => 'setDisplayCcEmailAddress',
         'displayBccEmailAddress' => 'setDisplayBccEmailAddress',
@@ -146,7 +142,6 @@ class EmailLoadOptions extends LoadOptions
     protected static $getters = [
         'displayHeader' => 'getDisplayHeader',
         'displayFromEmailAddress' => 'getDisplayFromEmailAddress',
-        'displayEmailAddress' => 'getDisplayEmailAddress',
         'displayToEmailAddress' => 'getDisplayToEmailAddress',
         'displayCcEmailAddress' => 'getDisplayCcEmailAddress',
         'displayBccEmailAddress' => 'getDisplayBccEmailAddress',
@@ -214,7 +209,6 @@ class EmailLoadOptions extends LoadOptions
 
         $this->container['displayHeader'] = isset($data['displayHeader']) ? $data['displayHeader'] : null;
         $this->container['displayFromEmailAddress'] = isset($data['displayFromEmailAddress']) ? $data['displayFromEmailAddress'] : null;
-        $this->container['displayEmailAddress'] = isset($data['displayEmailAddress']) ? $data['displayEmailAddress'] : null;
         $this->container['displayToEmailAddress'] = isset($data['displayToEmailAddress']) ? $data['displayToEmailAddress'] : null;
         $this->container['displayCcEmailAddress'] = isset($data['displayCcEmailAddress']) ? $data['displayCcEmailAddress'] : null;
         $this->container['displayBccEmailAddress'] = isset($data['displayBccEmailAddress']) ? $data['displayBccEmailAddress'] : null;
@@ -238,9 +232,6 @@ class EmailLoadOptions extends LoadOptions
         }
         if ($this->container['displayFromEmailAddress'] === null) {
             $invalidProperties[] = "'displayFromEmailAddress' can't be null";
-        }
-        if ($this->container['displayEmailAddress'] === null) {
-            $invalidProperties[] = "'displayEmailAddress' can't be null";
         }
         if ($this->container['displayToEmailAddress'] === null) {
             $invalidProperties[] = "'displayToEmailAddress' can't be null";
@@ -276,9 +267,6 @@ class EmailLoadOptions extends LoadOptions
             return false;
         }
         if ($this->container['displayFromEmailAddress'] === null) {
-            return false;
-        }
-        if ($this->container['displayEmailAddress'] === null) {
             return false;
         }
         if ($this->container['displayToEmailAddress'] === null) {
@@ -344,30 +332,6 @@ class EmailLoadOptions extends LoadOptions
     public function setDisplayFromEmailAddress($displayFromEmailAddress)
     {
         $this->container['displayFromEmailAddress'] = $displayFromEmailAddress;
-
-        return $this;
-    }
-
-    /*
-     * Gets displayEmailAddress
-     *
-     * @return bool
-     */
-    public function getDisplayEmailAddress()
-    {
-        return $this->container['displayEmailAddress'];
-    }
-
-    /*
-     * Sets displayEmailAddress
-     *
-     * @param bool $displayEmailAddress Option to display or hide email address. Default: true
-     *
-     * @return $this
-     */
-    public function setDisplayEmailAddress($displayEmailAddress)
-    {
-        $this->container['displayEmailAddress'] = $displayEmailAddress;
 
         return $this;
     }
