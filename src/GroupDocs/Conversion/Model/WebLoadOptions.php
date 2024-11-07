@@ -51,7 +51,10 @@ class WebLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'pageNumbering' => 'bool'
+        'pageNumbering' => 'bool',
+        'encoding' => 'string',
+        'usePdf' => 'bool',
+        'renderingMode' => 'string'
     ];
 
     /*
@@ -60,7 +63,10 @@ class WebLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'pageNumbering' => null
+        'pageNumbering' => null,
+        'encoding' => null,
+        'usePdf' => null,
+        'renderingMode' => null
     ];
 
     /*
@@ -90,7 +96,10 @@ class WebLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        'pageNumbering' => 'PageNumbering'
+        'pageNumbering' => 'PageNumbering',
+        'encoding' => 'Encoding',
+        'usePdf' => 'UsePdf',
+        'renderingMode' => 'RenderingMode'
     ];
 
     /*
@@ -99,7 +108,10 @@ class WebLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $setters = [
-        'pageNumbering' => 'setPageNumbering'
+        'pageNumbering' => 'setPageNumbering',
+        'encoding' => 'setEncoding',
+        'usePdf' => 'setUsePdf',
+        'renderingMode' => 'setRenderingMode'
     ];
 
     /*
@@ -108,7 +120,10 @@ class WebLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $getters = [
-        'pageNumbering' => 'getPageNumbering'
+        'pageNumbering' => 'getPageNumbering',
+        'encoding' => 'getEncoding',
+        'usePdf' => 'getUsePdf',
+        'renderingMode' => 'getRenderingMode'
     ];
 
     /*
@@ -152,8 +167,23 @@ class WebLoadOptions extends LoadOptions
         return self::$swaggerModelName;
     }
 
+    const RENDERING_MODE_FLOW = 'Flow';
+    const RENDERING_MODE_ABSOLUTE_POSITIONING = 'AbsolutePositioning';
     
 
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRenderingModeAllowableValues()
+    {
+        return [
+            self::RENDERING_MODE_FLOW,
+            self::RENDERING_MODE_ABSOLUTE_POSITIONING,
+        ];
+    }
     
 
 
@@ -168,6 +198,9 @@ class WebLoadOptions extends LoadOptions
         parent::__construct($data);
 
         $this->container['pageNumbering'] = isset($data['pageNumbering']) ? $data['pageNumbering'] : null;
+        $this->container['encoding'] = isset($data['encoding']) ? $data['encoding'] : null;
+        $this->container['usePdf'] = isset($data['usePdf']) ? $data['usePdf'] : null;
+        $this->container['renderingMode'] = isset($data['renderingMode']) ? $data['renderingMode'] : null;
     }
 
     /*
@@ -182,6 +215,20 @@ class WebLoadOptions extends LoadOptions
         if ($this->container['pageNumbering'] === null) {
             $invalidProperties[] = "'pageNumbering' can't be null";
         }
+        if ($this->container['usePdf'] === null) {
+            $invalidProperties[] = "'usePdf' can't be null";
+        }
+        if ($this->container['renderingMode'] === null) {
+            $invalidProperties[] = "'renderingMode' can't be null";
+        }
+        $allowedValues = $this->getRenderingModeAllowableValues();
+        if (!in_array($this->container['renderingMode'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'renderingMode', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -198,6 +245,16 @@ class WebLoadOptions extends LoadOptions
         }
 
         if ($this->container['pageNumbering'] === null) {
+            return false;
+        }
+        if ($this->container['usePdf'] === null) {
+            return false;
+        }
+        if ($this->container['renderingMode'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getRenderingModeAllowableValues();
+        if (!in_array($this->container['renderingMode'], $allowedValues)) {
             return false;
         }
         return true;
@@ -224,6 +281,83 @@ class WebLoadOptions extends LoadOptions
     public function setPageNumbering($pageNumbering)
     {
         $this->container['pageNumbering'] = $pageNumbering;
+
+        return $this;
+    }
+
+    /*
+     * Gets encoding
+     *
+     * @return string
+     */
+    public function getEncoding()
+    {
+        return $this->container['encoding'];
+    }
+
+    /*
+     * Sets encoding
+     *
+     * @param string $encoding Get or sets the encoding to be used when loading the web document. If the property is null the encoding will be determined from document character set attribute
+     *
+     * @return $this
+     */
+    public function setEncoding($encoding)
+    {
+        $this->container['encoding'] = $encoding;
+
+        return $this;
+    }
+
+    /*
+     * Gets usePdf
+     *
+     * @return bool
+     */
+    public function getUsePdf()
+    {
+        return $this->container['usePdf'];
+    }
+
+    /*
+     * Sets usePdf
+     *
+     * @param bool $usePdf Use pdf for the conversion. Default: false
+     *
+     * @return $this
+     */
+    public function setUsePdf($usePdf)
+    {
+        $this->container['usePdf'] = $usePdf;
+
+        return $this;
+    }
+
+    /*
+     * Gets renderingMode
+     *
+     * @return string
+     */
+    public function getRenderingMode()
+    {
+        return $this->container['renderingMode'];
+    }
+
+    /*
+     * Sets renderingMode
+     *
+     * @param string $renderingMode Controls how HTML content is rendered. Default: AbsolutePositioning
+     *
+     * @return $this
+     */
+    public function setRenderingMode($renderingMode)
+    {
+        $allowedValues = $this->getRenderingModeAllowableValues();
+        if ((!is_numeric($renderingMode) && !in_array($renderingMode, $allowedValues)) || (is_numeric($renderingMode) && !in_array($allowedValues[$renderingMode], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'renderingMode', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['renderingMode'] = $renderingMode;
 
         return $this;
     }
