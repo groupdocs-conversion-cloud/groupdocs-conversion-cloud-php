@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="ImageConvertOptions.php">
- *   Copyright (c) 2003-2024 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -61,7 +61,8 @@ class ImageConvertOptions extends ConvertOptions
         'brightness' => 'int',
         'contrast' => 'int',
         'gamma' => 'double',
-        'flipMode' => 'string'
+        'flipMode' => 'string',
+        'backgroundColor' => 'string'
     ];
 
     /*
@@ -80,7 +81,8 @@ class ImageConvertOptions extends ConvertOptions
         'brightness' => 'int32',
         'contrast' => 'int32',
         'gamma' => 'double',
-        'flipMode' => null
+        'flipMode' => null,
+        'backgroundColor' => null
     ];
 
     /*
@@ -120,7 +122,8 @@ class ImageConvertOptions extends ConvertOptions
         'brightness' => 'Brightness',
         'contrast' => 'Contrast',
         'gamma' => 'Gamma',
-        'flipMode' => 'FlipMode'
+        'flipMode' => 'FlipMode',
+        'backgroundColor' => 'BackgroundColor'
     ];
 
     /*
@@ -139,7 +142,8 @@ class ImageConvertOptions extends ConvertOptions
         'brightness' => 'setBrightness',
         'contrast' => 'setContrast',
         'gamma' => 'setGamma',
-        'flipMode' => 'setFlipMode'
+        'flipMode' => 'setFlipMode',
+        'backgroundColor' => 'setBackgroundColor'
     ];
 
     /*
@@ -158,7 +162,8 @@ class ImageConvertOptions extends ConvertOptions
         'brightness' => 'getBrightness',
         'contrast' => 'getContrast',
         'gamma' => 'getGamma',
-        'flipMode' => 'getFlipMode'
+        'flipMode' => 'getFlipMode',
+        'backgroundColor' => 'getBackgroundColor'
     ];
 
     /*
@@ -247,6 +252,7 @@ class ImageConvertOptions extends ConvertOptions
         $this->container['contrast'] = isset($data['contrast']) ? $data['contrast'] : null;
         $this->container['gamma'] = isset($data['gamma']) ? $data['gamma'] : null;
         $this->container['flipMode'] = isset($data['flipMode']) ? $data['flipMode'] : null;
+        $this->container['backgroundColor'] = isset($data['backgroundColor']) ? $data['backgroundColor'] : null;
     }
 
     /*
@@ -620,6 +626,30 @@ class ImageConvertOptions extends ConvertOptions
         }
 			
         $this->container['flipMode'] = $flipMode;
+
+        return $this;
+    }
+
+    /*
+     * Gets backgroundColor
+     *
+     * @return string
+     */
+    public function getBackgroundColor()
+    {
+        return $this->container['backgroundColor'];
+    }
+
+    /*
+     * Sets backgroundColor
+     *
+     * @param string $backgroundColor Gets or sets a background color.
+     *
+     * @return $this
+     */
+    public function setBackgroundColor($backgroundColor)
+    {
+        $this->container['backgroundColor'] = $backgroundColor;
 
         return $this;
     }

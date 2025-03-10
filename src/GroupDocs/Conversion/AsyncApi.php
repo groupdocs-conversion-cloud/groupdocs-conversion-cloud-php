@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="AsyncApi.php">
- *   Copyright (c) 2003-2024 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1295,7 +1295,7 @@ class AsyncApi
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="getOperationResultRequest.php">
- *   Copyright (c) 2003-2024 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1344,7 +1344,7 @@ class getOperationResultRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="getOperationStatusRequest.php">
- *   Copyright (c) 2003-2024 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1393,7 +1393,7 @@ class getOperationStatusRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="startConvertRequest.php">
- *   Copyright (c) 2003-2024 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1463,7 +1463,7 @@ class startConvertRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="startConvertAndSaveRequest.php">
- *   Copyright (c) 2003-2024 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
