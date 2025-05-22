@@ -51,11 +51,18 @@ class PresentationLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $swaggerTypes = [
+        'preserveDocumentStructure' => 'bool',
+        'clearCustomDocumentProperties' => 'bool',
+        'clearBuiltInDocumentProperties' => 'bool',
+        'depth' => 'int',
+        'convertOwned' => 'bool',
+        'convertOwner' => 'bool',
+        'showHiddenSlides' => 'bool',
         'defaultFont' => 'string',
         'fontSubstitutes' => 'map[string,string]',
         'password' => 'string',
-        'hideComments' => 'bool',
-        'showHiddenSlides' => 'bool'
+        'commentsPosition' => 'string',
+        'notesPosition' => 'string'
     ];
 
     /*
@@ -64,11 +71,18 @@ class PresentationLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $swaggerFormats = [
+        'preserveDocumentStructure' => null,
+        'clearCustomDocumentProperties' => null,
+        'clearBuiltInDocumentProperties' => null,
+        'depth' => 'int32',
+        'convertOwned' => null,
+        'convertOwner' => null,
+        'showHiddenSlides' => null,
         'defaultFont' => null,
         'fontSubstitutes' => null,
         'password' => null,
-        'hideComments' => null,
-        'showHiddenSlides' => null
+        'commentsPosition' => null,
+        'notesPosition' => null
     ];
 
     /*
@@ -98,11 +112,18 @@ class PresentationLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $attributeMap = [
+        'preserveDocumentStructure' => 'PreserveDocumentStructure',
+        'clearCustomDocumentProperties' => 'ClearCustomDocumentProperties',
+        'clearBuiltInDocumentProperties' => 'ClearBuiltInDocumentProperties',
+        'depth' => 'Depth',
+        'convertOwned' => 'ConvertOwned',
+        'convertOwner' => 'ConvertOwner',
+        'showHiddenSlides' => 'ShowHiddenSlides',
         'defaultFont' => 'DefaultFont',
         'fontSubstitutes' => 'FontSubstitutes',
         'password' => 'Password',
-        'hideComments' => 'HideComments',
-        'showHiddenSlides' => 'ShowHiddenSlides'
+        'commentsPosition' => 'CommentsPosition',
+        'notesPosition' => 'NotesPosition'
     ];
 
     /*
@@ -111,11 +132,18 @@ class PresentationLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $setters = [
+        'preserveDocumentStructure' => 'setPreserveDocumentStructure',
+        'clearCustomDocumentProperties' => 'setClearCustomDocumentProperties',
+        'clearBuiltInDocumentProperties' => 'setClearBuiltInDocumentProperties',
+        'depth' => 'setDepth',
+        'convertOwned' => 'setConvertOwned',
+        'convertOwner' => 'setConvertOwner',
+        'showHiddenSlides' => 'setShowHiddenSlides',
         'defaultFont' => 'setDefaultFont',
         'fontSubstitutes' => 'setFontSubstitutes',
         'password' => 'setPassword',
-        'hideComments' => 'setHideComments',
-        'showHiddenSlides' => 'setShowHiddenSlides'
+        'commentsPosition' => 'setCommentsPosition',
+        'notesPosition' => 'setNotesPosition'
     ];
 
     /*
@@ -124,11 +152,18 @@ class PresentationLoadOptions extends LoadOptions
      * @var string[]
      */
     protected static $getters = [
+        'preserveDocumentStructure' => 'getPreserveDocumentStructure',
+        'clearCustomDocumentProperties' => 'getClearCustomDocumentProperties',
+        'clearBuiltInDocumentProperties' => 'getClearBuiltInDocumentProperties',
+        'depth' => 'getDepth',
+        'convertOwned' => 'getConvertOwned',
+        'convertOwner' => 'getConvertOwner',
+        'showHiddenSlides' => 'getShowHiddenSlides',
         'defaultFont' => 'getDefaultFont',
         'fontSubstitutes' => 'getFontSubstitutes',
         'password' => 'getPassword',
-        'hideComments' => 'getHideComments',
-        'showHiddenSlides' => 'getShowHiddenSlides'
+        'commentsPosition' => 'getCommentsPosition',
+        'notesPosition' => 'getNotesPosition'
     ];
 
     /*
@@ -172,8 +207,42 @@ class PresentationLoadOptions extends LoadOptions
         return self::$swaggerModelName;
     }
 
+    const COMMENTS_POSITION_NONE = 'None';
+    const COMMENTS_POSITION_BOTTOM = 'Bottom';
+    const COMMENTS_POSITION_RIGHT = 'Right';
+    const NOTES_POSITION_NONE = 'None';
+    const NOTES_POSITION_BOTTOM_TRUNCATED = 'BottomTruncated';
+    const NOTES_POSITION_BOTTOM_FULL = 'BottomFull';
     
 
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCommentsPositionAllowableValues()
+    {
+        return [
+            self::COMMENTS_POSITION_NONE,
+            self::COMMENTS_POSITION_BOTTOM,
+            self::COMMENTS_POSITION_RIGHT,
+        ];
+    }
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNotesPositionAllowableValues()
+    {
+        return [
+            self::NOTES_POSITION_NONE,
+            self::NOTES_POSITION_BOTTOM_TRUNCATED,
+            self::NOTES_POSITION_BOTTOM_FULL,
+        ];
+    }
     
 
 
@@ -187,11 +256,18 @@ class PresentationLoadOptions extends LoadOptions
     {
         parent::__construct($data);
 
+        $this->container['preserveDocumentStructure'] = isset($data['preserveDocumentStructure']) ? $data['preserveDocumentStructure'] : null;
+        $this->container['clearCustomDocumentProperties'] = isset($data['clearCustomDocumentProperties']) ? $data['clearCustomDocumentProperties'] : null;
+        $this->container['clearBuiltInDocumentProperties'] = isset($data['clearBuiltInDocumentProperties']) ? $data['clearBuiltInDocumentProperties'] : null;
+        $this->container['depth'] = isset($data['depth']) ? $data['depth'] : null;
+        $this->container['convertOwned'] = isset($data['convertOwned']) ? $data['convertOwned'] : null;
+        $this->container['convertOwner'] = isset($data['convertOwner']) ? $data['convertOwner'] : null;
+        $this->container['showHiddenSlides'] = isset($data['showHiddenSlides']) ? $data['showHiddenSlides'] : null;
         $this->container['defaultFont'] = isset($data['defaultFont']) ? $data['defaultFont'] : null;
         $this->container['fontSubstitutes'] = isset($data['fontSubstitutes']) ? $data['fontSubstitutes'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
-        $this->container['hideComments'] = isset($data['hideComments']) ? $data['hideComments'] : null;
-        $this->container['showHiddenSlides'] = isset($data['showHiddenSlides']) ? $data['showHiddenSlides'] : null;
+        $this->container['commentsPosition'] = isset($data['commentsPosition']) ? $data['commentsPosition'] : null;
+        $this->container['notesPosition'] = isset($data['notesPosition']) ? $data['notesPosition'] : null;
     }
 
     /*
@@ -203,12 +279,49 @@ class PresentationLoadOptions extends LoadOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['hideComments'] === null) {
-            $invalidProperties[] = "'hideComments' can't be null";
+        if ($this->container['preserveDocumentStructure'] === null) {
+            $invalidProperties[] = "'preserveDocumentStructure' can't be null";
+        }
+        if ($this->container['clearCustomDocumentProperties'] === null) {
+            $invalidProperties[] = "'clearCustomDocumentProperties' can't be null";
+        }
+        if ($this->container['clearBuiltInDocumentProperties'] === null) {
+            $invalidProperties[] = "'clearBuiltInDocumentProperties' can't be null";
+        }
+        if ($this->container['depth'] === null) {
+            $invalidProperties[] = "'depth' can't be null";
+        }
+        if ($this->container['convertOwned'] === null) {
+            $invalidProperties[] = "'convertOwned' can't be null";
+        }
+        if ($this->container['convertOwner'] === null) {
+            $invalidProperties[] = "'convertOwner' can't be null";
         }
         if ($this->container['showHiddenSlides'] === null) {
             $invalidProperties[] = "'showHiddenSlides' can't be null";
         }
+        if ($this->container['commentsPosition'] === null) {
+            $invalidProperties[] = "'commentsPosition' can't be null";
+        }
+        $allowedValues = $this->getCommentsPositionAllowableValues();
+        if (!in_array($this->container['commentsPosition'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'commentsPosition', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['notesPosition'] === null) {
+            $invalidProperties[] = "'notesPosition' can't be null";
+        }
+        $allowedValues = $this->getNotesPositionAllowableValues();
+        if (!in_array($this->container['notesPosition'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'notesPosition', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -224,15 +337,212 @@ class PresentationLoadOptions extends LoadOptions
             return false;
         }
 
-        if ($this->container['hideComments'] === null) {
+        if ($this->container['preserveDocumentStructure'] === null) {
+            return false;
+        }
+        if ($this->container['clearCustomDocumentProperties'] === null) {
+            return false;
+        }
+        if ($this->container['clearBuiltInDocumentProperties'] === null) {
+            return false;
+        }
+        if ($this->container['depth'] === null) {
+            return false;
+        }
+        if ($this->container['convertOwned'] === null) {
+            return false;
+        }
+        if ($this->container['convertOwner'] === null) {
             return false;
         }
         if ($this->container['showHiddenSlides'] === null) {
             return false;
         }
+        if ($this->container['commentsPosition'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getCommentsPositionAllowableValues();
+        if (!in_array($this->container['commentsPosition'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['notesPosition'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getNotesPositionAllowableValues();
+        if (!in_array($this->container['notesPosition'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
+
+    /*
+     * Gets preserveDocumentStructure
+     *
+     * @return bool
+     */
+    public function getPreserveDocumentStructure()
+    {
+        return $this->container['preserveDocumentStructure'];
+    }
+
+    /*
+     * Sets preserveDocumentStructure
+     *
+     * @param bool $preserveDocumentStructure Determines whether the document structure should be preserved when converting     to PDF (default is false).
+     *
+     * @return $this
+     */
+    public function setPreserveDocumentStructure($preserveDocumentStructure)
+    {
+        $this->container['preserveDocumentStructure'] = $preserveDocumentStructure;
+
+        return $this;
+    }
+
+    /*
+     * Gets clearCustomDocumentProperties
+     *
+     * @return bool
+     */
+    public function getClearCustomDocumentProperties()
+    {
+        return $this->container['clearCustomDocumentProperties'];
+    }
+
+    /*
+     * Sets clearCustomDocumentProperties
+     *
+     * @param bool $clearCustomDocumentProperties Value indicating whether custom document properties should be cleared.
+     *
+     * @return $this
+     */
+    public function setClearCustomDocumentProperties($clearCustomDocumentProperties)
+    {
+        $this->container['clearCustomDocumentProperties'] = $clearCustomDocumentProperties;
+
+        return $this;
+    }
+
+    /*
+     * Gets clearBuiltInDocumentProperties
+     *
+     * @return bool
+     */
+    public function getClearBuiltInDocumentProperties()
+    {
+        return $this->container['clearBuiltInDocumentProperties'];
+    }
+
+    /*
+     * Sets clearBuiltInDocumentProperties
+     *
+     * @param bool $clearBuiltInDocumentProperties Value indicating whether built in document properties should be cleared.
+     *
+     * @return $this
+     */
+    public function setClearBuiltInDocumentProperties($clearBuiltInDocumentProperties)
+    {
+        $this->container['clearBuiltInDocumentProperties'] = $clearBuiltInDocumentProperties;
+
+        return $this;
+    }
+
+    /*
+     * Gets depth
+     *
+     * @return int
+     */
+    public function getDepth()
+    {
+        return $this->container['depth'];
+    }
+
+    /*
+     * Sets depth
+     *
+     * @param int $depth Implements GroupDocs.Conversion.Contracts.IDocumentsContainerLoadOptions.Depth     Default: 1
+     *
+     * @return $this
+     */
+    public function setDepth($depth)
+    {
+        $this->container['depth'] = $depth;
+
+        return $this;
+    }
+
+    /*
+     * Gets convertOwned
+     *
+     * @return bool
+     */
+    public function getConvertOwned()
+    {
+        return $this->container['convertOwned'];
+    }
+
+    /*
+     * Sets convertOwned
+     *
+     * @param bool $convertOwned Implements GroupDocs.Conversion.Contracts.IDocumentsContainerLoadOptions.ConvertOwned     Default is false
+     *
+     * @return $this
+     */
+    public function setConvertOwned($convertOwned)
+    {
+        $this->container['convertOwned'] = $convertOwned;
+
+        return $this;
+    }
+
+    /*
+     * Gets convertOwner
+     *
+     * @return bool
+     */
+    public function getConvertOwner()
+    {
+        return $this->container['convertOwner'];
+    }
+
+    /*
+     * Sets convertOwner
+     *
+     * @param bool $convertOwner Implements GroupDocs.Conversion.Contracts.IDocumentsContainerLoadOptions.ConvertOwner     Default is true
+     *
+     * @return $this
+     */
+    public function setConvertOwner($convertOwner)
+    {
+        $this->container['convertOwner'] = $convertOwner;
+
+        return $this;
+    }
+
+    /*
+     * Gets showHiddenSlides
+     *
+     * @return bool
+     */
+    public function getShowHiddenSlides()
+    {
+        return $this->container['showHiddenSlides'];
+    }
+
+    /*
+     * Sets showHiddenSlides
+     *
+     * @param bool $showHiddenSlides Show hidden slides.
+     *
+     * @return $this
+     */
+    public function setShowHiddenSlides($showHiddenSlides)
+    {
+        $this->container['showHiddenSlides'] = $showHiddenSlides;
+
+        return $this;
+    }
 
     /*
      * Gets defaultFont
@@ -307,49 +617,59 @@ class PresentationLoadOptions extends LoadOptions
     }
 
     /*
-     * Gets hideComments
+     * Gets commentsPosition
      *
-     * @return bool
+     * @return string
      */
-    public function getHideComments()
+    public function getCommentsPosition()
     {
-        return $this->container['hideComments'];
+        return $this->container['commentsPosition'];
     }
 
     /*
-     * Sets hideComments
+     * Sets commentsPosition
      *
-     * @param bool $hideComments Hide comments
+     * @param string $commentsPosition Represents the way comments are printed with the slide. Default is None.
      *
      * @return $this
      */
-    public function setHideComments($hideComments)
+    public function setCommentsPosition($commentsPosition)
     {
-        $this->container['hideComments'] = $hideComments;
+        $allowedValues = $this->getCommentsPositionAllowableValues();
+        if ((!is_numeric($commentsPosition) && !in_array($commentsPosition, $allowedValues)) || (is_numeric($commentsPosition) && !in_array($allowedValues[$commentsPosition], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'commentsPosition', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['commentsPosition'] = $commentsPosition;
 
         return $this;
     }
 
     /*
-     * Gets showHiddenSlides
+     * Gets notesPosition
      *
-     * @return bool
+     * @return string
      */
-    public function getShowHiddenSlides()
+    public function getNotesPosition()
     {
-        return $this->container['showHiddenSlides'];
+        return $this->container['notesPosition'];
     }
 
     /*
-     * Sets showHiddenSlides
+     * Sets notesPosition
      *
-     * @param bool $showHiddenSlides Show hidden slides
+     * @param string $notesPosition Represents the way notes are printed with the slide. Default is None.
      *
      * @return $this
      */
-    public function setShowHiddenSlides($showHiddenSlides)
+    public function setNotesPosition($notesPosition)
     {
-        $this->container['showHiddenSlides'] = $showHiddenSlides;
+        $allowedValues = $this->getNotesPositionAllowableValues();
+        if ((!is_numeric($notesPosition) && !in_array($notesPosition, $allowedValues)) || (is_numeric($notesPosition) && !in_array($allowedValues[$notesPosition], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'notesPosition', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['notesPosition'] = $notesPosition;
 
         return $this;
     }

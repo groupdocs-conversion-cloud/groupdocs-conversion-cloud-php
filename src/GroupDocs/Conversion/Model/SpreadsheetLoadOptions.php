@@ -59,7 +59,7 @@ class SpreadsheetLoadOptions extends LoadOptions
         'convertRange' => 'string',
         'skipEmptyRowsAndColumns' => 'bool',
         'password' => 'string',
-        'hideComments' => 'bool'
+        'printComments' => 'string'
     ];
 
     /*
@@ -76,7 +76,7 @@ class SpreadsheetLoadOptions extends LoadOptions
         'convertRange' => null,
         'skipEmptyRowsAndColumns' => null,
         'password' => null,
-        'hideComments' => null
+        'printComments' => null
     ];
 
     /*
@@ -114,7 +114,7 @@ class SpreadsheetLoadOptions extends LoadOptions
         'convertRange' => 'ConvertRange',
         'skipEmptyRowsAndColumns' => 'SkipEmptyRowsAndColumns',
         'password' => 'Password',
-        'hideComments' => 'HideComments'
+        'printComments' => 'PrintComments'
     ];
 
     /*
@@ -131,7 +131,7 @@ class SpreadsheetLoadOptions extends LoadOptions
         'convertRange' => 'setConvertRange',
         'skipEmptyRowsAndColumns' => 'setSkipEmptyRowsAndColumns',
         'password' => 'setPassword',
-        'hideComments' => 'setHideComments'
+        'printComments' => 'setPrintComments'
     ];
 
     /*
@@ -148,7 +148,7 @@ class SpreadsheetLoadOptions extends LoadOptions
         'convertRange' => 'getConvertRange',
         'skipEmptyRowsAndColumns' => 'getSkipEmptyRowsAndColumns',
         'password' => 'getPassword',
-        'hideComments' => 'getHideComments'
+        'printComments' => 'getPrintComments'
     ];
 
     /*
@@ -192,8 +192,27 @@ class SpreadsheetLoadOptions extends LoadOptions
         return self::$swaggerModelName;
     }
 
+    const PRINT_COMMENTS_PRINT_IN_PLACE = 'PrintInPlace';
+    const PRINT_COMMENTS_PRINT_NO_COMMENTS = 'PrintNoComments';
+    const PRINT_COMMENTS_PRINT_SHEET_END = 'PrintSheetEnd';
+    const PRINT_COMMENTS_PRINT_WITH_THREADED_COMMENTS = 'PrintWithThreadedComments';
     
 
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPrintCommentsAllowableValues()
+    {
+        return [
+            self::PRINT_COMMENTS_PRINT_IN_PLACE,
+            self::PRINT_COMMENTS_PRINT_NO_COMMENTS,
+            self::PRINT_COMMENTS_PRINT_SHEET_END,
+            self::PRINT_COMMENTS_PRINT_WITH_THREADED_COMMENTS,
+        ];
+    }
     
 
 
@@ -215,7 +234,7 @@ class SpreadsheetLoadOptions extends LoadOptions
         $this->container['convertRange'] = isset($data['convertRange']) ? $data['convertRange'] : null;
         $this->container['skipEmptyRowsAndColumns'] = isset($data['skipEmptyRowsAndColumns']) ? $data['skipEmptyRowsAndColumns'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
-        $this->container['hideComments'] = isset($data['hideComments']) ? $data['hideComments'] : null;
+        $this->container['printComments'] = isset($data['printComments']) ? $data['printComments'] : null;
     }
 
     /*
@@ -239,9 +258,17 @@ class SpreadsheetLoadOptions extends LoadOptions
         if ($this->container['skipEmptyRowsAndColumns'] === null) {
             $invalidProperties[] = "'skipEmptyRowsAndColumns' can't be null";
         }
-        if ($this->container['hideComments'] === null) {
-            $invalidProperties[] = "'hideComments' can't be null";
+        if ($this->container['printComments'] === null) {
+            $invalidProperties[] = "'printComments' can't be null";
         }
+        $allowedValues = $this->getPrintCommentsAllowableValues();
+        if (!in_array($this->container['printComments'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'printComments', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -269,7 +296,11 @@ class SpreadsheetLoadOptions extends LoadOptions
         if ($this->container['skipEmptyRowsAndColumns'] === null) {
             return false;
         }
-        if ($this->container['hideComments'] === null) {
+        if ($this->container['printComments'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getPrintCommentsAllowableValues();
+        if (!in_array($this->container['printComments'], $allowedValues)) {
             return false;
         }
         return true;
@@ -469,25 +500,30 @@ class SpreadsheetLoadOptions extends LoadOptions
     }
 
     /*
-     * Gets hideComments
+     * Gets printComments
      *
-     * @return bool
+     * @return string
      */
-    public function getHideComments()
+    public function getPrintComments()
     {
-        return $this->container['hideComments'];
+        return $this->container['printComments'];
     }
 
     /*
-     * Sets hideComments
+     * Sets printComments
      *
-     * @param bool $hideComments Hide comments
+     * @param string $printComments Represents the way comments are printed with the sheet. Default is PrintNoComments.
      *
      * @return $this
      */
-    public function setHideComments($hideComments)
+    public function setPrintComments($printComments)
     {
-        $this->container['hideComments'] = $hideComments;
+        $allowedValues = $this->getPrintCommentsAllowableValues();
+        if ((!is_numeric($printComments) && !in_array($printComments, $allowedValues)) || (is_numeric($printComments) && !in_array($allowedValues[$printComments], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'printComments', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['printComments'] = $printComments;
 
         return $this;
     }
