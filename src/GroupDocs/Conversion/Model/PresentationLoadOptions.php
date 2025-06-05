@@ -461,7 +461,7 @@ class PresentationLoadOptions extends LoadOptions
     /*
      * Sets depth
      *
-     * @param int $depth Implements GroupDocs.Conversion.Contracts.IDocumentsContainerLoadOptions.Depth     Default: 1
+     * @param int $depth Option to control how many levels in depth to perform conversion     Default: 1
      *
      * @return $this
      */
@@ -485,7 +485,7 @@ class PresentationLoadOptions extends LoadOptions
     /*
      * Sets convertOwned
      *
-     * @param bool $convertOwned Implements GroupDocs.Conversion.Contracts.IDocumentsContainerLoadOptions.ConvertOwned     Default is false
+     * @param bool $convertOwned Option to control whether the owned documents in the documents container must     be converted
      *
      * @return $this
      */
@@ -509,7 +509,7 @@ class PresentationLoadOptions extends LoadOptions
     /*
      * Sets convertOwner
      *
-     * @param bool $convertOwner Implements GroupDocs.Conversion.Contracts.IDocumentsContainerLoadOptions.ConvertOwner     Default is true
+     * @param bool $convertOwner Option to control whether the documents container itself must be converted If     this property is true the documents container will be the first converted document     Default is true
      *
      * @return $this
      */

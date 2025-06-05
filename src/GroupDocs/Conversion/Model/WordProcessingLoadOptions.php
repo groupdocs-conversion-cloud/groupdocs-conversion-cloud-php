@@ -52,14 +52,33 @@ class WordProcessingLoadOptions extends LoadOptions
      */
     protected static $swaggerTypes = [
         'defaultFont' => 'string',
-        'autoFontSubstitution' => 'bool',
         'fontSubstitutes' => 'map[string,string]',
         'password' => 'string',
         'hideWordTrackedChanges' => 'bool',
-        'hideComments' => 'bool',
         'bookmarksOutlineLevel' => 'int',
         'headingsOutlineLevels' => 'int',
-        'expandedOutlineLevels' => 'int'
+        'expandedOutlineLevels' => 'int',
+        'clearCustomDocumentProperties' => 'bool',
+        'clearBuiltInDocumentProperties' => 'bool',
+        'depth' => 'int',
+        'convertOwned' => 'bool',
+        'convertOwner' => 'bool',
+        'autoHyphenation' => 'bool',
+        'hyphenateCaps' => 'bool',
+        'pageNumbering' => 'bool',
+        'preserveDocumentStructure' => 'bool',
+        'skipExternalResources' => 'bool',
+        'useTextShaper' => 'bool',
+        'preserveFormFields' => 'bool',
+        'commentDisplayMode' => 'string',
+        'keepDateFieldOriginalValue' => 'bool',
+        'updateFields' => 'bool',
+        'updatePageLayout' => 'bool',
+        'embedTrueTypeFonts' => 'bool',
+        'fontInfoSubstitutionEnabled' => 'bool',
+        'fontConfigSubstitutionEnabled' => 'bool',
+        'fontNameSubstitutionEnabled' => 'bool',
+        'showFullCommenterName' => 'bool'
     ];
 
     /*
@@ -69,14 +88,33 @@ class WordProcessingLoadOptions extends LoadOptions
      */
     protected static $swaggerFormats = [
         'defaultFont' => null,
-        'autoFontSubstitution' => null,
         'fontSubstitutes' => null,
         'password' => null,
         'hideWordTrackedChanges' => null,
-        'hideComments' => null,
         'bookmarksOutlineLevel' => 'int32',
         'headingsOutlineLevels' => 'int32',
-        'expandedOutlineLevels' => 'int32'
+        'expandedOutlineLevels' => 'int32',
+        'clearCustomDocumentProperties' => null,
+        'clearBuiltInDocumentProperties' => null,
+        'depth' => 'int32',
+        'convertOwned' => null,
+        'convertOwner' => null,
+        'autoHyphenation' => null,
+        'hyphenateCaps' => null,
+        'pageNumbering' => null,
+        'preserveDocumentStructure' => null,
+        'skipExternalResources' => null,
+        'useTextShaper' => null,
+        'preserveFormFields' => null,
+        'commentDisplayMode' => null,
+        'keepDateFieldOriginalValue' => null,
+        'updateFields' => null,
+        'updatePageLayout' => null,
+        'embedTrueTypeFonts' => null,
+        'fontInfoSubstitutionEnabled' => null,
+        'fontConfigSubstitutionEnabled' => null,
+        'fontNameSubstitutionEnabled' => null,
+        'showFullCommenterName' => null
     ];
 
     /*
@@ -107,14 +145,33 @@ class WordProcessingLoadOptions extends LoadOptions
      */
     protected static $attributeMap = [
         'defaultFont' => 'DefaultFont',
-        'autoFontSubstitution' => 'AutoFontSubstitution',
         'fontSubstitutes' => 'FontSubstitutes',
         'password' => 'Password',
         'hideWordTrackedChanges' => 'HideWordTrackedChanges',
-        'hideComments' => 'HideComments',
         'bookmarksOutlineLevel' => 'BookmarksOutlineLevel',
         'headingsOutlineLevels' => 'HeadingsOutlineLevels',
-        'expandedOutlineLevels' => 'ExpandedOutlineLevels'
+        'expandedOutlineLevels' => 'ExpandedOutlineLevels',
+        'clearCustomDocumentProperties' => 'ClearCustomDocumentProperties',
+        'clearBuiltInDocumentProperties' => 'ClearBuiltInDocumentProperties',
+        'depth' => 'Depth',
+        'convertOwned' => 'ConvertOwned',
+        'convertOwner' => 'ConvertOwner',
+        'autoHyphenation' => 'AutoHyphenation',
+        'hyphenateCaps' => 'HyphenateCaps',
+        'pageNumbering' => 'PageNumbering',
+        'preserveDocumentStructure' => 'PreserveDocumentStructure',
+        'skipExternalResources' => 'SkipExternalResources',
+        'useTextShaper' => 'UseTextShaper',
+        'preserveFormFields' => 'PreserveFormFields',
+        'commentDisplayMode' => 'CommentDisplayMode',
+        'keepDateFieldOriginalValue' => 'KeepDateFieldOriginalValue',
+        'updateFields' => 'UpdateFields',
+        'updatePageLayout' => 'UpdatePageLayout',
+        'embedTrueTypeFonts' => 'EmbedTrueTypeFonts',
+        'fontInfoSubstitutionEnabled' => 'FontInfoSubstitutionEnabled',
+        'fontConfigSubstitutionEnabled' => 'FontConfigSubstitutionEnabled',
+        'fontNameSubstitutionEnabled' => 'FontNameSubstitutionEnabled',
+        'showFullCommenterName' => 'ShowFullCommenterName'
     ];
 
     /*
@@ -124,14 +181,33 @@ class WordProcessingLoadOptions extends LoadOptions
      */
     protected static $setters = [
         'defaultFont' => 'setDefaultFont',
-        'autoFontSubstitution' => 'setAutoFontSubstitution',
         'fontSubstitutes' => 'setFontSubstitutes',
         'password' => 'setPassword',
         'hideWordTrackedChanges' => 'setHideWordTrackedChanges',
-        'hideComments' => 'setHideComments',
         'bookmarksOutlineLevel' => 'setBookmarksOutlineLevel',
         'headingsOutlineLevels' => 'setHeadingsOutlineLevels',
-        'expandedOutlineLevels' => 'setExpandedOutlineLevels'
+        'expandedOutlineLevels' => 'setExpandedOutlineLevels',
+        'clearCustomDocumentProperties' => 'setClearCustomDocumentProperties',
+        'clearBuiltInDocumentProperties' => 'setClearBuiltInDocumentProperties',
+        'depth' => 'setDepth',
+        'convertOwned' => 'setConvertOwned',
+        'convertOwner' => 'setConvertOwner',
+        'autoHyphenation' => 'setAutoHyphenation',
+        'hyphenateCaps' => 'setHyphenateCaps',
+        'pageNumbering' => 'setPageNumbering',
+        'preserveDocumentStructure' => 'setPreserveDocumentStructure',
+        'skipExternalResources' => 'setSkipExternalResources',
+        'useTextShaper' => 'setUseTextShaper',
+        'preserveFormFields' => 'setPreserveFormFields',
+        'commentDisplayMode' => 'setCommentDisplayMode',
+        'keepDateFieldOriginalValue' => 'setKeepDateFieldOriginalValue',
+        'updateFields' => 'setUpdateFields',
+        'updatePageLayout' => 'setUpdatePageLayout',
+        'embedTrueTypeFonts' => 'setEmbedTrueTypeFonts',
+        'fontInfoSubstitutionEnabled' => 'setFontInfoSubstitutionEnabled',
+        'fontConfigSubstitutionEnabled' => 'setFontConfigSubstitutionEnabled',
+        'fontNameSubstitutionEnabled' => 'setFontNameSubstitutionEnabled',
+        'showFullCommenterName' => 'setShowFullCommenterName'
     ];
 
     /*
@@ -141,14 +217,33 @@ class WordProcessingLoadOptions extends LoadOptions
      */
     protected static $getters = [
         'defaultFont' => 'getDefaultFont',
-        'autoFontSubstitution' => 'getAutoFontSubstitution',
         'fontSubstitutes' => 'getFontSubstitutes',
         'password' => 'getPassword',
         'hideWordTrackedChanges' => 'getHideWordTrackedChanges',
-        'hideComments' => 'getHideComments',
         'bookmarksOutlineLevel' => 'getBookmarksOutlineLevel',
         'headingsOutlineLevels' => 'getHeadingsOutlineLevels',
-        'expandedOutlineLevels' => 'getExpandedOutlineLevels'
+        'expandedOutlineLevels' => 'getExpandedOutlineLevels',
+        'clearCustomDocumentProperties' => 'getClearCustomDocumentProperties',
+        'clearBuiltInDocumentProperties' => 'getClearBuiltInDocumentProperties',
+        'depth' => 'getDepth',
+        'convertOwned' => 'getConvertOwned',
+        'convertOwner' => 'getConvertOwner',
+        'autoHyphenation' => 'getAutoHyphenation',
+        'hyphenateCaps' => 'getHyphenateCaps',
+        'pageNumbering' => 'getPageNumbering',
+        'preserveDocumentStructure' => 'getPreserveDocumentStructure',
+        'skipExternalResources' => 'getSkipExternalResources',
+        'useTextShaper' => 'getUseTextShaper',
+        'preserveFormFields' => 'getPreserveFormFields',
+        'commentDisplayMode' => 'getCommentDisplayMode',
+        'keepDateFieldOriginalValue' => 'getKeepDateFieldOriginalValue',
+        'updateFields' => 'getUpdateFields',
+        'updatePageLayout' => 'getUpdatePageLayout',
+        'embedTrueTypeFonts' => 'getEmbedTrueTypeFonts',
+        'fontInfoSubstitutionEnabled' => 'getFontInfoSubstitutionEnabled',
+        'fontConfigSubstitutionEnabled' => 'getFontConfigSubstitutionEnabled',
+        'fontNameSubstitutionEnabled' => 'getFontNameSubstitutionEnabled',
+        'showFullCommenterName' => 'getShowFullCommenterName'
     ];
 
     /*
@@ -192,8 +287,25 @@ class WordProcessingLoadOptions extends LoadOptions
         return self::$swaggerModelName;
     }
 
+    const COMMENT_DISPLAY_MODE_HIDDEN = 'Hidden';
+    const COMMENT_DISPLAY_MODE_BALLOON = 'Balloon';
+    const COMMENT_DISPLAY_MODE_ANNOTATION = 'Annotation';
     
 
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCommentDisplayModeAllowableValues()
+    {
+        return [
+            self::COMMENT_DISPLAY_MODE_HIDDEN,
+            self::COMMENT_DISPLAY_MODE_BALLOON,
+            self::COMMENT_DISPLAY_MODE_ANNOTATION,
+        ];
+    }
     
 
 
@@ -208,14 +320,33 @@ class WordProcessingLoadOptions extends LoadOptions
         parent::__construct($data);
 
         $this->container['defaultFont'] = isset($data['defaultFont']) ? $data['defaultFont'] : null;
-        $this->container['autoFontSubstitution'] = isset($data['autoFontSubstitution']) ? $data['autoFontSubstitution'] : null;
         $this->container['fontSubstitutes'] = isset($data['fontSubstitutes']) ? $data['fontSubstitutes'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['hideWordTrackedChanges'] = isset($data['hideWordTrackedChanges']) ? $data['hideWordTrackedChanges'] : null;
-        $this->container['hideComments'] = isset($data['hideComments']) ? $data['hideComments'] : null;
         $this->container['bookmarksOutlineLevel'] = isset($data['bookmarksOutlineLevel']) ? $data['bookmarksOutlineLevel'] : null;
         $this->container['headingsOutlineLevels'] = isset($data['headingsOutlineLevels']) ? $data['headingsOutlineLevels'] : null;
         $this->container['expandedOutlineLevels'] = isset($data['expandedOutlineLevels']) ? $data['expandedOutlineLevels'] : null;
+        $this->container['clearCustomDocumentProperties'] = isset($data['clearCustomDocumentProperties']) ? $data['clearCustomDocumentProperties'] : null;
+        $this->container['clearBuiltInDocumentProperties'] = isset($data['clearBuiltInDocumentProperties']) ? $data['clearBuiltInDocumentProperties'] : null;
+        $this->container['depth'] = isset($data['depth']) ? $data['depth'] : null;
+        $this->container['convertOwned'] = isset($data['convertOwned']) ? $data['convertOwned'] : null;
+        $this->container['convertOwner'] = isset($data['convertOwner']) ? $data['convertOwner'] : null;
+        $this->container['autoHyphenation'] = isset($data['autoHyphenation']) ? $data['autoHyphenation'] : null;
+        $this->container['hyphenateCaps'] = isset($data['hyphenateCaps']) ? $data['hyphenateCaps'] : null;
+        $this->container['pageNumbering'] = isset($data['pageNumbering']) ? $data['pageNumbering'] : null;
+        $this->container['preserveDocumentStructure'] = isset($data['preserveDocumentStructure']) ? $data['preserveDocumentStructure'] : null;
+        $this->container['skipExternalResources'] = isset($data['skipExternalResources']) ? $data['skipExternalResources'] : null;
+        $this->container['useTextShaper'] = isset($data['useTextShaper']) ? $data['useTextShaper'] : null;
+        $this->container['preserveFormFields'] = isset($data['preserveFormFields']) ? $data['preserveFormFields'] : null;
+        $this->container['commentDisplayMode'] = isset($data['commentDisplayMode']) ? $data['commentDisplayMode'] : null;
+        $this->container['keepDateFieldOriginalValue'] = isset($data['keepDateFieldOriginalValue']) ? $data['keepDateFieldOriginalValue'] : null;
+        $this->container['updateFields'] = isset($data['updateFields']) ? $data['updateFields'] : null;
+        $this->container['updatePageLayout'] = isset($data['updatePageLayout']) ? $data['updatePageLayout'] : null;
+        $this->container['embedTrueTypeFonts'] = isset($data['embedTrueTypeFonts']) ? $data['embedTrueTypeFonts'] : null;
+        $this->container['fontInfoSubstitutionEnabled'] = isset($data['fontInfoSubstitutionEnabled']) ? $data['fontInfoSubstitutionEnabled'] : null;
+        $this->container['fontConfigSubstitutionEnabled'] = isset($data['fontConfigSubstitutionEnabled']) ? $data['fontConfigSubstitutionEnabled'] : null;
+        $this->container['fontNameSubstitutionEnabled'] = isset($data['fontNameSubstitutionEnabled']) ? $data['fontNameSubstitutionEnabled'] : null;
+        $this->container['showFullCommenterName'] = isset($data['showFullCommenterName']) ? $data['showFullCommenterName'] : null;
     }
 
     /*
@@ -227,14 +358,8 @@ class WordProcessingLoadOptions extends LoadOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['autoFontSubstitution'] === null) {
-            $invalidProperties[] = "'autoFontSubstitution' can't be null";
-        }
         if ($this->container['hideWordTrackedChanges'] === null) {
             $invalidProperties[] = "'hideWordTrackedChanges' can't be null";
-        }
-        if ($this->container['hideComments'] === null) {
-            $invalidProperties[] = "'hideComments' can't be null";
         }
         if ($this->container['bookmarksOutlineLevel'] === null) {
             $invalidProperties[] = "'bookmarksOutlineLevel' can't be null";
@@ -244,6 +369,77 @@ class WordProcessingLoadOptions extends LoadOptions
         }
         if ($this->container['expandedOutlineLevels'] === null) {
             $invalidProperties[] = "'expandedOutlineLevels' can't be null";
+        }
+        if ($this->container['clearCustomDocumentProperties'] === null) {
+            $invalidProperties[] = "'clearCustomDocumentProperties' can't be null";
+        }
+        if ($this->container['clearBuiltInDocumentProperties'] === null) {
+            $invalidProperties[] = "'clearBuiltInDocumentProperties' can't be null";
+        }
+        if ($this->container['depth'] === null) {
+            $invalidProperties[] = "'depth' can't be null";
+        }
+        if ($this->container['convertOwned'] === null) {
+            $invalidProperties[] = "'convertOwned' can't be null";
+        }
+        if ($this->container['convertOwner'] === null) {
+            $invalidProperties[] = "'convertOwner' can't be null";
+        }
+        if ($this->container['autoHyphenation'] === null) {
+            $invalidProperties[] = "'autoHyphenation' can't be null";
+        }
+        if ($this->container['hyphenateCaps'] === null) {
+            $invalidProperties[] = "'hyphenateCaps' can't be null";
+        }
+        if ($this->container['pageNumbering'] === null) {
+            $invalidProperties[] = "'pageNumbering' can't be null";
+        }
+        if ($this->container['preserveDocumentStructure'] === null) {
+            $invalidProperties[] = "'preserveDocumentStructure' can't be null";
+        }
+        if ($this->container['skipExternalResources'] === null) {
+            $invalidProperties[] = "'skipExternalResources' can't be null";
+        }
+        if ($this->container['useTextShaper'] === null) {
+            $invalidProperties[] = "'useTextShaper' can't be null";
+        }
+        if ($this->container['preserveFormFields'] === null) {
+            $invalidProperties[] = "'preserveFormFields' can't be null";
+        }
+        if ($this->container['commentDisplayMode'] === null) {
+            $invalidProperties[] = "'commentDisplayMode' can't be null";
+        }
+        $allowedValues = $this->getCommentDisplayModeAllowableValues();
+        if (!in_array($this->container['commentDisplayMode'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'commentDisplayMode', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['keepDateFieldOriginalValue'] === null) {
+            $invalidProperties[] = "'keepDateFieldOriginalValue' can't be null";
+        }
+        if ($this->container['updateFields'] === null) {
+            $invalidProperties[] = "'updateFields' can't be null";
+        }
+        if ($this->container['updatePageLayout'] === null) {
+            $invalidProperties[] = "'updatePageLayout' can't be null";
+        }
+        if ($this->container['embedTrueTypeFonts'] === null) {
+            $invalidProperties[] = "'embedTrueTypeFonts' can't be null";
+        }
+        if ($this->container['fontInfoSubstitutionEnabled'] === null) {
+            $invalidProperties[] = "'fontInfoSubstitutionEnabled' can't be null";
+        }
+        if ($this->container['fontConfigSubstitutionEnabled'] === null) {
+            $invalidProperties[] = "'fontConfigSubstitutionEnabled' can't be null";
+        }
+        if ($this->container['fontNameSubstitutionEnabled'] === null) {
+            $invalidProperties[] = "'fontNameSubstitutionEnabled' can't be null";
+        }
+        if ($this->container['showFullCommenterName'] === null) {
+            $invalidProperties[] = "'showFullCommenterName' can't be null";
         }
         return $invalidProperties;
     }
@@ -260,13 +456,7 @@ class WordProcessingLoadOptions extends LoadOptions
             return false;
         }
 
-        if ($this->container['autoFontSubstitution'] === null) {
-            return false;
-        }
         if ($this->container['hideWordTrackedChanges'] === null) {
-            return false;
-        }
-        if ($this->container['hideComments'] === null) {
             return false;
         }
         if ($this->container['bookmarksOutlineLevel'] === null) {
@@ -276,6 +466,73 @@ class WordProcessingLoadOptions extends LoadOptions
             return false;
         }
         if ($this->container['expandedOutlineLevels'] === null) {
+            return false;
+        }
+        if ($this->container['clearCustomDocumentProperties'] === null) {
+            return false;
+        }
+        if ($this->container['clearBuiltInDocumentProperties'] === null) {
+            return false;
+        }
+        if ($this->container['depth'] === null) {
+            return false;
+        }
+        if ($this->container['convertOwned'] === null) {
+            return false;
+        }
+        if ($this->container['convertOwner'] === null) {
+            return false;
+        }
+        if ($this->container['autoHyphenation'] === null) {
+            return false;
+        }
+        if ($this->container['hyphenateCaps'] === null) {
+            return false;
+        }
+        if ($this->container['pageNumbering'] === null) {
+            return false;
+        }
+        if ($this->container['preserveDocumentStructure'] === null) {
+            return false;
+        }
+        if ($this->container['skipExternalResources'] === null) {
+            return false;
+        }
+        if ($this->container['useTextShaper'] === null) {
+            return false;
+        }
+        if ($this->container['preserveFormFields'] === null) {
+            return false;
+        }
+        if ($this->container['commentDisplayMode'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getCommentDisplayModeAllowableValues();
+        if (!in_array($this->container['commentDisplayMode'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['keepDateFieldOriginalValue'] === null) {
+            return false;
+        }
+        if ($this->container['updateFields'] === null) {
+            return false;
+        }
+        if ($this->container['updatePageLayout'] === null) {
+            return false;
+        }
+        if ($this->container['embedTrueTypeFonts'] === null) {
+            return false;
+        }
+        if ($this->container['fontInfoSubstitutionEnabled'] === null) {
+            return false;
+        }
+        if ($this->container['fontConfigSubstitutionEnabled'] === null) {
+            return false;
+        }
+        if ($this->container['fontNameSubstitutionEnabled'] === null) {
+            return false;
+        }
+        if ($this->container['showFullCommenterName'] === null) {
             return false;
         }
         return true;
@@ -302,30 +559,6 @@ class WordProcessingLoadOptions extends LoadOptions
     public function setDefaultFont($defaultFont)
     {
         $this->container['defaultFont'] = $defaultFont;
-
-        return $this;
-    }
-
-    /*
-     * Gets autoFontSubstitution
-     *
-     * @return bool
-     */
-    public function getAutoFontSubstitution()
-    {
-        return $this->container['autoFontSubstitution'];
-    }
-
-    /*
-     * Sets autoFontSubstitution
-     *
-     * @param bool $autoFontSubstitution If AutoFontSubstitution is disabled, GroupDocs.Conversion uses the DefaultFont for the substitution of missing fonts. If AutoFontSubstitution is enabled, GroupDocs.Conversion evaluates all the related fields in FontInfo (Panose, Sig etc) for the missing font and finds the closest match among the available font sources. Note that font substitution mechanism will override the DefaultFont in cases when FontInfo for the missing font is available in the document. The default value is True.
-     *
-     * @return $this
-     */
-    public function setAutoFontSubstitution($autoFontSubstitution)
-    {
-        $this->container['autoFontSubstitution'] = $autoFontSubstitution;
 
         return $this;
     }
@@ -403,30 +636,6 @@ class WordProcessingLoadOptions extends LoadOptions
     }
 
     /*
-     * Gets hideComments
-     *
-     * @return bool
-     */
-    public function getHideComments()
-    {
-        return $this->container['hideComments'];
-    }
-
-    /*
-     * Sets hideComments
-     *
-     * @param bool $hideComments Hide comments
-     *
-     * @return $this
-     */
-    public function setHideComments($hideComments)
-    {
-        $this->container['hideComments'] = $hideComments;
-
-        return $this;
-    }
-
-    /*
      * Gets bookmarksOutlineLevel
      *
      * @return int
@@ -494,6 +703,515 @@ class WordProcessingLoadOptions extends LoadOptions
     public function setExpandedOutlineLevels($expandedOutlineLevels)
     {
         $this->container['expandedOutlineLevels'] = $expandedOutlineLevels;
+
+        return $this;
+    }
+
+    /*
+     * Gets clearCustomDocumentProperties
+     *
+     * @return bool
+     */
+    public function getClearCustomDocumentProperties()
+    {
+        return $this->container['clearCustomDocumentProperties'];
+    }
+
+    /*
+     * Sets clearCustomDocumentProperties
+     *
+     * @param bool $clearCustomDocumentProperties Clear custom document properties. Default is false.
+     *
+     * @return $this
+     */
+    public function setClearCustomDocumentProperties($clearCustomDocumentProperties)
+    {
+        $this->container['clearCustomDocumentProperties'] = $clearCustomDocumentProperties;
+
+        return $this;
+    }
+
+    /*
+     * Gets clearBuiltInDocumentProperties
+     *
+     * @return bool
+     */
+    public function getClearBuiltInDocumentProperties()
+    {
+        return $this->container['clearBuiltInDocumentProperties'];
+    }
+
+    /*
+     * Sets clearBuiltInDocumentProperties
+     *
+     * @param bool $clearBuiltInDocumentProperties Clear built-in document properties. Default is false.
+     *
+     * @return $this
+     */
+    public function setClearBuiltInDocumentProperties($clearBuiltInDocumentProperties)
+    {
+        $this->container['clearBuiltInDocumentProperties'] = $clearBuiltInDocumentProperties;
+
+        return $this;
+    }
+
+    /*
+     * Gets depth
+     *
+     * @return int
+     */
+    public function getDepth()
+    {
+        return $this->container['depth'];
+    }
+
+    /*
+     * Sets depth
+     *
+     * @param int $depth Option to control how many levels in depth to perform conversion. Default: 1.
+     *
+     * @return $this
+     */
+    public function setDepth($depth)
+    {
+        $this->container['depth'] = $depth;
+
+        return $this;
+    }
+
+    /*
+     * Gets convertOwned
+     *
+     * @return bool
+     */
+    public function getConvertOwned()
+    {
+        return $this->container['convertOwned'];
+    }
+
+    /*
+     * Sets convertOwned
+     *
+     * @param bool $convertOwned Option to control whether the owned documents in the documents container must be converted
+     *
+     * @return $this
+     */
+    public function setConvertOwned($convertOwned)
+    {
+        $this->container['convertOwned'] = $convertOwned;
+
+        return $this;
+    }
+
+    /*
+     * Gets convertOwner
+     *
+     * @return bool
+     */
+    public function getConvertOwner()
+    {
+        return $this->container['convertOwner'];
+    }
+
+    /*
+     * Sets convertOwner
+     *
+     * @param bool $convertOwner Option to control whether the documents container itself must be converted If this property is true the documents container will be the first converted document. Default is true.
+     *
+     * @return $this
+     */
+    public function setConvertOwner($convertOwner)
+    {
+        $this->container['convertOwner'] = $convertOwner;
+
+        return $this;
+    }
+
+    /*
+     * Gets autoHyphenation
+     *
+     * @return bool
+     */
+    public function getAutoHyphenation()
+    {
+        return $this->container['autoHyphenation'];
+    }
+
+    /*
+     * Sets autoHyphenation
+     *
+     * @param bool $autoHyphenation Gets or sets value determining whether automatic hyphenation is turned on for the document. Default value for this property is false.
+     *
+     * @return $this
+     */
+    public function setAutoHyphenation($autoHyphenation)
+    {
+        $this->container['autoHyphenation'] = $autoHyphenation;
+
+        return $this;
+    }
+
+    /*
+     * Gets hyphenateCaps
+     *
+     * @return bool
+     */
+    public function getHyphenateCaps()
+    {
+        return $this->container['hyphenateCaps'];
+    }
+
+    /*
+     * Sets hyphenateCaps
+     *
+     * @param bool $hyphenateCaps Gets or sets value determining whether words written in all capital letters are hyphenated. Default value for this property is true.
+     *
+     * @return $this
+     */
+    public function setHyphenateCaps($hyphenateCaps)
+    {
+        $this->container['hyphenateCaps'] = $hyphenateCaps;
+
+        return $this;
+    }
+
+    /*
+     * Gets pageNumbering
+     *
+     * @return bool
+     */
+    public function getPageNumbering()
+    {
+        return $this->container['pageNumbering'];
+    }
+
+    /*
+     * Sets pageNumbering
+     *
+     * @param bool $pageNumbering Enable or disable generation of page numbering in converted document. Default: false
+     *
+     * @return $this
+     */
+    public function setPageNumbering($pageNumbering)
+    {
+        $this->container['pageNumbering'] = $pageNumbering;
+
+        return $this;
+    }
+
+    /*
+     * Gets preserveDocumentStructure
+     *
+     * @return bool
+     */
+    public function getPreserveDocumentStructure()
+    {
+        return $this->container['preserveDocumentStructure'];
+    }
+
+    /*
+     * Sets preserveDocumentStructure
+     *
+     * @param bool $preserveDocumentStructure Determines whether the document structure should be preserved when converting to PDF (default is false).
+     *
+     * @return $this
+     */
+    public function setPreserveDocumentStructure($preserveDocumentStructure)
+    {
+        $this->container['preserveDocumentStructure'] = $preserveDocumentStructure;
+
+        return $this;
+    }
+
+    /*
+     * Gets skipExternalResources
+     *
+     * @return bool
+     */
+    public function getSkipExternalResources()
+    {
+        return $this->container['skipExternalResources'];
+    }
+
+    /*
+     * Sets skipExternalResources
+     *
+     * @param bool $skipExternalResources If true all external resource will not be loading. Default is true.
+     *
+     * @return $this
+     */
+    public function setSkipExternalResources($skipExternalResources)
+    {
+        $this->container['skipExternalResources'] = $skipExternalResources;
+
+        return $this;
+    }
+
+    /*
+     * Gets useTextShaper
+     *
+     * @return bool
+     */
+    public function getUseTextShaper()
+    {
+        return $this->container['useTextShaper'];
+    }
+
+    /*
+     * Sets useTextShaper
+     *
+     * @param bool $useTextShaper Specifies whether to use a text shaper for better kerning display. Default is false.
+     *
+     * @return $this
+     */
+    public function setUseTextShaper($useTextShaper)
+    {
+        $this->container['useTextShaper'] = $useTextShaper;
+
+        return $this;
+    }
+
+    /*
+     * Gets preserveFormFields
+     *
+     * @return bool
+     */
+    public function getPreserveFormFields()
+    {
+        return $this->container['preserveFormFields'];
+    }
+
+    /*
+     * Sets preserveFormFields
+     *
+     * @param bool $preserveFormFields Specifies whether to preserve Microsoft Word form fields as form fields in PDF or convert them to text. Default is false.
+     *
+     * @return $this
+     */
+    public function setPreserveFormFields($preserveFormFields)
+    {
+        $this->container['preserveFormFields'] = $preserveFormFields;
+
+        return $this;
+    }
+
+    /*
+     * Gets commentDisplayMode
+     *
+     * @return string
+     */
+    public function getCommentDisplayMode()
+    {
+        return $this->container['commentDisplayMode'];
+    }
+
+    /*
+     * Sets commentDisplayMode
+     *
+     * @param string $commentDisplayMode Specifies how comments should be displayed in the output document. Default is Balloon.
+     *
+     * @return $this
+     */
+    public function setCommentDisplayMode($commentDisplayMode)
+    {
+        $allowedValues = $this->getCommentDisplayModeAllowableValues();
+        if ((!is_numeric($commentDisplayMode) && !in_array($commentDisplayMode, $allowedValues)) || (is_numeric($commentDisplayMode) && !in_array($allowedValues[$commentDisplayMode], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'commentDisplayMode', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['commentDisplayMode'] = $commentDisplayMode;
+
+        return $this;
+    }
+
+    /*
+     * Gets keepDateFieldOriginalValue
+     *
+     * @return bool
+     */
+    public function getKeepDateFieldOriginalValue()
+    {
+        return $this->container['keepDateFieldOriginalValue'];
+    }
+
+    /*
+     * Sets keepDateFieldOriginalValue
+     *
+     * @param bool $keepDateFieldOriginalValue Keep original value of date field. Default: false
+     *
+     * @return $this
+     */
+    public function setKeepDateFieldOriginalValue($keepDateFieldOriginalValue)
+    {
+        $this->container['keepDateFieldOriginalValue'] = $keepDateFieldOriginalValue;
+
+        return $this;
+    }
+
+    /*
+     * Gets updateFields
+     *
+     * @return bool
+     */
+    public function getUpdateFields()
+    {
+        return $this->container['updateFields'];
+    }
+
+    /*
+     * Sets updateFields
+     *
+     * @param bool $updateFields Update fields after loading. Default: false
+     *
+     * @return $this
+     */
+    public function setUpdateFields($updateFields)
+    {
+        $this->container['updateFields'] = $updateFields;
+
+        return $this;
+    }
+
+    /*
+     * Gets updatePageLayout
+     *
+     * @return bool
+     */
+    public function getUpdatePageLayout()
+    {
+        return $this->container['updatePageLayout'];
+    }
+
+    /*
+     * Sets updatePageLayout
+     *
+     * @param bool $updatePageLayout Update page layout after loading. Default: false
+     *
+     * @return $this
+     */
+    public function setUpdatePageLayout($updatePageLayout)
+    {
+        $this->container['updatePageLayout'] = $updatePageLayout;
+
+        return $this;
+    }
+
+    /*
+     * Gets embedTrueTypeFonts
+     *
+     * @return bool
+     */
+    public function getEmbedTrueTypeFonts()
+    {
+        return $this->container['embedTrueTypeFonts'];
+    }
+
+    /*
+     * Sets embedTrueTypeFonts
+     *
+     * @param bool $embedTrueTypeFonts If EmbedTrueTypeFonts is true, GroupDocs.Conversion Cloud embed true type fonts in the output document. Default: true
+     *
+     * @return $this
+     */
+    public function setEmbedTrueTypeFonts($embedTrueTypeFonts)
+    {
+        $this->container['embedTrueTypeFonts'] = $embedTrueTypeFonts;
+
+        return $this;
+    }
+
+    /*
+     * Gets fontInfoSubstitutionEnabled
+     *
+     * @return bool
+     */
+    public function getFontInfoSubstitutionEnabled()
+    {
+        return $this->container['fontInfoSubstitutionEnabled'];
+    }
+
+    /*
+     * Sets fontInfoSubstitutionEnabled
+     *
+     * @param bool $fontInfoSubstitutionEnabled Automatically substitutes missing fonts based on FontInfo in the document. Default: false.
+     *
+     * @return $this
+     */
+    public function setFontInfoSubstitutionEnabled($fontInfoSubstitutionEnabled)
+    {
+        $this->container['fontInfoSubstitutionEnabled'] = $fontInfoSubstitutionEnabled;
+
+        return $this;
+    }
+
+    /*
+     * Gets fontConfigSubstitutionEnabled
+     *
+     * @return bool
+     */
+    public function getFontConfigSubstitutionEnabled()
+    {
+        return $this->container['fontConfigSubstitutionEnabled'];
+    }
+
+    /*
+     * Sets fontConfigSubstitutionEnabled
+     *
+     * @param bool $fontConfigSubstitutionEnabled Automatically substitutes missing fonts based on FontConfig in the system. Default: false.
+     *
+     * @return $this
+     */
+    public function setFontConfigSubstitutionEnabled($fontConfigSubstitutionEnabled)
+    {
+        $this->container['fontConfigSubstitutionEnabled'] = $fontConfigSubstitutionEnabled;
+
+        return $this;
+    }
+
+    /*
+     * Gets fontNameSubstitutionEnabled
+     *
+     * @return bool
+     */
+    public function getFontNameSubstitutionEnabled()
+    {
+        return $this->container['fontNameSubstitutionEnabled'];
+    }
+
+    /*
+     * Sets fontNameSubstitutionEnabled
+     *
+     * @param bool $fontNameSubstitutionEnabled Automatically substitutes missing fonts based on the font name. Default: false.
+     *
+     * @return $this
+     */
+    public function setFontNameSubstitutionEnabled($fontNameSubstitutionEnabled)
+    {
+        $this->container['fontNameSubstitutionEnabled'] = $fontNameSubstitutionEnabled;
+
+        return $this;
+    }
+
+    /*
+     * Gets showFullCommenterName
+     *
+     * @return bool
+     */
+    public function getShowFullCommenterName()
+    {
+        return $this->container['showFullCommenterName'];
+    }
+
+    /*
+     * Sets showFullCommenterName
+     *
+     * @param bool $showFullCommenterName Show full commenter name in comments. Default is false.
+     *
+     * @return $this
+     */
+    public function setShowFullCommenterName($showFullCommenterName)
+    {
+        $this->container['showFullCommenterName'] = $showFullCommenterName;
 
         return $this;
     }
