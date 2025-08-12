@@ -1,7 +1,7 @@
 {
     "description": "This repository contains GroupDocs.Conversion Cloud SDK for PHP source code.",
     "name": "groupdocscloud/groupdocs-conversion-cloud",
-    "version": "25.6",
+    "version": "25.8",
     "license": "MIT",
     "type": "library",
     "keywords": [

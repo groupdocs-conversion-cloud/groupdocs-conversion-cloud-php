@@ -52,8 +52,9 @@ class CadLoadOptions extends LoadOptions
      */
     protected static $swaggerTypes = [
         'layoutNames' => 'string[]',
-        'backgroundColor' => 'string',
-        'drawType' => 'string'
+        'drawType' => 'string',
+        'drawColor' => 'string',
+        'backgroundColor' => 'string'
     ];
 
     /*
@@ -63,8 +64,9 @@ class CadLoadOptions extends LoadOptions
      */
     protected static $swaggerFormats = [
         'layoutNames' => null,
-        'backgroundColor' => null,
-        'drawType' => null
+        'drawType' => null,
+        'drawColor' => null,
+        'backgroundColor' => null
     ];
 
     /*
@@ -95,8 +97,9 @@ class CadLoadOptions extends LoadOptions
      */
     protected static $attributeMap = [
         'layoutNames' => 'LayoutNames',
-        'backgroundColor' => 'BackgroundColor',
-        'drawType' => 'DrawType'
+        'drawType' => 'DrawType',
+        'drawColor' => 'DrawColor',
+        'backgroundColor' => 'BackgroundColor'
     ];
 
     /*
@@ -106,8 +109,9 @@ class CadLoadOptions extends LoadOptions
      */
     protected static $setters = [
         'layoutNames' => 'setLayoutNames',
-        'backgroundColor' => 'setBackgroundColor',
-        'drawType' => 'setDrawType'
+        'drawType' => 'setDrawType',
+        'drawColor' => 'setDrawColor',
+        'backgroundColor' => 'setBackgroundColor'
     ];
 
     /*
@@ -117,8 +121,9 @@ class CadLoadOptions extends LoadOptions
      */
     protected static $getters = [
         'layoutNames' => 'getLayoutNames',
-        'backgroundColor' => 'getBackgroundColor',
-        'drawType' => 'getDrawType'
+        'drawType' => 'getDrawType',
+        'drawColor' => 'getDrawColor',
+        'backgroundColor' => 'getBackgroundColor'
     ];
 
     /*
@@ -193,8 +198,9 @@ class CadLoadOptions extends LoadOptions
         parent::__construct($data);
 
         $this->container['layoutNames'] = isset($data['layoutNames']) ? $data['layoutNames'] : null;
-        $this->container['backgroundColor'] = isset($data['backgroundColor']) ? $data['backgroundColor'] : null;
         $this->container['drawType'] = isset($data['drawType']) ? $data['drawType'] : null;
+        $this->container['drawColor'] = isset($data['drawColor']) ? $data['drawColor'] : null;
+        $this->container['backgroundColor'] = isset($data['backgroundColor']) ? $data['backgroundColor'] : null;
     }
 
     /*
@@ -268,30 +274,6 @@ class CadLoadOptions extends LoadOptions
     }
 
     /*
-     * Gets backgroundColor
-     *
-     * @return string
-     */
-    public function getBackgroundColor()
-    {
-        return $this->container['backgroundColor'];
-    }
-
-    /*
-     * Sets backgroundColor
-     *
-     * @param string $backgroundColor Gets or sets a background color.
-     *
-     * @return $this
-     */
-    public function setBackgroundColor($backgroundColor)
-    {
-        $this->container['backgroundColor'] = $backgroundColor;
-
-        return $this;
-    }
-
-    /*
      * Gets drawType
      *
      * @return string
@@ -304,7 +286,7 @@ class CadLoadOptions extends LoadOptions
     /*
      * Sets drawType
      *
-     * @param string $drawType Gets or sets type of drawing.
+     * @param string $drawType A type of drawing.
      *
      * @return $this
      */
@@ -316,6 +298,54 @@ class CadLoadOptions extends LoadOptions
         }
 			
         $this->container['drawType'] = $drawType;
+
+        return $this;
+    }
+
+    /*
+     * Gets drawColor
+     *
+     * @return string
+     */
+    public function getDrawColor()
+    {
+        return $this->container['drawColor'];
+    }
+
+    /*
+     * Sets drawColor
+     *
+     * @param string $drawColor A foreground color.
+     *
+     * @return $this
+     */
+    public function setDrawColor($drawColor)
+    {
+        $this->container['drawColor'] = $drawColor;
+
+        return $this;
+    }
+
+    /*
+     * Gets backgroundColor
+     *
+     * @return string
+     */
+    public function getBackgroundColor()
+    {
+        return $this->container['backgroundColor'];
+    }
+
+    /*
+     * Sets backgroundColor
+     *
+     * @param string $backgroundColor A background color.
+     *
+     * @return $this
+     */
+    public function setBackgroundColor($backgroundColor)
+    {
+        $this->container['backgroundColor'] = $backgroundColor;
 
         return $this;
     }

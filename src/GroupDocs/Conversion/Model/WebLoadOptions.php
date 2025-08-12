@@ -52,9 +52,14 @@ class WebLoadOptions extends LoadOptions
      */
     protected static $swaggerTypes = [
         'pageNumbering' => 'bool',
+        'basePath' => 'string',
         'encoding' => 'string',
+        'skipExternalResources' => 'bool',
         'usePdf' => 'bool',
-        'renderingMode' => 'string'
+        'renderingMode' => 'string',
+        'zoom' => 'int',
+        'pageLayout' => 'string',
+        'customCssStyle' => 'string'
     ];
 
     /*
@@ -64,9 +69,14 @@ class WebLoadOptions extends LoadOptions
      */
     protected static $swaggerFormats = [
         'pageNumbering' => null,
+        'basePath' => null,
         'encoding' => null,
+        'skipExternalResources' => null,
         'usePdf' => null,
-        'renderingMode' => null
+        'renderingMode' => null,
+        'zoom' => 'int32',
+        'pageLayout' => null,
+        'customCssStyle' => null
     ];
 
     /*
@@ -97,9 +107,14 @@ class WebLoadOptions extends LoadOptions
      */
     protected static $attributeMap = [
         'pageNumbering' => 'PageNumbering',
+        'basePath' => 'BasePath',
         'encoding' => 'Encoding',
+        'skipExternalResources' => 'SkipExternalResources',
         'usePdf' => 'UsePdf',
-        'renderingMode' => 'RenderingMode'
+        'renderingMode' => 'RenderingMode',
+        'zoom' => 'Zoom',
+        'pageLayout' => 'PageLayout',
+        'customCssStyle' => 'CustomCssStyle'
     ];
 
     /*
@@ -109,9 +124,14 @@ class WebLoadOptions extends LoadOptions
      */
     protected static $setters = [
         'pageNumbering' => 'setPageNumbering',
+        'basePath' => 'setBasePath',
         'encoding' => 'setEncoding',
+        'skipExternalResources' => 'setSkipExternalResources',
         'usePdf' => 'setUsePdf',
-        'renderingMode' => 'setRenderingMode'
+        'renderingMode' => 'setRenderingMode',
+        'zoom' => 'setZoom',
+        'pageLayout' => 'setPageLayout',
+        'customCssStyle' => 'setCustomCssStyle'
     ];
 
     /*
@@ -121,9 +141,14 @@ class WebLoadOptions extends LoadOptions
      */
     protected static $getters = [
         'pageNumbering' => 'getPageNumbering',
+        'basePath' => 'getBasePath',
         'encoding' => 'getEncoding',
+        'skipExternalResources' => 'getSkipExternalResources',
         'usePdf' => 'getUsePdf',
-        'renderingMode' => 'getRenderingMode'
+        'renderingMode' => 'getRenderingMode',
+        'zoom' => 'getZoom',
+        'pageLayout' => 'getPageLayout',
+        'customCssStyle' => 'getCustomCssStyle'
     ];
 
     /*
@@ -169,6 +194,9 @@ class WebLoadOptions extends LoadOptions
 
     const RENDERING_MODE_FLOW = 'Flow';
     const RENDERING_MODE_ABSOLUTE_POSITIONING = 'AbsolutePositioning';
+    const PAGE_LAYOUT_NONE = 'None';
+    const PAGE_LAYOUT_SCALE_TO_PAGE_WIDTH = 'ScaleToPageWidth';
+    const PAGE_LAYOUT_SCALE_TO_PAGE_HEIGHT = 'ScaleToPageHeight';
     
 
     
@@ -185,6 +213,20 @@ class WebLoadOptions extends LoadOptions
         ];
     }
     
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPageLayoutAllowableValues()
+    {
+        return [
+            self::PAGE_LAYOUT_NONE,
+            self::PAGE_LAYOUT_SCALE_TO_PAGE_WIDTH,
+            self::PAGE_LAYOUT_SCALE_TO_PAGE_HEIGHT,
+        ];
+    }
+    
 
 
     /*
@@ -198,9 +240,14 @@ class WebLoadOptions extends LoadOptions
         parent::__construct($data);
 
         $this->container['pageNumbering'] = isset($data['pageNumbering']) ? $data['pageNumbering'] : null;
+        $this->container['basePath'] = isset($data['basePath']) ? $data['basePath'] : null;
         $this->container['encoding'] = isset($data['encoding']) ? $data['encoding'] : null;
+        $this->container['skipExternalResources'] = isset($data['skipExternalResources']) ? $data['skipExternalResources'] : null;
         $this->container['usePdf'] = isset($data['usePdf']) ? $data['usePdf'] : null;
         $this->container['renderingMode'] = isset($data['renderingMode']) ? $data['renderingMode'] : null;
+        $this->container['zoom'] = isset($data['zoom']) ? $data['zoom'] : null;
+        $this->container['pageLayout'] = isset($data['pageLayout']) ? $data['pageLayout'] : null;
+        $this->container['customCssStyle'] = isset($data['customCssStyle']) ? $data['customCssStyle'] : null;
     }
 
     /*
@@ -215,6 +262,9 @@ class WebLoadOptions extends LoadOptions
         if ($this->container['pageNumbering'] === null) {
             $invalidProperties[] = "'pageNumbering' can't be null";
         }
+        if ($this->container['skipExternalResources'] === null) {
+            $invalidProperties[] = "'skipExternalResources' can't be null";
+        }
         if ($this->container['usePdf'] === null) {
             $invalidProperties[] = "'usePdf' can't be null";
         }
@@ -225,6 +275,20 @@ class WebLoadOptions extends LoadOptions
         if (!in_array($this->container['renderingMode'], $allowedValues)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'renderingMode', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['zoom'] === null) {
+            $invalidProperties[] = "'zoom' can't be null";
+        }
+        if ($this->container['pageLayout'] === null) {
+            $invalidProperties[] = "'pageLayout' can't be null";
+        }
+        $allowedValues = $this->getPageLayoutAllowableValues();
+        if (!in_array($this->container['pageLayout'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'pageLayout', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -247,6 +311,9 @@ class WebLoadOptions extends LoadOptions
         if ($this->container['pageNumbering'] === null) {
             return false;
         }
+        if ($this->container['skipExternalResources'] === null) {
+            return false;
+        }
         if ($this->container['usePdf'] === null) {
             return false;
         }
@@ -255,6 +322,16 @@ class WebLoadOptions extends LoadOptions
         }
         $allowedValues = $this->getRenderingModeAllowableValues();
         if (!in_array($this->container['renderingMode'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['zoom'] === null) {
+            return false;
+        }
+        if ($this->container['pageLayout'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getPageLayoutAllowableValues();
+        if (!in_array($this->container['pageLayout'], $allowedValues)) {
             return false;
         }
         return true;
@@ -286,6 +363,30 @@ class WebLoadOptions extends LoadOptions
     }
 
     /*
+     * Gets basePath
+     *
+     * @return string
+     */
+    public function getBasePath()
+    {
+        return $this->container['basePath'];
+    }
+
+    /*
+     * Sets basePath
+     *
+     * @param string $basePath The base path/url for the html
+     *
+     * @return $this
+     */
+    public function setBasePath($basePath)
+    {
+        $this->container['basePath'] = $basePath;
+
+        return $this;
+    }
+
+    /*
      * Gets encoding
      *
      * @return string
@@ -305,6 +406,30 @@ class WebLoadOptions extends LoadOptions
     public function setEncoding($encoding)
     {
         $this->container['encoding'] = $encoding;
+
+        return $this;
+    }
+
+    /*
+     * Gets skipExternalResources
+     *
+     * @return bool
+     */
+    public function getSkipExternalResources()
+    {
+        return $this->container['skipExternalResources'];
+    }
+
+    /*
+     * Sets skipExternalResources
+     *
+     * @param bool $skipExternalResources If true all external resource will not be loading
+     *
+     * @return $this
+     */
+    public function setSkipExternalResources($skipExternalResources)
+    {
+        $this->container['skipExternalResources'] = $skipExternalResources;
 
         return $this;
     }
@@ -358,6 +483,83 @@ class WebLoadOptions extends LoadOptions
         }
 			
         $this->container['renderingMode'] = $renderingMode;
+
+        return $this;
+    }
+
+    /*
+     * Gets zoom
+     *
+     * @return int
+     */
+    public function getZoom()
+    {
+        return $this->container['zoom'];
+    }
+
+    /*
+     * Sets zoom
+     *
+     * @param int $zoom zoom
+     *
+     * @return $this
+     */
+    public function setZoom($zoom)
+    {
+        $this->container['zoom'] = $zoom;
+
+        return $this;
+    }
+
+    /*
+     * Gets pageLayout
+     *
+     * @return string
+     */
+    public function getPageLayout()
+    {
+        return $this->container['pageLayout'];
+    }
+
+    /*
+     * Sets pageLayout
+     *
+     * @param string $pageLayout Specifies the page layout options when loading web documents
+     *
+     * @return $this
+     */
+    public function setPageLayout($pageLayout)
+    {
+        $allowedValues = $this->getPageLayoutAllowableValues();
+        if ((!is_numeric($pageLayout) && !in_array($pageLayout, $allowedValues)) || (is_numeric($pageLayout) && !in_array($allowedValues[$pageLayout], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'pageLayout', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['pageLayout'] = $pageLayout;
+
+        return $this;
+    }
+
+    /*
+     * Gets customCssStyle
+     *
+     * @return string
+     */
+    public function getCustomCssStyle()
+    {
+        return $this->container['customCssStyle'];
+    }
+
+    /*
+     * Sets customCssStyle
+     *
+     * @param string $customCssStyle customCssStyle
+     *
+     * @return $this
+     */
+    public function setCustomCssStyle($customCssStyle)
+    {
+        $this->container['customCssStyle'] = $customCssStyle;
 
         return $this;
     }
