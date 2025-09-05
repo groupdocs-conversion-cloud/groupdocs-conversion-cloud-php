@@ -97,7 +97,7 @@ class ConvertApiTest extends BaseApiTestCase
         $testFile = Internal\TestFiles::getFilePasswordProtectedDocx();
         $path = self::getTestFilePath($testFile);
 
-        $loadOptions = new Model\DocxLoadOptions();
+        $loadOptions = new Model\WordProcessingLoadOptions();
         $loadOptions->setFormat("docx");
         $loadOptions->setPassword($testFile->password);
 
