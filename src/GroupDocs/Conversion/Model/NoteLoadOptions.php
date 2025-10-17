@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="OneLoadOptions.php">
+ * <copyright company="Aspose Pty Ltd" file="NoteLoadOptions.php">
  *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -30,11 +30,11 @@ namespace GroupDocs\Conversion\Model;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * OneLoadOptions
+ * NoteLoadOptions
  *
  * @description One document load options
  */
-class OneLoadOptions extends LoadOptions 
+class NoteLoadOptions extends LoadOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -43,7 +43,7 @@ class OneLoadOptions extends LoadOptions
      *
      * @var string
      */
-    protected static $swaggerModelName = "OneLoadOptions";
+    protected static $swaggerModelName = "NoteLoadOptions";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
