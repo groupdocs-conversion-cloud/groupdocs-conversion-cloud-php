@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="OtsConvertOptions.php">
+ * <copyright company="Aspose Pty Ltd" file="CadConvertOptions.php">
  *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -30,11 +30,11 @@ namespace GroupDocs\Conversion\Model;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * OtsConvertOptions
+ * CadConvertOptions
  *
- * @description Ots convert options
+ * @description Options for to Cad conversion
  */
-class OtsConvertOptions extends SpreadsheetConvertOptions 
+class CadConvertOptions extends ConvertOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -43,7 +43,7 @@ class OtsConvertOptions extends SpreadsheetConvertOptions
      *
      * @var string
      */
-    protected static $swaggerModelName = "OtsConvertOptions";
+    protected static $swaggerModelName = "CadConvertOptions";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -51,7 +51,9 @@ class OtsConvertOptions extends SpreadsheetConvertOptions
      * @var string[]
      */
     protected static $swaggerTypes = [
-        
+        'width' => 'int',
+        'height' => 'int',
+        'pageSize' => 'string'
     ];
 
     /*
@@ -60,7 +62,9 @@ class OtsConvertOptions extends SpreadsheetConvertOptions
      * @var string[]
      */
     protected static $swaggerFormats = [
-        
+        'width' => 'int32',
+        'height' => 'int32',
+        'pageSize' => null
     ];
 
     /*
@@ -90,7 +94,9 @@ class OtsConvertOptions extends SpreadsheetConvertOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'width' => 'Width',
+        'height' => 'Height',
+        'pageSize' => 'PageSize'
     ];
 
     /*
@@ -99,7 +105,9 @@ class OtsConvertOptions extends SpreadsheetConvertOptions
      * @var string[]
      */
     protected static $setters = [
-        
+        'width' => 'setWidth',
+        'height' => 'setHeight',
+        'pageSize' => 'setPageSize'
     ];
 
     /*
@@ -108,7 +116,9 @@ class OtsConvertOptions extends SpreadsheetConvertOptions
      * @var string[]
      */
     protected static $getters = [
-        
+        'width' => 'getWidth',
+        'height' => 'getHeight',
+        'pageSize' => 'getPageSize'
     ];
 
     /*
@@ -152,8 +162,55 @@ class OtsConvertOptions extends SpreadsheetConvertOptions
         return self::$swaggerModelName;
     }
 
+    const PAGE_SIZE__DEFAULT = 'Default';
+    const PAGE_SIZE_A3 = 'A3';
+    const PAGE_SIZE_STATEMENT = 'Statement';
+    const PAGE_SIZE_QUARTO = 'Quarto';
+    const PAGE_SIZE_PAPER11X17 = 'Paper11x17';
+    const PAGE_SIZE_PAPER10X14 = 'Paper10x14';
+    const PAGE_SIZE_LETTER = 'Letter';
+    const PAGE_SIZE_LEGAL = 'Legal';
+    const PAGE_SIZE_LEDGER = 'Ledger';
+    const PAGE_SIZE_FOLIO = 'Folio';
+    const PAGE_SIZE_EXECUTIVE = 'Executive';
+    const PAGE_SIZE_ENVELOPE_DL = 'EnvelopeDL';
+    const PAGE_SIZE_CUSTOM = 'Custom';
+    const PAGE_SIZE_B5 = 'B5';
+    const PAGE_SIZE_B4 = 'B4';
+    const PAGE_SIZE_A5 = 'A5';
+    const PAGE_SIZE_A4 = 'A4';
+    const PAGE_SIZE_TABLOID = 'Tabloid';
     
 
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPageSizeAllowableValues()
+    {
+        return [
+            self::PAGE_SIZE__DEFAULT,
+            self::PAGE_SIZE_A3,
+            self::PAGE_SIZE_STATEMENT,
+            self::PAGE_SIZE_QUARTO,
+            self::PAGE_SIZE_PAPER11X17,
+            self::PAGE_SIZE_PAPER10X14,
+            self::PAGE_SIZE_LETTER,
+            self::PAGE_SIZE_LEGAL,
+            self::PAGE_SIZE_LEDGER,
+            self::PAGE_SIZE_FOLIO,
+            self::PAGE_SIZE_EXECUTIVE,
+            self::PAGE_SIZE_ENVELOPE_DL,
+            self::PAGE_SIZE_CUSTOM,
+            self::PAGE_SIZE_B5,
+            self::PAGE_SIZE_B4,
+            self::PAGE_SIZE_A5,
+            self::PAGE_SIZE_A4,
+            self::PAGE_SIZE_TABLOID,
+        ];
+    }
     
 
 
@@ -167,6 +224,9 @@ class OtsConvertOptions extends SpreadsheetConvertOptions
     {
         parent::__construct($data);
 
+        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
+        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
+        $this->container['pageSize'] = isset($data['pageSize']) ? $data['pageSize'] : null;
     }
 
     /*
@@ -177,6 +237,23 @@ class OtsConvertOptions extends SpreadsheetConvertOptions
     public function listInvalidProperties()
     {
         $invalidProperties = parent::listInvalidProperties();
+
+        if ($this->container['width'] === null) {
+            $invalidProperties[] = "'width' can't be null";
+        }
+        if ($this->container['height'] === null) {
+            $invalidProperties[] = "'height' can't be null";
+        }
+        if ($this->container['pageSize'] === null) {
+            $invalidProperties[] = "'pageSize' can't be null";
+        }
+        $allowedValues = $this->getPageSizeAllowableValues();
+        if (!in_array($this->container['pageSize'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'pageSize', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -193,9 +270,99 @@ class OtsConvertOptions extends SpreadsheetConvertOptions
             return false;
         }
 
+        if ($this->container['width'] === null) {
+            return false;
+        }
+        if ($this->container['height'] === null) {
+            return false;
+        }
+        if ($this->container['pageSize'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getPageSizeAllowableValues();
+        if (!in_array($this->container['pageSize'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
+
+    /*
+     * Gets width
+     *
+     * @return int
+     */
+    public function getWidth()
+    {
+        return $this->container['width'];
+    }
+
+    /*
+     * Sets width
+     *
+     * @param int $width Desired page width after conversion
+     *
+     * @return $this
+     */
+    public function setWidth($width)
+    {
+        $this->container['width'] = $width;
+
+        return $this;
+    }
+
+    /*
+     * Gets height
+     *
+     * @return int
+     */
+    public function getHeight()
+    {
+        return $this->container['height'];
+    }
+
+    /*
+     * Sets height
+     *
+     * @param int $height Desired page height after conversion
+     *
+     * @return $this
+     */
+    public function setHeight($height)
+    {
+        $this->container['height'] = $height;
+
+        return $this;
+    }
+
+    /*
+     * Gets pageSize
+     *
+     * @return string
+     */
+    public function getPageSize()
+    {
+        return $this->container['pageSize'];
+    }
+
+    /*
+     * Sets pageSize
+     *
+     * @param string $pageSize Page size
+     *
+     * @return $this
+     */
+    public function setPageSize($pageSize)
+    {
+        $allowedValues = $this->getPageSizeAllowableValues();
+        if ((!is_numeric($pageSize) && !in_array($pageSize, $allowedValues)) || (is_numeric($pageSize) && !in_array($allowedValues[$pageSize], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'pageSize', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['pageSize'] = $pageSize;
+
+        return $this;
+    }
     /*
      * Returns true if offset exists. False otherwise.
      *

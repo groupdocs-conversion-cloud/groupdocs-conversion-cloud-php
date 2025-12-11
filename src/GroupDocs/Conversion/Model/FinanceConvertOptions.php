@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="TifConvertOptions.php">
+ * <copyright company="Aspose Pty Ltd" file="FinanceConvertOptions.php">
  *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -30,11 +30,11 @@ namespace GroupDocs\Conversion\Model;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * TifConvertOptions
+ * FinanceConvertOptions
  *
- * @description Tif convert options
+ * @description Options for to Finance conversion
  */
-class TifConvertOptions extends TiffConvertOptions 
+class FinanceConvertOptions extends ConvertOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -43,7 +43,7 @@ class TifConvertOptions extends TiffConvertOptions
      *
      * @var string
      */
-    protected static $swaggerModelName = "TifConvertOptions";
+    protected static $swaggerModelName = "FinanceConvertOptions";
 
     /*
      * Array of property to type mappings. Used for (de)serialization

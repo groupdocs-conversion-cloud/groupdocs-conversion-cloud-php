@@ -52,8 +52,7 @@ class SpreadsheetConvertOptions extends ConvertOptions
      */
     protected static $swaggerTypes = [
         'password' => 'string',
-        'zoom' => 'int',
-        'usePdf' => 'bool'
+        'zoom' => 'int'
     ];
 
     /*
@@ -63,8 +62,7 @@ class SpreadsheetConvertOptions extends ConvertOptions
      */
     protected static $swaggerFormats = [
         'password' => null,
-        'zoom' => 'int32',
-        'usePdf' => null
+        'zoom' => 'int32'
     ];
 
     /*
@@ -95,8 +93,7 @@ class SpreadsheetConvertOptions extends ConvertOptions
      */
     protected static $attributeMap = [
         'password' => 'Password',
-        'zoom' => 'Zoom',
-        'usePdf' => 'UsePdf'
+        'zoom' => 'Zoom'
     ];
 
     /*
@@ -106,8 +103,7 @@ class SpreadsheetConvertOptions extends ConvertOptions
      */
     protected static $setters = [
         'password' => 'setPassword',
-        'zoom' => 'setZoom',
-        'usePdf' => 'setUsePdf'
+        'zoom' => 'setZoom'
     ];
 
     /*
@@ -117,8 +113,7 @@ class SpreadsheetConvertOptions extends ConvertOptions
      */
     protected static $getters = [
         'password' => 'getPassword',
-        'zoom' => 'getZoom',
-        'usePdf' => 'getUsePdf'
+        'zoom' => 'getZoom'
     ];
 
     /*
@@ -179,7 +174,6 @@ class SpreadsheetConvertOptions extends ConvertOptions
 
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['zoom'] = isset($data['zoom']) ? $data['zoom'] : null;
-        $this->container['usePdf'] = isset($data['usePdf']) ? $data['usePdf'] : null;
     }
 
     /*
@@ -193,9 +187,6 @@ class SpreadsheetConvertOptions extends ConvertOptions
 
         if ($this->container['zoom'] === null) {
             $invalidProperties[] = "'zoom' can't be null";
-        }
-        if ($this->container['usePdf'] === null) {
-            $invalidProperties[] = "'usePdf' can't be null";
         }
         return $invalidProperties;
     }
@@ -213,9 +204,6 @@ class SpreadsheetConvertOptions extends ConvertOptions
         }
 
         if ($this->container['zoom'] === null) {
-            return false;
-        }
-        if ($this->container['usePdf'] === null) {
             return false;
         }
         return true;
@@ -266,30 +254,6 @@ class SpreadsheetConvertOptions extends ConvertOptions
     public function setZoom($zoom)
     {
         $this->container['zoom'] = $zoom;
-
-        return $this;
-    }
-
-    /*
-     * Gets usePdf
-     *
-     * @return bool
-     */
-    public function getUsePdf()
-    {
-        return $this->container['usePdf'];
-    }
-
-    /*
-     * Sets usePdf
-     *
-     * @param bool $usePdf If true, the input firstly is converted to PDF and after that to desired format
-     *
-     * @return $this
-     */
-    public function setUsePdf($usePdf)
-    {
-        $this->container['usePdf'] = $usePdf;
 
         return $this;
     }

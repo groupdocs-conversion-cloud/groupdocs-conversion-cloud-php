@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="DcmConvertOptions.php">
+ * <copyright company="Aspose Pty Ltd" file="ThreeDConvertOptions.php">
  *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -30,11 +30,11 @@ namespace GroupDocs\Conversion\Model;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * DcmConvertOptions
+ * ThreeDConvertOptions
  *
- * @description Dcm convert options
+ * @description Options for to 3d conversion
  */
-class DcmConvertOptions extends ImageConvertOptions 
+class ThreeDConvertOptions extends ConvertOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -43,7 +43,7 @@ class DcmConvertOptions extends ImageConvertOptions
      *
      * @var string
      */
-    protected static $swaggerModelName = "DcmConvertOptions";
+    protected static $swaggerModelName = "ThreeDConvertOptions";
 
     /*
      * Array of property to type mappings. Used for (de)serialization

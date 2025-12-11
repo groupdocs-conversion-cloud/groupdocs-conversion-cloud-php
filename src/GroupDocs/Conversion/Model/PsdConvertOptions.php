@@ -27,6 +27,8 @@
  */
 
 namespace GroupDocs\Conversion\Model;
+
+use \ArrayAccess;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
@@ -34,7 +36,7 @@ use \GroupDocs\Conversion\ObjectSerializer;
  *
  * @description Psd convert options
  */
-class PsdConvertOptions extends ImageConvertOptions 
+class PsdConvertOptions implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -78,7 +80,7 @@ class PsdConvertOptions extends ImageConvertOptions
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /*
@@ -88,7 +90,7 @@ class PsdConvertOptions extends ImageConvertOptions
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /*
@@ -139,7 +141,7 @@ class PsdConvertOptions extends ImageConvertOptions
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /*
@@ -149,7 +151,7 @@ class PsdConvertOptions extends ImageConvertOptions
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /*
@@ -159,7 +161,7 @@ class PsdConvertOptions extends ImageConvertOptions
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /*
@@ -222,6 +224,12 @@ class PsdConvertOptions extends ImageConvertOptions
     }
     
 
+    /*
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /*
      * Constructor
@@ -231,8 +239,6 @@ class PsdConvertOptions extends ImageConvertOptions
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
         $this->container['channelBitsCount'] = isset($data['channelBitsCount']) ? $data['channelBitsCount'] : null;
         $this->container['channelsCount'] = isset($data['channelsCount']) ? $data['channelsCount'] : null;
         $this->container['colorMode'] = isset($data['colorMode']) ? $data['colorMode'] : null;
@@ -247,7 +253,7 @@ class PsdConvertOptions extends ImageConvertOptions
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
         if ($this->container['channelBitsCount'] === null) {
             $invalidProperties[] = "'channelBitsCount' can't be null";
@@ -291,9 +297,6 @@ class PsdConvertOptions extends ImageConvertOptions
      */
     public function valid()
     {
-        if (!parent::valid()) {
-            return false;
-        }
 
         if ($this->container['channelBitsCount'] === null) {
             return false;

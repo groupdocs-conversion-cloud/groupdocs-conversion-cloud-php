@@ -27,6 +27,8 @@
  */
 
 namespace GroupDocs\Conversion\Model;
+
+use \ArrayAccess;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
@@ -34,7 +36,7 @@ use \GroupDocs\Conversion\ObjectSerializer;
  *
  * @description Jpg convert options
  */
-class JpgConvertOptions extends ImageConvertOptions 
+class JpgConvertOptions implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -70,7 +72,7 @@ class JpgConvertOptions extends ImageConvertOptions
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /*
@@ -80,7 +82,7 @@ class JpgConvertOptions extends ImageConvertOptions
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /*
@@ -119,7 +121,7 @@ class JpgConvertOptions extends ImageConvertOptions
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /*
@@ -129,7 +131,7 @@ class JpgConvertOptions extends ImageConvertOptions
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /*
@@ -139,7 +141,7 @@ class JpgConvertOptions extends ImageConvertOptions
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /*
@@ -156,6 +158,12 @@ class JpgConvertOptions extends ImageConvertOptions
 
     
 
+    /*
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /*
      * Constructor
@@ -165,8 +173,6 @@ class JpgConvertOptions extends ImageConvertOptions
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
         $this->container['quality'] = isset($data['quality']) ? $data['quality'] : null;
     }
 
@@ -177,7 +183,7 @@ class JpgConvertOptions extends ImageConvertOptions
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
         if ($this->container['quality'] === null) {
             $invalidProperties[] = "'quality' can't be null";
@@ -193,9 +199,6 @@ class JpgConvertOptions extends ImageConvertOptions
      */
     public function valid()
     {
-        if (!parent::valid()) {
-            return false;
-        }
 
         if ($this->container['quality'] === null) {
             return false;

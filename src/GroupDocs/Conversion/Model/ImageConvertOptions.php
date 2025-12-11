@@ -62,7 +62,11 @@ class ImageConvertOptions extends ConvertOptions
         'contrast' => 'int',
         'gamma' => 'double',
         'flipMode' => 'string',
-        'backgroundColor' => 'string'
+        'backgroundColor' => 'string',
+        'jpegOptions' => '\GroupDocs\Conversion\Model\JpgConvertOptions',
+        'psdOptions' => '\GroupDocs\Conversion\Model\PsdConvertOptions',
+        'tiffOptions' => '\GroupDocs\Conversion\Model\TiffConvertOptions',
+        'webpOptions' => '\GroupDocs\Conversion\Model\WebpConvertOptions'
     ];
 
     /*
@@ -82,7 +86,11 @@ class ImageConvertOptions extends ConvertOptions
         'contrast' => 'int32',
         'gamma' => 'double',
         'flipMode' => null,
-        'backgroundColor' => null
+        'backgroundColor' => null,
+        'jpegOptions' => null,
+        'psdOptions' => null,
+        'tiffOptions' => null,
+        'webpOptions' => null
     ];
 
     /*
@@ -123,7 +131,11 @@ class ImageConvertOptions extends ConvertOptions
         'contrast' => 'Contrast',
         'gamma' => 'Gamma',
         'flipMode' => 'FlipMode',
-        'backgroundColor' => 'BackgroundColor'
+        'backgroundColor' => 'BackgroundColor',
+        'jpegOptions' => 'JpegOptions',
+        'psdOptions' => 'PsdOptions',
+        'tiffOptions' => 'TiffOptions',
+        'webpOptions' => 'WebpOptions'
     ];
 
     /*
@@ -143,7 +155,11 @@ class ImageConvertOptions extends ConvertOptions
         'contrast' => 'setContrast',
         'gamma' => 'setGamma',
         'flipMode' => 'setFlipMode',
-        'backgroundColor' => 'setBackgroundColor'
+        'backgroundColor' => 'setBackgroundColor',
+        'jpegOptions' => 'setJpegOptions',
+        'psdOptions' => 'setPsdOptions',
+        'tiffOptions' => 'setTiffOptions',
+        'webpOptions' => 'setWebpOptions'
     ];
 
     /*
@@ -163,7 +179,11 @@ class ImageConvertOptions extends ConvertOptions
         'contrast' => 'getContrast',
         'gamma' => 'getGamma',
         'flipMode' => 'getFlipMode',
-        'backgroundColor' => 'getBackgroundColor'
+        'backgroundColor' => 'getBackgroundColor',
+        'jpegOptions' => 'getJpegOptions',
+        'psdOptions' => 'getPsdOptions',
+        'tiffOptions' => 'getTiffOptions',
+        'webpOptions' => 'getWebpOptions'
     ];
 
     /*
@@ -253,6 +273,10 @@ class ImageConvertOptions extends ConvertOptions
         $this->container['gamma'] = isset($data['gamma']) ? $data['gamma'] : null;
         $this->container['flipMode'] = isset($data['flipMode']) ? $data['flipMode'] : null;
         $this->container['backgroundColor'] = isset($data['backgroundColor']) ? $data['backgroundColor'] : null;
+        $this->container['jpegOptions'] = isset($data['jpegOptions']) ? $data['jpegOptions'] : null;
+        $this->container['psdOptions'] = isset($data['psdOptions']) ? $data['psdOptions'] : null;
+        $this->container['tiffOptions'] = isset($data['tiffOptions']) ? $data['tiffOptions'] : null;
+        $this->container['webpOptions'] = isset($data['webpOptions']) ? $data['webpOptions'] : null;
     }
 
     /*
@@ -650,6 +674,102 @@ class ImageConvertOptions extends ConvertOptions
     public function setBackgroundColor($backgroundColor)
     {
         $this->container['backgroundColor'] = $backgroundColor;
+
+        return $this;
+    }
+
+    /*
+     * Gets jpegOptions
+     *
+     * @return \GroupDocs\Conversion\Model\JpgConvertOptions
+     */
+    public function getJpegOptions()
+    {
+        return $this->container['jpegOptions'];
+    }
+
+    /*
+     * Sets jpegOptions
+     *
+     * @param \GroupDocs\Conversion\Model\JpgConvertOptions $jpegOptions Options for converting to Jpeg-compatible image
+     *
+     * @return $this
+     */
+    public function setJpegOptions($jpegOptions)
+    {
+        $this->container['jpegOptions'] = $jpegOptions;
+
+        return $this;
+    }
+
+    /*
+     * Gets psdOptions
+     *
+     * @return \GroupDocs\Conversion\Model\PsdConvertOptions
+     */
+    public function getPsdOptions()
+    {
+        return $this->container['psdOptions'];
+    }
+
+    /*
+     * Sets psdOptions
+     *
+     * @param \GroupDocs\Conversion\Model\PsdConvertOptions $psdOptions Options for converting to PSD-compatible image
+     *
+     * @return $this
+     */
+    public function setPsdOptions($psdOptions)
+    {
+        $this->container['psdOptions'] = $psdOptions;
+
+        return $this;
+    }
+
+    /*
+     * Gets tiffOptions
+     *
+     * @return \GroupDocs\Conversion\Model\TiffConvertOptions
+     */
+    public function getTiffOptions()
+    {
+        return $this->container['tiffOptions'];
+    }
+
+    /*
+     * Sets tiffOptions
+     *
+     * @param \GroupDocs\Conversion\Model\TiffConvertOptions $tiffOptions Options for converting to Tiff-compatible image
+     *
+     * @return $this
+     */
+    public function setTiffOptions($tiffOptions)
+    {
+        $this->container['tiffOptions'] = $tiffOptions;
+
+        return $this;
+    }
+
+    /*
+     * Gets webpOptions
+     *
+     * @return \GroupDocs\Conversion\Model\WebpConvertOptions
+     */
+    public function getWebpOptions()
+    {
+        return $this->container['webpOptions'];
+    }
+
+    /*
+     * Sets webpOptions
+     *
+     * @param \GroupDocs\Conversion\Model\WebpConvertOptions $webpOptions Options for converting to WebP-compatible image
+     *
+     * @return $this
+     */
+    public function setWebpOptions($webpOptions)
+    {
+        $this->container['webpOptions'] = $webpOptions;
 
         return $this;
     }

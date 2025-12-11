@@ -40,7 +40,7 @@ class TestFiles
     {
         $file = new TestFile();
         $file->fileName = "one-page.docx";
-        $file->folder = "WordProcessing\\";
+        $file->folder = "WordProcessing/";
         return $file;
     }
 
@@ -56,7 +56,7 @@ class TestFiles
     {
         $file = new TestFile();
         $file->fileName = "password-protected.docx";
-        $file->folder = "WordProcessing\\";
+        $file->folder = "WordProcessing/";
         $file->password = "password";
         return $file;
     }    
@@ -65,7 +65,7 @@ class TestFiles
     {
         $file = new TestFile();
         $file->fileName = "four-pages.docx";
-        $file->folder = "WordProcessing\\";
+        $file->folder = "WordProcessing/";
         return $file;
     }
 

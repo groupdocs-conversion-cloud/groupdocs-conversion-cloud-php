@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="JpegConvertOptions.php">
+ * <copyright company="Aspose Pty Ltd" file="CompressionConvertOptions.php">
  *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -30,11 +30,11 @@ namespace GroupDocs\Conversion\Model;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * JpegConvertOptions
+ * CompressionConvertOptions
  *
- * @description Jpeg convert options
+ * @description Options for to zip conversion
  */
-class JpegConvertOptions extends JpgConvertOptions 
+class CompressionConvertOptions extends ConvertOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -43,7 +43,7 @@ class JpegConvertOptions extends JpgConvertOptions
      *
      * @var string
      */
-    protected static $swaggerModelName = "JpegConvertOptions";
+    protected static $swaggerModelName = "CompressionConvertOptions";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -51,7 +51,7 @@ class JpegConvertOptions extends JpgConvertOptions
      * @var string[]
      */
     protected static $swaggerTypes = [
-        
+        'password' => 'string'
     ];
 
     /*
@@ -60,7 +60,7 @@ class JpegConvertOptions extends JpgConvertOptions
      * @var string[]
      */
     protected static $swaggerFormats = [
-        
+        'password' => null
     ];
 
     /*
@@ -90,7 +90,7 @@ class JpegConvertOptions extends JpgConvertOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'password' => 'Password'
     ];
 
     /*
@@ -99,7 +99,7 @@ class JpegConvertOptions extends JpgConvertOptions
      * @var string[]
      */
     protected static $setters = [
-        
+        'password' => 'setPassword'
     ];
 
     /*
@@ -108,7 +108,7 @@ class JpegConvertOptions extends JpgConvertOptions
      * @var string[]
      */
     protected static $getters = [
-        
+        'password' => 'getPassword'
     ];
 
     /*
@@ -167,6 +167,7 @@ class JpegConvertOptions extends JpgConvertOptions
     {
         parent::__construct($data);
 
+        $this->container['password'] = isset($data['password']) ? $data['password'] : null;
     }
 
     /*
@@ -196,6 +197,30 @@ class JpegConvertOptions extends JpgConvertOptions
         return true;
     }
 
+
+    /*
+     * Gets password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->container['password'];
+    }
+
+    /*
+     * Sets password
+     *
+     * @param string $password Set this property if you want to protect the converted document with a password
+     *
+     * @return $this
+     */
+    public function setPassword($password)
+    {
+        $this->container['password'] = $password;
+
+        return $this;
+    }
     /*
      * Returns true if offset exists. False otherwise.
      *

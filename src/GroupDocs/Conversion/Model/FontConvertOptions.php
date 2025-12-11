@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="DotmConvertOptions.php">
+ * <copyright company="Aspose Pty Ltd" file="FontConvertOptions.php">
  *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -30,11 +30,11 @@ namespace GroupDocs\Conversion\Model;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * DotmConvertOptions
+ * FontConvertOptions
  *
- * @description Dotm convert options
+ * @description Options for to Font conversion
  */
-class DotmConvertOptions extends WordProcessingConvertOptions 
+class FontConvertOptions extends ConvertOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -43,7 +43,7 @@ class DotmConvertOptions extends WordProcessingConvertOptions
      *
      * @var string
      */
-    protected static $swaggerModelName = "DotmConvertOptions";
+    protected static $swaggerModelName = "FontConvertOptions";
 
     /*
      * Array of property to type mappings. Used for (de)serialization

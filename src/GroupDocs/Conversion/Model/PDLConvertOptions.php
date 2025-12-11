@@ -32,7 +32,7 @@ use \GroupDocs\Conversion\ObjectSerializer;
 /*
  * PDLConvertOptions
  *
- * @description Page description langusge convert options
+ * @description Page description language convert options
  */
 class PDLConvertOptions extends ConvertOptions 
 {
@@ -51,7 +51,8 @@ class PDLConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $swaggerTypes = [
-        
+        'width' => 'int',
+        'height' => 'int'
     ];
 
     /*
@@ -60,7 +61,8 @@ class PDLConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $swaggerFormats = [
-        
+        'width' => 'int32',
+        'height' => 'int32'
     ];
 
     /*
@@ -90,7 +92,8 @@ class PDLConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'width' => 'Width',
+        'height' => 'Height'
     ];
 
     /*
@@ -99,7 +102,8 @@ class PDLConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $setters = [
-        
+        'width' => 'setWidth',
+        'height' => 'setHeight'
     ];
 
     /*
@@ -108,7 +112,8 @@ class PDLConvertOptions extends ConvertOptions
      * @var string[]
      */
     protected static $getters = [
-        
+        'width' => 'getWidth',
+        'height' => 'getHeight'
     ];
 
     /*
@@ -167,6 +172,8 @@ class PDLConvertOptions extends ConvertOptions
     {
         parent::__construct($data);
 
+        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
+        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
     }
 
     /*
@@ -178,6 +185,12 @@ class PDLConvertOptions extends ConvertOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['width'] === null) {
+            $invalidProperties[] = "'width' can't be null";
+        }
+        if ($this->container['height'] === null) {
+            $invalidProperties[] = "'height' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -193,9 +206,63 @@ class PDLConvertOptions extends ConvertOptions
             return false;
         }
 
+        if ($this->container['width'] === null) {
+            return false;
+        }
+        if ($this->container['height'] === null) {
+            return false;
+        }
         return true;
     }
 
+
+    /*
+     * Gets width
+     *
+     * @return int
+     */
+    public function getWidth()
+    {
+        return $this->container['width'];
+    }
+
+    /*
+     * Sets width
+     *
+     * @param int $width Desired page width after conversion.
+     *
+     * @return $this
+     */
+    public function setWidth($width)
+    {
+        $this->container['width'] = $width;
+
+        return $this;
+    }
+
+    /*
+     * Gets height
+     *
+     * @return int
+     */
+    public function getHeight()
+    {
+        return $this->container['height'];
+    }
+
+    /*
+     * Sets height
+     *
+     * @param int $height Desired page height after conversion.
+     *
+     * @return $this
+     */
+    public function setHeight($height)
+    {
+        $this->container['height'] = $height;
+
+        return $this;
+    }
     /*
      * Returns true if offset exists. False otherwise.
      *

@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="PptmConvertOptions.php">
+ * <copyright company="Aspose Pty Ltd" file="DiagramConvertOptions.php">
  *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -30,11 +30,11 @@ namespace GroupDocs\Conversion\Model;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * PptmConvertOptions
+ * DiagramConvertOptions
  *
- * @description Pptm convert options
+ * @description Options for to Diagram conversion
  */
-class PptmConvertOptions extends PresentationConvertOptions 
+class DiagramConvertOptions extends ConvertOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -43,7 +43,7 @@ class PptmConvertOptions extends PresentationConvertOptions
      *
      * @var string
      */
-    protected static $swaggerModelName = "PptmConvertOptions";
+    protected static $swaggerModelName = "DiagramConvertOptions";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -51,7 +51,7 @@ class PptmConvertOptions extends PresentationConvertOptions
      * @var string[]
      */
     protected static $swaggerTypes = [
-        
+        'autoFitPageToDrawingContent' => 'bool'
     ];
 
     /*
@@ -60,7 +60,7 @@ class PptmConvertOptions extends PresentationConvertOptions
      * @var string[]
      */
     protected static $swaggerFormats = [
-        
+        'autoFitPageToDrawingContent' => null
     ];
 
     /*
@@ -90,7 +90,7 @@ class PptmConvertOptions extends PresentationConvertOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'autoFitPageToDrawingContent' => 'AutoFitPageToDrawingContent'
     ];
 
     /*
@@ -99,7 +99,7 @@ class PptmConvertOptions extends PresentationConvertOptions
      * @var string[]
      */
     protected static $setters = [
-        
+        'autoFitPageToDrawingContent' => 'setAutoFitPageToDrawingContent'
     ];
 
     /*
@@ -108,7 +108,7 @@ class PptmConvertOptions extends PresentationConvertOptions
      * @var string[]
      */
     protected static $getters = [
-        
+        'autoFitPageToDrawingContent' => 'getAutoFitPageToDrawingContent'
     ];
 
     /*
@@ -167,6 +167,7 @@ class PptmConvertOptions extends PresentationConvertOptions
     {
         parent::__construct($data);
 
+        $this->container['autoFitPageToDrawingContent'] = isset($data['autoFitPageToDrawingContent']) ? $data['autoFitPageToDrawingContent'] : null;
     }
 
     /*
@@ -178,6 +179,9 @@ class PptmConvertOptions extends PresentationConvertOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['autoFitPageToDrawingContent'] === null) {
+            $invalidProperties[] = "'autoFitPageToDrawingContent' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -193,9 +197,36 @@ class PptmConvertOptions extends PresentationConvertOptions
             return false;
         }
 
+        if ($this->container['autoFitPageToDrawingContent'] === null) {
+            return false;
+        }
         return true;
     }
 
+
+    /*
+     * Gets autoFitPageToDrawingContent
+     *
+     * @return bool
+     */
+    public function getAutoFitPageToDrawingContent()
+    {
+        return $this->container['autoFitPageToDrawingContent'];
+    }
+
+    /*
+     * Sets autoFitPageToDrawingContent
+     *
+     * @param bool $autoFitPageToDrawingContent Gets or sets a value indicating whether to enlarge the page to fit the drawing content.
+     *
+     * @return $this
+     */
+    public function setAutoFitPageToDrawingContent($autoFitPageToDrawingContent)
+    {
+        $this->container['autoFitPageToDrawingContent'] = $autoFitPageToDrawingContent;
+
+        return $this;
+    }
     /*
      * Returns true if offset exists. False otherwise.
      *

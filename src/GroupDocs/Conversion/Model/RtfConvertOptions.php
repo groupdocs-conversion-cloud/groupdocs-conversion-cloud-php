@@ -27,6 +27,8 @@
  */
 
 namespace GroupDocs\Conversion\Model;
+
+use \ArrayAccess;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
@@ -34,7 +36,7 @@ use \GroupDocs\Conversion\ObjectSerializer;
  *
  * @description Rtf convert options
  */
-class RtfConvertOptions extends WordProcessingConvertOptions 
+class RtfConvertOptions implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -70,7 +72,7 @@ class RtfConvertOptions extends WordProcessingConvertOptions
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /*
@@ -80,7 +82,7 @@ class RtfConvertOptions extends WordProcessingConvertOptions
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /*
@@ -119,7 +121,7 @@ class RtfConvertOptions extends WordProcessingConvertOptions
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /*
@@ -129,7 +131,7 @@ class RtfConvertOptions extends WordProcessingConvertOptions
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /*
@@ -139,7 +141,7 @@ class RtfConvertOptions extends WordProcessingConvertOptions
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /*
@@ -156,6 +158,12 @@ class RtfConvertOptions extends WordProcessingConvertOptions
 
     
 
+    /*
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /*
      * Constructor
@@ -165,8 +173,6 @@ class RtfConvertOptions extends WordProcessingConvertOptions
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
         $this->container['exportImagesForOldReaders'] = isset($data['exportImagesForOldReaders']) ? $data['exportImagesForOldReaders'] : null;
     }
 
@@ -177,7 +183,7 @@ class RtfConvertOptions extends WordProcessingConvertOptions
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
         if ($this->container['exportImagesForOldReaders'] === null) {
             $invalidProperties[] = "'exportImagesForOldReaders' can't be null";
@@ -193,9 +199,6 @@ class RtfConvertOptions extends WordProcessingConvertOptions
      */
     public function valid()
     {
-        if (!parent::valid()) {
-            return false;
-        }
 
         if ($this->container['exportImagesForOldReaders'] === null) {
             return false;

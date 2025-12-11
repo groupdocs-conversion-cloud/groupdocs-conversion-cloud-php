@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="GifConvertOptions.php">
+ * <copyright company="Aspose Pty Ltd" file="GisConvertOptions.php">
  *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -30,11 +30,11 @@ namespace GroupDocs\Conversion\Model;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * GifConvertOptions
+ * GisConvertOptions
  *
- * @description Gif convert options
+ * @description Options for to Gis conversion
  */
-class GifConvertOptions extends ImageConvertOptions 
+class GisConvertOptions extends ConvertOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -43,7 +43,7 @@ class GifConvertOptions extends ImageConvertOptions
      *
      * @var string
      */
-    protected static $swaggerModelName = "GifConvertOptions";
+    protected static $swaggerModelName = "GisConvertOptions";
 
     /*
      * Array of property to type mappings. Used for (de)serialization

@@ -58,7 +58,8 @@ class WordProcessingConvertOptions extends ConvertOptions
         'zoom' => 'int',
         'pdfRecognitionMode' => 'string',
         'pageSize' => 'string',
-        'pageOrientation' => 'string'
+        'pageOrientation' => 'string',
+        'rtfOptions' => '\GroupDocs\Conversion\Model\RtfConvertOptions'
     ];
 
     /*
@@ -74,7 +75,8 @@ class WordProcessingConvertOptions extends ConvertOptions
         'zoom' => 'int32',
         'pdfRecognitionMode' => null,
         'pageSize' => null,
-        'pageOrientation' => null
+        'pageOrientation' => null,
+        'rtfOptions' => null
     ];
 
     /*
@@ -111,7 +113,8 @@ class WordProcessingConvertOptions extends ConvertOptions
         'zoom' => 'Zoom',
         'pdfRecognitionMode' => 'PdfRecognitionMode',
         'pageSize' => 'PageSize',
-        'pageOrientation' => 'PageOrientation'
+        'pageOrientation' => 'PageOrientation',
+        'rtfOptions' => 'RtfOptions'
     ];
 
     /*
@@ -127,7 +130,8 @@ class WordProcessingConvertOptions extends ConvertOptions
         'zoom' => 'setZoom',
         'pdfRecognitionMode' => 'setPdfRecognitionMode',
         'pageSize' => 'setPageSize',
-        'pageOrientation' => 'setPageOrientation'
+        'pageOrientation' => 'setPageOrientation',
+        'rtfOptions' => 'setRtfOptions'
     ];
 
     /*
@@ -143,7 +147,8 @@ class WordProcessingConvertOptions extends ConvertOptions
         'zoom' => 'getZoom',
         'pdfRecognitionMode' => 'getPdfRecognitionMode',
         'pageSize' => 'getPageSize',
-        'pageOrientation' => 'getPageOrientation'
+        'pageOrientation' => 'getPageOrientation',
+        'rtfOptions' => 'getRtfOptions'
     ];
 
     /*
@@ -289,6 +294,7 @@ class WordProcessingConvertOptions extends ConvertOptions
         $this->container['pdfRecognitionMode'] = isset($data['pdfRecognitionMode']) ? $data['pdfRecognitionMode'] : null;
         $this->container['pageSize'] = isset($data['pageSize']) ? $data['pageSize'] : null;
         $this->container['pageOrientation'] = isset($data['pageOrientation']) ? $data['pageOrientation'] : null;
+        $this->container['rtfOptions'] = isset($data['rtfOptions']) ? $data['rtfOptions'] : null;
     }
 
     /*
@@ -600,6 +606,30 @@ class WordProcessingConvertOptions extends ConvertOptions
         }
 			
         $this->container['pageOrientation'] = $pageOrientation;
+
+        return $this;
+    }
+
+    /*
+     * Gets rtfOptions
+     *
+     * @return \GroupDocs\Conversion\Model\RtfConvertOptions
+     */
+    public function getRtfOptions()
+    {
+        return $this->container['rtfOptions'];
+    }
+
+    /*
+     * Sets rtfOptions
+     *
+     * @param \GroupDocs\Conversion\Model\RtfConvertOptions $rtfOptions RTF specific convert options
+     *
+     * @return $this
+     */
+    public function setRtfOptions($rtfOptions)
+    {
+        $this->container['rtfOptions'] = $rtfOptions;
 
         return $this;
     }

@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="OdsConvertOptions.php">
+ * <copyright company="Aspose Pty Ltd" file="ProjectManagementConvertOptions.php">
  *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -30,11 +30,11 @@ namespace GroupDocs\Conversion\Model;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * OdsConvertOptions
+ * ProjectManagementConvertOptions
  *
- * @description Ods convert options
+ * @description Options for to ProjectManagement conversion
  */
-class OdsConvertOptions extends SpreadsheetConvertOptions 
+class ProjectManagementConvertOptions extends ConvertOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -43,7 +43,7 @@ class OdsConvertOptions extends SpreadsheetConvertOptions
      *
      * @var string
      */
-    protected static $swaggerModelName = "OdsConvertOptions";
+    protected static $swaggerModelName = "ProjectManagementConvertOptions";
 
     /*
      * Array of property to type mappings. Used for (de)serialization

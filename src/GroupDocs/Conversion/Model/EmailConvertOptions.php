@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="PngConvertOptions.php">
+ * <copyright company="Aspose Pty Ltd" file="EmailConvertOptions.php">
  *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -30,11 +30,11 @@ namespace GroupDocs\Conversion\Model;
 use \GroupDocs\Conversion\ObjectSerializer;
 
 /*
- * PngConvertOptions
+ * EmailConvertOptions
  *
- * @description Png convert options
+ * @description Options for to Email conversion
  */
-class PngConvertOptions extends ImageConvertOptions 
+class EmailConvertOptions extends ConvertOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -43,7 +43,7 @@ class PngConvertOptions extends ImageConvertOptions
      *
      * @var string
      */
-    protected static $swaggerModelName = "PngConvertOptions";
+    protected static $swaggerModelName = "EmailConvertOptions";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
