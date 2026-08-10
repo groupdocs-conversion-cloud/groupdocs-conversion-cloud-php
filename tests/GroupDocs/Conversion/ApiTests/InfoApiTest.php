@@ -72,7 +72,8 @@ class InfoApiTest extends BaseApiTestCase
         }
         catch (\GroupDocs\Conversion\ApiException $ex) 
         {            
-            $this->assertTrue(strpos($ex->getMessage(), "AmazonS3 Storage exception: The specified key does not exist.") === 0);
+            $this->assertStringContainsString("AmazonS3 Storage exception", $ex->getMessage());
+            $this->assertStringContainsString(Internal\TestFiles::getFileNotExist()->fileName, $ex->getMessage());
             return;
         }
         $this->fail("ApiException expected");      
